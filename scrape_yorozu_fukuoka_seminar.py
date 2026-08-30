@@ -68,6 +68,10 @@ for a in content.find_all("a", href=True):
     if "開催分はこちら" in title:
         continue
 
+    # 「2026年10月の対面セミナー（一覧）」などの月別一覧ページを除外
+    if re.match(r"^\d{4}年\d{1,2}月の対面セミナー（一覧）$", title):
+        continue
+
     href = a.get("href", "").strip()
 
     if not href:
