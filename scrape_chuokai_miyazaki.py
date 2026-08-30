@@ -46,7 +46,8 @@ date_pattern = re.compile(
     r"20\d{2}年\d{1,2}月\d{1,2}日"
 )
 
-for heading in content.find_all(["h2", "h3", "h4"]):
+# このサイトでは、お知らせタイトルがh1で掲載されている
+for heading in content.find_all("h1"):
     a = heading.find("a", href=True)
 
     if a is None:
@@ -83,9 +84,8 @@ for heading in content.find_all(["h2", "h3", "h4"]):
     if parsed.path.rstrip("/") == "/news":
         continue
 
-    # お知らせカードかどうか、周辺に掲載日があることで確認
+    # 周辺に掲載日があるものだけをお知らせ記事として採用
     block = heading
-
     found_date = False
 
     for _ in range(5):
