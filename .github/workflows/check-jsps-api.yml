@@ -1,0 +1,27 @@
+name: Check JSPS API
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check JavaScript
+        run: python check_jsps_api.py
+
+      - name: Show relevant JavaScript
+        run: |
+          grep -i -n -E "newsList|data-id|10300|fetch|ajax|api|json|inform" jsps-main-debug.js | head -200 || true
