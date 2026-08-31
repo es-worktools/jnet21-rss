@@ -22,6 +22,6 @@ jobs:
       - name: Check JavaScript
         run: python check_chuokai_nara_js.py
 
-      - name: Show AJAX block
+      - name: Show base URL
         run: |
-          sed -n '135,190p' chuokai-nara-main.js
+          grep -n -E 'id="url"|id="doc_root"' chuokai-nara-debug.html
