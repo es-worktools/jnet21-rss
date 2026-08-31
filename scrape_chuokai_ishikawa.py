@@ -50,7 +50,8 @@ def normalize_link(raw_link):
     elif raw_link.startswith("bl+"):
         raw_link = raw_link[3:]
 
-    return urljoin(BASE_URL, raw_link)
+    url = urljoin(BASE_URL, raw_link)
+    return url.replace(" ", "%20")
 
 
 def parse_source(source):
