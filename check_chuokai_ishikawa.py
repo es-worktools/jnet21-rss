@@ -1,9 +1,17 @@
 import requests
 
-URLS = [
-    "https://www.icnet.or.jp/infoicnet.html",
-    "https://www.icnet.or.jp/infoinsti.html",
-]
+URLS = {
+    "infoicnet": (
+        "https://www.icnet.or.jp/"
+        "iensystem/iendbjs.cgi"
+        "?mode=jss&cate=infoicnet&opt=nosty"
+    ),
+    "infoinsti": (
+        "https://www.icnet.or.jp/"
+        "iensystem/iendbjs.cgi"
+        "?mode=jss&cate=infoinsti&opt=nosty"
+    ),
+}
 
 HEADERS = {
     "User-Agent": (
@@ -11,10 +19,12 @@ HEADERS = {
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/139.0.0.0 Safari/537.36"
     ),
+    "Accept": "*/*",
     "Accept-Language": "ja-JP,ja;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": "https://www.icnet.or.jp/",
 }
 
-for index, url in enumerate(URLS, start=1):
+for name, url in URLS.items():
     response = requests.get(
         url,
         headers=HEADERS,
@@ -24,12 +34,19 @@ for index, url in enumerate(URLS, start=1):
     response.raise_for_status()
     response.encoding = response.apparent_encoding
 
-    print(f"\n===== PAGE {index} =====")
-    print("url:", url)
+    print(f"\n===== {name} =====")
     print("status:", response.status_code)
+    print("content-type:", response.headers.get("content-type"))
     print("length:", len(response.text))
 
-    filename = f"ishikawa-debug-{index}.html"
+    print("\n--- first 120 lines ---")
+
+    lines = response.text.splitlines()
+
+    for line in lines[:120]:
+        print(line)
+
+    filename = f"ishikawa-{name}.js"
 
     with open(
         filename,
@@ -38,4 +55,4 @@ for index, url in enumerate(URLS, start=1):
     ) as f:
         f.write(response.text)
 
-    print("saved:", filename)
+    print("\nsaved:", filename)
