@@ -30,7 +30,8 @@ print("status:", response.status_code)
 print("content-type:", response.headers.get("content-type"))
 print("length:", len(response.text))
 
-data = response.json()
+text = response.content.decode("utf-8-sig")
+data = json.loads(text)
 
 print("type:", type(data).__name__)
 print("count:", len(data))
