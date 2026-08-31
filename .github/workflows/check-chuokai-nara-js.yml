@@ -22,6 +22,6 @@ jobs:
       - name: Check JavaScript
         run: python check_chuokai_nara_js.py
 
-      - name: Show relevant JavaScript
+      - name: Show news classification
         run: |
-          grep -i -n -E "kumiai-chuokai-news|kumiai-chuokai-all-news|kumiai-country-news|ajax|fetch|json|news.php|cat2_|contents/" chuokai-nara-main.js chuokai-nara-scroll.js chuokai-nara-libs.js | head -200 || true
+          sed -n '190,345p' chuokai-nara-main.js
