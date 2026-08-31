@@ -1,5 +1,5 @@
-import json
 import requests
+from collections import Counter
 
 URL = "https://www.jsps.go.jp/include/news/inform_ja.json"
 
@@ -25,16 +25,24 @@ data = response.json()
 print("status:", response.status_code)
 print("count:", len(data))
 
-for news_type in ["1", "2", "3"]:
+categories = Counter(
+    item.get("news_category", "")
+    for item in data
+)
+
+print("\n=== news_category counts ===")
+for category, count in sorted(categories.items()):
+    print(category, count)
+
+for category in sorted(categories.keys()):
     items = [
         item for item in data
-        if item.get("news_type") == news_type
+        if item.get("news_category") == category
     ]
 
-    print(f"\n=== news_type {news_type} ===")
-    print("count:", len(items))
+    print(f"\n=== news_category {category} ===")
 
-    for item in items[:10]:
+    for item in items[:15]:
         print(
             item.get("news_date"),
             "|",
