@@ -20,39 +20,23 @@ response = requests.get(
 )
 
 response.raise_for_status()
-
 data = response.json()
 
 print("status:", response.status_code)
-print("type:", type(data).__name__)
+print("count:", len(data))
 
-if isinstance(data, list):
-    print("count:", len(data))
+for news_type in ["1", "2", "3"]:
+    items = [
+        item for item in data
+        if item.get("news_type") == news_type
+    ]
 
-    for i, item in enumerate(data[:5], start=1):
-        print(f"\n--- item {i} ---")
-        print(json.dumps(
-            item,
-            ensure_ascii=False,
-            indent=2,
-        ))
+    print(f"\n=== news_type {news_type} ===")
+    print("count:", len(items))
 
-elif isinstance(data, dict):
-    print("top-level keys:", list(data.keys()))
-
-    for key, value in data.items():
-        print(f"\n--- key: {key} ---")
-        print("type:", type(value).__name__)
-
-        if isinstance(value, list):
-            print("count:", len(value))
-
-            for i, item in enumerate(value[:5], start=1):
-                print(f"\nitem {i}")
-                print(json.dumps(
-                    item,
-                    ensure_ascii=False,
-                    indent=2,
-                ))
-
-            break
+    for item in items[:10]:
+        print(
+            item.get("news_date"),
+            "|",
+            item.get("title"),
+        )
