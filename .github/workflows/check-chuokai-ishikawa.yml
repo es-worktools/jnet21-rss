@@ -19,13 +19,5 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Check pages
+      - name: Check data
         run: python check_chuokai_ishikawa.py
-
-      - name: Show relevant HTML
-        run: |
-          echo "===== 石川県中央会から ====="
-          grep -i -n -E "script|iframe|json|ajax|fetch|news|info|お知らせ|令和|2026|2025" ishikawa-debug-1.html | head -150 || true
-
-          echo "===== 行政・関係機関から ====="
-          grep -i -n -E "script|iframe|json|ajax|fetch|news|info|お知らせ|令和|2026|2025" ishikawa-debug-2.html | head -150 || true
