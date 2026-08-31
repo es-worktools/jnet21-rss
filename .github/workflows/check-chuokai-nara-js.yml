@@ -1,0 +1,27 @@
+name: Check Chuokai Nara JS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check JavaScript
+        run: python check_chuokai_nara_js.py
+
+      - name: Show relevant JavaScript
+        run: |
+          grep -i -n -E "kumiai-chuokai-news|kumiai-chuokai-all-news|kumiai-country-news|ajax|fetch|json|news.php|cat2_|contents/" chuokai-nara-main.js chuokai-nara-scroll.js chuokai-nara-libs.js | head -200 || true
