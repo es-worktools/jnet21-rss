@@ -22,6 +22,6 @@ jobs:
       - name: Check page
         run: python check_chuokai_nara.py
 
-      - name: Show relevant HTML
+      - name: Show base URL
         run: |
-          grep -i -n -E "script|iframe|ajax|fetch|json|rss|feed|wp-|news|notice|お知らせ|周知" chuokai-nara-debug.html | head -200 || true
+          grep -n -E 'id="url"|id="doc_root"' chuokai-nara-debug.html
