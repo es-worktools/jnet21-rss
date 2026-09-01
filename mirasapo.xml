@@ -12,7 +12,7 @@
 	<atom:link href="https://mirasapo-plus.go.jp/category/infomation/feed/" rel="self" type="application/rss+xml" />
 	<link>https://mirasapo-plus.go.jp</link>
 	<description>経済産業省 中小企業庁</description>
-	<lastBuildDate>Mon, 31 Aug 2026 08:21:03 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 01 Sep 2026 08:06:06 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -224,6 +224,7 @@
 				<category><![CDATA[お知らせ]]></category>
 		<category><![CDATA[省力化補助金]]></category>
 		<category><![CDATA[補助金・助成金]]></category>
+		<category><![CDATA[賃上げ]]></category>
 		<category><![CDATA[省力化投資補助金]]></category>
 		<category><![CDATA[補助金]]></category>
 		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=32495</guid>
