@@ -1,0 +1,27 @@
+name: Check IRI Tokyo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check page
+        run: python check_iri_tokyo.py
+
+      - name: Show relevant HTML
+        run: |
+          grep -i -n -E "seminar-|script|ajax|fetch|json|api|wp-|申込受付|受付中|終了|event|pagination" iri-tokyo-debug.html | head -250 || true
