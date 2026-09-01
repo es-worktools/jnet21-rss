@@ -19,9 +19,5 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Check page
+      - name: Check Nuxt JavaScript
         run: python check_iri_tokyo.py
-
-      - name: Show relevant HTML
-        run: |
-          grep -i -n -E "seminar-|script|ajax|fetch|json|api|wp-|申込受付|受付中|終了|event|pagination" iri-tokyo-debug.html | head -250 || true
