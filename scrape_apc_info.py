@@ -38,7 +38,15 @@ KNOWN_CATEGORIES = {
 
 
 def normalize(text):
-    return re.sub(r"\s+", " ", text or "").strip()
+    text = re.sub(r"\s+", " ", text or "").strip()
+
+    text = re.sub(
+        r"\s*アップロード\s*$",
+        "",
+        text,
+    )
+
+    return text
 
 
 def parse_reiwa_date(text):
