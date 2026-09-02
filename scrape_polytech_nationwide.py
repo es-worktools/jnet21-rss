@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import json
 import os
@@ -22,9 +23,10 @@ NAGOYA_SPECIAL_URL = (
 
 OUTPUT_FILE = "polytech-nationwide.xml"
 STATE_FILE = "polytech-nationwide-state.json"
+CURRENT_CSV_FILE = "polytech-nationwide-current.csv"
 
 MAX_RSS_ITEMS = 200
-INITIAL_SEED_LIMIT = 30
+INITIAL_SEED_LIMIT = 0
 
 JST = timezone(timedelta(hours=9))
 NOW = datetime.now(JST)
@@ -1003,11 +1005,13 @@ def parse_full_japanese_date(text):
             int(match.group(3)),
         )
 
-    # R9.2/3
+    # R9/2/12、R9.2/3、R9年2月12日
     match = re.search(
         r"\bR\s*(\d{1,2})"
-        r"\.(\d{1,2})"
-        r"/(\d{1,2})",
+        r"\s*(?:[./]|年)\s*"
+        r"(\d{1,2})"
+        r"\s*(?:[./]|月)\s*"
+        r"(\d{1,2})\s*日?",
         text,
         re.I,
     )
@@ -1788,6 +1792,82 @@ def generate_rss(
         xml_declaration=True,
     )
 
+def generate_current_csv(courses):
+    current_courses_list = [
+        course
+        for course in courses.values()
+        if course["eligible"]
+    ]
+
+    # 開催開始日の近い順
+    current_courses_list.sort(
+        key=lambda course: (
+            course["start_date"]
+            or "9999-12-31",
+            course["facility"],
+            course["title"],
+        )
+    )
+
+    fieldnames = [
+        "施設名",
+        "コース番号",
+        "セミナー名",
+        "開催開始日",
+        "日程",
+        "受付状況",
+        "受付判定",
+        "URL",
+    ]
+
+    with open(
+        CURRENT_CSV_FILE,
+        "w",
+        encoding="utf-8-sig",
+        newline="",
+    ) as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=fieldnames,
+        )
+
+        writer.writeheader()
+
+        for course in current_courses_list:
+            writer.writerow(
+                {
+                    "施設名": course[
+                        "facility"
+                    ],
+                    "コース番号": course[
+                        "code"
+                    ],
+                    "セミナー名": course[
+                        "title"
+                    ],
+                    "開催開始日": course[
+                        "start_date"
+                    ],
+                    "日程": course[
+                        "schedule"
+                    ],
+                    "受付状況": (
+                        course["raw_status"]
+                        or "記載なし"
+                    ),
+                    "受付判定": course[
+                        "status_category"
+                    ],
+                    "URL": course[
+                        "url"
+                    ],
+                }
+            )
+
+    return len(
+        current_courses_list
+    )
+
 
 state = load_state()
 
@@ -2135,11 +2215,8 @@ generate_rss(
 )
 
 
-eligible_count = sum(
-    1
-    for course
-    in current_courses.values()
-    if course["eligible"]
+eligible_count = generate_current_csv(
+    current_courses
 )
 
 
@@ -2173,7 +2250,7 @@ print(
 )
 
 print(
-    "現在RSS対象条件:",
+    "現在受付対象件数:",
     eligible_count,
 )
 
@@ -2267,4 +2344,8 @@ print(
 print(
     STATE_FILE,
     len(current_courses),
+)
+print(
+    CURRENT_CSV_FILE,
+    eligible_count,
 )
