@@ -281,6 +281,9 @@ def normalize_status(raw_status):
         or "受付は終了" in status
         or "受付修了" in status
         or status == "終了"
+        or "終了しました" in status
+        or "実施済" in status
+        or status == "締切"
     ):
         return "受付終了"
 
@@ -410,9 +413,14 @@ def inspect_course_list(
             for index, text in enumerate(
                 header_texts
             ):
-                if text == "状況":
-                    status_index = index
-                    break
+                if (
+                    text == "状況"
+                    or "空席状況" in text
+                    or "受付状況" in text
+                    or "申込状況" in text
+                ):
+                status_index = index
+                break
 
             if status_index is not None:
                 break
@@ -439,13 +447,9 @@ def inspect_course_list(
             ):
                 continue
 
-            # 「状況」列が見つからない場合は
-            # JEED標準表の5列目を使用
+            # 「状況」「空席状況」「受付状況」「申込状況」
+            # の列が確認できた場合だけ使用する
             use_index = status_index
-
-            if use_index is None:
-                if len(texts) >= 5:
-                    use_index = 4
 
             raw_status = ""
 
