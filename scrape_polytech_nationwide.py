@@ -279,7 +279,13 @@ def page_score(soup):
         )
 
         if re.search(
-            r"\b[A-Z0-9]{4,7}\b",
+            r"\b(?:"
+            r"[A-Z0-9]{4,9}"
+            r"|"
+            r"[A-Z0-9]{1,6}"
+            r"-"
+            r"[A-Z0-9]{1,6}"
+            r")\b",
             row_text,
             re.I,
         ):
@@ -445,7 +451,7 @@ def discover_course_list(
 
     while (
         queue
-        and len(visited) < 18
+        and len(visited) < 40
     ):
         url, depth = queue.pop(0)
 
@@ -528,15 +534,16 @@ def discover_course_list(
             key=lambda x: x[0],
         )
 
-        for _, child_url in (
+        for _, child_url in reversed(
             child_links[:8]
         ):
             if child_url not in visited:
-                queue.append(
+                queue.insert(
+                    0,
                     (
                         child_url,
                         depth + 1,
-                    )
+                    ),
                 )
 
     if (
@@ -813,31 +820,79 @@ def extract_course_code(
     texts,
     code_index=None,
 ):
+    def valid_code(value):
+        value = normalize(value)
+
+        if not value:
+            return ""
+
+        # 同じセルに複数コードがある場合は
+        # 先頭コードを代表として使用
+        candidate = value.split()[0]
+
+        if len(candidate) < 4:
+            return ""
+
+        if not re.fullmatch(
+            r"[A-Z0-9]+"
+            r"(?:-[A-Z0-9]+)*",
+            candidate,
+            re.I,
+        ):
+            return ""
+
+        # 年だけの数字などを除外
+        if (
+            candidate.isdigit()
+            and "-" not in candidate
+        ):
+            return ""
+
+        return candidate
+
     if (
         code_index is not None
         and code_index < len(texts)
     ):
-        source = texts[code_index]
-
-        match = re.search(
-            r"\b[A-Z0-9]{4,7}\b",
-            source,
-            re.I,
+        code = valid_code(
+            texts[code_index]
         )
 
-        if match:
-            return match.group(0)
+        if code:
+            return code
 
-    whole = " ".join(texts)
+    whole = normalize(
+        " ".join(texts)
+    )
 
-    match = re.search(
-        r"\b[A-Z][A-Z0-9]{3,6}\b",
+    candidates = re.findall(
+        r"\b[A-Z0-9]+"
+        r"(?:-[A-Z0-9]+)*\b",
         whole,
         re.I,
     )
 
-    if match:
-        return match.group(0)
+    for candidate in candidates:
+        if len(candidate) < 4:
+            continue
+
+        if (
+            candidate.isdigit()
+            and "-" not in candidate
+        ):
+            continue
+
+        # 英字を含むか、
+        # 200-1 のようなハイフン付き数字
+        if (
+            re.search(
+                r"[A-Z]",
+                candidate,
+                re.I,
+            )
+            or "-" in candidate
+        ):
+            return candidate
 
     return ""
 
