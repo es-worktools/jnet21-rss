@@ -1794,9 +1794,53 @@ for facility in facilities:
         )
 
         if not courses:
-            raise RuntimeError(
-                "コースを1件も取得できません"
+    page_title = ""
+
+    if list_soup.title:
+        page_title = normalize(
+            list_soup.title.get_text(
+                " ",
+                strip=True,
             )
+        )
+
+    table_count = len(
+        list_soup.find_all("table")
+    )
+
+    row_count = len(
+        list_soup.find_all("tr")
+    )
+
+    html_links = []
+
+    for link in list_soup.find_all(
+        "a",
+        href=True,
+    ):
+        href = (
+            link.get("href")
+            or ""
+        ).strip()
+
+        if re.search(
+            r"\.html?(?:$|[?#])",
+            href,
+            re.I,
+        ):
+            html_links.append(href)
+
+    sample_links = html_links[:5]
+
+    raise RuntimeError(
+        "コースを1件も取得できません"
+        f" | list_url={list_url}"
+        f" | title={page_title}"
+        f" | tables={table_count}"
+        f" | rows={row_count}"
+        f" | html_links={len(html_links)}"
+        f" | sample={sample_links}"
+    )
 
         current_lists[name] = (
             list_url
