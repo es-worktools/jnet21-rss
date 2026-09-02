@@ -1,5 +1,5 @@
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone, timedelta
 from urllib.parse import urljoin, urlparse
 
@@ -25,29 +25,6 @@ HEADERS = {
 
 TIMEOUT = 25
 
-DISCOVERY_WORDS = (
-    "開催月別",
-    "コース一覧",
-    "能力開発セミナー",
-    "在職者",
-    "セミナー",
-)
-
-STATUS_HINTS = (
-    "受付",
-    "残り",
-    "残席",
-    "キャンセル",
-    "中止",
-    "電話",
-    "終了",
-    "満席",
-    "空き",
-    "申込",
-    "募集",
-    "相談",
-)
-
 session = requests.Session()
 session.headers.update(HEADERS)
 
@@ -69,13 +46,23 @@ def get_soup(url):
 
     response.raise_for_status()
 
-    return (
-        response.url,
-        BeautifulSoup(
-            response.content,
-            "html.parser",
-        ),
+    # 一部施設の文字コード警告対策
+    if (
+        not response.encoding
+        or response.encoding.lower()
+        in ("iso-8859-1", "ascii")
+    ):
+        response.encoding = (
+            response.apparent_encoding
+            or "utf-8"
+        )
+
+    soup = BeautifulSoup(
+        response.text,
+        "html.parser",
     )
+
+    return response.url, soup
 
 
 def short_facility_name(text):
@@ -122,8 +109,6 @@ def get_facilities():
         if "ポリテクセンター" not in text:
             continue
 
-        # 高度ポリテクセンターは
-        # 0146のお知らせで別途対応済み
         if "高度ポリテクセンター" in text:
             continue
 
@@ -150,7 +135,6 @@ def get_facilities():
                 "name": short_facility_name(
                     text
                 ),
-                "full_name": text,
                 "url": url,
             }
         )
@@ -165,10 +149,7 @@ def same_host(url1, url2):
     )
 
 
-def discovery_link_score(
-    text,
-    href,
-):
+def discovery_link_score(text, href):
     text = normalize(text)
     href_lower = href.lower()
 
@@ -223,14 +204,11 @@ def page_score(soup):
     if "開催月別" in text:
         score += 5
 
-    if "受付中" in text:
+    if "状況" in text:
         score += 4
 
     if "訓練日程" in text:
         score += 3
-
-    if "キャンセル待ち" in text:
-        score += 2
 
     table_rows = len(
         soup.find_all("tr")
@@ -258,6 +236,7 @@ def cell_text(cell):
     if visible:
         parts.append(visible)
 
+    # 状況を画像で表示している施設対策
     for image in cell.find_all("img"):
         for attr in (
             "alt",
@@ -278,22 +257,69 @@ def cell_text(cell):
     )
 
 
-def extract_status(cell_texts):
-    for text in cell_texts:
-        if not text:
-            continue
+def normalize_status(raw_status):
+    status = normalize(raw_status)
 
-        # ステータス欄は通常短い
-        if len(text) > 40:
-            continue
+    if not status:
+        return "（空欄）"
 
-        if any(
-            hint in text
-            for hint in STATUS_HINTS
-        ):
-            return text
+    # 中止を最優先
+    if "中止" in status:
+        return "中止"
 
-    return ""
+    if "キャンセル" in status:
+        return "キャンセル待ち"
+
+    if (
+        "受付未定" in status
+        or "受付予定" in status
+    ):
+        return "受付未定"
+
+    if (
+        "受付終了" in status
+        or "受付は終了" in status
+        or "受付修了" in status
+        or status == "終了"
+    ):
+        return "受付終了"
+
+    if (
+        "残りわずか" in status
+        or "残席わずか" in status
+        or "残席僅" in status
+    ):
+        return "残りわずか"
+
+    if "受付中" in status:
+        return "受付中"
+
+    if "電話相談" in status:
+        return "電話相談"
+
+    if (
+        "お問い合わせ" in status
+        or "お問合せ" in status
+        or "問合せ" in status
+        or "問い合わせ" in status
+    ):
+        return "お問い合わせ"
+
+    if (
+        "申込締切日" in status
+        or "申込期限" in status
+        or "締切日" in status
+    ):
+        return "申込締切日"
+
+    if (
+        "満席" in status
+        or "定員に達" in status
+        or "定員到達" in status
+    ):
+        return "満席"
+
+    return "その他"
 
 
 def looks_like_course_row(
@@ -312,7 +338,6 @@ def looks_like_course_row(
         " ".join(cell_texts)
     )
 
-    # コース番号らしき表記
     has_course_code = bool(
         re.search(
             r"\b[A-Z0-9]{4,}\b",
@@ -321,7 +346,6 @@ def looks_like_course_row(
         )
     )
 
-    # 個別HTMLへのリンク
     has_detail_link = False
 
     for link in links:
@@ -361,45 +385,97 @@ def inspect_course_list(
 ):
     rows = []
 
-    for row in soup.find_all("tr"):
-        cells = row.find_all(
-            [
-                "td",
-                "th",
-            ]
-        )
+    for table in soup.find_all("table"):
+        status_index = None
 
-        if len(cells) < 2:
-            continue
-
-        texts = [
-            cell_text(cell)
-            for cell in cells
-        ]
-
-        if not looks_like_course_row(
-            row,
-            texts,
+        # この表の「状況」列を特定
+        for header_row in table.find_all(
+            "tr"
         ):
-            continue
+            header_cells = (
+                header_row.find_all(
+                    [
+                        "th",
+                        "td",
+                    ]
+                )
+            )
 
-        status = extract_status(
-            texts
-        )
+            header_texts = [
+                cell_text(cell)
+                for cell
+                in header_cells
+            ]
 
-        rows.append(
-            {
-                "facility": facility_name,
-                "list_url": list_url,
-                "status": (
-                    status
-                    or "【判定できず】"
-                ),
-                "row": normalize(
-                    " | ".join(texts)
-                ),
-            }
-        )
+            for index, text in enumerate(
+                header_texts
+            ):
+                if text == "状況":
+                    status_index = index
+                    break
+
+            if status_index is not None:
+                break
+
+        for row in table.find_all("tr"):
+            cells = row.find_all(
+                [
+                    "td",
+                    "th",
+                ]
+            )
+
+            if len(cells) < 2:
+                continue
+
+            texts = [
+                cell_text(cell)
+                for cell in cells
+            ]
+
+            if not looks_like_course_row(
+                row,
+                texts,
+            ):
+                continue
+
+            # 「状況」列が見つからない場合は
+            # JEED標準表の5列目を使用
+            use_index = status_index
+
+            if use_index is None:
+                if len(texts) >= 5:
+                    use_index = 4
+
+            raw_status = ""
+
+            if (
+                use_index is not None
+                and use_index < len(texts)
+            ):
+                raw_status = texts[
+                    use_index
+                ]
+
+            category = normalize_status(
+                raw_status
+            )
+
+            rows.append(
+                {
+                    "facility": (
+                        facility_name
+                    ),
+                    "list_url": list_url,
+                    "raw_status": (
+                        raw_status
+                    ),
+                    "category": category,
+                    "row": normalize(
+                        " | ".join(texts)
+                    ),
+                }
+            )
 
     return rows
 
@@ -437,9 +513,7 @@ def direct_candidate_urls(
     ]
 
 
-def discover_course_list(
-    home_url,
-):
+def discover_course_list(home_url):
     final_home_url, home_soup = (
         get_soup(home_url)
     )
@@ -484,15 +558,13 @@ def discover_course_list(
             href,
         )
 
-        if score <= 0:
-            continue
-
-        initial.append(
-            (
-                score,
-                href,
+        if score > 0:
+            initial.append(
+                (
+                    score,
+                    href,
+                )
             )
-        )
 
     initial.sort(
         reverse=True,
@@ -525,7 +597,6 @@ def discover_course_list(
     best_soup = None
     best_score = -1
 
-    # 1施設につき最大14ページまで
     while (
         queue
         and len(visited) < 14
@@ -551,8 +622,6 @@ def discover_course_list(
             best_url = final_url
             best_soup = soup
 
-        # 「在職者向け」ページから
-        # 「開催月別一覧」へもう1段辿る
         if depth >= 2:
             continue
 
@@ -618,7 +687,6 @@ def discover_course_list(
                     )
                 )
 
-    # 一覧らしさが低すぎる場合は失敗扱い
     if (
         best_url is None
         or best_soup is None
@@ -639,16 +707,12 @@ print(
     "FACILITIES:",
     len(facilities),
 )
-print()
 
 success = []
 failed = []
 all_rows = []
 
-for index, facility in enumerate(
-    facilities,
-    1,
-):
+for facility in facilities:
     name = facility["name"]
     home_url = facility["url"]
 
@@ -669,13 +733,6 @@ for index, facility in enumerate(
                     f"一覧未発見 score={score}",
                 )
             )
-
-            print(
-                f"NG {index:02d} | "
-                f"{name} | "
-                "開催月別一覧を特定できず"
-            )
-
             continue
 
         rows = inspect_course_list(
@@ -684,39 +741,15 @@ for index, facility in enumerate(
             list_soup,
         )
 
-        statuses = Counter(
-            row["status"]
-            for row in rows
-        )
-
         success.append(
             (
                 name,
                 list_url,
                 len(rows),
-                statuses,
             )
         )
 
         all_rows.extend(rows)
-
-        status_text = ", ".join(
-            f"{key}={value}"
-            for key, value
-            in statuses.items()
-        )
-
-        print(
-            f"OK {index:02d} | "
-            f"{name} | "
-            f"rows={len(rows)} | "
-            f"{status_text}"
-        )
-
-        print(
-            "   ",
-            list_url,
-        )
 
     except Exception as e:
         failed.append(
@@ -725,12 +758,6 @@ for index, facility in enumerate(
                 home_url,
                 repr(e),
             )
-        )
-
-        print(
-            f"ERROR {index:02d} | "
-            f"{name} | "
-            f"{repr(e)}"
         )
 
 
@@ -760,22 +787,58 @@ print(
 )
 
 
-status_counter = Counter(
-    row["status"]
+category_counter = Counter(
+    row["category"]
     for row in all_rows
 )
 
 print()
 print("=" * 80)
-print("STATUS SUMMARY")
+print("NORMALIZED STATUS")
 print("=" * 80)
 
-for status, count in (
-    status_counter.most_common()
+for category, count in (
+    category_counter.most_common()
 ):
     print(
-        f"{status}: {count}"
+        f"{category}: {count}"
     )
+
+
+raw_statuses = defaultdict(Counter)
+
+for row in all_rows:
+    raw = (
+        row["raw_status"]
+        or "（空欄）"
+    )
+
+    raw_statuses[
+        row["category"]
+    ][raw] += 1
+
+
+print()
+print("=" * 80)
+print("RAW STATUS")
+print("=" * 80)
+
+for category in sorted(
+    raw_statuses.keys()
+):
+    print()
+    print(
+        f"[{category}]"
+    )
+
+    for raw, count in (
+        raw_statuses[
+            category
+        ].most_common()
+    ):
+        print(
+            f"{raw}: {count}"
+        )
 
 
 print()
@@ -802,27 +865,53 @@ else:
 
 print()
 print("=" * 80)
-print("UNCLASSIFIED STATUS SAMPLE")
+print("OTHER STATUS SAMPLE")
 print("=" * 80)
 
-unknown_rows = [
+other_rows = [
     row
     for row in all_rows
-    if row["status"]
-    == "【判定できず】"
+    if row["category"]
+    == "その他"
 ]
 
-if not unknown_rows:
+if not other_rows:
     print("なし")
 else:
-    for row in unknown_rows[:30]:
+    for row in other_rows[:20]:
         print()
         print(
             row["facility"]
         )
         print(
-            row["list_url"]
+            "status:",
+            row["raw_status"],
         )
         print(
             row["row"]
+        )
+
+
+print()
+print("=" * 80)
+print("BLANK STATUS BY FACILITY")
+print("=" * 80)
+
+blank_counter = Counter(
+    row["facility"]
+    for row in all_rows
+    if row["category"]
+    == "（空欄）"
+)
+
+if not blank_counter:
+    print("なし")
+else:
+    for facility, count in (
+        blank_counter.most_common()
+    ):
+        print(
+            facility,
+            ":",
+            count,
         )
