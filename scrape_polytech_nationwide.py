@@ -1299,7 +1299,14 @@ def inspect_course_list(
             )
 
             if not detail_url:
-                continue
+                if (
+                    facility_name
+                    == "ポリテクセンター中部"
+                ):
+                    detail_url = list_url
+                    link_text = ""
+                else:
+                    continue
 
             if not code:
                 continue
