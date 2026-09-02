@@ -419,8 +419,8 @@ def inspect_course_list(
                     or "受付状況" in text
                     or "申込状況" in text
                 ):
-                status_index = index
-                break
+                    status_index = index
+                    break
 
             if status_index is not None:
                 break
