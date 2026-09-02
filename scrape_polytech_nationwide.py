@@ -1169,6 +1169,7 @@ def normalize_status(raw_status):
     if (
         "受付中" in status
         or status == "募集中"
+        or "空きがあります" in status
     ):
         return "受付中"
 
@@ -1335,6 +1336,16 @@ def inspect_course_list(
                 raw_status = texts[
                     status_index
                 ]
+
+            # 表のヘッダー行はコースとして扱わない
+            if raw_status in (
+                "空き状況等",
+                "空席状況",
+                "受付状況",
+                "申込状況",
+                "状況",
+            ):
+                continue
 
             schedule = extract_schedule(
                 texts,
