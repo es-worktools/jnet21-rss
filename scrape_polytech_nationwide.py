@@ -256,6 +256,40 @@ def page_score(soup):
     if table_rows >= 30:
         score += 2
 
+    # 実際にコース番号らしい行が多いページを
+    # 強く優先する
+    course_rows = 0
+
+    for row in soup.find_all("tr"):
+        cells = row.find_all(
+            [
+                "td",
+                "th",
+            ]
+        )
+
+        if len(cells) < 2:
+            continue
+
+        row_text = normalize(
+            row.get_text(
+                " ",
+                strip=True,
+            )
+        )
+
+        if re.search(
+            r"\b[A-Z0-9]{4,7}\b",
+            row_text,
+            re.I,
+        ):
+            course_rows += 1
+
+    score += min(
+        course_rows,
+        100,
+    )
+
     return score
 
 
@@ -667,6 +701,10 @@ def find_detail_link(
 ):
     candidates = []
 
+    list_host = urlparse(
+        list_url
+    ).hostname
+
     for link in row.find_all(
         "a",
         href=True,
@@ -676,12 +714,8 @@ def find_detail_link(
             or ""
         ).strip()
 
-        text = normalize(
-            link.get_text(
-                " ",
-                strip=True,
-            )
-        )
+        if not href:
+            continue
 
         lower = href.lower()
 
@@ -689,33 +723,8 @@ def find_detail_link(
             (
                 "mailto:",
                 "javascript:",
+                "#",
             )
-        ):
-            continue
-
-        if lower.endswith(
-            (
-                ".pdf",
-                ".doc",
-                ".docx",
-                ".xls",
-                ".xlsx",
-            )
-        ):
-            continue
-
-        if not lower.endswith(
-            (
-                ".html",
-                ".htm",
-            )
-        ):
-            continue
-
-        if re.search(
-            r"(?:index|menu|top)"
-            r"[\w.-]*\.html?$",
-            lower,
         ):
             continue
 
@@ -724,9 +733,64 @@ def find_detail_link(
             href,
         )
 
+        parsed = urlparse(
+            absolute
+        )
+
+        if (
+            parsed.hostname
+            != list_host
+        ):
+            continue
+
+        path = parsed.path.lower()
+
+        if path.endswith(
+            (
+                ".pdf",
+                ".doc",
+                ".docx",
+                ".xls",
+                ".xlsx",
+                ".zip",
+            )
+        ):
+            continue
+
+        basename = path.rstrip(
+            "/"
+        ).split("/")[-1]
+
+        if basename in {
+            "",
+            "index.html",
+            "index.htm",
+            "index2.html",
+            "index3.html",
+            "index_month.html",
+        }:
+            continue
+
+        text = normalize(
+            link.get_text(
+                " ",
+                strip=True,
+            )
+        )
+
+        score = len(text)
+
+        if path.endswith(
+            (
+                ".html",
+                ".htm",
+            )
+        ):
+            score += 100
+
         candidates.append(
             (
-                len(text),
+                score,
                 absolute,
                 text,
             )
@@ -1701,6 +1765,11 @@ for facility in facilities:
 
     # 名古屋港は特殊補完
     if "名古屋港" in name:
+        continue
+
+    # 大阪港は在職者向け能力開発セミナーの
+    # 全国監視対象外
+    if "大阪港" in name:
         continue
 
     try:
