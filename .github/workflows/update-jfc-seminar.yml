@@ -2,7 +2,7 @@ name: Update JFC Seminar RSS
 
 on:
   schedule:
-    - cron: "50 */6 * * *"
+    - cron: "17 1,13 * * *"
   workflow_dispatch:
 
 permissions:

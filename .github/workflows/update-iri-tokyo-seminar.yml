@@ -2,7 +2,7 @@ name: Update IRI Tokyo Seminar RSS
 
 on:
   schedule:
-    - cron: "50 */6 * * *"
+    - cron: "27 2,14 * * *"
   workflow_dispatch:
 
 permissions:
