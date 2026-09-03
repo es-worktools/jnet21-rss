@@ -3,7 +3,7 @@ name: Update Joho Fukuoka RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "40 */6 * * *"
+    - cron: "40 21 * * *"
 
 permissions:
   contents: write
