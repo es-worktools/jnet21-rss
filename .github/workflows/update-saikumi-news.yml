@@ -3,7 +3,7 @@ name: Update Saikumi News RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "20 */6 * * *"
+    - cron: "20 21 * * *"
 
 permissions:
   contents: write
