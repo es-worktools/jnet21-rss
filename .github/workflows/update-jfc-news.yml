@@ -2,7 +2,7 @@ name: Update JFC News RSS
 
 on:
   schedule:
-    - cron: "15 */6 * * *"
+    - cron: "15 21 * * *"
   workflow_dispatch:
 
 permissions:
