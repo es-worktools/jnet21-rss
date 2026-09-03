@@ -2,7 +2,7 @@ name: Update Saitama J RSS
 
 on:
   schedule:
-    - cron: "25 */6 * * *"
+    - cron: "25 21 * * *"
   workflow_dispatch:
 
 permissions:
