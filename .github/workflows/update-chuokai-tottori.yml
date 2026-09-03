@@ -2,7 +2,7 @@ name: Update Chuokai Tottori RSS
 
 on:
   schedule:
-    - cron: "35 */6 * * *"
+    - cron: "35 21 * * *"
   workflow_dispatch:
 
 permissions:
