@@ -33,4 +33,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add chuokai-kagawa-news.xml
           git diff --cached --quiet || git commit -m "Update Chuokai Kagawa RSS"
-          git push
+          git pull --rebase origin main
+          git push origin main
