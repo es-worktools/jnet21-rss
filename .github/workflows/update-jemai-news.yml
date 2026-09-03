@@ -2,7 +2,7 @@ name: Update JEMAI News RSS
 
 on:
   schedule:
-    - cron: "45 */6 * * *"
+    - cron: "45 21 * * *"
   workflow_dispatch:
 
 permissions:
