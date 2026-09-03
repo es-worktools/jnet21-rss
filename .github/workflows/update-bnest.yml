@@ -3,7 +3,7 @@ name: Update Bnest RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 21 * * *"
 
 permissions:
   contents: write
