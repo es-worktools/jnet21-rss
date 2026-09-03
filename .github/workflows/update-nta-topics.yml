@@ -2,7 +2,7 @@ name: Update NTA Topics RSS
 
 on:
   schedule:
-    - cron: "55 */6 * * *"
+    - cron: "55 21 * * *"
   workflow_dispatch:
 
 permissions:
