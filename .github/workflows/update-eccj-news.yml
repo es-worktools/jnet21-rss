@@ -2,7 +2,7 @@ name: Update ECCJ News RSS
 
 on:
   schedule:
-    - cron: "20 */6 * * *"
+    - cron: "20 21 * * *"
   workflow_dispatch:
 
 permissions:
