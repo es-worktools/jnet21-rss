@@ -754,6 +754,19 @@
       "title": "精密平面研削加工技術",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
     },
+    "041178f7318dbed689675514ff343e00ddfeb28b791f5326db49b0c12c95d31d": {
+      "code": "9X042",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "041178f7318dbed689675514ff343e00ddfeb28b791f5326db49b0c12c95d31d",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "3/10（水）,11（木）",
+      "start_date": "2027-03-10",
+      "status_category": "受付中",
+      "title": "生産現場で活用するリーダーシップ手法",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X042.html"
+    },
     "04234358876970ccde2e1b525f02c9635ccaa09ca641f4d4e9a86eb8d96ea5a0": {
       "code": "4H401",
       "eligible": false,
@@ -3042,6 +3055,19 @@
       "title": "オブジェクト指向による組込みプログラム開発技術（Ｊａｖａ編）",
       "url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/E2101.html"
     },
+    "0be59c822f19fb1c16f8d6cc57ba19d34a524d9df1d314fcc8da8178cf463a09": {
+      "code": "9M051",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "0be59c822f19fb1c16f8d6cc57ba19d34a524d9df1d314fcc8da8178cf463a09",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "11/9（月）、10（火）",
+      "start_date": "2026-11-09",
+      "status_category": "受付中",
+      "title": "３次元ＣＡＤを活用したアセンブリ技術【ＳｏｌｉｄＷｏｒｋｓ】",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M051.html"
+    },
     "0bed78ed8f9f6235a9db683108388665020a2eea89a983d1d702e2746ec8376e": {
       "code": "B2082",
       "eligible": true,
@@ -3236,19 +3262,6 @@
       "status_category": "受付中",
       "title": "製造現場内ネットワークの構築",
       "url": "https://www3.jeed.go.jp/toyama/poly/zaishoku/2026/3D181.html"
-    },
-    "0cea308661faf40fc08c507b5eee50dbe8f51e16b3217c7a05bc07f0ecf163b4": {
-      "code": "9M081",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "0cea308661faf40fc08c507b5eee50dbe8f51e16b3217c7a05bc07f0ecf163b4",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/17（木）、18（金）",
-      "start_date": "2026-07-17",
-      "status_category": "受付終了",
-      "title": "最大実体公差方式の解釈と活用演習",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M081.html"
     },
     "0d02e77a308ead9e5ae3d2d79071a7d9126156d9183c787f1fa459618a8e89c3": {
       "code": "MEX72",
@@ -6058,19 +6071,6 @@
       "title": "現場のための電気保全技術",
       "url": "https://www3.jeed.go.jp/hokkaido/poly/zaishoku/2026/1D513.html"
     },
-    "18a171774e9f191ef93d54c09c80c7debfdcf510daa15841207851466a0d193b": {
-      "code": "9M101",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "18a171774e9f191ef93d54c09c80c7debfdcf510daa15841207851466a0d193b",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/7（月）、8（火）、9（水）、10（木）",
-      "start_date": "2026-07-07",
-      "status_category": "受付終了",
-      "title": "旋盤加工技術（外径・内径加工編）",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M101.html"
-    },
     "18a400f1fd534fc0f32c3d3f83c114f944b8e52fcf67f4d57cfbd7f1ed247ae5": {
       "code": "YMX03",
       "eligible": false,
@@ -7111,6 +7111,19 @@
       "title": "実践建築設計２次元ＣＡＤ技術（Ｊｗ_ｃａｄ）",
       "url": "https://www3.jeed.go.jp/wakayama/poly/zaishoku/H01-2.html"
     },
+    "1c2f644f2e917eb24a94cee161aeb1c07333b4bc165e45fb0b69844b37e1b260": {
+      "code": "9D031",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "1c2f644f2e917eb24a94cee161aeb1c07333b4bc165e45fb0b69844b37e1b260",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "8/6（木）,7（金）",
+      "start_date": "2026-08-06",
+      "status_category": "受付中",
+      "title": "ＰＬＣ制御の応用技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D031.html"
+    },
     "1c34f544429ae7f24a5648e419a08801c5e43306aaa846477d9a91d9a613cebd": {
       "code": "MA201",
       "eligible": true,
@@ -7982,19 +7995,6 @@
       "title": "３次元ＣＡＤを活用したソリッドモデリング技術",
       "url": "https://www3.jeed.go.jp/aomori/poly/zaishoku/2026/copy_of_PM002.html"
     },
-    "1fd0701fd80c6bb4e7a205664ce3e6b755437261f4de85425d8ab76b096ce04e": {
-      "code": "9M021",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "1fd0701fd80c6bb4e7a205664ce3e6b755437261f4de85425d8ab76b096ce04e",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/29（火）、30（水）、31（木）",
-      "start_date": "2026-07-29",
-      "status_category": "受付終了",
-      "title": "２次元ＣＡＤによる機械設計技術（コマンド習得編）",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M021.html"
-    },
     "1fd08d7d3a99c2c3fc25e11790a7682c153eeb4734ff0a0ac149dd4d43a467b7": {
       "code": "4M120",
       "eligible": false,
@@ -8813,6 +8813,19 @@
       "status_category": "受付終了",
       "title": "なぜなぜ分析による製造現場の問題解決",
       "url": "https://www3.jeed.go.jp/tochigi/poly/zaishoku/2026/400-1.html"
+    },
+    "232fe5dc4c3eed8708691b10a91a90a40d003200fe83639dc38fca5d53cca14c": {
+      "code": "9X041",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "232fe5dc4c3eed8708691b10a91a90a40d003200fe83639dc38fca5d53cca14c",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "6/3（水）,4（木）",
+      "start_date": "2026-06-03",
+      "status_category": "受付中",
+      "title": "生産現場で活用するリーダーシップ手法",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X041.html"
     },
     "2338dbc44620d5697c57314dbc2c4a3acb623287979ce282f5f7ab8f06889e93": {
       "code": "MA112",
@@ -9788,19 +9801,6 @@
       "status_category": "受付中",
       "title": "実践機械製図",
       "url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/5M003.html"
-    },
-    "2688ccb3c1351cb9057996325845c55d87baa705d898fe4e07de510fb023a6f9": {
-      "code": "9M511",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "2688ccb3c1351cb9057996325845c55d87baa705d898fe4e07de510fb023a6f9",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "10/30（木）、31（金）",
-      "start_date": "2026-10-30",
-      "status_category": "受付終了",
-      "title": "パルスＴＩＧ溶接実践技術＜ステンレス鋼編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M511.html"
     },
     "26b5dbfd9aca57ef991c7247f4f18d92dedeb01f05d80d0f402664d322f4ce91": {
       "code": "E601A",
@@ -11141,19 +11141,6 @@
       "title": "PLCによるインバータ制御技術",
       "url": "https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/e004b.html"
     },
-    "2c2d2b89ae474c02e42fb96212ba9f04e15d9893e62dc50a43b118ccd87bc450": {
-      "code": "9M502",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "2c2d2b89ae474c02e42fb96212ba9f04e15d9893e62dc50a43b118ccd87bc450",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "12/11（木）、12（金）",
-      "start_date": "2026-12-11",
-      "status_category": "受付終了",
-      "title": "ステンレス鋼のＴＩＧ溶接技能クリニック",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M502.html"
-    },
     "2c41088f50b43054b85216d70be5b56a9a5b83cc65a792e9c6db33c2d6c857b1": {
       "code": "M017A",
       "eligible": false,
@@ -11179,19 +11166,6 @@
       "status_category": "受付中",
       "title": "有接点シーケンス制御の機器選定",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/B0002.html"
-    },
-    "2c4e84609e2ac1899b8441178c8eb0fdc67968021ff1e7d0b76302530ba4ca9f": {
-      "code": "9M131",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "2c4e84609e2ac1899b8441178c8eb0fdc67968021ff1e7d0b76302530ba4ca9f",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "9/8（月）、9（火）、10（水）、11（木）",
-      "start_date": "2026-09-08",
-      "status_category": "受付終了",
-      "title": "マシニングセンタプログラミング技術＜ＯＳＰ編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M131.html"
     },
     "2c640a366ad9255e2a47a029b230022cf4acc9b48070dbf8b407f244fb00ed84": {
       "code": "1M507",
@@ -11309,6 +11283,19 @@
       "status_category": "受付中",
       "title": "半自動アーク溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/saga/poly/zaishoku/2026/4M204.html"
+    },
+    "2cba9974cd02fec97b9b55a1417b4ad45dc6cefab0cd36048ecf9b3e071ca986": {
+      "code": "9M202",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "2cba9974cd02fec97b9b55a1417b4ad45dc6cefab0cd36048ecf9b3e071ca986",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "9/28（月）,29（火）",
+      "start_date": "2026-09-28",
+      "status_category": "受付中",
+      "title": "精密測定技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M202.html"
     },
     "2cccb39195bf5486a7c3da8427c133e404140e8b6f59795376ed5130dd2800f2": {
       "code": "M3211",
@@ -12454,19 +12441,6 @@
       "title": "ＰＬＣによるタッチパネル活用技術",
       "url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/E311.html"
     },
-    "30c0e3761a67ff128c7abb20608a8653a9facefde7a44be27244a440041263d3": {
-      "code": "9M001",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "30c0e3761a67ff128c7abb20608a8653a9facefde7a44be27244a440041263d3",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "5/26（月）、27（火）",
-      "start_date": "2026-05-26",
-      "status_category": "受付終了",
-      "title": "切削加工を考慮した機械設計製図",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M001.html"
-    },
     "30d2585eae4eb23ba54e99537d2f114aa927a5244af8d304799f1093927387c8": {
       "code": "YMB04",
       "eligible": false,
@@ -13325,19 +13299,6 @@
       "title": "２次元ＣＡＤによる機械製図技術 《使用ソフト：AutoCAD》",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/C0441.html"
     },
-    "34752d2b936a9457543c1c1b95aa23f76861d8ccc4f8d29ade83592a2a807ba6": {
-      "code": "9M042",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "34752d2b936a9457543c1c1b95aa23f76861d8ccc4f8d29ade83592a2a807ba6",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "12/8（月）、9（火）、10（水）",
-      "start_date": "2026-12-08",
-      "status_category": "受付終了",
-      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【Ｆｕｓｉｏｎ３６０】",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M042.html"
-    },
     "347697cf2ec0dedc01f6e98abfdfa187e9a88cdbb60830c79c867f5381dbd389": {
       "code": "P2561",
       "eligible": true,
@@ -13754,6 +13715,19 @@
       "title": "標準原価管理とコスト低減活動（射出成形を例として）",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
     },
+    "35f856d74c9df33604637a62497a89b3e267f23a824874ee23260e91df188775": {
+      "code": "9D022",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "35f856d74c9df33604637a62497a89b3e267f23a824874ee23260e91df188775",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "1/21（木）、22（金）",
+      "start_date": "2027-01-21",
+      "status_category": "受付中",
+      "title": "ＰＬＣプログラミング技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D022.html"
+    },
     "35fdf6fda1d9879e348568c1ea8b239ee4dce0e36f0e6a68f289da247fd33169": {
       "code": "E6084",
       "eligible": false,
@@ -13923,19 +13897,6 @@
       "title": "パソコンによる計測制御システム技術",
       "url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/E5202.html"
     },
-    "36b9975f6eccfcba41278ecb5bc9fbf555a6329be36afa800189f8aee2e40cf5": {
-      "code": "9D001",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "36b9975f6eccfcba41278ecb5bc9fbf555a6329be36afa800189f8aee2e40cf5",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "5/15（木）、16（金）",
-      "start_date": "2026-05-15",
-      "status_category": "受付終了",
-      "title": "有接点シーケンス制御の実践技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D001.html"
-    },
     "36bc07c1be181a2e68ac575d8836e4b3273555dae2ef2b7ac127457f8ced5527": {
       "code": "6M201",
       "eligible": false,
@@ -14039,6 +14000,19 @@
       "status_category": "受付終了",
       "title": "精密測定技術",
       "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3M202.html"
+    },
+    "3762c057e2450c28eec5d78a2a0f23ff0f358e1806e55ca3b5035633c8515892": {
+      "code": "9M042",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "3762c057e2450c28eec5d78a2a0f23ff0f358e1806e55ca3b5035633c8515892",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "12/7（月）,8（火）,9（水）",
+      "start_date": "2026-12-07",
+      "status_category": "受付中",
+      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【Ｆｕｓｉｏｎ３６０】",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M042.html"
     },
     "376ead4e57147b8bd73b37d1a55d1d22f04f7c8539c38dcc9a6e59a3adbefb7a": {
       "code": "5M221",
@@ -14482,19 +14456,6 @@
       "title": "【日程追加しました】 製造現場におけるＬＡＮ活用技術",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
     },
-    "38e7931eba3c864d91a4f5cc0106951045e6a90992e6cdd8c86d6138951180f9": {
-      "code": "9D031",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "38e7931eba3c864d91a4f5cc0106951045e6a90992e6cdd8c86d6138951180f9",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/30（水）、31（木）",
-      "start_date": "2026-07-30",
-      "status_category": "受付終了",
-      "title": "ＰＬＣ制御の応用技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D031.html"
-    },
     "38ebfb804edecc6455e3932e848fe1f6194acdc7ff527e2bdf468378d1490026": {
       "code": "PH079",
       "eligible": false,
@@ -14689,19 +14650,6 @@
       "status_category": "（空欄）",
       "title": "空気圧設備の省エネルギー技術",
       "url": "https://www3.jeed.go.jp/mie/poly/zaishoku/2026/6D192.html"
-    },
-    "39c9933a90ebc062d80f4ebac1cd1795fbd685df00801c2d30ae9ef0dcd483fb": {
-      "code": "9D022",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "39c9933a90ebc062d80f4ebac1cd1795fbd685df00801c2d30ae9ef0dcd483fb",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "キャンセル待ち",
-      "schedule": "1/22（木）、23（金）",
-      "start_date": "2027-01-22",
-      "status_category": "キャンセル待ち",
-      "title": "ＰＬＣプログラミング技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D022.html"
     },
     "39ce15da2c946a90be7fe3ffca230572ca86d1026da7a7575cc727ee0c35c7dd": {
       "code": "E049A",
@@ -14949,19 +14897,6 @@
       "status_category": "（空欄）",
       "title": "ＰＬＣによるタッチパネル活用技術 使用機器 三菱ＧＯＴ",
       "url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/E0092.html"
-    },
-    "3b45419795b456a0147fd92a0db465857103f82f985cec23ad25b5c45389cdb8": {
-      "code": "9D041",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "3b45419795b456a0147fd92a0db465857103f82f985cec23ad25b5c45389cdb8",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "11/11（火）、12（水）、13（木）",
-      "start_date": "2026-11-11",
-      "status_category": "受付終了",
-      "title": "空気圧実践技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D041.html"
     },
     "3b47e57c25b4af053e698f23c9b691f799bfcfd7206e694ad4af80195fea0d22": {
       "code": "M1701",
@@ -15495,6 +15430,19 @@
       "status_category": "受付終了",
       "title": "ＮＣ旋盤プログラミング技術",
       "url": "https://www3.jeed.go.jp/saga/poly/zaishoku/2026/4M118.html"
+    },
+    "3d1b3867ebb59dc0bf878a51264a731cf5b31bb03b8f30a4eb92ab0504e95792": {
+      "code": "9M111",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "3d1b3867ebb59dc0bf878a51264a731cf5b31bb03b8f30a4eb92ab0504e95792",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "7/13（月）,14（火）,15（水）,16（木）",
+      "start_date": "2026-07-13",
+      "status_category": "受付中",
+      "title": "フライス盤加工技術＜段・溝・勾配加工編＞",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M111.html"
     },
     "3d22618e0a9ce128a2d6c50e32fbcc814132c0f781978eb3dbf0a47961e24e8f": {
       "code": "C6074",
@@ -17056,19 +17004,6 @@
       "title": "ビルにおける防災設備と管理のポイント",
       "url": "https://www3.jeed.go.jp/miyagi/poly/zaishoku/2026/MHX02.html"
     },
-    "42230a7607722f20fcb84f69266e18e4b73c952425768592669e70c53b4c4e85": {
-      "code": "9M541",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "42230a7607722f20fcb84f69266e18e4b73c952425768592669e70c53b4c4e85",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "11/8（土）、9（日）",
-      "start_date": "2026-11-08",
-      "status_category": "受付終了",
-      "title": "被覆アーク溶接技能クリニック",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M541.html"
-    },
     "4223ecb6a780488cdadec89edcab294562ee9ed06f4e663939ec0620683d698b": {
       "code": "2H405",
       "eligible": true,
@@ -17485,6 +17420,19 @@
       "title": "シーケンス制御による電動機制御技術",
       "url": "https://www3.jeed.go.jp/chiba/poly/zaishoku/2026/E0801.html"
     },
+    "43701e86573db60d3bdfc4d56e51edf2083cd2c2bd72c3e6e08f7b47aea17f83": {
+      "code": "9X011",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "43701e86573db60d3bdfc4d56e51edf2083cd2c2bd72c3e6e08f7b47aea17f83",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "8/6（木）,7（金）",
+      "start_date": "2026-08-06",
+      "status_category": "受付中",
+      "title": "生産現場改善手法",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X011.html"
+    },
     "437788b8ce95615a6f2bbc336f99e71e1ef553623659eef63e57595ab2f24d2a": {
       "code": "4H211",
       "eligible": true,
@@ -17601,6 +17549,19 @@
       "status_category": "受付中",
       "title": "ＢＩＭを用いた建築設計技術＜モデリング編＞",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/H103A.html"
+    },
+    "43eae13ce88cef52817c6c37d5fc9e852416f8ea6e672fcded08dc132a8ed84b": {
+      "code": "9D001",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "43eae13ce88cef52817c6c37d5fc9e852416f8ea6e672fcded08dc132a8ed84b",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "キャンセル待ち",
+      "schedule": "5/13（水）、14（木）",
+      "start_date": "2026-05-13",
+      "status_category": "キャンセル待ち",
+      "title": "有接点シーケンス制御の実践技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D001.html"
     },
     "43faa7a0af1549c1f52935a5f8bb2eb7486d2c0125a48682c277345ff8ecde88": {
       "code": "402-1",
@@ -17914,6 +17875,19 @@
       "title": "フライス盤加工技術（加工済み六面体からの加工編）",
       "url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/M224.html"
     },
+    "456ad5ea9746dad3c250aaf6305adef458419666e100a8d7c307b292685a284f": {
+      "code": "9X021",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "456ad5ea9746dad3c250aaf6305adef458419666e100a8d7c307b292685a284f",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "12/2（水）、3（木）、4（金）",
+      "start_date": "2026-12-02",
+      "status_category": "受付中",
+      "title": "生産現場で使える原価管理",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X021.html"
+    },
     "4570d14b24ad9e48cb1afba19c0be210e0953e9efe40f26759788a11a60b842a": {
       "code": "F01-2",
       "eligible": true,
@@ -18160,19 +18134,6 @@
       "status_category": "受付中",
       "title": "精密測定技術",
       "url": "https://www3.jeed.go.jp/miyazaki/poly/zaishoku/copy_of_2026_D101-001-A.html"
-    },
-    "4668e2e76dcf60232b30f60c0553eb79df6a3ad2048f50886089cde6423e0e4d": {
-      "code": "9M111",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "4668e2e76dcf60232b30f60c0553eb79df6a3ad2048f50886089cde6423e0e4d",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/14（月）、15（火）、16（水）、17（木）",
-      "start_date": "2026-07-14",
-      "status_category": "受付終了",
-      "title": "フライス盤加工技術（段・溝・勾配加工編）",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M111.html"
     },
     "4681155c8f8c7af80589c9cfd75790990b6e455002fa93ba88af16970c427c11": {
       "code": "C4012",
@@ -19890,6 +19851,19 @@
       "title": "低圧電気設備の保守点検技術",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5D001.html"
     },
+    "4d6510fb2b3e44acd3b8a6c401a517a83686bd36ac36a0268a0407ec751602a1": {
+      "code": "9M121",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "4d6510fb2b3e44acd3b8a6c401a517a83686bd36ac36a0268a0407ec751602a1",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "6/15（月）,16（火）,17（水）,18（木）",
+      "start_date": "2026-06-15",
+      "status_category": "受付中",
+      "title": "ＮＣ旋盤プログラミング技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M121.html"
+    },
     "4d7084e61ddfa8152c150e973e42cec95350fa5e213d7d1ad4057cd02c9ce07c": {
       "code": "5M452",
       "eligible": true,
@@ -19954,6 +19928,19 @@
       "status_category": "受付中",
       "title": "溶接・品質管理技術に活かす浸透探傷",
       "url": "https://www3.jeed.go.jp/chiba/poly/zaishoku/2026/W0501.html"
+    },
+    "4dbd6c9176a3af3d3817e7410e9a4a3ecb4f21bea7e71ce71765558faf4d9dcd": {
+      "code": "9M203",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "4dbd6c9176a3af3d3817e7410e9a4a3ecb4f21bea7e71ce71765558faf4d9dcd",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "12/3（木）,4（金）",
+      "start_date": "2026-12-03",
+      "status_category": "受付中",
+      "title": "精密測定技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M203.html"
     },
     "4dc006b1c6b1bc38f956a6b2a3f8e0fa82a079997bfd9c233fced011cac0a9e0": {
       "code": "C0532",
@@ -20306,18 +20293,18 @@
       "title": "パルスＴＩＧ溶接実践技術",
       "url": "https://www3.jeed.go.jp/toyama/poly/zaishoku/2026/3M860.html"
     },
-    "4f05cad1fc048d78332239da6ebed3f9f372794c5fdaf29f1550134ef8e9b933": {
-      "code": "9M211",
+    "4f051ed90820357adc5d559824bb6572c7cba8cdd12fa67b815cf0405c9534de": {
+      "code": "9M011",
       "eligible": false,
       "facility": "ポリテクセンター松本",
-      "key": "4f05cad1fc048d78332239da6ebed3f9f372794c5fdaf29f1550134ef8e9b933",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "12/4（木）、5（金）",
-      "start_date": "2026-12-04",
-      "status_category": "受付終了",
-      "title": "精密測定技術＜技能エキスパート編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M211.html"
+      "key": "4f051ed90820357adc5d559824bb6572c7cba8cdd12fa67b815cf0405c9534de",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "6/25（木）,26（金）",
+      "start_date": "2026-06-25",
+      "status_category": "受付中",
+      "title": "各種加工方法を考慮した設計技術（切削加工、特殊加工、板金、溶接編）",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M011.html"
     },
     "4f115666eef0d4624b6623149fa859c54ea322a785a7f0db62adefd7cdd8254e": {
       "code": "E027A",
@@ -21229,19 +21216,6 @@
       "title": "地震被害から学ぶ木造住宅の構造技術",
       "url": "https://www3.jeed.go.jp/kanagawa/poly/seminar/2026/H1811.html"
     },
-    "52a87844dd2a39387aaef44aecc6e5400be26d4711c7fff3961116f7e5028328": {
-      "code": "9M041",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "52a87844dd2a39387aaef44aecc6e5400be26d4711c7fff3961116f7e5028328",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "8/25（月）、26（火）、27（水）",
-      "start_date": "2026-08-25",
-      "status_category": "受付終了",
-      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【Ｆｕｓｉｏｎ３６０】",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M041.html"
-    },
     "52bad91aa65e1177f34acfb9093b39cfc7f908b9993a62cfd15b486096dfcd06": {
       "code": "M1B1",
       "eligible": true,
@@ -22022,19 +21996,6 @@
       "title": "有限要素法理論理解のための材料力学から有限要素法への展開（材力計算と解析による結果との比較・評価）",
       "url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/M0411.html"
     },
-    "55adbefcf9c81ebb1c07c7c2554289dd2aa49aecfba50fc2b23f15b1ed96658e": {
-      "code": "9M202",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "55adbefcf9c81ebb1c07c7c2554289dd2aa49aecfba50fc2b23f15b1ed96658e",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "9/25（木）、26（金）",
-      "start_date": "2026-09-25",
-      "status_category": "受付終了",
-      "title": "精密測定技術＜測定器習得編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M202.html"
-    },
     "55b096d0b8027a8150b2dafd58fb78a09ffbf0aed0c54c3a857b6fb3f285dcfc": {
       "code": "5M211",
       "eligible": true,
@@ -22177,6 +22138,19 @@
       "status_category": "受付終了",
       "title": "ロボットシステム設計技術（ロボットシステム導入編）",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3D151.html"
+    },
+    "5635f1d4e2f34e4b90f839ef2660b7c56926542fb587f4631aeb027a4fe230b1": {
+      "code": "9M201",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "5635f1d4e2f34e4b90f839ef2660b7c56926542fb587f4631aeb027a4fe230b1",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "6/24（水）,25（木）",
+      "start_date": "2026-06-24",
+      "status_category": "受付中",
+      "title": "精密測定技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M201.html"
     },
     "563dc6631045ff004af1dc0852196192e009d2275afa3779ba74cad70191634d": {
       "code": "MA191",
@@ -27482,6 +27456,19 @@
       "title": "生産現場で使える原価管理",
       "url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/X6032.html"
     },
+    "69976f0bb33326ac9a16a134a9d6cf0153b8ea86624bf924a195664e39e9ff79": {
+      "code": "9M001",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "69976f0bb33326ac9a16a134a9d6cf0153b8ea86624bf924a195664e39e9ff79",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "5/28（木）,29（金）",
+      "start_date": "2026-05-28",
+      "status_category": "受付中",
+      "title": "切削加工を考慮した機械設計製図",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M001.html"
+    },
     "699aa8d83531ba4020fd14bf9ac848f88118e94808d88cf5948e7f233b19acbf": {
       "code": "KM022",
       "eligible": false,
@@ -27702,6 +27689,19 @@
       "status_category": "受付終了",
       "title": "組込み技術者のためのプログラミング（活用編）",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
+    },
+    "6ab5849456180211dd92f8673640a00f9f4c22474299edbeff882bc570a84e9c": {
+      "code": "9D032",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "6ab5849456180211dd92f8673640a00f9f4c22474299edbeff882bc570a84e9c",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "2/17（水）,18（木）",
+      "start_date": "2027-02-17",
+      "status_category": "受付中",
+      "title": "ＰＬＣ制御の応用技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D032.html"
     },
     "6abe2cbeff4efd2a32dab339e287c7fd58c2d3eae13530a12d778ab201268185": {
       "code": "M005A",
@@ -28222,19 +28222,6 @@
       "status_category": "キャンセル待ち",
       "title": "なぜなぜ分析による真の要因追求と現場改善",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
-    },
-    "6d041e40f2fabcaf9031b0525c4b466075ae31bb288487e4ddbe4dbabb53b7a9": {
-      "code": "9X042",
-      "eligible": true,
-      "facility": "ポリテクセンター松本",
-      "key": "6d041e40f2fabcaf9031b0525c4b466075ae31bb288487e4ddbe4dbabb53b7a9",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "受付中",
-      "schedule": "3/11（木）、12（金）",
-      "start_date": "2027-03-11",
-      "status_category": "受付中",
-      "title": "生産現場で活用するリーダーシップ手法",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X042.html"
     },
     "6d36ee52963dd15ff38cd6a4d25e5bd5075771e5e580ecbbe32cda2226143daf": {
       "code": "E3031",
@@ -29094,18 +29081,18 @@
       "title": "実践建築設計２次元ＣＡＤ技術（Ｊｗ＿ｃａｄ 製図支援編）",
       "url": "https://www3.jeed.go.jp/hokkaido/poly/zaishoku/2026/1H404.html"
     },
-    "6fff9f797eb9a42b0592738754071a49437161161c2e09f41757c8736ba37073": {
-      "code": "9M011",
+    "6ffe99b362720d834de7b4851fa6bfd7d16610f6567e97fc17949876821f781e": {
+      "code": "9M101",
       "eligible": false,
       "facility": "ポリテクセンター松本",
-      "key": "6fff9f797eb9a42b0592738754071a49437161161c2e09f41757c8736ba37073",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/26（木）、27（金）",
-      "start_date": "2026-06-26",
-      "status_category": "受付終了",
-      "title": "各種加工方法を考慮した設計技術（切削加工、特殊加工、板金、溶接編）",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M011.html"
+      "key": "6ffe99b362720d834de7b4851fa6bfd7d16610f6567e97fc17949876821f781e",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "7/7（火）,8（水）,9（木）,10（金）",
+      "start_date": "2026-07-07",
+      "status_category": "受付中",
+      "title": "旋盤加工技術＜外径・内径加工編＞",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M101.html"
     },
     "7006deeefff42be68ee14fcb3804c4854b907dcd3474d7a25ef65ec54b3f63b0": {
       "code": "3M007",
@@ -29340,6 +29327,19 @@
       "status_category": "（空欄）",
       "title": "実践機械製図",
       "url": "https://www3.jeed.go.jp/shimane/poly/zaishoku/2026/3M009.html"
+    },
+    "707a5e091e25f7de8e88fdbe75f552c5fd5e466075efe381cfea5c67416d7470": {
+      "code": "9M521",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "707a5e091e25f7de8e88fdbe75f552c5fd5e466075efe381cfea5c67416d7470",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "キャンセル待ち",
+      "schedule": "7/23（木）,24（金）",
+      "start_date": "2026-07-23",
+      "status_category": "キャンセル待ち",
+      "title": "アルミニウム合金のＴＩＧ溶接技能クリニック",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M521.html"
     },
     "708b5c0cc943587ba7e8b9bf5a61ac0b9feef74c01940632067e066d71423930": {
       "code": "E8002",
@@ -29860,19 +29860,6 @@
       "status_category": "受付中",
       "title": "オブジェクト指向による組込みプログラム開発技術（Ｐｙｔｈｏｎ編）",
       "url": "https://www3.jeed.go.jp/tochigi/poly/zaishoku/2026/240-2.html"
-    },
-    "730556c3f75373f9e0329927c18896ead108c94f2a9b9f6fe8b3e8bdd3da982c": {
-      "code": "9M201",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "730556c3f75373f9e0329927c18896ead108c94f2a9b9f6fe8b3e8bdd3da982c",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/25（水）、26（木）",
-      "start_date": "2026-06-25",
-      "status_category": "受付終了",
-      "title": "精密測定技術＜測定器習得編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M201.html"
     },
     "730f22fbf091ae4d1be3c50c8906027fe48447828a1ce7307d17354ceca98791": {
       "code": "M0072",
@@ -30484,6 +30471,19 @@
       "status_category": "（空欄）",
       "title": "ＰＬＣによる電気空気圧技術 使用機器 三菱ＰＬＣ",
       "url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/E0141.html"
+    },
+    "75c624307195d0a85e24dc26df9b11c607963c134863655874bb133574a25408": {
+      "code": "9D012",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "75c624307195d0a85e24dc26df9b11c607963c134863655874bb133574a25408",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "12/17（木）,18（金）",
+      "start_date": "2026-12-17",
+      "status_category": "受付中",
+      "title": "シーケンス制御による電動機制御技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D012.html"
     },
     "75fc50f38144ad0c7c67350c621ce4b99dfb412ea573b8f62ea2d7b4cfcea50a": {
       "code": "MMZ02",
@@ -32409,6 +32409,19 @@
       "title": "ＰＬＣによるタッチパネル活用技術",
       "url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/A401-014-A.html"
     },
+    "7ddc92af7ce35ef4ab5346cfd62a2c5c83b85163392bc1c0190987bc6ae539d9": {
+      "code": "9M541",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "7ddc92af7ce35ef4ab5346cfd62a2c5c83b85163392bc1c0190987bc6ae539d9",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "10/31（土）,11/1（日）",
+      "start_date": "2026-10-31",
+      "status_category": "受付中",
+      "title": "被覆アーク溶接技能クリニック",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M541.html"
+    },
     "7de728cfbdbbddb27d420054b202de99435ec4c3735439595b901a8704609283": {
       "code": "1H405",
       "eligible": true,
@@ -33578,19 +33591,6 @@
       "status_category": "受付中",
       "title": "ＰＬＣプログラミング技術",
       "url": "https://www3.jeed.go.jp/nobeoka/poly/zaishoku/2026/4D203.html"
-    },
-    "821dc22b19f1b0ac74a1be2b26035981224c32a2138376bdd1de9884a1ca8211": {
-      "code": "9M531",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "821dc22b19f1b0ac74a1be2b26035981224c32a2138376bdd1de9884a1ca8211",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/7（土）、8（日）",
-      "start_date": "2026-06-07",
-      "status_category": "受付終了",
-      "title": "ＡＲシステムを用いた半自動アーク溶接の技能伝承",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M531.html"
     },
     "823af98cb4e4658b15ce9bf498dd81f3fec596009ad840321eba48e655b227ab": {
       "code": "B1122",
@@ -35347,6 +35347,19 @@
       "title": "実習で学ぶ住宅設備技術（電気設備 住宅躯体への工事編）",
       "url": "https://www3.jeed.go.jp/kanagawa/poly/seminar/2026/H2611.html"
     },
+    "8a7be50de0092e787af6e97d822107ebc33414a39dc9eb8342659b1888c13ffd": {
+      "code": "9M031",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "8a7be50de0092e787af6e97d822107ebc33414a39dc9eb8342659b1888c13ffd",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "8/5（水）,6（木）,7（金）",
+      "start_date": "2026-08-05",
+      "status_category": "受付中",
+      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【ＳｏｌｉｄＷｏｒｋｓ】",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M031.html"
+    },
     "8a7f267c465a18be96721794f143edd293296747f139383038a398eff76253a3": {
       "code": "1D711",
       "eligible": true,
@@ -36854,19 +36867,6 @@
       "status_category": "受付終了",
       "title": "ＰＬＣ制御の回路技術（ランプ制御編）",
       "url": "https://www3.jeed.go.jp/hiroshima/poly/zaishoku/2026/E3401.html"
-    },
-    "8feaa8a4f70e3ccc0eb4df25821077dc4f387601576ec9dfb6a148d4d8b55252": {
-      "code": "9X011",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "8feaa8a4f70e3ccc0eb4df25821077dc4f387601576ec9dfb6a148d4d8b55252",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "8/7（木）、8（金）",
-      "start_date": "2026-08-07",
-      "status_category": "受付終了",
-      "title": "生産現場改善手法",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X011.html"
     },
     "90039537642370fd555a6e9942d8d267d828b116c012baffa2578090fa714baa": {
       "code": "IMZ11",
@@ -38467,6 +38467,19 @@
       "title": "２次元ＣＡＤによる機械製図技術",
       "url": "https://www3.jeed.go.jp/hiroshima/poly/zaishoku/2026/P0401.html"
     },
+    "953e08522fa5553d0b509d9f1c057f25307579c679c3d1752df8274b986dcc42": {
+      "code": "9M501",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "953e08522fa5553d0b509d9f1c057f25307579c679c3d1752df8274b986dcc42",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "キャンセル待ち",
+      "schedule": "5/28（木）,29（金）",
+      "start_date": "2026-05-28",
+      "status_category": "キャンセル待ち",
+      "title": "ステンレス鋼のＴＩＧ溶接技能クリニック",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M501.html"
+    },
     "954986d5351339b22a29f11202dd882bbf8d2ea308e363ff37f99579908cdf50": {
       "code": "E6402",
       "eligible": false,
@@ -39715,19 +39728,6 @@
       "title": "アルミニウム合金のＴＩＧ溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/M9161.html"
     },
-    "9b3db01fd36e052f76b0e207863bf2067ef5dc7d06d3fb687361c799ba901daa": {
-      "code": "9M501",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "9b3db01fd36e052f76b0e207863bf2067ef5dc7d06d3fb687361c799ba901daa",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "5/29（木）、30（金）",
-      "start_date": "2026-05-29",
-      "status_category": "受付終了",
-      "title": "ステンレス鋼のＴＩＧ溶接技能クリニック",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M501.html"
-    },
     "9b5864f280c449046b6c12fd3686ee4c92bc3fd3532b471ef280dba2ec9878d9": {
       "code": "H321",
       "eligible": true,
@@ -40066,19 +40066,6 @@
       "title": "センサを活用したＩｏＴアプリケーション開発技術",
       "url": "https://www3.jeed.go.jp/shimane/poly/zaishoku/2026/3D002.html"
     },
-    "9cd2cb0ceaa11d6ff1bce1cbbeaf00887eee3c2294c97a23c5171b4c2aee40e0": {
-      "code": "9D011",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "9cd2cb0ceaa11d6ff1bce1cbbeaf00887eee3c2294c97a23c5171b4c2aee40e0",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/12（木）、13（金）",
-      "start_date": "2026-06-12",
-      "status_category": "受付終了",
-      "title": "シーケンス制御による電動機制御技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D011.html"
-    },
     "9d33653b66a895226a77836595f91295056f64b2751c88c37059d97b601198a8": {
       "code": "4M110",
       "eligible": true,
@@ -40143,6 +40130,19 @@
       "status_category": "受付終了",
       "title": "ＰＬＣ制御の回路技術",
       "url": "https://www3.jeed.go.jp/toyama/poly/zaishoku/2026/3D035.html"
+    },
+    "9d6291c3dac28ec4c4c5b5a97999bdcd3882a2571cf12e535105911981facf9e": {
+      "code": "9M061",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "9d6291c3dac28ec4c4c5b5a97999bdcd3882a2571cf12e535105911981facf9e",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "11/18（水）,19（木）,20（金）",
+      "start_date": "2026-11-18",
+      "status_category": "受付中",
+      "title": "設計に活かす３次元ＣＡＤソリッドモデリング技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M061.html"
     },
     "9d838609f723b91dd2655481e4b506c91ca57547bef50822ba39ec95c25b58ad": {
       "code": "E2121",
@@ -40339,19 +40339,6 @@
       "title": "有接点シーケンス制御の実践技術",
       "url": "https://www3.jeed.go.jp/iizuka/poly/zaishoku/2026/2D031.html"
     },
-    "9e77296c34f3a5203b93c088c9748a8ab6851becf6a1e99394dd8a30e6219892": {
-      "code": "9M521",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "9e77296c34f3a5203b93c088c9748a8ab6851becf6a1e99394dd8a30e6219892",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/24（木）、25（金）",
-      "start_date": "2026-07-24",
-      "status_category": "受付終了",
-      "title": "アルミニウム合金のＴＩＧ溶接技能クリニック",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M521.html"
-    },
     "9e907762f1c3bd71f8b75aa4c3f1b536f3677bfde1ad7ca880445572b3608d16": {
       "code": "FGX11",
       "eligible": false,
@@ -40429,19 +40416,6 @@
       "status_category": "キャンセル待ち",
       "title": "機械設計のための総合力学（機械要素編）",
       "url": "https://www3.jeed.go.jp/hiroshima/poly/zaishoku/2026/P1301.html"
-    },
-    "9f06896c6e9b46025254d38f79e476b8ab4a50f563c768cb1142192fdc62278c": {
-      "code": "9X001",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "9f06896c6e9b46025254d38f79e476b8ab4a50f563c768cb1142192fdc62278c",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "5/21（水）、22（木）",
-      "start_date": "2026-05-21",
-      "status_category": "受付終了",
-      "title": "生産現場に活かす品質管理技法",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X001.html"
     },
     "9f0ec49c36f8784c26e7bf7fb9cf37eefcc136dc7b294f0fce2a62c5bce7d4a8": {
       "code": "9D304",
@@ -41066,6 +41040,19 @@
       "status_category": "（空欄）",
       "title": "現場のための電気保全技術",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/hl52qs00000284xq-att/or3a63000000p6s3.pdf"
+    },
+    "a1bced1d280a8d37b9075644ec9de6e4138196a7b2671b15309ae303b929da5b": {
+      "code": "9X031",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "a1bced1d280a8d37b9075644ec9de6e4138196a7b2671b15309ae303b929da5b",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "5/28（木）,29（金）",
+      "start_date": "2026-05-28",
+      "status_category": "受付中",
+      "title": "５Ｓによるムダ取り・改善の進め方",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X031.html"
     },
     "a1ead7a083e87e91a9513a227f317f8fb6c5e483ced170a77b86c46f7b821cba": {
       "code": "FMB10",
@@ -42185,19 +42172,6 @@
       "title": "実践的ＰＬＣ制御技術＜データ処理命令編＞",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/E322B.html"
     },
-    "a61720d38c2102667b2fdbdc13d128da8e09143de218ee29bb1cdb9649c3ec35": {
-      "code": "9D003",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "a61720d38c2102667b2fdbdc13d128da8e09143de218ee29bb1cdb9649c3ec35",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "11/6（木）、7（金）",
-      "start_date": "2026-11-06",
-      "status_category": "受付終了",
-      "title": "有接点シーケンス制御の実践技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D003.html"
-    },
     "a625b7df12bd2ab33232385596376b5894d56b34b5c91e059d0bddec0e490ec0": {
       "code": "H874",
       "eligible": false,
@@ -42223,19 +42197,6 @@
       "status_category": "キャンセル待ち",
       "title": "生産性向上のための現場管理者の作業指示技法",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
-    },
-    "a628f3556b5b42ff4accc997e6c34ecf79dd0522faaa4fdc522c488a692f1e76": {
-      "code": "9X021",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "a628f3556b5b42ff4accc997e6c34ecf79dd0522faaa4fdc522c488a692f1e76",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "12/3（水）、4（木）、5（金）",
-      "start_date": "2026-12-03",
-      "status_category": "受付終了",
-      "title": "生産現場で使える原価管理",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X021.html"
     },
     "a62af99797dd4d023cfd0b85580065e3f134a94a208a049b0cebde6d231846c8": {
       "code": "P2701",
@@ -42873,19 +42834,6 @@
       "status_category": "受付中",
       "title": "旋盤によるねじ切り加工技術",
       "url": "https://www3.jeed.go.jp/kyoto/poly/zaishoku/2026/P0171.html"
-    },
-    "a8686fcb8abe7298d197c8feb6269e15575b49d7cea157c305a7cee0f0c32a21": {
-      "code": "9D021",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "a8686fcb8abe7298d197c8feb6269e15575b49d7cea157c305a7cee0f0c32a21",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/10（木）、11（金）",
-      "start_date": "2026-07-10",
-      "status_category": "受付終了",
-      "title": "ＰＬＣプログラミング技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D021.html"
     },
     "a88293b76ddba766fbae4bde79d1701eb1f97cf3a2306034ad8b856d9edf1a36": {
       "code": "E6411",
@@ -44343,19 +44291,6 @@
       "title": "精密測定技術<測定器習得編>",
       "url": "https://www3.jeed.go.jp/nagano/poly/zaishoku/2026/8M101.html"
     },
-    "aeea81696e25e664c4f77240ee4b98dc9a6bcb3690963f8bbca20a1b4197dd81": {
-      "code": "9M051",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "aeea81696e25e664c4f77240ee4b98dc9a6bcb3690963f8bbca20a1b4197dd81",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "11/10（月）、11（火）",
-      "start_date": "2026-11-10",
-      "status_category": "受付終了",
-      "title": "３次元ＣＡＤを活用したアセンブリ技術【ＳｏｌｉｄＷｏｒｋｓ】",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M051.html"
-    },
     "aefa49e383fe7e3be7743305b3215014085f1def0aa08039fe480924de9e3486": {
       "code": "X096A",
       "eligible": true,
@@ -45032,19 +44967,6 @@
       "title": "設計に活かす３次元ＣＡＤソリッドモデリング技術",
       "url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/M9024.html"
     },
-    "b1a70770672d49f2ccc7f55a049ed6ac5d8ad75e9d54ec339408ef300cc81134": {
-      "code": "9D012",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "b1a70770672d49f2ccc7f55a049ed6ac5d8ad75e9d54ec339408ef300cc81134",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "12/11（木）、12（金）",
-      "start_date": "2026-12-11",
-      "status_category": "受付終了",
-      "title": "シーケンス制御による電動機制御技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D012.html"
-    },
     "b1bc1c94c40b8f63c26c538def88782a827b6d66899331cd019396cbad1fbf8d": {
       "code": "YMB62",
       "eligible": true,
@@ -45486,19 +45408,6 @@
       "status_category": "お問い合わせ",
       "title": "製造現場で活用するコーチング手法",
       "url": "https://www3.jeed.go.jp/gunma/poly/zaishoku/SZ014.html"
-    },
-    "b3585ed7fd581b93859b0be7ed6d17ba2dbfdb736647aa2dc6420a39a8775cd3": {
-      "code": "9D002",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "b3585ed7fd581b93859b0be7ed6d17ba2dbfdb736647aa2dc6420a39a8775cd3",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "9/11（木）、12（金）",
-      "start_date": "2026-09-11",
-      "status_category": "受付終了",
-      "title": "有接点シーケンス制御の実践技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D002.html"
     },
     "b38243bda3e07214f4160ca1cd7b7027779eb7fe0372f88855aeb0aa305e800c": {
       "code": "1H401",
@@ -46136,6 +46045,19 @@
       "status_category": "受付終了",
       "title": "ＰＬＣプログラミング技術＜ベルトコンベア制御編＞",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/E3271.html"
+    },
+    "b5f15c9ef802c610d38f7cc654fdddd962e8fd941d26f1bc7a532724cf1ae245": {
+      "code": "9M531",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "b5f15c9ef802c610d38f7cc654fdddd962e8fd941d26f1bc7a532724cf1ae245",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "6/6（土）,7（日）",
+      "start_date": "2026-06-06",
+      "status_category": "受付中",
+      "title": "ＡＲシステムを用いた半自動アーク溶接の技能伝承",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M531.html"
     },
     "b5f1e901e87d446f6ab4aa9606f8f922e65961ea56b9ff0a6df418cf636438e0": {
       "code": "1D303",
@@ -47345,19 +47267,6 @@
       "status_category": "受付中",
       "title": "電力監視による省エネルギー対策技術",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
-    },
-    "bafeff9264223950ae1c1c17f7728253ad17cfa7d364b2485f100f87ae87411b": {
-      "code": "9M071",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "bafeff9264223950ae1c1c17f7728253ad17cfa7d364b2485f100f87ae87411b",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "7/10（木）、11（金）",
-      "start_date": "2026-07-10",
-      "status_category": "受付終了",
-      "title": "幾何公差の解釈と活用演習",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M071.html"
     },
     "bb08a5edf398bcb350fe267b6ad6080103b105a665e1f1d59ed529bceaa1d259": {
       "code": "B0472",
@@ -48814,6 +48723,19 @@
       "status_category": "受付中",
       "title": "在来木造住宅設計実践技術",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/H1071.html"
+    },
+    "c132c9627b1bb6fb927668ca904e158ed75ae90e9292ca03a75e0acd1c44ba62": {
+      "code": "9D002",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "c132c9627b1bb6fb927668ca904e158ed75ae90e9292ca03a75e0acd1c44ba62",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "9/3（木）、4（金）",
+      "start_date": "2026-09-03",
+      "status_category": "受付中",
+      "title": "有接点シーケンス制御の実践技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D002.html"
     },
     "c1342f682354cb8458b394b9f40bb82ac0074c54bebad1234b0c343486ef1bbf": {
       "code": "E0101",
@@ -51051,6 +50973,19 @@
       "title": "機械組立仕上げのテクニック",
       "url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/5M201.html"
     },
+    "c91083f61b80399021fa2860d9b0b836f60e6e433f4bfce89e650fb6673fbbaf": {
+      "code": "9M071",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "c91083f61b80399021fa2860d9b0b836f60e6e433f4bfce89e650fb6673fbbaf",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "7/9（木）、10（金）",
+      "start_date": "2026-07-09",
+      "status_category": "受付中",
+      "title": "幾何公差の解釈と活用演習",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M071.html"
+    },
     "c914de48b828daffe12df6a9f7ed0f2ba509d83da60f8cbbe33d2e8585c98881": {
       "code": "E005E",
       "eligible": true,
@@ -51843,6 +51778,19 @@
       "status_category": "（空欄）",
       "title": "実践的ＰＬＣ制御技術（ビット命令編）",
       "url": "https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/e005c.html"
+    },
+    "cc684f1e345c81c0054c42f309b55231e5ef351dcd3909b7625bae15138fd621": {
+      "code": "9D011",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "cc684f1e345c81c0054c42f309b55231e5ef351dcd3909b7625bae15138fd621",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "キャンセル待ち",
+      "schedule": "6/11（木）,12（金）",
+      "start_date": "2026-06-11",
+      "status_category": "キャンセル待ち",
+      "title": "シーケンス制御による電動機制御技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D011.html"
     },
     "cc6f8ed78068c18425395428f410b9b0bb450c81fb74660b79243950daa86b08": {
       "code": "B5011",
@@ -52806,19 +52754,6 @@
       "title": "工具研削実践技術",
       "url": "https://www3.jeed.go.jp/tochigi/poly/zaishoku/2026/129-1.html"
     },
-    "d01ea307095fceaaebc33b1fe0f91668165112a5849ca618da43f1400caf8a17": {
-      "code": "9X041",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "d01ea307095fceaaebc33b1fe0f91668165112a5849ca618da43f1400caf8a17",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/4（水）、5（木）",
-      "start_date": "2026-06-04",
-      "status_category": "受付終了",
-      "title": "生産現場で活用するリーダーシップ手法",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X041.html"
-    },
     "d01f22da27b8944fc5553c7bc4a6d33b2be49de2ae496f1bd28d4887984ad624": {
       "code": "MEX76",
       "eligible": true,
@@ -52948,19 +52883,6 @@
       "status_category": "受付終了",
       "title": "建設業の安全衛生管理",
       "url": "https://www3.jeed.go.jp/tochigi/poly/zaishoku/2026/351-2.html"
-    },
-    "d09d4467fa3ab4fc3af96290ce65946d20e2f2fbcc96d0b2ff4bbb2a7738a446": {
-      "code": "9X031",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "d09d4467fa3ab4fc3af96290ce65946d20e2f2fbcc96d0b2ff4bbb2a7738a446",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/25（水）、26（木）",
-      "start_date": "2026-06-25",
-      "status_category": "受付終了",
-      "title": "５Ｓによるムダ取り・改善の進め方",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9X031.html"
     },
     "d09e116af5e795019ad4bb654ccf0a9f1d9fb2321497061d723cd1c2d6e3ccd5": {
       "code": "M1201",
@@ -54651,6 +54573,19 @@
       "status_category": "受付中",
       "title": "有接点シーケンス制御の実践技術（３日間コース）",
       "url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/5D003.html"
+    },
+    "d79264fc4868b53a765e5045c4e49d9981535df84e909396d3e8b7cd335f4c8d": {
+      "code": "9D021",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "d79264fc4868b53a765e5045c4e49d9981535df84e909396d3e8b7cd335f4c8d",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "キャンセル待ち",
+      "schedule": "7/8（水）、9（木）",
+      "start_date": "2026-07-08",
+      "status_category": "キャンセル待ち",
+      "title": "ＰＬＣプログラミング技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D021.html"
     },
     "d7a46eb5922f19e679ea6cfcaebf709d3cc822a69add52772d15824c94e4dcd5": {
       "code": "8H081",
@@ -56485,19 +56420,6 @@
       "title": "トラブル事例から学ぶ各種管の加工・接合技術",
       "url": "https://www3.jeed.go.jp/akita/poly/zaishoku/2026/4HB11.html"
     },
-    "df3b5c3978cc47867489b564a325a4fddc6dddc146668257006d18de21f53522": {
-      "code": "9M031",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "df3b5c3978cc47867489b564a325a4fddc6dddc146668257006d18de21f53522",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "8/4（月）、5（火）、6（水）",
-      "start_date": "2026-08-04",
-      "status_category": "受付終了",
-      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【ＳｏｌｉｄＷｏｒｋｓ】",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M031.html"
-    },
     "df436fbc02239998a404086fc23aa2bb359d7133bc7825c6522c89298fcc6e4e": {
       "code": "S0502",
       "eligible": true,
@@ -57043,6 +56965,19 @@
       "status_category": "受付中",
       "title": "ＰＬＣプログラミング技術",
       "url": "https://www3.jeed.go.jp/hokkaido/poly/zaishoku/2026/1D304.html"
+    },
+    "e12b47e816b045c4fdeb27c00cfec651a907b54af53dd8090f11192258b2561e": {
+      "code": "9X001",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "e12b47e816b045c4fdeb27c00cfec651a907b54af53dd8090f11192258b2561e",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "10/8（木）,9（金）",
+      "start_date": "2026-10-08",
+      "status_category": "受付中",
+      "title": "生産現場に活かす品質管理技法",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9X001.html"
     },
     "e131e3d1344362ff82acff7d990bd2ec5dad107a8eacfc16168bfbfec03dac3d": {
       "code": "C6075",
@@ -58331,19 +58266,6 @@
       "title": "オープンソースによる画像処理・認識プログラム開発",
       "url": "https://www3.jeed.go.jp/kumamoto/poly/zaishoku/1D051.html"
     },
-    "e6c25875eaad395b5eaa76ec22e47ebc6e8f55efdca113eedd40993a950f2821": {
-      "code": "9D032",
-      "eligible": true,
-      "facility": "ポリテクセンター松本",
-      "key": "e6c25875eaad395b5eaa76ec22e47ebc6e8f55efdca113eedd40993a950f2821",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "受付中",
-      "schedule": "2/12（木）、13（金）",
-      "start_date": "2027-02-12",
-      "status_category": "受付中",
-      "title": "ＰＬＣ制御の応用技術",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9D032.html"
-    },
     "e6c723ecd832c2cb1d811e1d3e023cb292b04805966d943562f29e1b0b04c277": {
       "code": "1M191",
       "eligible": true,
@@ -58578,19 +58500,6 @@
       "title": "マシニングセンタプログラミング技術",
       "url": "https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/IMB61.html"
     },
-    "e798eefad8dd102cc868eb5cbd41a48589fd4897913314de4e5ae092b828c6b8": {
-      "code": "9M061",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "e798eefad8dd102cc868eb5cbd41a48589fd4897913314de4e5ae092b828c6b8",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "11/17（月）、18（火）、19（水）",
-      "start_date": "2026-11-17",
-      "status_category": "受付終了",
-      "title": "設計に活かす３次元ＣＡＤソリッドモデリング技術【Ｆｕｓｉｏｎ３６０】",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M061.html"
-    },
     "e79cbf670cfd23fe05cf61b2acf649cfff80e37ad27fe77963e3e6e73b344b58": {
       "code": "2M006",
       "eligible": false,
@@ -58798,6 +58707,19 @@
       "status_category": "受付中",
       "title": "２次元ＣＡＤによる機械製図技術 《使用ソフト：AutoCAD》",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/C0447.html"
+    },
+    "e8378a691de87bee1914853f723d7ce5c552cfe7df73c5fae1de91cdc48f8ffc": {
+      "code": "9D003",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "e8378a691de87bee1914853f723d7ce5c552cfe7df73c5fae1de91cdc48f8ffc",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "11/5（木）、6（金）",
+      "start_date": "2026-11-05",
+      "status_category": "受付中",
+      "title": "有接点シーケンス制御の実践技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9D003.html"
     },
     "e842ce9cd275cc3e846a1628adf9199ac9b8fbf5ac60980759f347acf3a1cdd7": {
       "code": "3M061",
@@ -59253,6 +59175,19 @@
       "status_category": "中止",
       "title": "ディジタル回路設計技術",
       "url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/E5051.html"
+    },
+    "ea03d22354a12cd62595f304e8a93e2835eae8442cd3ec27e9dad309b91b7ac8": {
+      "code": "9M502",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "ea03d22354a12cd62595f304e8a93e2835eae8442cd3ec27e9dad309b91b7ac8",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "12/10（木）,11（金）",
+      "start_date": "2026-12-10",
+      "status_category": "受付中",
+      "title": "ステンレス鋼のＴＩＧ溶接技能クリニック",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M502.html"
     },
     "ea16ce2a1cba88f334d5367f758ec32fd5d300e6c3783f658a90e34c2f1f6805": {
       "code": "W0401",
@@ -59852,6 +59787,19 @@
       "title": "ＮＣ旋盤加工技術",
       "url": "https://www3.jeed.go.jp/fukushima/poly/zaishoku/2026/FMB06.html"
     },
+    "ec3667c3a612b97d882098f8d610cbc2b8980ee1e4089f5821001a58af734a99": {
+      "code": "9M041",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "ec3667c3a612b97d882098f8d610cbc2b8980ee1e4089f5821001a58af734a99",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "8/24（月）,25（火）,26（水）",
+      "start_date": "2026-08-24",
+      "status_category": "受付中",
+      "title": "３次元ＣＡＤを活用したソリッドモデリング技術【Ｆｕｓｉｏｎ３６０】",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M041.html"
+    },
     "ec5a205417c852ad934929d2995fb878f119fdaf6f5f4469cb264a4f524ab476": {
       "code": "M0811",
       "eligible": false,
@@ -59890,6 +59838,19 @@
       "status_category": "受付終了",
       "title": "＜最新JISを学ぶ＞実践機械製図",
       "url": "https://www3.jeed.go.jp/miyagi/poly/zaishoku/2026/MMA01.html"
+    },
+    "ecde13c71e7c408b775083ef7c65033e909e32fc56049e43b62d0d06a277fb7b": {
+      "code": "9M131",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "ecde13c71e7c408b775083ef7c65033e909e32fc56049e43b62d0d06a277fb7b",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "9/7（月）,8（火）,9（水）,10（木）",
+      "start_date": "2026-09-07",
+      "status_category": "受付中",
+      "title": "マシニングセンタプログラミング技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M131.html"
     },
     "ece387b33b26ce4765ae049ed23875753a7159f87665dd31a895c974889bd617": {
       "code": "4M304",
@@ -61152,19 +61113,6 @@
       "title": "実践建築設計２次元ＣＡＤ技術（建築図編）",
       "url": "https://www3.jeed.go.jp/fukushima/poly/zaishoku/2026/FHA08.html"
     },
-    "f16c817cecbb8e1e004f641ae77d9605a25c8ef993861fbbc6dd50bfec106421": {
-      "code": "9M121",
-      "eligible": false,
-      "facility": "ポリテクセンター松本",
-      "key": "f16c817cecbb8e1e004f641ae77d9605a25c8ef993861fbbc6dd50bfec106421",
-      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
-      "raw_status": "終了",
-      "schedule": "6/16（月）、17（火）、18（水）、19（木）",
-      "start_date": "2026-06-16",
-      "status_category": "受付終了",
-      "title": "ＮＣ旋盤プログラミング技術＜ＦＡＮＵＣ編＞",
-      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/9M121.html"
-    },
     "f1772f33ca9a7502a38b254207238bc3a746ded6b98952c8559888a68aba92ca": {
       "code": "3D010",
       "eligible": true,
@@ -61723,6 +61671,19 @@
       "status_category": "受付終了",
       "title": "機械の電気保全技術",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/B0053.html"
+    },
+    "f35ed260250f0c85253df93d9ce54358d83616db0668c4d0475c9d524153a187": {
+      "code": "9M021",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "f35ed260250f0c85253df93d9ce54358d83616db0668c4d0475c9d524153a187",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "7/29（水）,30（木）,31（金）",
+      "start_date": "2026-07-29",
+      "status_category": "受付中",
+      "title": "２次元ＣＡＤによる機械設計技術（コマンド習得編）",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M021.html"
     },
     "f36ce38a835f5fa436a2b8b6a4986ee3649ece986a649f9a3abeed353b684e95": {
       "code": "MEX77",
@@ -64103,6 +64064,19 @@
       "title": "半自動アーク溶接技能クリニック（２日間）",
       "url": "https://www3.jeed.go.jp/fukushima/poly/zaishoku/2026/FMB13.html"
     },
+    "fb9bef82e5a9800295a4713b5d56238989948ba5506eaf36f8e990172d069ee7": {
+      "code": "9M081",
+      "eligible": false,
+      "facility": "ポリテクセンター松本",
+      "key": "fb9bef82e5a9800295a4713b5d56238989948ba5506eaf36f8e990172d069ee7",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "7/16（木）,17（金）",
+      "start_date": "2026-07-16",
+      "status_category": "受付中",
+      "title": "最大実体公差方式の解釈と活用演習",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M081.html"
+    },
     "fba8948c9cfa53c9b378f6b2513857efdf13fa7cbd46bc67a1e962c3ffbaf8bb": {
       "code": "6M112",
       "eligible": false,
@@ -65195,6 +65169,19 @@
       "title": "精密測定技術",
       "url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/AMD11.html"
     },
+    "ff8791dddb3bbd1dba626686c5242b1c28748f48224d0d2eab074a5f0c871167": {
+      "code": "9M511",
+      "eligible": true,
+      "facility": "ポリテクセンター松本",
+      "key": "ff8791dddb3bbd1dba626686c5242b1c28748f48224d0d2eab074a5f0c871167",
+      "list_url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
+      "raw_status": "受付中",
+      "schedule": "10/22（木）,23（金）",
+      "start_date": "2026-10-22",
+      "status_category": "受付中",
+      "title": "パルスＴＩＧ溶接実践技術",
+      "url": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/9M511.html"
+    },
     "ff9cb4546c8455684bb810a39d7188743907f7b236f07dda547675b4c21be1de": {
       "code": "H0132",
       "eligible": true,
@@ -65374,7 +65361,7 @@
     "ポリテクセンター愛媛": "https://www3.jeed.go.jp/ehime/poly/seminar/2026/index3.html",
     "ポリテクセンター新潟": "https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/index3.html",
     "ポリテクセンター旭川": "https://www3.jeed.go.jp/asahikawa/poly/zaisyoku/2026/index3.html",
-    "ポリテクセンター松本": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/2025/index3.html",
+    "ポリテクセンター松本": "https://www3.jeed.go.jp/matsumoto/poly/zaishoku/_2026/or3a630000001x3n.html",
     "ポリテクセンター栃木": "https://www3.jeed.go.jp/tochigi/poly/zaishoku/index3.html",
     "ポリテクセンター沖縄": "https://www3.jeed.go.jp/okinawa/poly/zaishoku/2026/copy_of_index3.html",
     "ポリテクセンター滋賀": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/index3.html",
