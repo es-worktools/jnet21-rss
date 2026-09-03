@@ -33,4 +33,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add kiis-seminar.xml
           git diff --cached --quiet || git commit -m "Update KIIS Seminar RSS"
-          git push
+          git pull --rebase origin main
+          git push origin main
