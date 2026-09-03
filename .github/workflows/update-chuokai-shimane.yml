@@ -2,7 +2,7 @@ name: Update Chuokai Shimane RSS
 
 on:
   schedule:
-    - cron: "40 */6 * * *"
+    - cron: "40 21 * * *"
   workflow_dispatch:
 
 permissions:
