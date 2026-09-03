@@ -3,7 +3,7 @@ name: Update Chuokai Gifu RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 */6 * * *"
+    - cron: "10 21 * * *"
 
 permissions:
   contents: write
