@@ -171,10 +171,36 @@ def get_facilities():
     return facilities
 
 
-def same_host(url1, url2):
-    return (
-        urlparse(url1).hostname
-        == urlparse(url2).hostname
+def same_facility_scope(home_url, candidate_url):
+    home = urlparse(home_url)
+    candidate = urlparse(candidate_url)
+
+    if home.hostname != candidate.hostname:
+        return False
+
+    home_parts = [
+        part
+        for part in home.path.split("/")
+        if part
+    ]
+
+    candidate_parts = [
+        part
+        for part in candidate.path.split("/")
+        if part
+    ]
+
+    # JEEDの各施設は原則
+    # /地域/poly/ 配下にあるため、
+    # 先頭2階層が同じ施設だけを許可する。
+    if len(home_parts) >= 2:
+        return (
+            candidate_parts[:2]
+            == home_parts[:2]
+        )
+
+    return candidate.path.startswith(
+        home.path.rstrip("/") + "/"
     )
 
 
@@ -352,14 +378,27 @@ def discover_course_list(
     home_url,
     cached_url=None,
 ):
-    # 前回成功したURLを最優先
-    if cached_url:
+    # 前回成功したURLを最優先。
+    # ただし別施設ディレクトリは再利用しない。
+    if (
+        cached_url
+        and same_facility_scope(
+            home_url,
+            cached_url,
+        )
+    ):
         try:
             final_url, soup = get_soup(
                 cached_url
             )
 
-            if page_score(soup) >= 5:
+            if (
+                same_facility_scope(
+                    home_url,
+                    final_url,
+                )
+                and page_score(soup) >= 5
+            ):
                 return (
                     final_url,
                     soup,
@@ -367,7 +406,6 @@ def discover_course_list(
                 )
         except Exception:
             pass
-
     final_home_url, home_soup = (
         get_soup(home_url)
     )
@@ -390,7 +428,7 @@ def discover_course_list(
             link["href"],
         )
 
-        if not same_host(
+        if not same_facility_scope(
             final_home_url,
             href,
         ):
@@ -469,6 +507,12 @@ def discover_course_list(
         except Exception:
             continue
 
+        if not same_facility_scope(
+            final_home_url,
+            final_url,
+        ):
+            continue
+
         score = page_score(soup)
 
         if score > best_score:
@@ -497,8 +541,8 @@ def discover_course_list(
                 link["href"],
             )
 
-            if not same_host(
-                final_url,
+            if not same_facility_scope(
+                final_home_url,
                 href,
             ):
                 continue
@@ -1908,6 +1952,7 @@ current_lists = dict(
 successful_facilities = set()
 failed_facilities = []
 
+rebased_facilities = set()
 unknown_counter = Counter()
 category_counter = Counter()
 
@@ -1926,13 +1971,31 @@ for facility in facilities:
         continue
 
     try:
+        cached_url = previous_lists.get(
+            name
+        )
+
+        if (
+            cached_url
+            and not same_facility_scope(
+                home_url,
+                cached_url,
+            )
+        ):
+            # 過去に別施設の一覧URLを誤採用していた場合、
+            # 正しい施設を基準として再構築する。
+            rebased_facilities.add(
+                name
+            )
+            cached_url = None
+
         (
             list_url,
             list_soup,
             score,
         ) = discover_course_list(
             home_url,
-            previous_lists.get(name),
+            cached_url,
         )
 
         if not list_url:
@@ -2136,6 +2199,15 @@ else:
         previous = (
             previous_courses.get(key)
         )
+
+        # 誤った施設URLを修正した回は、
+        # 現在掲載中の既存コースを
+        # 新着として大量通知しない。
+        if (
+            course["facility"]
+            in rebased_facilities
+        ):
+            continue
 
         # 新規コース
         if previous is None:
