@@ -3,7 +3,7 @@ name: Update NIPC RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 */6 * * *"
+    - cron: "15 21 * * *"
 
 permissions:
   contents: write

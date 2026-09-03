@@ -3,7 +3,7 @@ name: Update Tochigi RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "45 */6 * * *"
+    - cron: "45 21 * * *"
 
 permissions:
   contents: write

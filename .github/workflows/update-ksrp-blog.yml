@@ -3,7 +3,7 @@ name: Update KSRP Blog RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "50 */6 * * *"
+    - cron: "50 21 * * *"
 
 permissions:
   contents: write

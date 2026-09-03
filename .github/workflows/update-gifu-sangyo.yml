@@ -2,7 +2,7 @@ name: Update Gifu Sangyo RSS
 
 on:
   schedule:
-    - cron: "50 */6 * * *"
+    - cron: "50 21 * * *"
   workflow_dispatch:
 
 permissions:
