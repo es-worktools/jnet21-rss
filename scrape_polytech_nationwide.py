@@ -1335,6 +1335,48 @@ def make_course_key(
         base.encode("utf-8")
     ).hexdigest()
 
+def get_candidate_course_codes(soup):
+    codes = set()
+
+    for table in soup.find_all("table"):
+        indices = table_indices(
+            table
+        )
+
+        # コース一覧らしい表だけ確認
+        if (
+            indices["code"] is None
+            and indices["title"] is None
+            and indices["date"] is None
+        ):
+            continue
+
+        for row in table.find_all("tr"):
+            cells = row.find_all(
+                [
+                    "td",
+                    "th",
+                ]
+            )
+
+            if len(cells) < 2:
+                continue
+
+            texts = [
+                cell_text(cell)
+                for cell in cells
+            ]
+
+            code = extract_course_code(
+                texts,
+                indices["code"],
+            )
+
+            if code:
+                codes.add(code)
+
+    return codes
+
 
 def inspect_course_list(
     facility_name,
@@ -1984,6 +2026,7 @@ failed_facilities = []
 rebased_facilities = set()
 unknown_counter = Counter()
 category_counter = Counter()
+coverage_warnings = []
 
 
 for facility in facilities:
@@ -2042,6 +2085,40 @@ for facility in facilities:
             list_url,
             list_soup,
         )
+
+        candidate_codes = (
+            get_candidate_course_codes(
+                list_soup
+            )
+        )
+
+        extracted_codes = {
+            course["code"]
+            for course in courses
+            if course["code"]
+        }
+
+        missing_codes = sorted(
+            candidate_codes
+            - extracted_codes
+        )
+
+        if missing_codes:
+            coverage_warnings.append(
+                {
+                    "facility": name,
+                    "candidate_count": len(
+                        candidate_codes
+                    ),
+                    "extracted_count": len(
+                        extracted_codes
+                    ),
+                    "missing_codes": (
+                        missing_codes
+                    ),
+                    "list_url": list_url,
+                }
+            )
 
         if not courses:
             page_title = ""
@@ -2419,6 +2496,32 @@ else:
             name,
             "|",
             error,
+        )
+
+
+print()
+print("=" * 70)
+print("COVERAGE WARNINGS")
+print("=" * 70)
+
+if not coverage_warnings:
+    print("なし")
+else:
+    for warning in coverage_warnings:
+        print(
+            warning["facility"],
+            "| 候補:",
+            warning["candidate_count"],
+            "| 取得:",
+            warning["extracted_count"],
+            "| 未取得コード:",
+            ",".join(
+                warning["missing_codes"][
+                    :20
+                ]
+            ),
+            "|",
+            warning["list_url"],
         )
 
 
