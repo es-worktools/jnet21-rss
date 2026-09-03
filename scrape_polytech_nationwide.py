@@ -204,6 +204,24 @@ def same_facility_scope(home_url, candidate_url):
     )
 
 
+def is_current_fiscal_url(url):
+    years = {
+        int(year)
+        for year in re.findall(
+            r"(?<!\d)(20\d{2})(?!\d)",
+            urlparse(url).path,
+        )
+    }
+
+    # URLに年度が含まれない施設は許可
+    if not years:
+        return True
+
+    # 年度が明記されている場合は
+    # 現在の年度だけ許可
+    return FISCAL_YEAR in years
+
+
 def discovery_link_score(
     text,
     href,
@@ -386,6 +404,9 @@ def discover_course_list(
             home_url,
             cached_url,
         )
+        and is_current_fiscal_url(
+            cached_url
+        )
     ):
         try:
             final_url, soup = get_soup(
@@ -396,6 +417,9 @@ def discover_course_list(
                 same_facility_scope(
                     home_url,
                     final_url,
+                )
+                and is_current_fiscal_url(
+                    final_url
                 )
                 and page_score(soup) >= 5
             ):
@@ -510,6 +534,11 @@ def discover_course_list(
         if not same_facility_scope(
             final_home_url,
             final_url,
+        ):
+            continue
+
+        if not is_current_fiscal_url(
+            final_url
         ):
             continue
 
@@ -1977,9 +2006,14 @@ for facility in facilities:
 
         if (
             cached_url
-            and not same_facility_scope(
-                home_url,
-                cached_url,
+            and (
+                not same_facility_scope(
+                    home_url,
+                    cached_url,
+                )
+                or not is_current_fiscal_url(
+                    cached_url
+                )
             )
         ):
             # 過去に別施設の一覧URLを誤採用していた場合、
@@ -2158,9 +2192,8 @@ new_notifications = []
 
 
 if first_run:
-    # 初回は全件通知せず、
-    # 現在受付対象のうち
-    # 開催日の近い30件だけ初期表示。
+    # 初回は既存コースをRSS通知しない。
+    # 既存分はCSVで確認する。
     eligible_courses = [
         course
         for course
