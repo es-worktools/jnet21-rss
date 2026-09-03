@@ -2,7 +2,7 @@ name: Update Kansai METI Subsidy RSS
 
 on:
   schedule:
-    - cron: "20 */6 * * *"
+    - cron: "20 */12 * * *"
   workflow_dispatch:
 
 permissions:

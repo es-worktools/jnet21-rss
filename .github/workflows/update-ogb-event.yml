@@ -2,7 +2,7 @@ name: Update OGB Event RSS
 
 on:
   schedule:
-    - cron: "35 */6 * * *"
+    - cron: "35 */12 * * *"
   workflow_dispatch:
 
 permissions:

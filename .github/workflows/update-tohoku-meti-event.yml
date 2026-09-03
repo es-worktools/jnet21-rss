@@ -2,7 +2,7 @@ name: Update Tohoku METI Event RSS
 
 on:
   schedule:
-    - cron: "15 */6 * * *"
+    - cron: "15 */12 * * *"
   workflow_dispatch:
 
 permissions:

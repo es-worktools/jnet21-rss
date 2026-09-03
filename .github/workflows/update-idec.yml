@@ -3,7 +3,7 @@ name: Update IDEC RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "45 */6 * * *"
+    - cron: "45 */12 * * *"
 
 permissions:
   contents: write

@@ -2,7 +2,7 @@ name: Update KIIS Seminar RSS
 
 on:
   schedule:
-    - cron: "30 */6 * * *"
+    - cron: "30 */12 * * *"
   workflow_dispatch:
 
 permissions:

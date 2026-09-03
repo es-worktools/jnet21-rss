@@ -2,7 +2,7 @@ name: Update MAFF Hozyo RSS
 
 on:
   schedule:
-    - cron: "40 */6 * * *"
+    - cron: "40 */12 * * *"
   workflow_dispatch:
 
 permissions:
