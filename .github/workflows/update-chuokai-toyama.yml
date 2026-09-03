@@ -2,7 +2,7 @@ name: Update Chuokai Toyama RSS
 
 on:
   schedule:
-    - cron: "20 */6 * * *"
+    - cron: "20 21 * * *"
   workflow_dispatch:
 
 permissions:
