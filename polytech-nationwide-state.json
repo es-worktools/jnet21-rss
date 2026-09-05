@@ -21177,19 +21177,6 @@
       "title": "ＰＬＣプログラミング技術《使用言語：ＳＴ言語》",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/B0161.html"
     },
-    "526617111d0eb34cc92e280b585d7c4520751b4a6e4e88068489cc6f066fe349": {
-      "code": "5M143",
-      "eligible": true,
-      "facility": "ポリテクセンター鹿児島",
-      "key": "526617111d0eb34cc92e280b585d7c4520751b4a6e4e88068489cc6f066fe349",
-      "list_url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
-      "schedule": "9/11(金)、9/12(土)",
-      "start_date": "2026-09-11",
-      "status_category": "受付中",
-      "title": "ステンレス鋼のＴＩＧ溶接技能クリニック（下向き溶接編）",
-      "url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/5M143.html"
-    },
     "52a296a2c23a72ce007d30152a7650f71fe70e85a2b3607e6296119c45a866c1": {
       "code": "E4111",
       "eligible": false,
@@ -39743,7 +39730,7 @@
     },
     "9b63d33b11928a51c3d07deffc7de2437b8922205c78a5873430a9319e350e36": {
       "code": "2H003",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター米子",
       "key": "9b63d33b11928a51c3d07deffc7de2437b8922205c78a5873430a9319e350e36",
       "list_url": "https://www3.jeed.go.jp/yonago/poly/zaishoku/index3.html",
@@ -56292,7 +56279,7 @@
     },
     "dea02adf018c9d92b52e25850e0a7047528236a3f294053eefb5f221c7a85ccf": {
       "code": "1H161",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター熊本",
       "key": "dea02adf018c9d92b52e25850e0a7047528236a3f294053eefb5f221c7a85ccf",
       "list_url": "https://www3.jeed.go.jp/kumamoto/poly/zaishoku/index3.html",
