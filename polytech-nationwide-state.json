@@ -25213,7 +25213,7 @@
       "facility": "ポリテクセンター関東",
       "key": "62094cb4266add06506b27b40dcdd6c1a022bdf6682e6219780abddd5265007a",
       "list_url": "https://www3.jeed.go.jp/kanagawa/poly/seminar/2026/index3.html",
-      "raw_status": "受付を終了しました",
+      "raw_status": "終了しました",
       "schedule": "9/9,10",
       "start_date": "2026-09-09",
       "status_category": "受付終了",
@@ -31956,7 +31956,7 @@
     },
     "7c17fe497194813e62731ea2439e92f9f8db92ac7afde37d80365a775c70b79d": {
       "code": "IMBI1",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンターいわき",
       "key": "7c17fe497194813e62731ea2439e92f9f8db92ac7afde37d80365a775c70b79d",
       "list_url": "https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/index3.html",
@@ -32801,7 +32801,7 @@
     },
     "7f1c7449c48aa2be202cdd48289aa2af5f406cf12f6f4dcf1bbd08e2c40485e2": {
       "code": "E001D",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター埼玉",
       "key": "7f1c7449c48aa2be202cdd48289aa2af5f406cf12f6f4dcf1bbd08e2c40485e2",
       "list_url": "https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/index_month.html",
@@ -37793,7 +37793,7 @@
     },
     "92b32163950b59cf8f5e070301f418f0e77018e2a5c421652830ab917a833ef5": {
       "code": "EA015",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター群馬",
       "key": "92b32163950b59cf8f5e070301f418f0e77018e2a5c421652830ab917a833ef5",
       "list_url": "https://www3.jeed.go.jp/gunma/poly/zaishoku/index3.html",
@@ -37975,7 +37975,7 @@
     },
     "933825da8ee80289e9457c3f8feeb5b37849e2ee7bd86e684e5255ff7337a941": {
       "code": "YMD02",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山形",
       "key": "933825da8ee80289e9457c3f8feeb5b37849e2ee7bd86e684e5255ff7337a941",
       "list_url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/index3.html",
@@ -41225,7 +41225,7 @@
     },
     "a241336de65acff574fb2e71a1554efc2e6992ea6488ac31d3ebaa060393b174": {
       "code": "2M008",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター荒尾",
       "key": "a241336de65acff574fb2e71a1554efc2e6992ea6488ac31d3ebaa060393b174",
       "list_url": "https://www3.jeed.go.jp/arao/poly/zaishoku/2026/index3.html",
@@ -42304,7 +42304,7 @@
     },
     "a6562fd6e7951aeaf42ddd4bd144070472004b5c9d49a5665220dd649a89cb54": {
       "code": "1H091",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター福岡",
       "key": "a6562fd6e7951aeaf42ddd4bd144070472004b5c9d49a5665220dd649a89cb54",
       "list_url": "https://www3.jeed.go.jp/fukuoka/poly/zaishoku/2026/index3.html",
@@ -45151,7 +45151,7 @@
     },
     "b208c191913162d23755bba0ee4550c01d5d08979ad8b4650eb6aaa92a3c98d7": {
       "code": "6D021",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター三重",
       "key": "b208c191913162d23755bba0ee4550c01d5d08979ad8b4650eb6aaa92a3c98d7",
       "list_url": "https://www3.jeed.go.jp/mie/poly/zaishoku/2026/index3.html",
@@ -45688,7 +45688,7 @@
       "facility": "ポリテクセンター関東",
       "key": "b46db8c6fba72193bd2b3f4580a77d3d4432b2f95c78b120e2a0a93815c9030b",
       "list_url": "https://www3.jeed.go.jp/kanagawa/poly/seminar/2026/index3.html",
-      "raw_status": "受付を終了しました",
+      "raw_status": "終了しました",
       "schedule": "9/9,10,11",
       "start_date": "2026-09-09",
       "status_category": "受付終了",
@@ -47595,7 +47595,7 @@
     },
     "bc05a7981bd61ddc205254595ac1c2d05eec8163e7ed8f391b0541ad4f7f63d0": {
       "code": "2D003",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター荒尾",
       "key": "bc05a7981bd61ddc205254595ac1c2d05eec8163e7ed8f391b0541ad4f7f63d0",
       "list_url": "https://www3.jeed.go.jp/arao/poly/zaishoku/2026/index3.html",
@@ -49974,7 +49974,7 @@
     },
     "c5598111eadbee34c3ed968265d786b760a3b7c27b859e3344708b287754d622": {
       "code": "E5091",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター滋賀",
       "key": "c5598111eadbee34c3ed968265d786b760a3b7c27b859e3344708b287754d622",
       "list_url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/index3.html",
@@ -50702,7 +50702,7 @@
     },
     "c7d4791639916c3b567ae1eb4a4b14192b9aaa4d79f9bbf50e887ef3521811fe": {
       "code": "MA132",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター群馬",
       "key": "c7d4791639916c3b567ae1eb4a4b14192b9aaa4d79f9bbf50e887ef3521811fe",
       "list_url": "https://www3.jeed.go.jp/gunma/poly/zaishoku/index3.html",
@@ -54008,10 +54008,10 @@
       "facility": "ポリテクセンター山形",
       "key": "d485f83aa79623be1549057c23caa7eb37c72f9acb593496e0aa23ad587e8531",
       "list_url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/index3.html",
-      "raw_status": "申込締切日令和8年9月7日",
+      "raw_status": "中止",
       "schedule": "令和8年9月26日土曜日、令和8年9月27日日曜日",
       "start_date": "2026-09-26",
-      "status_category": "申込締切日",
+      "status_category": "中止",
       "title": "実践建築設計３次元ＣＡＤ技術",
       "url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/A804-003-A-3.html"
     },
@@ -54498,7 +54498,7 @@
     },
     "d6fb5ce58e30b7954b0583e5ac2f8417ad7551a75c44c477f269b4b42df53015": {
       "code": "1M092",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター徳島",
       "key": "d6fb5ce58e30b7954b0583e5ac2f8417ad7551a75c44c477f269b4b42df53015",
       "list_url": "https://www3.jeed.go.jp/tokushima/poly/zaishoku/2026/index3.html",
@@ -55551,14 +55551,14 @@
     },
     "db3f484f08482bfd9fde2f931bdb3f236e79f619201d20d02a0493b67e5914eb": {
       "code": "AEX01",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター会津",
       "key": "db3f484f08482bfd9fde2f931bdb3f236e79f619201d20d02a0493b67e5914eb",
       "list_url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/index3.htm",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "9/17(木)・18(金)",
       "start_date": "2026-09-17",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "電気系保全実践技術",
       "url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/AEX01.html"
     },
@@ -55642,14 +55642,14 @@
     },
     "dbd0a5569436d88872233f8a218abc99742f99b4efc13fc8b8bd19fd7c7f9c95": {
       "code": "W02B",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山梨",
       "key": "dbd0a5569436d88872233f8a218abc99742f99b4efc13fc8b8bd19fd7c7f9c95",
       "list_url": "https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "9/16(水)、17(木)",
       "start_date": "2026-09-16",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "ＴＩＧ溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/W02B.html"
     },
@@ -60907,7 +60907,7 @@
     },
     "f079060889b7dfbbddaecfa8a5de868872064b6af0e9ef043bea010fb25f2d04": {
       "code": "1D601",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター福岡",
       "key": "f079060889b7dfbbddaecfa8a5de868872064b6af0e9ef043bea010fb25f2d04",
       "list_url": "https://www3.jeed.go.jp/fukuoka/poly/zaishoku/2026/index3.html",
@@ -63091,7 +63091,7 @@
     },
     "f7e8846eec707923b46c783c73efee04198a38719ba31008b24d8489f78cc406": {
       "code": "1D012",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター新潟",
       "key": "f7e8846eec707923b46c783c73efee04198a38719ba31008b24d8489f78cc406",
       "list_url": "https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/index3.html",

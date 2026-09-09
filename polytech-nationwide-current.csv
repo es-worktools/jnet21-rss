@@ -1,16 +1,4 @@
 ﻿施設名,コース番号,セミナー名,開催開始日,日程,受付状況,受付判定,URL
-ポリテクセンターいわき,IMBI1,被覆アーク溶接技能クリニック（３日間コース）,2026-09-09,9/9（水）、9/10（木），9/11（金）,受付中,受付中,https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/IMBI1.html
-ポリテクセンター三重,6D021,電子回路の計測技術,2026-09-09,"9/9,9/10",記載なし,（空欄）,https://www3.jeed.go.jp/mie/poly/zaishoku/2026/6D021.html
-ポリテクセンター埼玉,E001D,有接点シーケンス制御の実践技術,2026-09-09,"9/9,10",─,（空欄）,https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/e001d.html
-ポリテクセンター徳島,1M092,精密測定技術,2026-09-09,9/9(水)、9/10(木),受付中,受付中,https://www3.jeed.go.jp/tokushima/poly/zaishoku/2026/1M092.html
-ポリテクセンター新潟,1D012,現場のための電気保全技術,2026-09-09,"9/9,10,11",記載なし,（空欄）,https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/1D012.html
-ポリテクセンター滋賀,E5091,シーケンス制御による電動機制御技術,2026-09-09,"9/9,10",残席僅少,残りわずか,https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/E5091.html
-ポリテクセンター福岡,1D601,オブジェクト指向による組込みプログラム開発技術,2026-09-09,"9/9(水),10(木)",受付中,受付中,https://www3.jeed.go.jp/fukuoka/poly/zaishoku/2026/1D601.html
-ポリテクセンター福岡,1H091,ＢＩＭを用いた建築設計技術,2026-09-09,9/9(水)、10(木),受付中,受付中,https://www3.jeed.go.jp/fukuoka/poly/zaishoku/2026/1H091.html
-ポリテクセンター群馬,EA015,有接点シーケンス制御の実践技術,2026-09-09,"2026/9/9(水),10(木)",お問い合わせ下さい,お問い合わせ,https://www3.jeed.go.jp/gunma/poly/zaishoku/EA015.html
-ポリテクセンター群馬,MA132,３次元ＣＡＤを活用したアセンブリ技術＜SOLIDWORKS編＞,2026-09-09,"2026/9/9(水),10(木)",お問い合わせ下さい,お問い合わせ,https://www3.jeed.go.jp/gunma/poly/zaishoku/MA132.html
-ポリテクセンター荒尾,2M008,実践機械製図,2026-09-09,"9/9(水),9/10(木),9/11(金)",受付中,受付中,https://www3.jeed.go.jp/arao/poly/zaishoku/2026/2M008.html
-ポリテクセンター荒尾,2D003,ＰＬＣ制御の回路技術,2026-09-09,"9/9(水),9/10(木)",受付中,受付中,https://www3.jeed.go.jp/arao/poly/zaishoku/2026/2D003.html
 ポリテクセンターいわき,IEX61,高圧電気設備の保守点検技術（応用編）【セットコース】,2026-09-10,9/10 (木)，9/11 (金),受付中,受付中,https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/IEX61.html
 ポリテクセンター埼玉,W001A,被覆アーク溶接技能クリニック,2026-09-10,"9/10,11",─,（空欄）,https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/w001a.html
 ポリテクセンター埼玉,E043B,製造現場におけるLAN活用技術（TCP/IP編）,2026-09-10,"9/10,11",─,（空欄）,https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/e043b.html
@@ -58,7 +46,6 @@
 ポリテクセンター埼玉,E005B,実践的ＰＬＣ制御技術（ビット命令編）,2026-09-16,"9/16,17",─,（空欄）,https://www3.jeed.go.jp/saitama/poly/worker/seminar/2026/e005b.html
 ポリテクセンター大分,7D104,高圧電気設備の保守点検技術,2026-09-16,"9月16日(水),9月17日(木)",受付中,受付中,https://www3.jeed.go.jp/oita/poly/zaishoku/2026/7D104.html
 ポリテクセンター奈良,H705,ＢＩＭを用いた建築設計技術,2026-09-16,9/16(水)、17(木),受付中,受付中,https://www3.jeed.go.jp/nara/poly/zaishoku/2026/H705.html
-ポリテクセンター山梨,W02B,ＴＩＧ溶接技能クリニック,2026-09-16,9/16(水)、17(木),受付中,受付中,https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/W02B.html
 ポリテクセンター延岡,4D202,シーケンス制御による電動機制御技術,2026-09-16,"9/16(水),9/17(木)",受付中,受付中,https://www3.jeed.go.jp/nobeoka/poly/zaishoku/2026/4D202.html
 ポリテクセンター愛媛,4M171,切削加工を考慮した機械設計製図,2026-09-16,"9/16(水),17(木）",受付中,受付中,https://www3.jeed.go.jp/ehime/poly/seminar/2026/4M171.html
 ポリテクセンター愛媛,4D052,ＰＬＣ制御の回路技術,2026-09-16,"9/16(水),17(木)",受付中,受付中,https://www3.jeed.go.jp/ehime/poly/seminar/2026/4D052.html
@@ -69,7 +56,6 @@
 ポリテクセンター群馬,MA091,２次元ＣＡＤによる機械製図技術（環境設定編）＜AutoCAD編＞,2026-09-16,"2026/9/16(水),17(木)",お問い合わせ下さい,お問い合わせ,https://www3.jeed.go.jp/gunma/poly/zaishoku/MA091.html
 ポリテクセンター釧路,5D031,ＰＬＣによる電動機制御の実務,2026-09-16,9/16（水），17（木）,記載なし,（空欄）,https://www3.jeed.go.jp/kushiro/poly/zaishoku/2026/5D031.html
 ポリテクセンターいわき,IMBH1,被覆アーク溶接技能クリニック（２日間コース）,2026-09-17,9/17(木)、9/18(金),受付中,受付中,https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/IMBH1.html
-ポリテクセンター会津,AEX01,電気系保全実践技術,2026-09-17,9/17(木)・18(金),受付中,受付中,https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/AEX01.html
 ポリテクセンター君津,KW041,半自動アーク溶接技能クリニック＜板材溶接編／実技のみ２日コース＞,2026-09-17,9/17（木）、9/18（金）,受付中,受付中,https://www3.jeed.go.jp/kimitsu/poly/zaishoku/2026/KW041.html
 ポリテクセンター奈良,E103,シーケンス制御による電動機制御技術,2026-09-17,9/17(木)、18(金),受付中,受付中,https://www3.jeed.go.jp/nara/poly/zaishoku/2026/E103.html
 ポリテクセンター富山,3D150,高圧電気設備の保守点検技術,2026-09-17,"9/17,18",残りわずか,残りわずか,https://www3.jeed.go.jp/toyama/poly/zaishoku/2026/3D150.html
@@ -123,7 +109,6 @@
 ポリテクセンター千葉,M1101,旋盤加工応用技術,2026-09-29,"9/29,9/30,10/1",受付中,受付中,https://www3.jeed.go.jp/chiba/poly/zaishoku/2026/M1101.html
 ポリテクセンター千葉,H0301,空調熱負荷と空気線図に基づく温熱環境計画手法,2026-09-29,"9/29,30",受付中,受付中,https://www3.jeed.go.jp/chiba/poly/zaishoku/2026/H0301.html
 ポリテクセンター富山,3M130,フライス盤加工応用技術,2026-09-29,"9/29,30,10/1,2",受付中,受付中,https://www3.jeed.go.jp/toyama/poly/zaishoku/2026/3M130.html
-ポリテクセンター山形,YMD02,精密測定技術,2026-09-29,令和8年9月29日火曜日、令和8年9月30日水曜日,申込締切日令和8年9月9日,申込締切日,https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/D101-001-A-2.html
 ポリテクセンター山梨,H05A,住宅基礎の構造設計実践技術,2026-09-29,9/29(火)、30(水),受付中,受付中,https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/H05A.html
 ポリテクセンター山梨,D02B,有接点シーケンス制御の実践技術,2026-09-29,9/29(火)、30(水)、10/1(木),受付中,受付中,https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/D02B.html
 ポリテクセンター山梨,W03A,被覆アーク溶接技能クリニック（各種姿勢編）,2026-09-29,9/29(火)、30(水),受付中,受付中,https://www3.jeed.go.jp/yamanashi/poly/zaishoku/2026/W03A.html
