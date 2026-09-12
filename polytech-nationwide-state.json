@@ -39769,7 +39769,7 @@
     },
     "9b07c8694fc856f2ce73cb6c5270146d0fdc6417877201cde232b78d832afc88": {
       "code": "M9161",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター滋賀",
       "key": "9b07c8694fc856f2ce73cb6c5270146d0fdc6417877201cde232b78d832afc88",
       "list_url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/index3.html",
@@ -42278,7 +42278,7 @@
     },
     "a64d576b9a672b7e92a5dee975f4593a8ede65826617ecfab7bf2fbd13bbe50d": {
       "code": "5D005",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター石川",
       "key": "a64d576b9a672b7e92a5dee975f4593a8ede65826617ecfab7bf2fbd13bbe50d",
       "list_url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/or3a63000000h1ou.html",
@@ -50936,7 +50936,7 @@
     },
     "c8a0c5d1b7469b1201f051c59375ba2a2d584a3a8205a5e094c007fb2ad432d6": {
       "code": "M920",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "c8a0c5d1b7469b1201f051c59375ba2a2d584a3a8205a5e094c007fb2ad432d6",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
@@ -51781,7 +51781,7 @@
     },
     "cc23e1f4da92a43b17b351e98c39fed9dcceb4d04f393303bf078257403522b3": {
       "code": "1M641",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター福岡",
       "key": "cc23e1f4da92a43b17b351e98c39fed9dcceb4d04f393303bf078257403522b3",
       "list_url": "https://www3.jeed.go.jp/fukuoka/poly/zaishoku/2026/index3.html",
@@ -57579,7 +57579,7 @@
     },
     "e419ee3b38e3bbf417f7a9023bb5593ded954bd3285ffe2162af620ae2c91544": {
       "code": "E0989",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター沖縄",
       "key": "e419ee3b38e3bbf417f7a9023bb5593ded954bd3285ffe2162af620ae2c91544",
       "list_url": "https://www3.jeed.go.jp/okinawa/poly/zaishoku/2026/copy_of_index3.html",
