@@ -28342,14 +28342,14 @@
     },
     "6d877b5808197ecd2743ffb208eda7524947d9cf352d99a6d9d88a697e684707": {
       "code": "5H052",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長崎",
       "key": "6d877b5808197ecd2743ffb208eda7524947d9cf352d99a6d9d88a697e684707",
       "list_url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "締切",
       "schedule": "10/3(土),4(日),10(土),11(日)",
       "start_date": "2026-10-03",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "電気設備の総合的設計技術",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5H052.html"
     },
@@ -39808,7 +39808,7 @@
     },
     "9b5864f280c449046b6c12fd3686ee4c92bc3fd3532b471ef280dba2ec9878d9": {
       "code": "H321",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "9b5864f280c449046b6c12fd3686ee4c92bc3fd3532b471ef280dba2ec9878d9",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
