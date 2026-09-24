@@ -45671,14 +45671,14 @@
     },
     "b408f5cf44a3626dc8c1af840cdaaaf297418d92fa49ce66994306c547799bdc": {
       "code": "SGX01",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター会津",
       "key": "b408f5cf44a3626dc8c1af840cdaaaf297418d92fa49ce66994306c547799bdc",
       "list_url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/index3.htm",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/1(木)・2(金)",
       "start_date": "2026-10-01",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "【白河市会場】ＱＣ７つ道具活用による製造現場における品質改善・品質保証〈QC7つ道具で、お客様の“信頼”をつかむ！〉",
       "url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/SGX01.html"
     },
@@ -47917,19 +47917,6 @@
       "status_category": "受付中",
       "title": "ＴＩＧ溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/chiba/poly/zaishoku/2026/W0302.html"
-    },
-    "bd401e072df50f1ad57bce22a3919b5bbc5755a69e6381e87a7a20205a00b073": {
-      "code": "5M114",
-      "eligible": true,
-      "facility": "ポリテクセンター鹿児島",
-      "key": "bd401e072df50f1ad57bce22a3919b5bbc5755a69e6381e87a7a20205a00b073",
-      "list_url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
-      "schedule": "9/29(火)、9/30(水)、10/1(木)",
-      "start_date": "2026-09-29",
-      "status_category": "受付中",
-      "title": "２次元ＣＡＤによる機械製図技術",
-      "url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/5M114.html"
     },
     "bd4c3612e0a8235a1de38d41d2981266b7b6369169864e0b54548f83ba103bba": {
       "code": "P2533",
@@ -52782,14 +52769,14 @@
     },
     "cf788f6036cc8a51561e2acd0a6fe16ee3b672c4879d3206e314e5e1a0a2fef2": {
       "code": "AEA01",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター会津",
       "key": "cf788f6036cc8a51561e2acd0a6fe16ee3b672c4879d3206e314e5e1a0a2fef2",
       "list_url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/index3.htm",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/1(木)・2(金)",
       "start_date": "2026-10-01",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "有接点シーケンス制御の実践技術",
       "url": "https://www3.jeed.go.jp/aizu/poly/zaishoku/2026/AEA01.html"
     },
