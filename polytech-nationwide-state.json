@@ -1380,7 +1380,7 @@
     },
     "062a35e1004f24eacdf4d99044878ff42d5a18c1a2de53379fe41a1c8441bdcd": {
       "code": "YHA10",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山形",
       "key": "062a35e1004f24eacdf4d99044878ff42d5a18c1a2de53379fe41a1c8441bdcd",
       "list_url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/index3.html",
@@ -3707,14 +3707,14 @@
     },
     "0e8d7e23ba4a57e4ff41ae66843f452d26b58b35d6f55825bb22010dbde123db": {
       "code": "9H403",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山口",
       "key": "0e8d7e23ba4a57e4ff41ae66843f452d26b58b35d6f55825bb22010dbde123db",
       "list_url": "https://www3.jeed.go.jp/yamaguchi/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/7（水）、8（木）",
       "start_date": "2026-10-07",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "実践建築設計２次元ＣＡＤ技術",
       "url": "https://www3.jeed.go.jp/yamaguchi/poly/zaishoku/2026/9H403.html"
     },
@@ -14228,10 +14228,10 @@
       "facility": "ポリテクセンター香川",
       "key": "3812203be6b260f46ba5041ab8f40bb3dedf52a565181e7a590fb8cc9c243e63",
       "list_url": "https://www3.jeed.go.jp/kagawa/poly/zaishoku/2026/index3.html",
-      "raw_status": "",
+      "raw_status": "定員間近",
       "schedule": "12/14(月)15(火)",
       "start_date": "2026-12-14",
-      "status_category": "（空欄）",
+      "status_category": "残りわずか",
       "title": "空調設備機器の保守技術（エアコンクリーニング編）",
       "url": "https://www3.jeed.go.jp/kagawa/poly/zaishoku/2026/2H802.html"
     },
@@ -29681,14 +29681,14 @@
     },
     "71ea09b0ef86c440d967af64665dcd009ffd9685811d41ed71f4fb858d631831": {
       "code": "6M005",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター佐世保",
       "key": "71ea09b0ef86c440d967af64665dcd009ffd9685811d41ed71f4fb858d631831",
       "list_url": "https://www3.jeed.go.jp/sasebo/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/10(土),17(土)",
       "start_date": "2026-10-10",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "ＴＩＧ溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/sasebo/poly/zaishoku/2026/6M005.html"
     },
@@ -30617,14 +30617,14 @@
     },
     "760dc8429477be18130e5a2e7c6a5ecf773c228f57667047d048de256590b1f9": {
       "code": "E04-1",
-      "eligible": false,
+      "eligible": true,
       "facility": "ポリテクセンター和歌山",
       "key": "760dc8429477be18130e5a2e7c6a5ecf773c228f57667047d048de256590b1f9",
       "list_url": "https://www3.jeed.go.jp/wakayama/poly/zaishoku/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付中",
       "schedule": "10/31(土)、11/1(日)",
       "start_date": "2026-10-31",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付中",
       "title": "ＰＬＣによるタッチパネル活用技術",
       "url": "https://www3.jeed.go.jp/wakayama/poly/zaishoku/E04-1.html"
     },
@@ -39301,14 +39301,14 @@
     },
     "990c6f081f2cf75de789e1e47e4a4eaeabb35c01098e521eaeb22c6fb2d72913": {
       "code": "9M202",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山口",
       "key": "990c6f081f2cf75de789e1e47e4a4eaeabb35c01098e521eaeb22c6fb2d72913",
       "list_url": "https://www3.jeed.go.jp/yamaguchi/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/6（火）、7（水）、8（木）",
       "start_date": "2026-10-06",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "実践機械製図",
       "url": "https://www3.jeed.go.jp/yamaguchi/poly/zaishoku/2026/9M202.html"
     },
@@ -52808,14 +52808,14 @@
     },
     "cfaf785a2e56c329f5dfc3d34d4a97a4545d2ec105dd5de9ca4b3cfd519f8e8c": {
       "code": "8M211",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長野",
       "key": "cfaf785a2e56c329f5dfc3d34d4a97a4545d2ec105dd5de9ca4b3cfd519f8e8c",
       "list_url": "https://www3.jeed.go.jp/nagano/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "キャンセル待ち",
       "schedule": "11/10(火),11(水),12(木),13(金)",
       "start_date": "2026-11-10",
-      "status_category": "受付中",
+      "status_category": "キャンセル待ち",
       "title": "２次元ＣＡＤによる機械製図技術<コマンド習得編>",
       "url": "https://www3.jeed.go.jp/nagano/poly/zaishoku/2026/8M211.html"
     },
@@ -65493,6 +65493,15 @@
     "ポリテクセンター鹿児島": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html"
   },
   "notifications": [
+    {
+      "course_key": "760dc8429477be18130e5a2e7c6a5ecf773c228f57667047d048de256590b1f9",
+      "description": "検知：受付対象に変更 / 施設：ポリテクセンター和歌山 / コース番号：E04-1 / 日程：10/31(土)、11/1(日) / 状況：受付中",
+      "facility": "ポリテクセンター和歌山",
+      "guid": "7b527d3d4a33599315528c846e3641d8dae7f8ac720feaab17e72bd4f8334f22",
+      "pub_date": "2026-09-26T09:10:12.753356+09:00",
+      "title": "【ポリテクセンター和歌山】ＰＬＣによるタッチパネル活用技術",
+      "url": "https://www3.jeed.go.jp/wakayama/poly/zaishoku/E04-1.html"
+    },
     {
       "course_key": "37c550db4ca6cb6349ac50a9fa26d450bcf18c303c2a411d900e58560c902130",
       "description": "検知：新規掲載 / 施設：ポリテクセンター岡山 / コース番号：4D702 / 日程：1/21(木),22(金) / 状況：受付中",
