@@ -37702,7 +37702,7 @@
     },
     "924ff4349fcc04e9a0c6acab091320a1df160c92b682540cacf6e425b8b4f5f8": {
       "code": "7M091",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター伊勢",
       "key": "924ff4349fcc04e9a0c6acab091320a1df160c92b682540cacf6e425b8b4f5f8",
       "list_url": "https://www3.jeed.go.jp/ise/poly/zaishoku/index3.html",
@@ -48856,7 +48856,7 @@
     },
     "c135eafd4407558cef8c64779c96f85148b657cde1703c290ce886613f0d994f": {
       "code": "5M105",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター石川",
       "key": "c135eafd4407558cef8c64779c96f85148b657cde1703c290ce886613f0d994f",
       "list_url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/or3a63000000h1ou.html",
