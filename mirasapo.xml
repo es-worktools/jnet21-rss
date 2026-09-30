@@ -12,7 +12,7 @@
 	<atom:link href="https://mirasapo-plus.go.jp/category/infomation/feed/" rel="self" type="application/rss+xml" />
 	<link>https://mirasapo-plus.go.jp</link>
 	<description>経済産業省 中小企業庁</description>
-	<lastBuildDate>Tue, 29 Sep 2026 06:32:08 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 30 Sep 2026 09:23:58 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,213 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>【補助金採択結果】新事業進出補助金（第４回公募）の補助金交付候補者を採択</title>
+		<link>https://mirasapo-plus.go.jp/infomation/33372/</link>
+					<comments>https://mirasapo-plus.go.jp/infomation/33372/#respond</comments>
+		
+		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
+		<pubDate>Wed, 30 Sep 2026 09:34:57 +0000</pubDate>
+				<category><![CDATA[お知らせ]]></category>
+		<category><![CDATA[補助金・助成金]]></category>
+		<category><![CDATA[賃上げ]]></category>
+		<category><![CDATA[採択結果]]></category>
+		<category><![CDATA[補助金]]></category>
+		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=33372</guid>
+
+					<description><![CDATA[中小企業・小規模事業者のみなさま &#160; 中小企業庁です。 &#160; 新事業進出補助金の第4回公募について、令和8年3月27日（金）から令和8年6月19日（金）まで公募を行い、応募のあった1,499者について審 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><!-- ▼▼▼ 構造化データ（JSON-LD）— HEAD相当。ブロックエディタのカスタムHTMLブロックに貼れば本体に埋め込まれます ▼▼▼ --><script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "NewsArticle",
+"headline": "新事業進出補助金（第3回公募）の採択結果をお知らせします",
+"datePublished": "2026-07-01",
+"dateModified": "2026-07-01",
+"author": {
+"@type": "Organization",
+"name": "中小企業庁",
+"url": "https://mirasapo-plus.go.jp/"
+},
+"publisher": {
+"@type": "Organization",
+"name": "ミラサポplus",
+"url": "https://mirasapo-plus.go.jp/"
+},
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://shinjigyou-shinshutsu.smrj.go.jp/results"
+},
+"description": "新事業進出補助金第3回公募的採択結果：申請1,212者のうち423者を採択。米国追加関税措置による優先採択（加点）対象は176者。公募期間は令和7年12月23日〜令和8年3月26日。",
+"about": {
+"@type": "Thing",
+"name": "新事業進出補助金 第3回公募 採択結果"
+}
+}
+</script></p>
+<p><script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "新事業進出補助金第3回公募の採択数は何件ですか？",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "新事業進出補助金第3回公募では、申請数1,212者に対し、423者を補助金交付候補者として採択しました。採択率は約34.9%です。採択結果は令和8年7月1日（水）に発表されました。"
+}
+},
+{
+"@type": "Question",
+"name": "新事業進出補助金第3回公募の関税加点対象者数は何件ですか？",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "第3回公募において、米国の追加関税措置により影響を受けた事業者に対する優先採択（審査上の加点）の対象者は176者でした。"
+}
+},
+{
+"@type": "Question",
+"name": "新事業進出補助金第3回公募の公募期間はいつからいつまでですか？",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "第3回公募の公募期間は令和7年12月23日（火）から令和8年3月26日（木）18:00までです。申請受付開始は令和8年2月17日（火）からでした。"
+}
+},
+{
+"@type": "Question",
+"name": "新事業進出補助金の補助金額はいくらですか？",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "補助金額は下限750万円、上限は従業員数により20人以下2,500万円、21〜50人4,000万円、51〜100人5,500万円、101人以上7,000万円です。大幅賃上げ特例を適用すると上限は3,000万円〜9,000万円に引き上げられます。補助率は一律1/2です。"
+}
+},
+{
+"@type": "Question",
+"name": "新事業進出補助金第4回公募の状況はどうなっていますか？",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "第4回公募の応募申請受付は令和8年6月19日（金）18:00をもって終了しました。採択結果発表は令和8年9月末頃を予定しています。"
+}
+},
+{
+"@type": "Question",
+"name": "新事業進出補助金の過去の採択結果を教えてください",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "第1回公募は申請3,006者・採択1,118者（関税加点対象590者、採択率約37.2%）、第2回公募は申請2,350者・採択832者（関税加点対象446者、採択率約35.4%）、第3回公募は申請1,212者・採択423者（関税加点対象176者、採択率約34.9%）です。"
+}
+}
+]
+}
+</script><br />
+<!-- ▲▲▲ 構造化データ終了 ▲▲▲ --></p>
+<p><!-- ▼▼▼ 記事本文 ▼▼▼ --></p>
+<p>中小企業・小規模事業者のみなさま</p>
+<p>&nbsp;</p>
+<p>中小企業庁です。</p>
+<p>&nbsp;</p>
+<p class="c-border"><strong>新事業進出補助金</strong>の第4回公募について、令和8年3月27日（金）から令和8年6月19日（金）まで公募を行い、応募のあった<strong>1,499</strong>者について審査を行った結果、<strong>508</strong>者を補助金交付候補者として採択しました。</p>
+<p>&nbsp;</p>
+<p><img decoding="async" class="alignnone size-medium wp-image-28866" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/05/22180927/img-jizoku_founding-300x146.png" alt="" width="300" height="146" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/05/22180927/img-jizoku_founding-300x146.png 300w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/05/22180927/img-jizoku_founding.png 596w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<p class="c-border">本公募において、<strong>米国の追加関税措置により影響を受けた事業者</strong>に対する優先採択（審査上の加点）の対象者は<strong>224</strong>者でした。</p>
+<p>&nbsp;</p>
+<h2>新事業進出補助金が「新事業進出・ものづくり商業サービス補助金」に</h2>
+<p>記事を読む↓</p>
+<p><a href="https://mirasapo-plus.go.jp/infomation/33970/">【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募の申請受付を開始【申請受付期間：9/30～10/30】 | 経済産業省 中小企業庁</a></p>
+<p>&nbsp;</p>
+<h2 class="p-newsdetail-titleblock__title c-maintitle__text">新事業進出補助金（第４回公募）採択結果</h2>
+<ul>
+<li><strong>公募期間：</strong>令和8年3月27日（金）から令和8年6月19日（金）</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><strong>申請数：</strong>1,499者</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><strong>採択数：</strong>508者（うち、関税加点対象は224者）</li>
+</ul>
+<p>&nbsp;</p>
+<p>詳細は、下記ホームページよりご確認ください。</p>
+<ul class="p-list__link">
+<li><a href="https://shinjigyou-shinshutsu.smrj.go.jp/">新事業進出補助金事務局ホームページ</a></li>
+</ul>
+<h2><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559685&quot;:0}">持続化補助金とは／小規模企業には「伸び代」しかない</span></h2>
+<p><a href="https://mirasapo-plus.go.jp/infomation/8562/">小規模企業には「伸び代」しかない！持続化補助金とは｜4つの類型・補助上限額・申請方法を解説 | 経済産業省 中小企業庁</a></p>
+<p>&nbsp;</p>
+<p><!-- ▲▲▲ 記事本文終了 ▲▲▲ --></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33372/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募の申請受付を開始【申請受付期間：9/30～10/30】</title>
+		<link>https://mirasapo-plus.go.jp/infomation/33970/</link>
+					<comments>https://mirasapo-plus.go.jp/infomation/33970/#respond</comments>
+		
+		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
+		<pubDate>Wed, 30 Sep 2026 08:50:52 +0000</pubDate>
+				<category><![CDATA[お知らせ]]></category>
+		<category><![CDATA[補助金・助成金]]></category>
+		<category><![CDATA[重要なお知らせ]]></category>
+		<category><![CDATA[補助金]]></category>
+		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=33970</guid>
+
+					<description><![CDATA[中小企業・小規模事業者のみなさま &#160; 中小企業庁です。 &#160; ９月３０日（水）より、新事業進出・ものづくり商業サービス補助金の第１回公募の申請受付を開始しましたので、お知らせします。  この補助金のポイ [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>中小企業・小規模事業者のみなさま</p>
+<p>&nbsp;</p>
+<p>中小企業庁です。</p>
+<p>&nbsp;</p>
+<p><span class="TextRun SCXW107169082 BCX8" lang="JA-JP" xml:lang="JA-JP" data-contrast="auto"><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">９</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">月</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">３０</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">日（</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">水</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">）</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">より、</span><strong><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">新事業進出</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">・ものづくり商業サービス</span></strong><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date"><strong>補助金</strong>の第</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">１</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">回公募</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">の申請受付を開始しましたので、</span><span class="NormalTextRun SCXW107169082 BCX8" data-ccp-parastyle="Date">お知らせします。</span></span><span class="EOP Selected SCXW107169082 BCX8" data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559731&quot;:240,&quot;335559797&quot;:100}"> </span></p>
+<p><img fetchpriority="high" decoding="async" class="alignnone size-medium wp-image-27217" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15153938/03_%E5%96%9C%E3%81%B6-300x225.png" alt="" width="300" height="225" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15153938/03_%E5%96%9C%E3%81%B6-300x225.png 300w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15153938/03_%E5%96%9C%E3%81%B6-768x576.png 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15153938/03_%E5%96%9C%E3%81%B6.png 961w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<h2>この補助金のポイントや活用にあたって知っておきたいことを、中小企業庁の担当者に聞きました。</h2>
+<div class="p-hint__detail__contents__info__titlewrap">
+<div class="p-hint__detail__contents__info__title">
+<h2>この記事でわかること</h2>
+</div>
+</div>
+<ul class="p-hint__detail__contents__info__list">
+<li>「新事業進出・ものづくり商業サービス補助金」の目的</li>
+<li>「革新的新製品・サービス枠」「新事業進出枠」「グローバル枠」の特色</li>
+<li>付加価値向上や賃上げなどの基本要件</li>
+<li>審査で重視されるポイントと申請時の注意点</li>
+</ul>
+<h2>中小企業庁担当者インタビューを読む↓</h2>
+<p><a href="https://mirasapo-plus.go.jp/hint/33945/">中小企業庁担当者に聞く | 令和８年度 新事業進出・ものづくり商業サービス補助金 | 経済産業省 中小企業庁</a></p>
+<p>&nbsp;</p>
+<h2><span data-contrast="auto">１．事業概要</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:2,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559740&quot;:0}"> </span></h2>
+<p><span data-contrast="auto">中小企業等が行う、<strong>技術的革新性のある製品・サービスの開発</strong>や<strong>既存事業とは異なる新市場・高付加価値事業への進出</strong>、<strong>海外市場開拓（輸出）に向けた国内の輸出体制の強化</strong>に係る設備投資等を支援します。</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:2,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559685&quot;:240,&quot;335559740&quot;:0,&quot;335559991&quot;:240,&quot;335559992&quot;:100}"> </span></p>
+<p><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></p>
+<h2><span data-contrast="auto">２．スケジュール等</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></h2>
+<p><span data-contrast="auto"><strong>申請受付開始日：</strong>令和８年９月３０日（水）１８：００</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></p>
+<p>&nbsp;</p>
+<p><span data-contrast="auto"><strong>申請受付締切日：</strong>令和８年１０月３０日（金）１８：００</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></p>
+<p>&nbsp;</p>
+<p><span data-contrast="auto"><strong>採択発表日：</strong>令和９年１月頃（予定）</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></p>
+<p><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6}"> </span></p>
+<h2><span data-contrast="none">３．　申請要件、お問い合わせ先等</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559685&quot;:0}"> </span></h2>
+<p><span data-contrast="auto">下記より補助金公募要領等をご確認ください。画像をクリックすると公募要領が表示されます。</span></p>
+<hr />
+<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163445/shinmono_application_guidelines_01.pdf"><img decoding="async" class="alignnone wp-image-33975 size-large" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-724x1024.jpg" alt="" width="640" height="905" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-724x1024.jpg 724w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-212x300.jpg 212w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-768x1086.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-1086x1536.jpg 1086w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-1448x2048.jpg 1448w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01-1568x2217.jpg 1568w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163409/shinmono_application_guidelines_01_%E3%83%9A%E3%83%BC%E3%82%B8_01.jpg 1654w" sizes="(max-width: 640px) 100vw, 640px" /></a></p>
+<hr />
+<p>&nbsp;</p>
+<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/30163445/shinmono_application_guidelines_01.pdf">補助金公募要領（PDF）</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span data-contrast="auto">新事業進出・ものづくり商業サービス補助金ホームページ（</span><a href="https://shinjigyou-monodukuri.smrj.go.jp/"><span data-contrast="none">https://shinjigyou-monodukuri.smrj.go.jp/</span></a><span data-contrast="auto">　）</span><span data-ccp-props="{&quot;134245417&quot;:false,&quot;201341983&quot;:2,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559685&quot;:210,&quot;335559731&quot;:240,&quot;335559740&quot;:0,&quot;335559795&quot;:100,&quot;335559797&quot;:100}"> </span></p>
+<h2><span data-ccp-props="{&quot;134245417&quot;:false,&quot;335551550&quot;:6,&quot;335551620&quot;:6,&quot;335559685&quot;:0}">持続化補助金とは／小規模企業には「伸び代」しかない</span></h2>
+<p><a href="https://mirasapo-plus.go.jp/infomation/8562/">小規模企業には「伸び代」しかない！持続化補助金とは｜4つの類型・補助上限額・申請方法を解説 | 経済産業省 中小企業庁</a></p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33970/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
 		<title>中小企業庁担当者に聞く「新事業進出・ものづくり商業サービス補助金」</title>
 		<link>https://mirasapo-plus.go.jp/infomation/33956/</link>
 					<comments>https://mirasapo-plus.go.jp/infomation/33956/#comments</comments>
@@ -100,10 +307,10 @@
 <p>中小企業庁です。</p>
 <p>&nbsp;</p>
 <p>令和8年度版の中小企業税制を分かりやすく説明した税制パンフレットを掲載しました。</p>
-<p><img fetchpriority="high" decoding="async" class="alignnone size-medium wp-image-27276" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-300x280.png" alt="" width="300" height="280" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-300x280.png 300w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-1024x954.png 1024w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-768x716.png 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A.png 1149w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<p><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-27276" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-300x280.png" alt="" width="300" height="280" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-300x280.png 300w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-1024x954.png 1024w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A-768x716.png 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2025/01/15154042/01_%E6%B7%B1%E6%8E%98%E3%82%8A.png 1149w" sizes="auto, (max-width: 300px) 100vw, 300px" /></p>
 <p>※このパンフレットは、令和８年８月現在の税法等の規定に基づいて作成しています。なお、一部の税制については、今後更新する予定です。</p>
 <h2>下記の中小企業税制パンフレットをクリックすると閲覧できます。</h2>
-<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104150/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95.pdf"><img decoding="async" class="alignnone wp-image-33823 size-full" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01.jpg" alt="" width="1653" height="2339" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01.jpg 1653w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-212x300.jpg 212w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-724x1024.jpg 724w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-768x1087.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1086x1536.jpg 1086w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1447x2048.jpg 1447w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1568x2219.jpg 1568w" sizes="(max-width: 1653px) 100vw, 1653px" /></a></p>
+<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104150/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95.pdf"><img loading="lazy" decoding="async" class="alignnone wp-image-33823 size-full" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01.jpg" alt="" width="1653" height="2339" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01.jpg 1653w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-212x300.jpg 212w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-724x1024.jpg 724w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-768x1087.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1086x1536.jpg 1086w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1447x2048.jpg 1447w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104122/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95_%E3%83%9A%E3%83%BC%E3%82%B8_01-1568x2219.jpg 1568w" sizes="auto, (max-width: 1653px) 100vw, 1653px" /></a></p>
 <p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/01/16104150/2609_%E7%A8%8E%E5%88%B6%E3%83%91%E3%83%B3%E3%83%95.pdf">2609_税制パンフ</a></p>
 <p><a href="https://mirasapo-plus.go.jp/register/">新規登録 | 経済産業省 中小企業庁</a></p>
 <p>&nbsp;</p>
@@ -147,7 +354,7 @@
 <p>その際、経営の現場においてスマートレジの導入等が間に合うよう、事業者の皆様が、9月15日以降、事前に補助対象となるスマートレジの導入やPOSレジの改修等を行っていただき、事後に補助金を申請することができる「<strong>事前着手制度</strong>」を措置します。</p>
 <p>&nbsp;</p>
 <p class="mb-0">詳細は下記のチラシ画像をクリックしてご覧ください。</p>
-<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181603/digital_ai_shohizei.pdf"><img decoding="async" class="alignnone wp-image-33809 size-full" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1.jpg" alt="" width="1500" height="2167" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1.jpg 1500w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-208x300.jpg 208w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-709x1024.jpg 709w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-768x1110.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-1063x1536.jpg 1063w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-1418x2048.jpg 1418w" sizes="(max-width: 1500px) 100vw, 1500px" /></a></p>
+<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181603/digital_ai_shohizei.pdf"><img loading="lazy" decoding="async" class="alignnone wp-image-33809 size-full" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1.jpg" alt="" width="1500" height="2167" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1.jpg 1500w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-208x300.jpg 208w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-709x1024.jpg 709w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-768x1110.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-1063x1536.jpg 1063w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181504/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_1-1418x2048.jpg 1418w" sizes="auto, (max-width: 1500px) 100vw, 1500px" /></a></p>
 <p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181603/digital_ai_shohizei.pdf"><img loading="lazy" decoding="async" class="alignnone wp-image-33810 size-full" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2.jpg" alt="" width="1500" height="2167" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2.jpg 1500w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2-208x300.jpg 208w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2-709x1024.jpg 709w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2-768x1110.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2-1063x1536.jpg 1063w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/09/15181529/digital_ai_shohizei_%E3%83%9A%E3%83%BC%E3%82%B8_2-1418x2048.jpg 1418w" sizes="auto, (max-width: 1500px) 100vw, 1500px" /></a></p>
 <p>&nbsp;</p>
 <p><strong>※</strong>飲食料品消費税率の臨時的な引下げ及び就業者負担軽減支援金の導入に関する大綱</p>
@@ -1360,327 +1567,6 @@
 		
 			</item>
 		<item>
-		<title>【補助金採択結果】新事業進出補助金（第3回公募）の補助金交付候補者を採択</title>
-		<link>https://mirasapo-plus.go.jp/infomation/33372/</link>
-					<comments>https://mirasapo-plus.go.jp/infomation/33372/#respond</comments>
-		
-		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
-		<pubDate>Wed, 01 Jul 2026 12:24:57 +0000</pubDate>
-				<category><![CDATA[お知らせ]]></category>
-		<category><![CDATA[補助金・助成金]]></category>
-		<category><![CDATA[賃上げ]]></category>
-		<category><![CDATA[採択結果]]></category>
-		<category><![CDATA[補助金]]></category>
-		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=33372</guid>
-
-					<description><![CDATA[&#160; 中小企業・小規模事業者のみなさま &#160; 中小企業庁です。 &#160; 新事業進出補助金（中小企業新事業進出促進事業）の第3回公募について、令和7年12月23日（火）から令和8年3月26日（木）まで [&#8230;]]]></description>
-										<content:encoded><![CDATA[<p><!-- ▼▼▼ 構造化データ（JSON-LD）— HEAD相当。ブロックエディタのカスタムHTMLブロックに貼れば本体に埋め込まれます ▼▼▼ --><script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "NewsArticle",
-"headline": "新事業進出補助金（第3回公募）の採択結果をお知らせします",
-"datePublished": "2026-07-01",
-"dateModified": "2026-07-01",
-"author": {
-"@type": "Organization",
-"name": "中小企業庁",
-"url": "https://mirasapo-plus.go.jp/"
-},
-"publisher": {
-"@type": "Organization",
-"name": "ミラサポplus",
-"url": "https://mirasapo-plus.go.jp/"
-},
-"mainEntityOfPage": {
-"@type": "WebPage",
-"@id": "https://shinjigyou-shinshutsu.smrj.go.jp/results"
-},
-"description": "新事業進出補助金第3回公募的採択結果：申請1,212者のうち423者を採択。米国追加関税措置による優先採択（加点）対象は176者。公募期間は令和7年12月23日〜令和8年3月26日。",
-"about": {
-"@type": "Thing",
-"name": "新事業進出補助金 第3回公募 採択結果"
-}
-}
-</script></p>
-<p><script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "新事業進出補助金第3回公募の採択数は何件ですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "新事業進出補助金第3回公募では、申請数1,212者に対し、423者を補助金交付候補者として採択しました。採択率は約34.9%です。採択結果は令和8年7月1日（水）に発表されました。"
-}
-},
-{
-"@type": "Question",
-"name": "新事業進出補助金第3回公募の関税加点対象者数は何件ですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "第3回公募において、米国の追加関税措置により影響を受けた事業者に対する優先採択（審査上の加点）の対象者は176者でした。"
-}
-},
-{
-"@type": "Question",
-"name": "新事業進出補助金第3回公募の公募期間はいつからいつまでですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "第3回公募の公募期間は令和7年12月23日（火）から令和8年3月26日（木）18:00までです。申請受付開始は令和8年2月17日（火）からでした。"
-}
-},
-{
-"@type": "Question",
-"name": "新事業進出補助金の補助金額はいくらですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "補助金額は下限750万円、上限は従業員数により20人以下2,500万円、21〜50人4,000万円、51〜100人5,500万円、101人以上7,000万円です。大幅賃上げ特例を適用すると上限は3,000万円〜9,000万円に引き上げられます。補助率は一律1/2です。"
-}
-},
-{
-"@type": "Question",
-"name": "新事業進出補助金第4回公募の状況はどうなっていますか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "第4回公募の応募申請受付は令和8年6月19日（金）18:00をもって終了しました。採択結果発表は令和8年9月末頃を予定しています。"
-}
-},
-{
-"@type": "Question",
-"name": "新事業進出補助金の過去の採択結果を教えてください",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "第1回公募は申請3,006者・採択1,118者（関税加点対象590者、採択率約37.2%）、第2回公募は申請2,350者・採択832者（関税加点対象446者、採択率約35.4%）、第3回公募は申請1,212者・採択423者（関税加点対象176者、採択率約34.9%）です。"
-}
-}
-]
-}
-</script><br />
-<!-- ▲▲▲ 構造化データ終了 ▲▲▲ --></p>
-<p><!-- ▼▼▼ 記事本文 ▼▼▼ --></p>
-<p>&nbsp;</p>
-<p>中小企業・小規模事業者のみなさま</p>
-<p>&nbsp;</p>
-<p>中小企業庁です。</p>
-<p>&nbsp;</p>
-<p>新事業進出補助金（<a href="https://shinjigyou-shinshutsu.smrj.go.jp/" target="_blank" rel="noopener">中小企業新事業進出促進事業</a>）の第3回公募について、令和7年12月23日（火）から令和8年3月26日（木）まで公募を行い、応募のあった1,212者について厳正な審査を行った結果、<strong>423者</strong>を補助金交付候補者として採択しましたのでお知らせします。</p>
-<p>&nbsp;</p>
-<p>なお、本公募において、<strong>米国の追加関税措置により影響を受けた事業者に対する優先採択（審査上の加点）</strong>の対象者は<strong>176者</strong>でした。</p>
-<hr />
-<h2>１．採択結果の概要</h2>
-<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
-<thead>
-<tr style="background-color: #e8f0fa;">
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: left; width: 35%;">項目</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>公募名称</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">新事業進出補助金 第3回公募</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>公募期間</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和7年12月23日（火）～令和8年3月26日（木）18:00</td>
-</tr>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>申請受付開始</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年2月17日（火）</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>採択結果発表日</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年7月1日（水）</td>
-</tr>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>申請数</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">1,212者</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>採択数</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>423者</strong></td>
-</tr>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>関税加点対象者数</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>176者</strong></td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>採択率</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">約34.9%</td>
-</tr>
-</tbody>
-</table>
-<p>※複数の事業者で連携している申請につきましては、構成員数に関わらず1者としてカウントしています。<br />
-※公募期間に取り下げられた申請は除いてカウントしています。</p>
-<hr />
-<h2>２．新事業進出補助金とは</h2>
-<p>新事業進出補助金は、令和7年度から開始された、<strong>中小企業等が既存事業とは異なる新市場・高付加価値事業へ進出する設備投資等を支援する補助金</strong>です。企業規模の拡大・付加価値向上を通じた生産性向上を図り、最終的に<strong>賃上げにつなげる</strong>ことを目的としています。</p>
-<p>&nbsp;</p>
-<p><strong>補助金額の目安：</strong></p>
-<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
-<thead>
-<tr style="background-color: #e8f0fa;">
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">従業員数</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">補助下限</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">補助上限（通常）</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">補助上限（大幅賃上げ特例）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">20人以下</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">750万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">2,500万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; color: #c0392b; font-weight: bold;">3,000万円</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">21～50人</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">750万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">4,000万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; color: #c0392b; font-weight: bold;">5,000万円</td>
-</tr>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">51～100人</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">750万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">5,500万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; color: #c0392b; font-weight: bold;">7,000万円</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">101人以上</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">750万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">7,000万円</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; color: #c0392b; font-weight: bold;">9,000万円</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<p>※補助率は一律1/2です。詳しい要件については、<a href="https://mirasapo-plus.go.jp/hint/29045/" target="_blank" rel="noopener">ミラサポplusの解説記事</a>をご参照ください。</p>
-<hr />
-<h2>３．米国追加関税措置による優先採択について</h2>
-<p>本補助金では、米国の追加関税措置により大きな影響を受ける事業者に対し、<strong>審査上の加点による優先採択</strong>を実施しています。これは経済産業省が発足させた「米国関税対策」の一環であり、中小企業向け補助金（ものづくり補助金・新事業進出補助金等）において、影響を受けた事業者の新たな挑戦を後押しする措置です（<a href="https://www.meti.go.jp/tariff_measures/" target="_blank" rel="noopener">経済産業省 米国関税対策ワンストップポータル</a>）。</p>
-<p>&nbsp;</p>
-<p>第3回公募では、関税加点の対象として176者が認定されました。</p>
-<hr />
-<h2>４．各回公募の採択結果比較</h2>
-<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
-<thead>
-<tr style="background-color: #e8f0fa;">
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">公募回</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">公募期間</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">申請数</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">採択数</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">関税加点対象</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">採択率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">第1回公募</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">R7.4/22～R7.7/15※</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">3,006者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">1,118者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">590者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">約37.2%</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">第2回公募</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">R7.9/12～R7.12/19</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">2,350者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">832者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">446者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center;">約35.4%</td>
-</tr>
-<tr style="background-color: #fffde6; border: 2px solid #f5c518;">
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">第3回公募</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">R7.12/23～R8.3/26</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">1,212者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">423者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">176者</td>
-<td style="padding: 10px 12px; border: 1px solid #ccc; text-align: center; font-weight: bold;">約34.9%</td>
-</tr>
-</tbody>
-</table>
-<p>※第1回公募は当初7月10日締切予定でしたが、7月15日に延長されました。</p>
-<p>詳細は<a href="https://shinjigyou-shinshutsu.smrj.go.jp/results" target="_blank" rel="noopener">新事業進出補助金 採択結果ページ</a>よりご確認ください。</p>
-<hr />
-<h2>５．第4回公募の情報</h2>
-<p><strong>第4回公募</strong>の応募申請受付は、令和8年6月19日（金）18:00をもって終了しました。採択結果発表は<strong>令和8年9月末頃</strong>を予定しています。</p>
-<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
-<thead>
-<tr style="background-color: #e8f0fa;">
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: left; width: 35%;">項目</th>
-<th style="padding: 10px 12px; border: 1px solid #ccc; text-align: left;">内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>公募開始</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年3月27日（金）</td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>申請受付開始</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年5月19日（火）</td>
-</tr>
-<tr>
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>応募締切</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年6月19日（金）18:00 <strong>（終了済み）</strong></td>
-</tr>
-<tr style="background-color: #f7faff;">
-<td style="padding: 10px 12px; border: 1px solid #ccc;"><strong>採択結果発表予定</strong></td>
-<td style="padding: 10px 12px; border: 1px solid #ccc;">令和8年9月末頃</td>
-</tr>
-</tbody>
-</table>
-<p>▶ <a href="https://shinjigyou-shinshutsu.smrj.go.jp/" target="_blank" rel="noopener">新事業進出補助金ホームページ</a></p>
-<blockquote class="wp-embedded-content" data-secret="bZZPx90F8n"><p><a href="https://mirasapo-plus.go.jp/infomation/33311/">【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開【申請受付期間：8/31～9/30】</a></p></blockquote>
-<p><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開【申請受付期間：8/31～9/30】&#8221; &#8212; ミラサポplus 補助金・助成金 中小企業支援サイト" src="https://mirasapo-plus.go.jp/infomation/33311/embed/#?secret=n02gjGx8gU#?secret=bZZPx90F8n" data-secret="bZZPx90F8n" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
-<hr />
-<h2>６．詳細の確認先</h2>
-<p>採択結果の詳細や交付申請の手続きについては、下記よりご確認ください。</p>
-<p>&nbsp;</p>
-<ul>
-<li><strong>新事業進出補助金ホームページ</strong>：<a href="https://shinjigyou-shinshutsu.smrj.go.jp/" target="_blank" rel="noopener">https://shinjigyou-shinshutsu.smrj.go.jp/</a></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><strong>採択結果一覧</strong>：<a href="https://shinjigyou-shinshutsu.smrj.go.jp/results" target="_blank" rel="noopener">https://shinjigyou-shinshutsu.smrj.go.jp/results</a></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><strong>公募スケジュール</strong>：<a href="https://shinjigyou-shinshutsu.smrj.go.jp/schedule" target="_blank" rel="noopener">https://shinjigyou-shinshutsu.smrj.go.jp/schedule</a></li>
-</ul>
-<p>&nbsp;</p>
-<hr />
-<h3>関連情報</h3>
-<ul>
-<li><a href="https://mirasapo-plus.go.jp/hint/29045/" target="_blank" rel="noopener">ミラサポplus｜新事業進出補助金の解説記事</a></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><a href="https://mirasapo-plus.go.jp/infomation/28582/" target="_blank" rel="noopener">ミラサポplus｜米国関税措置に関する支援情報</a></li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><a href="https://www.meti.go.jp/tariff_measures/" target="_blank" rel="noopener">経済産業省｜米国関税対策ワンストップポータル</a></li>
-</ul>
-<p>&nbsp;</p>
-<hr />
-<p>ぜひご活用いただき、事業の成長拡大・収益力向上を図り、従業員の賃上げにつなげてください。</p>
-<p>&nbsp;</p>
-<blockquote class="wp-embedded-content" data-secret="bZZPx90F8n"><p><a href="https://mirasapo-plus.go.jp/infomation/33311/">【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開【申請受付期間：8/31～9/30】</a></p></blockquote>
-<p><iframe loading="lazy" class="wp-embedded-content" sandbox="allow-scripts" security="restricted"  title="&#8220;【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開【申請受付期間：8/31～9/30】&#8221; &#8212; ミラサポplus 補助金・助成金 中小企業支援サイト" src="https://mirasapo-plus.go.jp/infomation/33311/embed/#?secret=n02gjGx8gU#?secret=bZZPx90F8n" data-secret="bZZPx90F8n" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
-<p>&nbsp;</p>
-<p><!-- ▲▲▲ 記事本文終了 ▲▲▲ --></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33372/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
 		<title>中東情勢等を踏まえた中小企業・小規模事業者向け支援について</title>
 		<link>https://mirasapo-plus.go.jp/infomation/32066/</link>
 					<comments>https://mirasapo-plus.go.jp/infomation/32066/#respond</comments>
@@ -1899,445 +1785,6 @@
 					
 					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/32066/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
-		<title>【補助金】新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開【申請受付期間9/30～10/30】</title>
-		<link>https://mirasapo-plus.go.jp/infomation/33311/</link>
-					<comments>https://mirasapo-plus.go.jp/infomation/33311/#comments</comments>
-		
-		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
-		<pubDate>Tue, 30 Jun 2026 06:05:11 +0000</pubDate>
-				<category><![CDATA[お知らせ]]></category>
-		<category><![CDATA[補助金を活用したい]]></category>
-		<category><![CDATA[補助金・助成金]]></category>
-		<category><![CDATA[賃上げ]]></category>
-		<category><![CDATA[賃上げをしたい]]></category>
-		<category><![CDATA[資金繰りを安定させたい]]></category>
-		<category><![CDATA[重要なお知らせ]]></category>
-		<category><![CDATA[補助金]]></category>
-		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=33311</guid>
-
-					<description><![CDATA[中小企業・小規模事業者のみなさま &#160; 中小企業庁です。 &#160; ６月２９日（月）より、新事業進出・ものづくり商業サービス補助金の第１回公募要領を公開しましたので、お知らせします。 新事業進出・ものづくり商 [&#8230;]]]></description>
-										<content:encoded><![CDATA[<p>中小企業・小規模事業者のみなさま</p>
-<p>&nbsp;</p>
-<p>中小企業庁です。</p>
-<p>&nbsp;</p>
-<p><!-- SEO/AIO メタ情報（All in One SEOプラグインに設定） -->６月２９日（月）より、<strong>新事業進出・ものづくり商業サービス補助金の第１回公募要領</strong>を<strong>公開</strong>しましたので、お知らせします。<br />
-<!-- タイトル：新事業進出・ものづくり商業サービス補助金｜補助上限額・申請要件・スケジュール完全解説 --><br />
-<!-- ディスクリプション：新事業進出・ものづくり商業サービス補助金の概要、3つの枠（革新的新製品・サービス枠・新事業進出枠・グローバル枠）の補助上限額・補助率・申請要件・対象経費・公募スケジュールを分かりやすく解説。中小企業の設備投資を最大9,000万円まで支援。 --><!-- キーワード：ものづくり補助金,新事業進出補助金,グローバル枠,革新的新製品・サービス枠,中小企業補助金,設備投資補助金,賃上げ,生産性向上,補助金申請,GビズID --><!-- 構造化データ（JSON-LD） --><script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "Article",
-"headline": "新事業進出・ものづくり商業サービス補助金｜補助上限額・申請要件・スケジュール完全解説",
-"description": "新事業進出・ものづくり商業サービス補助金の概要、3つの枠の補助上限額・補助率・申請要件・対象経費・公募スケジュールを分かりやすく解説。",
-"author": { "@type": "Organization", "name": "生産性向上センター" }
-}
-</script></p>
-<p><script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "新事業進出・ものづくり商業サービス補助金の補助上限額はいくらですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "枠によって異なり、革新的新製品・サービス枠は最大3,500万円、新事業進出枠とグローバル枠は最大9,000万円です。いずれも従業員規模に応じて750万円から段階的に設定されています。"
-}
-},
-{
-"@type": "Question",
-"name": "補助率はいくらですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "革新的新製品・サービス枠と新事業進出枠は中小企業1/2（条件により2/3）、小規模事業者2/3です。グローバル枠は中小企業2/3です。賃上げ特例を満たすと補助率または上限額が引き上げられます。"
-}
-},
-{
-"@type": "Question",
-"name": "申請に必要な要件は何ですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "3〜5年の事業計画において、付加価値額の年平均成長率4.0%以上、賃上げ年平均3.5%以上、最低賃金が地域最低賃金＋30円以上であることが共通要件です。また子育て・職場環境整備への取組も必要です。申請にはGビズIDが必須です。"
-}
-},
-{
-"@type": "Question",
-"name": "補助対象外の事業者はありますか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "従業員0名の事業者、創業1年未満の事業者（新事業進出枠）、みなし大企業、過去に補助金の不正受給や未返還がある事業者、政治・宗教法人等は補助対象外です。"
-}
-},
-{
-"@type": "Question",
-"name": "3つの枠の違いを教えてください",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "革新的新製品・サービス枠は革新的な新製品・新サービス開発が対象（上限3,500万円・実施期間10か月）、新事業進出枠は既存事業と異なる新市場・高付加価値事業への進出が対象（上限9,000万円・実施期間14か月）、グローバル枠は海外市場開拓（輸出）に向けた国内体制強化が対象（上限9,000万円・実施期間14か月）です。"
-}
-},
-{
-"@type": "Question",
-"name": "申請方法はどうすればよいですか？",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "電子申請（GビズID必須）で行います。公募開始から採択通知、交付申請・交付決定を経て事業実施、実績報告、補助金支払い、5年間の事業化状況報告という流れになります。"
-}
-}
-]
-}
-</script></p>
-<p><!-- ===== 本文コンテンツ ===== --></p>
-<h2>新事業進出・ものづくり商業サービス補助金とは</h2>
-<p>&nbsp;</p>
-<p>「<strong>新事業進出・ものづくり商業サービス補助金</strong>」は、中小企業等が技術的革新性のある製品・サービス開発や新市場・高付加価値事業への進出、海外市場開拓に取り組む際の設備投資等を支援する補助金です。生産性向上や付加価値向上を通じた企業規模の拡大と賃上げの実現を目的としています。</p>
-<p>&nbsp;</p>
-<p>本補助金には以下の<strong>3つの枠</strong>があり、それぞれ補助上限額・補助率・対象事業が異なります。</p>
-<p>&nbsp;</p>
-<ul>
-<li><strong>革新的新製品・サービス枠</strong>：革新的な新製品・新サービス開発を支援</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><strong>新事業進出枠</strong>：既存事業と異なる新市場・高付加価値事業への進出を支援</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
-<li><strong>グローバル枠</strong>：海外市場開拓（輸出）に向けた国内体制強化を支援</li>
-</ul>
-<h2>目次</h2>
-<ul>
-<li><a href="#gaiyo">新事業進出・ものづくり商業サービス補助金の概要（3枠比較）</a></li>
-<li><a href="#requirements">申請要件（共通要件）</a></li>
-<li><a href="#expenses">補助対象経費</a></li>
-<li><a href="#flow">申請・事業の流れ</a></li>
-<li><a href="#important">重要注意事項</a></li>
-<li><a href="#schedule">公募スケジュール</a></li>
-<li><a href="#apply">公募要領</a></li>
-<li><a href="#faq">よくある質問（FAQ）</a></li>
-</ul>
-<h2 id="gaiyo">新事業進出・ものづくり商業サービス補助金の概要（3枠比較）</h2>
-<p>&nbsp;</p>
-<table style="border-collapse: collapse; width: 100%; margin: 2em 0; font-size: 14px;">
-<thead>
-<tr style="background-color: #1a5276; color: #ffffff;">
-<th style="padding: 12px 10px; border: 1px solid #1a5276; text-align: left; width: 18%;">項目</th>
-<th style="padding: 12px 10px; border: 1px solid #1a5276; text-align: center; width: 27%;">革新的新製品・サービス枠</th>
-<th style="padding: 12px 10px; border: 1px solid #1a5276; text-align: center; width: 27%;">新事業進出枠</th>
-<th style="padding: 12px 10px; border: 1px solid #1a5276; text-align: center; width: 28%;">グローバル枠</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background-color: #ebf5fb;">
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">目的</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">革新的な新製品・新サービス開発の支援</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">既存事業と異なる新市場・高付加価値事業への進出</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">海外市場開拓（輸出）に向けた国内体制強化</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">対象者</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;" colspan="3">日本国内に本社・事業実施場所を有する中小企業等（3枠共通）</td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">補助上限額</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;"><span style="font-size: 18px; font-weight: bold; color: #e74c3c;">最大3,500万円</span><br />
-<span style="font-size: 12px; color: #666;">（従業員数に応じて750万〜）</span></td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;"><span style="font-size: 18px; font-weight: bold; color: #e74c3c;">最大9,000万円</span><br />
-<span style="font-size: 12px; color: #666;">（従業員規模に応じて750万〜）</span></td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;"><span style="font-size: 18px; font-weight: bold; color: #e74c3c;">最大9,000万円</span><br />
-<span style="font-size: 12px; color: #666;">（従業員規模に応じて750万〜）</span></td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">補助率</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">中小企業：<strong>1/2</strong><br />
-<span style="color: #2980b9;">（条件により2/3）</span><br />
-小規模：<strong>2/3</strong></td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">中小企業：<strong>1/2</strong><br />
-<span style="color: #2980b9;">（条件により2/3）</span></td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">中小企業：<strong>2/3</strong></td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">補助対象事業</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">革新的な新製品・サービスの開発<br />
-<span style="color: #e74c3c; font-size: 12px;">※設備導入のみは不可</span></td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">新規性のある製品・サービス＋新市場への進出</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8;">自社製品を活用した海外販路開拓</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">補助対象経費</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;" colspan="3"><a href="#expenses">補助対象経費の詳細はこちら</a></td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">申請方法</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;" colspan="3">電子申請（<strong>GビズID必須</strong>）</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d6eaf8; font-weight: bold; background-color: #d6eaf8;">実施期間</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;">交付決定日から<strong>10か月</strong>以内</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;">交付決定日から<strong>14か月</strong>以内</td>
-<td style="padding: 10px; border: 1px solid #d6eaf8; text-align: center;">交付決定日から<strong>14か月</strong>以内</td>
-</tr>
-</tbody>
-</table>
-<div style="background: #eaf6ff; border-left: 4px solid #3498db; padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0;">
-<p style="margin: 0;"><strong> 一言：革新的な製品開発</strong>なら「<strong>革新的新製品・サービス枠</strong>」、<strong>新市場進出</strong>なら「<strong>新事業進出枠</strong>」、<strong>海外展開</strong>なら「<strong>グローバル枠</strong>」が最適です。補助上限額は新事業進出枠・グローバル枠が最大9,000万円と最も高く、グローバル枠は補助率も2/3と最も有利です。</p>
-<p>&nbsp;</p>
-</div>
-<h2 id="requirements">申請要件（共通要件）</h2>
-<p>補助事業は、以下の要件を満たす<strong>3〜5年の事業計画</strong>が必要です。いずれの枠にも共通する要件です。</p>
-<p>&nbsp;</p>
-<h3>基本要件</h3>
-<table style="border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 14px;">
-<thead>
-<tr style="background-color: #1a5276; color: #ffffff;">
-<th style="padding: 12px 15px; border: 1px solid #1a5276; text-align: left; width: 35%;">要件項目</th>
-<th style="padding: 12px 15px; border: 1px solid #1a5276; text-align: left; width: 65%;">要件内容</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background-color: #ebf5fb;">
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8; font-weight: bold;">付加価値額</td>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8;"><span style="font-size: 16px; font-weight: bold; color: #e74c3c;">年平均成長率 4.0％以上</span></td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8; font-weight: bold;">賃上げ</td>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8;"><span style="font-size: 16px; font-weight: bold; color: #e74c3c;">年平均 3.5％以上</span><br />
-<span style="color: #e74c3c; font-size: 12px;">※未達時は返還義務あり</span></td>
-</tr>
-<tr style="background-color: #ebf5fb;">
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8; font-weight: bold;">最低賃金</td>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8;"><span style="font-weight: bold;">地域最低賃金 ＋ 30円以上</span><br />
-<span style="color: #e74c3c; font-size: 12px;">※未達時は返還義務あり</span></td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8; font-weight: bold;">ワークライフバランス要件</td>
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8;">一般事業主行動計画の公表</td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px 15px; border: 1px solid #d6eaf8; font-weight: bold;" colspan="2">金融機関から資金調達する場合は確認書の提出が必要です</td>
-</tr>
-</tbody>
-</table>
-<h3></h3>
-<h3>追加要件</h3>
-<ul>
-<li>子育て・職場環境整備への取組（いずれかを実施）</li>
-</ul>
-<h3>特例要件（該当時）</h3>
-<table style="border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 14px;">
-<thead>
-<tr style="background-color: #8e44ad; color: #ffffff;">
-<th style="padding: 12px 15px; border: 1px solid #8e44ad; text-align: left; width: 30%;">特例名</th>
-<th style="padding: 12px 15px; border: 1px solid #8e44ad; text-align: left; width: 35%;">条件</th>
-<th style="padding: 12px 15px; border: 1px solid #8e44ad; text-align: left; width: 35%;">メリット</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #e8daef; font-weight: bold; background-color: #f5eef8;">賃上げ特例</td>
-<td style="padding: 10px 15px; border: 1px solid #e8daef;">給与：年平均 <strong>＋6.0％以上</strong><br />
-最低賃金：<strong>＋50円以上</strong></td>
-<td style="padding: 10px 15px; border: 1px solid #e8daef;"><span style="color: #8e44ad; font-weight: bold;">上限額の引上げ</span><br />
-<span style="color: #e74c3c; font-size: 12px;">※未達時は上乗せ分を返還</span></td>
-</tr>
-<tr style="background-color: #f5eef8;">
-<td style="padding: 10px 15px; border: 1px solid #e8daef; font-weight: bold;">最低賃金引上げ特例</td>
-<td style="padding: 10px 15px; border: 1px solid #e8daef;">最低賃金近傍労働者が一定割合以上</td>
-<td style="padding: 10px 15px; border: 1px solid #e8daef;"><span style="color: #8e44ad; font-weight: bold;">補助率の引上げ</span></td>
-</tr>
-</tbody>
-</table>
-<h2></h2>
-<h2 id="expenses">補助対象経費</h2>
-<p>補助対象となる経費は以下の通りです。枠によって対象範囲が異なる場合があります。</p>
-<table style="border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 14px;">
-<thead>
-<tr style="background-color: #27ae60; color: #ffffff;">
-<th style="padding: 12px 15px; border: 1px solid #27ae60; text-align: left; width: 35%;">補助対象経費</th>
-<th style="padding: 12px 15px; border: 1px solid #27ae60; text-align: center; width: 22%;">革新的新製品枠</th>
-<th style="padding: 12px 15px; border: 1px solid #27ae60; text-align: center; width: 22%;">新事業進出枠</th>
-<th style="padding: 12px 15px; border: 1px solid #27ae60; text-align: center; width: 21%;">グローバル枠</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background-color: #eafaf1;">
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">機械装置・システム構築費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">建物費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #e74c3c;">—</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr style="background-color: #eafaf1;">
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">技術導入費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">知的財産関連費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr style="background-color: #eafaf1;">
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">外注費・専門家費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">クラウド利用費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr style="background-color: #eafaf1;">
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">原材料費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr>
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3;">広告宣伝・販売促進費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60;">✓</td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px 15px; border: 1px solid #d5f5e3; font-weight: bold;">海外旅費・翻訳費</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #e74c3c;">—</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #e74c3c;">—</td>
-<td style="padding: 10px; border: 1px solid #d5f5e3; text-align: center; color: #27ae60; font-weight: bold;">✓ のみ</td>
-</tr>
-</tbody>
-</table>
-<h3></h3>
-<h3>対象外事業者（重要事項）</h3>
-<div style="background: #fdedec; border: 2px solid #e74c3c; padding: 15px 20px; margin: 15px 0; border-radius: 8px;">
-<ul style="margin: 0;">
-<li><strong>従業員0名</strong>の事業者</li>
-<li><strong>創業1年未満</strong>の事業者（新事業進出枠）</li>
-<li><strong>みなし大企業</strong></li>
-<li>過去に<strong>補助金の不正受給・未返還</strong>がある事業者</li>
-<li><strong>政治・宗教法人</strong>等</li>
-</ul>
-</div>
-<h2 id="flow">申請・事業の流れ</h2>
-<p>&nbsp;</p>
-<p>補助金の申請から支払いまでの流れは以下の8ステップです。</p>
-<table style="border-collapse: collapse; width: 100%; margin: 1.5em 0; font-size: 14px;">
-<thead>
-<tr style="background-color: #2c3e50; color: #ffffff;">
-<th style="padding: 12px 10px; border: 1px solid #2c3e50; text-align: center; width: 10%;">ステップ</th>
-<th style="padding: 12px 15px; border: 1px solid #2c3e50; text-align: left; width: 30%;">工程</th>
-<th style="padding: 12px 15px; border: 1px solid #2c3e50; text-align: left; width: 60%;">内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold; background-color: #ebf5fb;">1</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">公募開始</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">公募要領の公表・受付開始</td>
-</tr>
-<tr style="background-color: #f8f9f9;">
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold;">2</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">電子申請</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">GビズIDを用いて電子申請システムより申請</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold; background-color: #ebf5fb;">3</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">採択通知</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">審査結果の通知（採択／不採択）</td>
-</tr>
-<tr style="background-color: #f8f9f9;">
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold;">4</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">交付申請・交付決定</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">補助金交付の正式決定・額の確定</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold; background-color: #ebf5fb;">5</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">事業実施</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">交付決定日から10〜14か月以内に事業を実施</td>
-</tr>
-<tr style="background-color: #f8f9f9;">
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold;">6</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">実績報告</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">事業完了後、成果・経費の実績報告を提出</td>
-</tr>
-<tr>
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold; background-color: #ebf5fb;">7</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold;">補助金支払い</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;">審査終了後、補助金が支払われる</td>
-</tr>
-<tr style="background-color: #fef9e7;">
-<td style="padding: 10px; border: 1px solid #d5dbdb; text-align: center; font-weight: bold;">8</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb; font-weight: bold; color: #e74c3c;">事業化状況報告</td>
-<td style="padding: 10px 15px; border: 1px solid #d5dbdb;"><strong>5年間</strong>にわたり事業化状況を定期報告</td>
-</tr>
-</tbody>
-</table>
-<h2></h2>
-<h2 id="important">重要注意事項</h2>
-<p>必ず公募要領で確認してください。</p>
-<div style="background: #fef9e7; border: 2px solid #f39c12; padding: 15px 20px; margin: 15px 0; border-radius: 8px;">
-<ul style="margin: 0;">
-<li><strong>採択＝満額交付ではありません。</strong>減額・対象外が発生する場合があります。</li>
-<li>設備等は<strong>補助事業専用</strong>で使用する義務があります。</li>
-<li>申請者は事業計画の作成、実行及び成果目標の達成に責任を持って取り組んでいただく必要があります。検討やブラッシュアップのために認定経営革新等支援機関（以下「認定支援機関」という。）を含む外部支援者等（以下「事業計画作成支援者」という。）の助言を受けることは差し支えございませんが、必ず申請者自身で作成してください。作成自体を申請者以外が行うことは認められず、発覚した場合は不採択・採択取消・交付決定取消となります。</li>
-<li>不正時は<strong>返還＋公表＋刑事罰</strong>の可能性があります。</li>
-</ul>
-</div>
-<h2 id="schedule">公募スケジュール</h2>
-<div class="schedule__item">公募開始:2026<time datetime="2026-06-29">年6月29日（月曜）</time></div>
-<div></div>
-<div class="schedule__item">申請受付:<time datetime="2026-09-30T18:00">2026年9月30日（水曜）</time></div>
-<div></div>
-<div class="schedule__item">応募締切:<time datetime="2026-09-30T18:00">2026年10月30日（金曜）18時申請締切予定</time></div>
-<h2 id="apply">公募要領はこちらをクリックしてください</h2>
-<p>&nbsp;</p>
-<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30141726/shinmono_application_guidelines_01-1.pdf" target="_blank" rel="noopener">新事業進出・ものづくり商業サービス補助金｜</a></p>
-<p>&nbsp;</p>
-<h2>【中小企業庁】新市場・高付加価値事業の考え方はこちらをクリックしてください。</h2>
-<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30142946/shinmono_new_market_high_value_added_biz_concept-1.pdf"><img loading="lazy" decoding="async" class="alignnone wp-image-33305 size-medium" src="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-300x169.jpg" alt="" width="300" height="169" srcset="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-300x169.jpg 300w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-1024x576.jpg 1024w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-768x432.jpg 768w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-1536x864.jpg 1536w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-2048x1152.jpg 2048w, https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30132234/shinmono_new_market_high_value_added_biz_concept_%E3%83%9A%E3%83%BC%E3%82%B8_01-1568x882.jpg 1568w" sizes="auto, (max-width: 300px) 100vw, 300px" /></a></p>
-<div style="word-break: break-all;">
-<p><a href="https://mirasapo-plus.go.jp/wordpress/wp-content/uploads/2026/06/30142946/shinmono_new_market_high_value_added_biz_concept-1.pdf">shinmono_new_market_high_value_added_biz_concept</a></p>
-<div style="word-break: break-all;">
-<p>&nbsp;</p>
-<h2 id="faq">よくある質問（FAQ）</h2>
-<h3>新事業進出・ものづくり商業サービス補助金の補助上限額はいくらですか？</h3>
-<p>枠によって異なり、<strong>革新的新製品・サービス枠は最大3,500万円</strong>、<strong>新事業進出枠とグローバル枠は最大9,000万円</strong>です。いずれも従業員規模に応じて設定されています。</p>
-<h3>補助率はいくらですか？</h3>
-<p>革新的新製品・サービス枠と新事業進出枠は<strong>中小企業1/2（条件により2/3）、小規模事業者2/3</strong>です。グローバル枠は<strong>中小企業2/3</strong>です。賃上げ特例を満たすと補助率または上限額が引き上げられます。</p>
-<h3>申請に必要な要件は何ですか？</h3>
-<p>3〜5年の事業計画において、<strong>付加価値額の年平均成長率4.0%以上、賃上げ年平均3.5%以上、最低賃金が地域最低賃金＋30円以上</strong>であることが共通要件です。また子育て・職場環境整備への取組も必要です。申請には<strong>GビズID</strong>が必須です。</p>
-<h3>補助対象外の事業者はありますか？</h3>
-<p><strong>従業員0名の事業者、創業1年未満の事業者（新事業進出枠）、みなし大企業、過去に補助金の不正受給や未返還がある事業者、政治・宗教法人等</strong>は補助対象外です。</p>
-<h3>3つの枠の違いを教えてください</h3>
-<p><strong>革新的新製品・サービス枠</strong>は革新的な新製品・新サービス開発が対象（上限3,500万円・実施期間10か月）、<strong>新事業進出枠</strong>は既存事業と異なる新市場・高付加価値事業への進出が対象（上限9,000万円・実施期間14か月）、<strong>グローバル枠</strong>は海外市場開拓（輸出）に向けた国内体制強化が対象（上限9,000万円・実施期間14か月）です。</p>
-<h3>申請方法はどうすればよいですか？</h3>
-<p><strong>電子申請（GビズID必須）</strong>で行います。公募開始から採択通知、交付申請・交付決定を経て事業実施、実績報告、補助金支払い、5年間の事業化状況報告という流れになります。</p>
-<h2>まとめ</h2>
-<p><strong>新事業進出・ものづくり商業サービス補助金</strong>は、中小企業の革新的な製品開発、新市場進出、海外展開を支援する補助金です。3つの枠（<strong>革新的新製品・サービス枠・新事業進出枠・グローバル枠</strong>）があり、補助上限額は最大3,500万円〜9,000万円、補助率は1/2〜2/3です。申請には3〜5年の事業計画（付加価値額年平均成長率4.0%以上、賃上げ年平均3.5%以上）とGビズIDが必要です。電子申請で行い、採択後は5年間の事業化状況報告義務があります。</p>
-<h2>中小企業・小規模事業者向けの主要な補助金・助成金チラシはこちらをクリックしてください</h2>
-<p><a href="https://mirasapo-plus.go.jp/supportflyer/">https://mirasapo-plus.go.jp/supportflyer/</a></p>
-</div>
-</div>
-<p>&nbsp;</p>
-<p><a class="p-hint__detail__contents__arrowbtnlink" href="/register/">中小企業・小規模事業者向け補助金等支援策公式サイト　ミラサポplusメルマガ会員登録はこちらから<br />
-（無料）</a></p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33311/feed/</wfw:commentRss>
-			<slash:comments>1</slash:comments>
 		
 		
 			</item>
