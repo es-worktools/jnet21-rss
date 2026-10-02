@@ -1965,14 +1965,14 @@
     },
     "07fdb48154754c4ef065f622f0d1cfd2c13cf80513f98f5e84615c275dc7d9fa": {
       "code": "3H141",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター静岡",
       "key": "07fdb48154754c4ef065f622f0d1cfd2c13cf80513f98f5e84615c275dc7d9fa",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "中止",
       "schedule": "10/17(土)、18(日)",
       "start_date": "2026-10-17",
-      "status_category": "受付中",
+      "status_category": "中止",
       "title": "住宅インテリアパース作成実践技術（パース編）",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3H141.html"
     },
@@ -4973,8 +4973,8 @@
       "key": "13b6800753be679dd672e908491d6310ed492090af0a495b9f514475a7851421",
       "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
       "raw_status": "受付中",
-      "schedule": "3/24(水), 25(木)",
-      "start_date": "2027-03-24",
+      "schedule": "11/16(月),17(火)※変更前日程3/24(水), 25(木)",
+      "start_date": "2026-11-16",
       "status_category": "受付中",
       "title": "実践的ＰＬＣ制御技術",
       "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3D202.html"
@@ -6060,7 +6060,7 @@
     },
     "18804a77d1a02819e59b63bf10fd3264a65b4ca35ebebf8ed98d345db4617e8f": {
       "code": "5M371",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター石川",
       "key": "18804a77d1a02819e59b63bf10fd3264a65b4ca35ebebf8ed98d345db4617e8f",
       "list_url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/or3a63000000h1ou.html",
@@ -11949,7 +11949,7 @@
     },
     "2ef57d51a69125722f246f12ef78c6cfc62078daa5edc85c1dcae7a4164e7032": {
       "code": "FEA03",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター福島",
       "key": "2ef57d51a69125722f246f12ef78c6cfc62078daa5edc85c1dcae7a4164e7032",
       "list_url": "https://www3.jeed.go.jp/fukushima/poly/zaishoku/2026/index3.html",
@@ -13227,10 +13227,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "33ff1b8f4aab293a0d58a7c039027de2fece118ac34e79174d6c5bc9ddf0ede0",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/27(火)、28(水)",
       "start_date": "2026-10-27",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "仕事と人を動かす現場監督者の育成",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3K071.html"
     },
@@ -13405,14 +13405,14 @@
     },
     "34b3e35478e53fc99a4b610a75c9aed0940bf987083d6e3c70e8c7b1e939e06d": {
       "code": "2H080",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター飯塚",
       "key": "34b3e35478e53fc99a4b610a75c9aed0940bf987083d6e3c70e8c7b1e939e06d",
       "list_url": "https://www3.jeed.go.jp/iizuka/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/17(土),24(土)",
       "start_date": "2026-10-17",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "ＢＩＭを用いた建築設計技術",
       "url": "https://www3.jeed.go.jp/iizuka/poly/zaishoku/2026/2H080.html"
     },
@@ -22789,19 +22789,6 @@
       "title": "ＰＬＣ制御の回路技術",
       "url": "https://www3.jeed.go.jp/fukui/poly/zaishoku/2026/7D032.html"
     },
-    "58a4f31e04bfda5333c2b65775dbf1db335af343b184dc914c98b0cd37a02ac2": {
-      "code": "3M101",
-      "eligible": false,
-      "facility": "ポリテクセンター岩手",
-      "key": "58a4f31e04bfda5333c2b65775dbf1db335af343b184dc914c98b0cd37a02ac2",
-      "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
-      "raw_status": "中止",
-      "schedule": "9/2(水), 3(木), 4(金)",
-      "start_date": "2026-09-02",
-      "status_category": "中止",
-      "title": "設計に活かす３次元ＣＡＤソリッドモデリング技術",
-      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3M101.html"
-    },
     "58a626ea8630842129983b4815ef11fc17156d8c6f3a76b5ae1c5b9dc7ce61ab": {
       "code": "1H120",
       "eligible": true,
@@ -27848,14 +27835,14 @@
     },
     "6b0c7b0c5132b6ab4ae72cda311556c3785dea2adf927de9f8b85dcbaf322ebd": {
       "code": "3D591",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター静岡",
       "key": "6b0c7b0c5132b6ab4ae72cda311556c3785dea2adf927de9f8b85dcbaf322ebd",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "【日程変更】10/14(水)、15(木)、16(金)",
       "start_date": "2026-10-14",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "基板製作に係る鉛フリーはんだ付け技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3D591.html"
     },
@@ -28990,19 +28977,6 @@
       "title": "設計に活かす３次元ＣＡＤ活用術（応用編：ＣＡＤ機能による設計の効率化）",
       "url": "https://www3.jeed.go.jp/aichi/poly/zaishoku/bango.html"
     },
-    "6f591e94499f4d7aa1595dbc73b5bb61894f075832c807902d4a418e4c96c9a0": {
-      "code": "3MA11",
-      "eligible": false,
-      "facility": "ポリテクセンター岩手",
-      "key": "6f591e94499f4d7aa1595dbc73b5bb61894f075832c807902d4a418e4c96c9a0",
-      "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
-      "raw_status": "中止",
-      "schedule": "8/26(水), 27(木), 28(金)",
-      "start_date": "2026-08-26",
-      "status_category": "中止",
-      "title": "半自動アーク溶接技能クリニック（中肉固定管編）",
-      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3MA11.html"
-    },
     "6f59be63d9fcba36f175436eb140761f73887ee6304e95355ab34efc57ba9756": {
       "code": "YEB01",
       "eligible": false,
@@ -29600,19 +29574,6 @@
       "status_category": "受付終了",
       "title": "フライス盤加工技術（段・溝加工編）",
       "url": "https://www3.jeed.go.jp/miyagi/poly/zaishoku/2026/MMB06.html"
-    },
-    "7178de99ac36637da3c04a6e618897fc290266612cbf3c31f5461088d5f75271": {
-      "code": "3H711",
-      "eligible": false,
-      "facility": "ポリテクセンター岩手",
-      "key": "7178de99ac36637da3c04a6e618897fc290266612cbf3c31f5461088d5f75271",
-      "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付終了",
-      "schedule": "8/4(火), 5(水)",
-      "start_date": "2026-08-04",
-      "status_category": "受付終了",
-      "title": "実践建築設計２次元ＣＡＤ技術〈電気編〉",
-      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3H711.html"
     },
     "7185a5424ae3c1c39529ce7785df90ae8ac9033a89f1767dead761d2b037c6ce": {
       "code": "1H061",
@@ -32489,7 +32450,7 @@
     },
     "7ddbb10d477025d60c871764b194fb47dfb71d66e1fd26fb1d3803892e0af389": {
       "code": "YEA06",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山形",
       "key": "7ddbb10d477025d60c871764b194fb47dfb71d66e1fd26fb1d3803892e0af389",
       "list_url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/index3.html",
@@ -33436,19 +33397,6 @@
       "title": "旋盤によるねじ切り加工技術",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/M011A.html"
     },
-    "8124ba31285e2c5e1b526a10867f79e9a07299ca9e2a530cecb5194c5bd82d99": {
-      "code": "3M021",
-      "eligible": false,
-      "facility": "ポリテクセンター岩手",
-      "key": "8124ba31285e2c5e1b526a10867f79e9a07299ca9e2a530cecb5194c5bd82d99",
-      "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
-      "raw_status": "中止",
-      "schedule": "8/20(木), 21(金), 27(木), 28(金)",
-      "start_date": "2026-08-20",
-      "status_category": "中止",
-      "title": "２次元ＣＡＤによる機械製図技術",
-      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3M021.html"
-    },
     "81272955d40118d0e5883f44fe587fcef522f40cabf5a9bcfb77e8c0e3c65ad0": {
       "code": "P0212",
       "eligible": false,
@@ -34222,10 +34170,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "84db35a3fa2f54e1f17ea77548cd206ba604821fc84870e50188c782363c7e68",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/28(水)、29(木)",
       "start_date": "2026-10-28",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "２次元ＣＡＤによる機械製図技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3M033.html"
     },
@@ -34488,6 +34436,19 @@
       "status_category": "受付中",
       "title": "ＰＬＣ制御の回路技術（ランプ制御編）",
       "url": "https://www3.jeed.go.jp/hiroshima/poly/zaishoku/2026/E3103.html"
+    },
+    "8629f76ecbd0ac981ef40ffb22ee76a611c2d4055c04869c2860161cfa930a6e": {
+      "code": "3D212",
+      "eligible": true,
+      "facility": "ポリテクセンター岩手",
+      "key": "8629f76ecbd0ac981ef40ffb22ee76a611c2d4055c04869c2860161cfa930a6e",
+      "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
+      "raw_status": "受付中",
+      "schedule": "11/19(木),20(金)",
+      "start_date": "2026-11-19",
+      "status_category": "受付中",
+      "title": "PLC制御の回路技術",
+      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3D212.html"
     },
     "862d4c5374cf5bf99dc870b938baae89daf3e92ea2ad327eebb8aa5d4532fbf2": {
       "code": "B1111",
@@ -40159,14 +40120,14 @@
     },
     "9ccfbfd80774f1e7b9f3b6b72631c1de6ad7256a46842880a26b4b32db7fa309": {
       "code": "3H221",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター静岡",
       "key": "9ccfbfd80774f1e7b9f3b6b72631c1de6ad7256a46842880a26b4b32db7fa309",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/27(火)、28(水)",
       "start_date": "2026-10-27",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "電気設備ＣＡＤを用いた３次元モデリング技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3H221.html"
     },
@@ -41082,14 +41043,14 @@
     },
     "a18171de8bcd5b02e575018f348e9f20a462f65561fdecb5ba23fd6294013372": {
       "code": "3D121",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター静岡",
       "key": "a18171de8bcd5b02e575018f348e9f20a462f65561fdecb5ba23fd6294013372",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "残りわずか",
+      "raw_status": "受付終了",
       "schedule": "10/21(水)、22(木)",
       "start_date": "2026-10-21",
-      "status_category": "残りわずか",
+      "status_category": "受付終了",
       "title": "ＰＬＣによる電気空気圧技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3D121.html"
     },
@@ -41823,14 +41784,14 @@
     },
     "a4717431d242f98d90e20f455b751d47f13af1777d5d65c74c3a4e0c5a7a2028": {
       "code": "3D201",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター岩手",
       "key": "a4717431d242f98d90e20f455b751d47f13af1777d5d65c74c3a4e0c5a7a2028",
       "list_url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "受付終了",
       "schedule": "10/14(水), 15(木)",
       "start_date": "2026-10-14",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "実践的ＰＬＣ制御技術",
       "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3D201.html"
     },
@@ -42603,7 +42564,7 @@
     },
     "a70598d8397c030fb30f185441c32958ad12838676cc3e3feebcdd08510196fb": {
       "code": "IEC31",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンターいわき",
       "key": "a70598d8397c030fb30f185441c32958ad12838676cc3e3feebcdd08510196fb",
       "list_url": "https://www3.jeed.go.jp/iwaki/poly/zaishoku/2026/index3.html",
@@ -47521,10 +47482,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "bba265a894820a0eb166c4968212f470cf3610063b4e7f1418f27d217f3f63fa",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/14(水)、15(木)",
       "start_date": "2026-10-14",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "電気設備のための計測技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3D015.html"
     },
@@ -51161,10 +51122,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "c94b0937754d0a7e1972f85e65def07d327b460a8ddf3c418dfb40a3829cf87f",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/20(火)、21(水)、22(木)、23(金)",
       "start_date": "2026-10-20",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "３次元ＣＡＤを活用したソリッドモデリング技術（SOLIDWORKS編）/３次元ＣＡＤを活用したアセンブリ技術（SOLIDWORKS編）",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3M062/3M072.html"
     },
@@ -53293,10 +53254,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "d1701c7f75496cfc6c9e755c99132696d20db5bb6033a43693a3529cf6f3a9cf",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "残りわずか",
       "schedule": "11/17(火)、24(火)",
       "start_date": "2026-11-17",
-      "status_category": "受付中",
+      "status_category": "残りわずか",
       "title": "木造住宅における許容応力度設計技術＜軸組編＞",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3H042.html"
     },
@@ -54229,10 +54190,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "d55dfed5c38642fff85bc1962954f91fca41e5b37abbcfd56d6f1863dd249199",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/28(水)、29(木)",
       "start_date": "2026-10-28",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "ＰＬＣ制御の回路技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3D075.html"
     },
@@ -56097,7 +56058,7 @@
     },
     "dd4f0e511357cb271f9971c8783220b4363d36c1b82466205c4be8cfe58e8636": {
       "code": "YMB64",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター山形",
       "key": "dd4f0e511357cb271f9971c8783220b4363d36c1b82466205c4be8cfe58e8636",
       "list_url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/index3.html",
@@ -56279,7 +56240,7 @@
     },
     "de38922bf31c42ce3137ece0ca0fbbd45c2745c2383fa66f63a6633d3dbb5d1f": {
       "code": "E5011",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター滋賀",
       "key": "de38922bf31c42ce3137ece0ca0fbbd45c2745c2383fa66f63a6633d3dbb5d1f",
       "list_url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/index3.html",
@@ -58840,7 +58801,7 @@
     },
     "e825454e9c40bdfda001cff6cba45ce60b0a904f26253d42338231b69f032225": {
       "code": "M0221",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター茨城",
       "key": "e825454e9c40bdfda001cff6cba45ce60b0a904f26253d42338231b69f032225",
       "list_url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/index3.html",
@@ -60192,7 +60153,7 @@
     },
     "ed8193f427de68673a899e00a3e3a6c21012256fe349f60669cf1b4062c59f03": {
       "code": "3D036",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター富山",
       "key": "ed8193f427de68673a899e00a3e3a6c21012256fe349f60669cf1b4062c59f03",
       "list_url": "https://www3.jeed.go.jp/toyama/poly/zaishoku/index3.html",
@@ -60274,10 +60235,10 @@
       "facility": "ポリテクセンター旭川",
       "key": "edbad0717a18ece238b8b14d024e989888fb4bfc22e17a375c42fa642bd6a068",
       "list_url": "https://www3.jeed.go.jp/asahikawa/poly/zaisyoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "電話相談",
       "schedule": "１０/１５(木)、１０/１６(金)",
       "start_date": "2026-10-15",
-      "status_category": "受付中",
+      "status_category": "お問い合わせ",
       "title": "ステンレス鋼のＴＩＧ溶接技能クリニック",
       "url": "https://www3.jeed.go.jp/asahikawa/poly/zaisyoku/2026/4M362.html"
     },
@@ -64135,10 +64096,10 @@
       "facility": "ポリテクセンター静岡",
       "key": "fb0c56144abcfea9fae67c84d38ba9b5c1e4c8cb26d16a8a266f482c0d29ff9a",
       "list_url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/index3.html",
-      "raw_status": "キャンセル待ち",
+      "raw_status": "受付終了",
       "schedule": "10/21(水)、22(木)",
       "start_date": "2026-10-21",
-      "status_category": "キャンセル待ち",
+      "status_category": "受付終了",
       "title": "生産現場の機械保全技術",
       "url": "https://www3.jeed.go.jp/shizuoka/poly/zaishoku/2026/3M301.html"
     },
@@ -65545,6 +65506,15 @@
     "ポリテクセンター鹿児島": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html"
   },
   "notifications": [
+    {
+      "course_key": "8629f76ecbd0ac981ef40ffb22ee76a611c2d4055c04869c2860161cfa930a6e",
+      "description": "検知：新規掲載 / 施設：ポリテクセンター岩手 / コース番号：3D212 / 日程：11/19(木),20(金) / 状況：受付中",
+      "facility": "ポリテクセンター岩手",
+      "guid": "07641aa9f972cce787c49c211d79544b2054db37bf83f59e0d592cb697a81a88",
+      "pub_date": "2026-10-02T10:05:46.180708+09:00",
+      "title": "【ポリテクセンター岩手】PLC制御の回路技術",
+      "url": "https://www3.jeed.go.jp/iwate/poly/zaishoku/2026/3D212.html"
+    },
     {
       "course_key": "2075385d1641c719a558ed2b3afe9727a462db16313cf7e8133d9494990927e0",
       "description": "検知：新規掲載 / 施設：ポリテクセンター富山 / コース番号：3M112 / 日程：11/17,18,19,20 / 状況：受付中",
