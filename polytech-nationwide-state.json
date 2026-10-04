@@ -21192,14 +21192,14 @@
     },
     "5236f5663712969fd56eb8d49d2af661413c610ff9bf5ffbbcb51a6af59addcc": {
       "code": "5H122",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長崎",
       "key": "5236f5663712969fd56eb8d49d2af661413c610ff9bf5ffbbcb51a6af59addcc",
       "list_url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "締切",
       "schedule": "10/17(土),24(土)",
       "start_date": "2026-10-17",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "実践建築設計２次元ＣＡＤ技術（配管編）",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5H122.html"
     },
@@ -33646,7 +33646,7 @@
     },
     "8288f94616c5b155102a63c81dd132c86f75a5983eb073040b850b34700995ca": {
       "code": "6D201",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター三重",
       "key": "8288f94616c5b155102a63c81dd132c86f75a5983eb073040b850b34700995ca",
       "list_url": "https://www3.jeed.go.jp/mie/poly/zaishoku/2026/index3.html",
@@ -56916,7 +56916,7 @@
     },
     "e09764b23ca62adf7ae641c2596059892511d4ef28a8f774510f6d6152097c09": {
       "code": "M932",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "e09764b23ca62adf7ae641c2596059892511d4ef28a8f774510f6d6152097c09",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
@@ -65145,14 +65145,14 @@
     },
     "ff2a05174231e670d8187eea216696a3679d7676399afa42ec4a7c977f77e14b": {
       "code": "5H002",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長崎",
       "key": "ff2a05174231e670d8187eea216696a3679d7676399afa42ec4a7c977f77e14b",
       "list_url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "締切",
       "schedule": "10/17(土),18(日)",
       "start_date": "2026-10-17",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "冷媒配管の施工と空調機器据付け技術",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5H002.html"
     },
