@@ -72,7 +72,7 @@ for anchor in soup.find_all("a", href=True):
     clean_title = normalize(clean_title)
     clean_title = CATEGORY_RE.sub("", clean_title)
     clean_title = re.sub(r"^(NEW\s*)+", "", clean_title, flags=re.IGNORECASE)
-    clean_title = re.sub(r"^[\s・:：\-]+", "", clean_title).strip()
+    clean_title = re.sub(r"^[\s・:：\-]+", "", clean_title).strip()\n    clean_title = re.sub(r"\(\s*\)|（\s*）", "", clean_title).strip()
 
     if not clean_title:
         continue
