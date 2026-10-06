@@ -5,6 +5,8 @@ from urllib.parse import urljoin, urlparse
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 
 SOURCE_URL = "https://www.town.imakane.lg.jp/"
@@ -38,7 +40,18 @@ def find_date(text):
     return None
 
 
-response = requests.get(SOURCE_URL, headers=HEADERS, timeout=60)
+session = requests.Session()
+retry = Retry(
+    total=4,
+    connect=4,
+    read=4,
+    status=4,
+    backoff_factor=3,
+    status_forcelist=[429, 500, 502, 503, 504],
+    allowed_methods=["GET"],
+)
+session.mount("https://", HTTPAdapter(max_retries=retry))
+response = session.get(SOURCE_URL, headers=HEADERS, timeout=60)
 response.raise_for_status()
 response.encoding = response.apparent_encoding
 soup = BeautifulSoup(response.text, "html.parser")
