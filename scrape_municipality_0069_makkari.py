@@ -22,7 +22,7 @@ DATE_PATTERNS = [
     re.compile(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})"),
 ]
 
-WEEKDAY_RE = re.compile(r"[（(][月火水木金土日]曜日?[）)]")
+WEEKDAY_RE = re.compile(r"^[（(][月火水木金土日](?:曜日?)?[）)]\\s*")
 CATEGORY_RE = re.compile(r"^(お知らせ|行政情報|くらしの情報|観光・イベント|観光・遊び|健康・福祉|しごと・産業|町政)\s+")
 
 
