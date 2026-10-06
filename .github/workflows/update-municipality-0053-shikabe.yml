@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add municipality-0053-shikabe.xml
+          git add municipality-0053-shikabe-news.xml
           git diff --cached --quiet || git commit -m "Update Municipality 0053 Shikabe RSS"
           git pull --rebase origin main
           git push origin main
