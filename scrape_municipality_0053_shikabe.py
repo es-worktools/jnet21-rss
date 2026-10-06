@@ -1,54 +1,23 @@
-import re
-from datetime import datetime, timedelta, timezone
-from email.utils import format_datetime
 from urllib.parse import urljoin, urlparse
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 import requests
 from bs4 import BeautifulSoup
 
-SOURCE_URL = "https://www.town.shikabe.lg.jp/"
+SOURCE_URL = "https://www.town.shikabe.lg.jp/shigoto_sangyo/index.html"
 OUTPUT_FILE = "municipality-0053-shikabe.xml"
 CHANNEL_TITLE = "0053_北海道鹿部町"
 ALLOWED_DOMAIN = "www.town.shikabe.lg.jp"
-MAX_ITEMS = 30
+TARGET_PREFIX = "/shigoto_sangyo/"
+MAX_ITEMS = 40
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
 }
 
-DATE_RE = re.compile(r"(20\\d{2})年\\s*(\\d{1,2})月\\s*(\\d{1,2})日")
-
 
 def normalize_title(text):
-    return re.sub(r"\\s+", " ", text or "").strip()
-
-
-def extract_date_near(anchor):
-    node = anchor
-    for _ in range(4):
-        node = getattr(node, "parent", None)
-        if node is None:
-            break
-
-        text = normalize_title(node.get_text(" ", strip=True))
-        if len(text) <= 500:
-            match = DATE_RE.search(text)
-            if match:
-                return tuple(map(int, match.groups()))
-
-        sibling = node.find_previous_sibling()
-        checked = 0
-        while sibling is not None and checked < 3:
-            text = normalize_title(sibling.get_text(" ", strip=True))
-            if text and len(text) <= 150:
-                match = DATE_RE.search(text)
-                if match:
-                    return tuple(map(int, match.groups()))
-                checked += 1
-            sibling = sibling.find_previous_sibling()
-
-    return None
+    return " ".join((text or "").split()).strip()
 
 
 response = requests.get(SOURCE_URL, headers=HEADERS, timeout=60)
@@ -56,10 +25,13 @@ response.raise_for_status()
 response.encoding = response.apparent_encoding
 soup = BeautifulSoup(response.text, "html.parser")
 
+h1 = soup.find("h1")
+scope = h1.parent if h1 and h1.parent else soup
+
 items = []
 seen = set()
 
-for anchor in soup.find_all("a", href=True):
+for anchor in scope.find_all("a", href=True):
     title = normalize_title(anchor.get_text(" ", strip=True))
     if not title or len(title) < 3:
         continue
@@ -71,21 +43,20 @@ for anchor in soup.find_all("a", href=True):
         continue
     if parsed.netloc != ALLOWED_DOMAIN:
         continue
+    if not parsed.path.startswith(TARGET_PREFIX):
+        continue
+    if parsed.path.endswith("/index.html"):
+        continue
     if url in seen:
         continue
 
-    date_tuple = extract_date_near(anchor)
-    if not date_tuple:
-        continue
-
     seen.add(url)
-    items.append((date_tuple, title, url))
-
-items.sort(key=lambda x: x[0], reverse=True)
-items = items[:MAX_ITEMS]
+    items.append((title, url))
 
 if not items:
-    raise RuntimeError("No dated items found")
+    raise RuntimeError("No business/industry items found")
+
+items = items[:MAX_ITEMS]
 
 rss = Element("rss", version="2.0")
 channel = SubElement(rss, "channel")
@@ -93,16 +64,11 @@ SubElement(channel, "title").text = CHANNEL_TITLE
 SubElement(channel, "link").text = SOURCE_URL
 SubElement(channel, "description").text = f"{CHANNEL_TITLE} GitHub generated RSS"
 
-jst = timezone(timedelta(hours=9))
-
-for (year, month, day), title, url in items:
+for item_title, url in items:
     item = SubElement(channel, "item")
-    SubElement(item, "title").text = title
+    SubElement(item, "title").text = item_title
     SubElement(item, "link").text = url
     SubElement(item, "guid").text = url
-    SubElement(item, "pubDate").text = format_datetime(
-        datetime(year, month, day, tzinfo=jst)
-    )
 
 ElementTree(rss).write(
     OUTPUT_FILE,
