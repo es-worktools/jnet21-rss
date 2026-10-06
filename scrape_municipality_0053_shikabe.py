@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 SOURCE_URL = "https://www.town.shikabe.lg.jp/shigoto_sangyo/index.html"
-OUTPUT_FILE = "municipality-0053-shikabe.xml"
+OUTPUT_FILE = "municipality-0053-shikabe-news.xml"
 CHANNEL_TITLE = "0053_北海道鹿部町"
 ALLOWED_DOMAIN = "www.town.shikabe.lg.jp"
 MAX_ITEMS = 30
