@@ -22,6 +22,9 @@ DATE_PATTERNS = [
     re.compile(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})"),
 ]
 
+WEEKDAY_RE = re.compile(r"[（(][月火水木金土日]曜日?[）)]")
+CATEGORY_RE = re.compile(r"^(お知らせ|行政情報|くらしの情報|観光・イベント|観光・遊び|健康・福祉|しごと・産業|町政)\s+")
+
 
 def normalize(text):
     return re.sub(r"\s+", " ", text or "").strip()
@@ -35,38 +38,6 @@ def find_date(text):
     return None
 
 
-def extract_date(anchor):
-    own = normalize(anchor.get_text(" ", strip=True))
-    date_tuple = find_date(own)
-    if date_tuple:
-        return date_tuple
-
-    node = anchor
-    for _ in range(4):
-        node = getattr(node, "parent", None)
-        if node is None:
-            break
-
-        text = normalize(node.get_text(" ", strip=True))
-        if len(text) <= 600:
-            date_tuple = find_date(text)
-            if date_tuple:
-                return date_tuple
-
-        sibling = node.find_previous_sibling()
-        checked = 0
-        while sibling is not None and checked < 3:
-            text = normalize(sibling.get_text(" ", strip=True))
-            if text and len(text) <= 250:
-                date_tuple = find_date(text)
-                if date_tuple:
-                    return date_tuple
-                checked += 1
-            sibling = sibling.find_previous_sibling()
-
-    return None
-
-
 response = requests.get(SOURCE_URL, headers=HEADERS, timeout=60)
 response.raise_for_status()
 response.encoding = response.apparent_encoding
@@ -76,11 +47,11 @@ items = []
 seen = set()
 
 for anchor in soup.find_all("a", href=True):
-    title = normalize(anchor.get_text(" ", strip=True))
-    if not title or len(title) < 3:
+    raw_title = normalize(anchor.get_text(" ", strip=True))
+    if not raw_title or len(raw_title) < 3:
         continue
 
-    date_tuple = extract_date(anchor)
+    date_tuple = find_date(raw_title)
     if not date_tuple:
         continue
 
@@ -94,10 +65,15 @@ for anchor in soup.find_all("a", href=True):
     if url in seen:
         continue
 
-    clean_title = title
+    clean_title = raw_title
     for pattern in DATE_PATTERNS:
         clean_title = pattern.sub("", clean_title)
-    clean_title = re.sub(r"^[\s（()）・:：\-]+", "", clean_title)
+    clean_title = WEEKDAY_RE.sub("", clean_title)
+    clean_title = normalize(clean_title)
+    clean_title = CATEGORY_RE.sub("", clean_title)
+    clean_title = re.sub(r"^(NEW\s*)+", "", clean_title, flags=re.IGNORECASE)
+    clean_title = re.sub(r"^[\s・:：\-]+", "", clean_title).strip()
+
     if not clean_title:
         continue
 
