@@ -17,31 +17,26 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0",
 }
 
-DATE_RE = re.compile(r"(20\\d{2})年\\s*(\\d{1,2})月\\s*(\\d{1,2})日")
+DATE_RE = re.compile(r"(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日")
 
 
 def normalize_title(text):
-    return re.sub(r"\\s+", " ", text or "").strip()
+    return re.sub(r"\s+", " ", text or "").strip()
 
 
-def extract_date_near(anchor):
-    node = anchor
-    for _ in range(4):
-        node = getattr(node, "parent", None)
-        if node is None:
-            break
+def extract_date(anchor):
+    parent = anchor.parent
+    if parent is not None:
+        text = normalize_title(parent.get_text(" ", strip=True))
+        match = DATE_RE.search(text)
+        if match:
+            return tuple(map(int, match.groups()))
 
-        text = normalize_title(node.get_text(" ", strip=True))
-        if len(text) <= 500:
-            match = DATE_RE.search(text)
-            if match:
-                return tuple(map(int, match.groups()))
-
-        sibling = node.find_previous_sibling()
+        sibling = parent.find_previous_sibling()
         checked = 0
         while sibling is not None and checked < 3:
             text = normalize_title(sibling.get_text(" ", strip=True))
-            if text and len(text) <= 150:
+            if text:
                 match = DATE_RE.search(text)
                 if match:
                     return tuple(map(int, match.groups()))
@@ -64,6 +59,10 @@ for anchor in soup.find_all("a", href=True):
     if not title or len(title) < 3:
         continue
 
+    date_tuple = extract_date(anchor)
+    if not date_tuple:
+        continue
+
     url = urljoin(SOURCE_URL, anchor["href"])
     parsed = urlparse(url)
 
@@ -72,10 +71,6 @@ for anchor in soup.find_all("a", href=True):
     if parsed.netloc != ALLOWED_DOMAIN:
         continue
     if url in seen:
-        continue
-
-    date_tuple = extract_date_near(anchor)
-    if not date_tuple:
         continue
 
     seen.add(url)
@@ -95,9 +90,9 @@ SubElement(channel, "description").text = f"{CHANNEL_TITLE} GitHub generated RSS
 
 jst = timezone(timedelta(hours=9))
 
-for (year, month, day), title, url in items:
+for (year, month, day), item_title, url in items:
     item = SubElement(channel, "item")
-    SubElement(item, "title").text = title
+    SubElement(item, "title").text = item_title
     SubElement(item, "link").text = url
     SubElement(item, "guid").text = url
     SubElement(item, "pubDate").text = format_datetime(
