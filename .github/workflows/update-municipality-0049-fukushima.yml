@@ -39,3 +39,4 @@ jobs:
           git diff --cached --quiet || git commit -m "Update Municipality 0049 Fukushima RSS"
           git pull --rebase origin main
           git push origin main
+# validation trigger
