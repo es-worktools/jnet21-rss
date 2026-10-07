@@ -1,0 +1,36 @@
+name: Probe Municipality 0151 toyako
+on:
+  push:
+    paths:
+      - ".github/workflows/probe-municipality-0151-toyako.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: Check official news source
+        run: |
+          python - <<'PY'
+          import requests
+          from bs4 import BeautifulSoup
+          for url in ['https://www.town.toyako.lg.jp/', 'http://www.town.toyako.lg.jp/']:
+              try:
+                  r = requests.get(url, timeout=30)
+                  print('URL', url, 'STATUS', r.status_code, 'FINAL', r.url)
+                  r.raise_for_status()
+                  r.encoding = 'utf-8'
+                  soup = BeautifulSoup(r.text, 'html.parser')
+                  for node in soup.select('a[href]'):
+                      text = node.get_text(' ', strip=True)
+                      if any(w in text for w in ['新着', 'お知らせ', '2026', '令和8']):
+                          print(str(node)[:1500])
+                  print('TEXT', soup.get_text(' ', strip=True)[:2000])
+              except Exception as e:
+                  print(type(e).__name__, str(e)[:1000])
+          PY
