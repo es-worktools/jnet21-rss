@@ -2340,19 +2340,6 @@
       "title": "トランジスタ回路の設計と評価の実践技術",
       "url": "https://www3.jeed.go.jp/kyoto/poly/zaishoku/2026/P2012.html"
     },
-    "094f58fa5c63697171f39197c35ae7462f0899f911d28b40f494cf6b5354ebe8": {
-      "code": "5M142",
-      "eligible": true,
-      "facility": "ポリテクセンター鹿児島",
-      "key": "094f58fa5c63697171f39197c35ae7462f0899f911d28b40f494cf6b5354ebe8",
-      "list_url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
-      "schedule": "10/16(金)、10/17(土)",
-      "start_date": "2026-10-16",
-      "status_category": "受付中",
-      "title": "半自動アーク溶接技能クリニック（下向き溶接編）",
-      "url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/5M142.html"
-    },
     "0959e0f4f37e55de86dfa7c0f5e87a48413c058c90941d8903ff62d3261e19b1": {
       "code": "301-2",
       "eligible": false,
@@ -18462,7 +18449,7 @@
     },
     "47472ae6ed5a31b5727c35f52bd3ee2ff08933acc712301d4757b2bfce5fd6d7": {
       "code": "E1121",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター茨城",
       "key": "47472ae6ed5a31b5727c35f52bd3ee2ff08933acc712301d4757b2bfce5fd6d7",
       "list_url": "https://www3.jeed.go.jp/ibaraki/poly/zaishoku/2026/index3.html",
@@ -57501,7 +57488,7 @@
     },
     "e218005748d94175e3ca19f1ecb615bb0d56f27b2c337633a8e7e87dbe81dcb4": {
       "code": "H351",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "e218005748d94175e3ca19f1ecb615bb0d56f27b2c337633a8e7e87dbe81dcb4",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
@@ -58619,7 +58606,7 @@
     },
     "e6c723ecd832c2cb1d811e1d3e023cb292b04805966d943562f29e1b0b04c277": {
       "code": "1M191",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター新潟",
       "key": "e6c723ecd832c2cb1d811e1d3e023cb292b04805966d943562f29e1b0b04c277",
       "list_url": "https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/index3.html",
