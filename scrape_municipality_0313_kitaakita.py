@@ -20,11 +20,16 @@ ALLOWED_ARTICLE_DOMAINS = {ALLOWED_DOMAIN, "www.pref.akita.lg.jp"}
 def normalize(text):
     return re.sub(r"\s+", " ", (text or "").replace("\u00ad", "")).strip()
 
+# The official origin serves the same dated lists; article URLs stay canonical.
+FETCH_DOMAIN = "origin.city.kitaakita.akita.jp"
+
 def fetch(url):
+    if urlparse(url).netloc != ALLOWED_DOMAIN: raise RuntimeError("Unexpected source domain")
+    url = urlparse(url)._replace(netloc=FETCH_DOMAIN).geturl()
     for attempt in range(4):
         try:
             with urlopen(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
-                if urlparse(response.url).netloc != ALLOWED_DOMAIN:
+                if urlparse(response.url).netloc != FETCH_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
                 return response.read().decode("utf-8")
         except Exception:
