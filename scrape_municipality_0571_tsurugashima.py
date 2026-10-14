@@ -26,7 +26,10 @@ def fetch(url):
             with urlopen(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
                 if urlparse(response.url).netloc != ALLOWED_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
-                return response.read().decode("utf-8")
+                body=response.read()
+                if response.status!=200 or not body.strip():
+                    raise RuntimeError(f"Official source returned HTTP {response.status} or empty body")
+                return body.decode("utf-8")
         except Exception:
             if attempt == 3: raise
             time.sleep(2 ** attempt)
