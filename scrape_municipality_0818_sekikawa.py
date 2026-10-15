@@ -23,7 +23,8 @@ def normalize(text):
 def fetch(url):
     for attempt in range(4):
         try:
-            with urlopen(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
+            fetch_url=url+('&' if '?' in url else '?')+'_rss_refresh='+str(int(time.time()))
+            with urlopen(Request(fetch_url, headers={"User-Agent":"Mozilla/5.0","Cache-Control":"no-cache","Pragma":"no-cache"}), timeout=60) as response:
                 if urlparse(response.url).netloc != ALLOWED_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
                 return response.read().decode("utf-8")
