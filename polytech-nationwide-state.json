@@ -24726,19 +24726,6 @@
       "title": "ＰＬＣによるＦＡネットワーク構築技術",
       "url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/5D161.html"
     },
-    "60100188f2fdfa0a909243b854c1e5b420df2546595fe918b1f8c25bc7fdf3d7": {
-      "code": "3M037",
-      "eligible": false,
-      "facility": "ポリテクセンター宮崎",
-      "key": "60100188f2fdfa0a909243b854c1e5b420df2546595fe918b1f8c25bc7fdf3d7",
-      "list_url": "https://www3.jeed.go.jp/miyazaki/poly/zaishoku/index3.html",
-      "raw_status": "受付終了",
-      "schedule": "令和8年10月17日（土）、10月18日（日）",
-      "start_date": "2026-10-17",
-      "status_category": "受付終了",
-      "title": "アルミニウム合金のＴＩＧ溶接技能クリニック",
-      "url": "https://www3.jeed.go.jp/miyazaki/poly/zaishoku/2026_B202-009-A.html"
-    },
     "6017ad904c99aa248534d89709e6acb68238ed14369e0a0b07220f3ba4643af9": {
       "code": "M221A",
       "eligible": false,
@@ -32177,14 +32164,14 @@
     },
     "7c4b0ef957d8a549a772fa04d718ad78420d2d402c168a46b365dddcb1e09c7f": {
       "code": "5H082",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長崎",
       "key": "7c4b0ef957d8a549a772fa04d718ad78420d2d402c168a46b365dddcb1e09c7f",
       "list_url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "締切",
       "schedule": "10/31(土),11/7(土),14(土)",
       "start_date": "2026-10-31",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "自家用電気工作物の施工技術",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5H082.html"
     },
@@ -46841,7 +46828,7 @@
     },
     "b82c45f968762432f482297af11b1136bc9e15cd7c5f77aad975fb2ddda619ed": {
       "code": "M9142",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター滋賀",
       "key": "b82c45f968762432f482297af11b1136bc9e15cd7c5f77aad975fb2ddda619ed",
       "list_url": "https://www3.jeed.go.jp/shiga/poly/zaishoku/2026/index3.html",
@@ -60894,7 +60881,7 @@
     },
     "ef7b5a0fe943a4e75b416e0d2db65c26ec33b2e1e8e66ceec4d1c66ec3fff11b": {
       "code": "1H030",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター新潟",
       "key": "ef7b5a0fe943a4e75b416e0d2db65c26ec33b2e1e8e66ceec4d1c66ec3fff11b",
       "list_url": "https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/index3.html",
