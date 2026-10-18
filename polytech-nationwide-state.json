@@ -14276,7 +14276,7 @@
     },
     "38089aa659a4ea55eb560f478c2a1c5f0629f29eee56944a553d77b9d569c646": {
       "code": "7E041",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター伊勢",
       "key": "38089aa659a4ea55eb560f478c2a1c5f0629f29eee56944a553d77b9d569c646",
       "list_url": "https://www3.jeed.go.jp/ise/poly/zaishoku/index3.html",
@@ -22021,19 +22021,6 @@
       "status_category": "申込締切日",
       "title": "実践建築設計２次元ＣＡＤ技術（Auto-CAD編）",
       "url": "https://www3.jeed.go.jp/yamagata/poly/zaishoku/2026/2026/A804-004-A-3.html"
-    },
-    "5503bacbab8d7a47c151f00a731cbc20bb216b4f7ecc4553ec8aa88dfa002ed6": {
-      "code": "5H130",
-      "eligible": true,
-      "facility": "ポリテクセンター鹿児島",
-      "key": "5503bacbab8d7a47c151f00a731cbc20bb216b4f7ecc4553ec8aa88dfa002ed6",
-      "list_url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
-      "schedule": "10/24(土)、10/25(日)",
-      "start_date": "2026-10-24",
-      "status_category": "受付中",
-      "title": "空調設備機器の保守技術",
-      "url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/5H130.html"
     },
     "551644264f197441175bf7f879a0a0e375cf824c7010ed71cc7b80e49b57f06f": {
       "code": "4M303",
@@ -44969,14 +44956,14 @@
     },
     "b032b510e216ceba420df2d551c8de9028e62e0a0b38eaa730a5931ccab0981a": {
       "code": "M201D",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター兵庫",
       "key": "b032b510e216ceba420df2d551c8de9028e62e0a0b38eaa730a5931ccab0981a",
       "list_url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "中止",
       "schedule": "11/7,14",
       "start_date": "2026-11-07",
-      "status_category": "受付中",
+      "status_category": "中止",
       "title": "被覆アーク溶接技能クリニック（各種姿勢編）",
       "url": "https://www3.jeed.go.jp/hyogo/poly/contents/holding/2026/M201D.html"
     },
@@ -54797,7 +54784,7 @@
     },
     "d7822b5a413173f43f6eaeb6e9c3a348cc45d15ae520660f9367c38a2d18e34d": {
       "code": "7H012",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター伊勢",
       "key": "d7822b5a413173f43f6eaeb6e9c3a348cc45d15ae520660f9367c38a2d18e34d",
       "list_url": "https://www3.jeed.go.jp/ise/poly/zaishoku/index3.html",
