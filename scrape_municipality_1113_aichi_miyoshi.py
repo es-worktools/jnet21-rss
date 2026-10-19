@@ -1,7 +1,8 @@
 import json, re, time
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
-from urllib.request import Request, urlopen
+from urllib.request import Request, build_opener, HTTPCookieProcessor
+from http.cookiejar import CookieJar
 from urllib.parse import urljoin, urlparse
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 from pathlib import Path
@@ -14,6 +15,7 @@ CHANNEL_TITLE = '1113_愛知県みよし市'
 ALLOWED_DOMAIN = urlparse(SOURCE_URL).netloc
 MAX_ITEMS = 30
 JST = timezone(timedelta(hours=9))
+OPENER = build_opener(HTTPCookieProcessor(CookieJar()))
 
 def normalize(text):
     return re.sub(r"\s+", " ", (text or "").replace("\u00ad", "")).strip()
@@ -21,7 +23,7 @@ def normalize(text):
 def fetch(url):
     for attempt in range(4):
         try:
-            with urlopen(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
+            with OPENER.open(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
                 if urlparse(response.url).netloc != ALLOWED_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
                 return response.read().decode("utf-8-sig")
