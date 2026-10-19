@@ -1,0 +1,17 @@
+name: Inspect Municipality batch65
+on:
+  push:
+    branches: [municipality-65-investigation-20261019]
+    paths: ['investigate_batch65.py', '.github/workflows/inspect-municipality-batch65.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - run: python investigate_batch65.py
