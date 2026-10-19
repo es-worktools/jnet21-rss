@@ -23,7 +23,7 @@ def normalize(text):
 def fetch(url):
     for attempt in range(4):
         try:
-            with OPENER.open(Request(url, headers={"User-Agent":"Mozilla/5.0"}), timeout=60) as response:
+            with OPENER.open(Request(url, headers={"User-Agent":"Mozilla/5.0", "Accept":"application/json,text/html;q=0.9,*/*;q=0.8", "Referer":SOURCE_URL}), timeout=60) as response:
                 if urlparse(response.url).netloc != ALLOWED_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
                 return response.read().decode("utf-8-sig")
@@ -67,6 +67,8 @@ def parse_source(text, source_url, items):
         add(items,row['page_name'],row['url'],date,source_url)
 
 def main():
+    # Establish the ordinary anonymous site session before its JSON request.
+    fetch(SOURCE_URL)
     items={}
     for url in SOURCES: parse_source(fetch(url),url,items)
     if not items: raise RuntimeError("No articles found; existing RSS preserved")
