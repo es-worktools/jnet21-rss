@@ -67,8 +67,18 @@ def official():
   if row['url'] not in source:missing.append(row)
   elif source[row['url']]!=(row['title'],row['date']):diff.append({'rss':row,'source':source[row['url']]})
  assert rows and not diff,(missing,diff)
- assert not missing,missing
- return {'code':'1367','method':'公式RSS','feed_url':final,'count':len(rows),'items':rows,'all_items_matched':True,'xml':b.decode('utf-8-sig')}
+ # The official RSS includes updates outside the site's newPage JSON selection.
+ # Verify those entries directly against each official article.
+ def check_article(row):
+  ab,au=get(row['url']);d=html.fromstring(ab)
+  heads=[clean(n.text_content()) for n in d.xpath('//h1')]
+  dates=re.findall(r'更新日[：:\s]*(20\d{2})年(\d{1,2})月(\d{1,2})日',d.text_content())
+  days=['%04d-%02d-%02d'%tuple(map(int,t)) for t in dates]
+  return {'rss':row,'article_url':au,'headings':heads,'update_dates':days,'matched':row['title'] in heads and row['date'] in days}
+ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:article_checks=list(pool.map(check_article,missing))
+ print('OFFICIAL_CHECK '+json.dumps(article_checks,ensure_ascii=False))
+ assert all(r['matched'] for r in article_checks),article_checks
+ return {'code':'1367','method':'公式RSS','feed_url':final,'count':len(rows),'items':rows,'all_items_matched':True,'json_matches':len(rows)-len(missing),'article_checks':article_checks,'xml':b.decode('utf-8-sig')}
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
  futures=[ex.submit(verify,s) for s in [('1363','asuka'),('1365','oji'),('1373','nosegawa'),('1374','totsukawa')]]+[ex.submit(official)]
  for f in futures:print('VRESULT '+json.dumps(f.result(),ensure_ascii=False))
