@@ -2,11 +2,11 @@ import json,concurrent.futures,time,gzip,base64
 from urllib.request import Request,build_opener,HTTPCookieProcessor
 from http.cookiejar import CookieJar
 URLS={
- "1400": "https://www.town.hidakagawa.lg.jp/",
- "1401": "https://www.town.shirahama.wakayama.jp/",
- "1402": "https://www.town.kamitonda.lg.jp/",
- "1403": "https://www.town.susami.lg.jp/",
- "1405": "https://www.town.taiji.wakayama.jp/"
+ "1400-news": "https://www.town.hidakagawa.lg.jp/whatsnew.html",
+ "1402-news": "http://www.town.kamitonda.lg.jp/news_list.html",
+ "1403-news": "https://www.town.susami.lg.jp/whatsnew.html",
+ "1405-news": "https://www.town.taiji.wakayama.jp/whatsnew.html",
+ "1401-data": "https://www.town.shirahama.wakayama.jp/index.update.json"
 }
 def fetch(kv):
  code,url=kv
