@@ -1,0 +1,15 @@
+name: Inspect Municipality batch68
+on:
+  push:
+    branches: [municipality-68-investigation-20261020]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python investigate_batch68.py
