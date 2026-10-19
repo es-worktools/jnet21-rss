@@ -2,11 +2,14 @@ import json,concurrent.futures,time,gzip,base64
 from urllib.request import Request,build_opener,HTTPCookieProcessor
 from http.cookiejar import CookieJar
 URLS={
- '1375':'https://www.vill.shimokitayama.nara.jp/',
- '1376':'https://www.vill.kamikitayama.nara.jp/',
- '1384':'https://www.city.tanabe.lg.jp/',
- '1386':'https://www.city.kinokawa.lg.jp/',
- '1388':'https://www.town.kimino.wakayama.jp/',
+ "1375-news": "https://www.vill.shimokitayama.nara.jp/oshirase/",
+ "1376-news": "https://www.vill.kamikitayama.nara.jp/news_list.html",
+ "1376-data": "https://www.vill.kamikitayama.nara.jp/index.update.json",
+ "1384-news": "https://www.city.tanabe.lg.jp/news.html",
+ "1384-data": "https://www.city.tanabe.lg.jp/index.update.json",
+ "1386-news": "https://www.city.kinokawa.lg.jp/whatsnew.html",
+ "1388-news": "https://www.town.kimino.wakayama.jp/news.html",
+ "1388-data": "https://www.town.kimino.wakayama.jp/index.update.json"
 }
 def fetch(kv):
  code,url=kv
