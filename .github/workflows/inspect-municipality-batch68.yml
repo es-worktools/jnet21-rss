@@ -13,4 +13,4 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install lxml
-      - run: python verify_batch68.py
+      - run: python verify_public68.py
