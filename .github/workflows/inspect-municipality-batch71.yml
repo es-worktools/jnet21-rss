@@ -13,4 +13,5 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - run: python probe_batch71.py
+      - run: pip install lxml
+      - run: python verify_batch71.py
