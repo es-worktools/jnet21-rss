@@ -1,0 +1,16 @@
+name: Probe Municipality 73
+on:
+  push:
+    branches: [municipality-73-investigation-20261020]
+    paths: ["probe_municipality_73.py", ".github/workflows/probe-municipality-73.yml"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python probe_municipality_73.py
