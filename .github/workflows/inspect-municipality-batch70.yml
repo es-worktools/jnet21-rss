@@ -1,0 +1,17 @@
+name: Inspect Municipality Batch70
+on:
+  push:
+    branches: [municipality-70-investigation-20261020]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - run: python verify_batch70.py
