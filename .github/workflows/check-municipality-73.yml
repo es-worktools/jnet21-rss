@@ -1,0 +1,17 @@
+name: Verify Municipality 73 Shinjo
+on:
+  push:
+    branches: [municipality-73-investigation-20261020]
+    paths: ["scrape_municipality_1470_shinjo.py", "check_municipality_73.py", ".github/workflows/check-municipality-73.yml"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install lxml
+      - run: python check_municipality_73.py
