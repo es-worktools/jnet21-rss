@@ -1,0 +1,21 @@
+name: Verify Municipality Batch 72
+on:
+  push:
+    branches: [municipality-72-investigation-20261020]
+    paths:
+      - 'scrape_municipality_14*.py'
+      - 'verify72.py'
+      - '.github/workflows/verify-municipality-72.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - run: python verify72.py
