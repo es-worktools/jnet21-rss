@@ -1,0 +1,61 @@
+name: Temporary batch83 official source diagnostic
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/temporary-batch83-source-diagnostic.yml"]
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip install requests beautifulsoup4 lxml -q
+      - name: Check official sites and news indexes
+        run: |
+          python - <<'PY'
+          import requests,re,json,html
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin,urlparse
+          sites=[
+             ('1727','https://www.city.saikai.nagasaki.jp/news_list.html'),
+             ('1731','https://www.town.togitsu.nagasaki.jp/'),
+             ('1732','https://www.town.higashisonogi.lg.jp/news.html'),
+             ('1733','https://www.kawatana.jp/topics/news/index.html'),
+             ('1735','https://www.town.ojika.lg.jp/news_list.html')]
+          session=requests.Session()
+          session.headers['User-Agent']='Mozilla/5.0'
+          for id,site in sites:
+            print('=== START',id,site,flush=True)
+            try:
+              r=session.get(site,timeout=25); print('PAGE',r.status_code,r.url,r.encoding,len(r.content))
+              soup=BeautifulSoup(r.content,'lxml')
+              print('TITLE',soup.title.get_text(' ',strip=True) if soup.title else None)
+              for item in soup.find_all(['a','link'],href=True):
+                if 'rss' in (item.get('href','')+' '+str(item.get('type',''))+' '+item.get_text(' ',strip=True)).lower():
+                  print('RSS',item.get('href'),flush=True)
+              for q in ['.news-area','.newPageListBlock','.newslist','.news-list','#main','.topics-list','main']:
+                nodes=soup.select(q)
+                if nodes:print('CLASS',q,'COUNT',len(nodes),'EXAMPLE',str(nodes[0])[:1000],flush=True)
+              cand=[]
+              for a in soup.select('a[href]'):
+                t=a.get_text(' ',strip=True);href=a.get('href','')
+                if not (10<len(t)<130 and ('.html' in href or '/detail/' in href or '.php' in href)):continue
+                p=a
+                for depth in range(3):
+                  p=p.parent
+                  if not p:break
+                  if re.search(r'20\\d{2}[年.\\/]|令和\\d{1,2}年',p.get_text(' ',strip=True)[:260]):
+                    cand.append((href[:130],t[:100],re.sub(r'\\s+',' ',p.get_text(' ',strip=True))[:165],str(p)[:480]))
+                    break
+              print('NEWS_LINKS_COUNT',len(cand),flush=True)
+              for x in cand[:9]:print('NEWS_LINK',repr(x),flush=True)
+              for path in ['/index.update.json','/news.update.json','/rss.xml','/rss/rss.xml']:
+                u=urljoin(site,path)
+                try:
+                  x=session.get(u,timeout=15)
+                  print('PROBE',path,x.status_code,x.headers.get('content-type'),len(x.content),flush=True)
+                  if x.status_code==200 and 'json' in x.headers.get('content-type',''):
+                    d=x.json()
+                    print('JSON_COUNT',len(d) if hasattr(d,'__len__') else None,'FIRST',str(d[:2] if isinstance(d,list) else list(d.items())[:2])[:1650],flush=True)
+                except Exception as e: print('PROBE_ERROR',path,repr(e),flush=True)
+            except Exception as e:print('ERROR',id,repr(e),flush=True)
+          PY
