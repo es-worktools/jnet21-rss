@@ -37,7 +37,7 @@ def main():
         dt=datetime.fromisoformat(stamp)
         if dt.tzinfo is None:raise RuntimeError("Missing official date timezone")
         if dt>datetime.now(JST):continue
-        if dt<datetime.now(JST)-timedelta(days=120):continue
+        if dt<datetime.now(JST)-timedelta(days=90):continue
         items[link]=(dt,title,link)
     if len(items)<3:raise RuntimeError("No usable current official entries, do not overwrite RSS")
     rss=Element("rss",version="2.0")

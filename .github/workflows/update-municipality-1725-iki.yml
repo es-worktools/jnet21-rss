@@ -8,7 +8,11 @@ on:
       - ".github/workflows/update-municipality-1725-iki.yml"
   workflow_dispatch:
   schedule:
-    - cron: "53 17 * * *"
+    - cron: "54 16 * * *"
+
+concurrency:
+  group: municipality-1725-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write

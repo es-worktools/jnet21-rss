@@ -27,21 +27,18 @@ def main():
             time.sleep(2**attempt)
     doc=html.fromstring(raw)
     rows={}
-    for a in doc.xpath('//li/a[@href]'):
+    for a in doc.xpath('//*[@id="main-contents"]/li[span[@class="news-time"]]/a[@href]'):
         href=a.get('href','')
-        if not re.search(r'https?://www\.city\.hirado\.nagasaki\.jp/|\.\./|2026/', href):
-            continue
         title=re.sub(r'\s+',' ',a.text_content()).strip()
         parent=a.getparent()
         txt=re.sub(r'\s+',' ',parent.text_content())
         match=re.search(r'(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日',txt)
-        if not match or not (8<=len(title)<=220):
+        if not match or not title:
             continue
         date=datetime(*(int(x) for x in match.groups()),tzinfo=JST)
         if date>datetime.now(JST):raise RuntimeError('Official date is in future')
         link=urljoin(SOURCE_URL,href)
         if urlparse(link).netloc!=urlparse(SOURCE_URL).netloc:raise RuntimeError('Unexpected link domain')
-        if '/202' not in link and '/top/' not in link:continue
         rows[link]=(date,title,link)
     if len(rows)<8:raise RuntimeError(f'Insufficient official items ({len(rows)}); RSS preserved')
     rss=Element('rss',version='2.0')

@@ -27,14 +27,14 @@ def main():
  records={}
  for rec in data:
   if rec.get("is_category_index") or rec.get("is_keitai_page"):continue
-  title=re.sub(r"\\s+"," ",str(rec.get("page_name") or "")).strip()
+  title=re.sub(r"\s+"," ",str(rec.get("page_name") or "")).strip()
   link=str(rec.get("url") or "")
   stamp=rec.get("publish_datetime")
   if not(title and link and stamp):continue
   if urlparse(link).scheme!="https" or urlparse(link).netloc!="www.town.higashisonogi.lg.jp":continue
   date=datetime.fromisoformat(stamp)
   if date.tzinfo is None:raise RuntimeError("Official date lacks timezone")
-  if not now-timedelta(days=180)<=date<=now:continue
+  if not now-timedelta(days=90)<=date<=now:continue
   records[link]=(date,title,link)
  if len(records)<3:raise RuntimeError(f"Only {len(records)} current items; RSS preserved")
  rss=Element("rss",version="2.0")
