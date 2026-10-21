@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: "51 16 * * *"
 
+concurrency:
+  group: municipality-1702-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 

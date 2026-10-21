@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 from lxml import html
 
-SOURCE_URL = "https://www.city.takeo.lg.jp/information/" + str(datetime.now(timezone(timedelta(hours=9))).year) + "/"
+SOURCE_URL = "https://www.city.takeo.lg.jp/information/"
 OUTPUT_FILE = "municipality-1702-takeo.xml"
 CHANNEL_TITLE = "1702_佐賀県武雄市"
 JST = timezone(timedelta(hours=9))
@@ -29,11 +29,11 @@ def fetch():
 
 def main():
     doc = html.fromstring(fetch())
-    links = doc.xpath('//li/a[contains(@href,".html")]')
+    links = doc.xpath('//ul[@class="entryList"]/li/a[@href]')
     records = {}
     for a in links:
         href = a.get("href", "")
-        if not re.fullmatch(r'\./\d{2}/\d+\.html', href):
+        if not re.fullmatch(r'\./\d{4}/\d{2}/\d+\.html', href):
             continue
         title = re.sub(r"\s+", " ", a.text_content()).strip()
         parent = a.getparent()

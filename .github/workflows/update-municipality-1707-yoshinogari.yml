@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: "53 17 * * *"
 
+concurrency:
+  group: municipality-1707-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 

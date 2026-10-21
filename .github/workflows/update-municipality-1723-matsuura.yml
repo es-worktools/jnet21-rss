@@ -7,7 +7,11 @@ on:
       - ".github/workflows/update-municipality-1723-matsuura.yml"
   workflow_dispatch:
   schedule:
-    - cron: "49 17 * * *"
+    - cron: "50 16 * * *"
+concurrency:
+  group: municipality-1723-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 jobs:

@@ -8,6 +8,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "33 18 * * *"
+concurrency:
+  group: municipality-1733-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 jobs:
