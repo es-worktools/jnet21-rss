@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 from lxml import html
 
-SOURCE_URL = "https://www.city.takeo.lg.jp/information/2026/"
+SOURCE_URL = "https://www.city.takeo.lg.jp/information/" + str(datetime.now(timezone(timedelta(hours=9))).year) + "/"
 OUTPUT_FILE = "municipality-1702-takeo.xml"
 CHANNEL_TITLE = "1702_佐賀県武雄市"
 JST = timezone(timedelta(hours=9))
