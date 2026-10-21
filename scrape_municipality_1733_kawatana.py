@@ -25,13 +25,13 @@ def main():
   nodes=li.xpath('./div[contains(concat(" ",normalize-space(@class)," ")," date ")]')
   links=li.xpath('./a[@href]')
   if len(nodes)!=1 or len(links)!=1:continue
-  stamp=re.sub(r"\\s+","",nodes[0].text_content())
-  match=re.fullmatch(r'令和(\\d{1,2})年(\\d{1,2})月(\\d{1,2})日',stamp)
+  stamp=re.sub(r"\s+","",nodes[0].text_content())
+  match=re.fullmatch(r'令和(\d{1,2})年(\d{1,2})月(\d{1,2})日',stamp)
   if not match:raise RuntimeError("Unexpected official date: "+stamp)
   y,m,d=map(int,match.groups())
   date=datetime(2018+y,m,d,tzinfo=JST)
   if date>datetime.now(JST):continue
-  title=re.sub(r"\\s+"," ",links[0].text_content()).strip()
+  title=re.sub(r"\s+"," ",links[0].text_content()).strip()
   url=urljoin(SOURCE_URL,links[0].get("href"))
   if urlparse(url).netloc!="www.kawatana.jp" or not title:continue
   records[url]=(date,title,url)
