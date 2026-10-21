@@ -1,0 +1,44 @@
+name: Temporary Kawatana Structure
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/temporary-kawatana-structure.yml"
+  workflow_dispatch:
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect listing DOM
+        run: |
+          python -m pip install beautifulsoup4 requests lxml -q
+          python - <<'PY'
+          from bs4 import BeautifulSoup
+          import requests,re,json
+          url="https://www.kawatana.jp/topics/news/index.html"
+          response=requests.get(url,timeout=30)
+          response.raise_for_status()
+          soup=BeautifulSoup(response.content,"lxml")
+          print("PAGE",response.status_code,len(response.content),soup.title.get_text(" ",strip=True),flush=True)
+          date_re=re.compile(r"(?:令和\\s*[0-9０-９]+\\s*年\\s*[0-9０-９]+\\s*月\\s*[0-9０-９]+\\s*日|20[0-9]{2}[./-][0-9]{1,2}[./-][0-9]{1,2})")
+          links=[]
+          for a in soup.select("a[href]"):
+            s=a.get_text(" ",strip=True)
+            if len(s)>=12 and ("topics" in a.get("href","") or "news" in a.get("href","")):
+              links.append(a)
+          print("MATCHING_LINKS",len(links),flush=True)
+          for a in links[:18]:
+            p=a
+            for d in range(4):
+              p=p.parent
+              if p is None:break
+              print("PARENT",d,p.name,p.get("class"),p.get("id"),"TEXT",repr(p.get_text(" ",strip=True)[:190]),flush=True)
+              if d<=1: print("HTML",str(p)[:520].replace("\\n"," "),flush=True)
+            print("LINK_END",flush=True)
+          for i,node in enumerate(soup.find_all(["ul","div","section","article"])):
+            if i>400:break
+            text=node.get_text(" ",strip=True)
+            if date_re.search(text) and 50<=len(text)<=3000:
+              print("DATED_NODE",node.name,node.get("class"),node.get("id"),len(text),repr(text[:300]),flush=True)
+          print("FEED_REF",[(a.get("href"),a.get("type")) for a in soup.find_all(["link","a"],href=True) if any(w in (a.get("href") or "").lower() for w in ["rss","atom","feed"])][:20],flush=True)
+          PY
