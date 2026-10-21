@@ -26,6 +26,7 @@ jobs:
             s=a.get_text(" ",strip=True)
             if len(s)>=12 and ("topics" in a.get("href","") or "news" in a.get("href","")):
               links.append(a)
+          print("TARGET_HTML",str(soup.select_one("div#sub_page.news"))[:10500],flush=True)
           print("MATCHING_LINKS",len(links),flush=True)
           for a in links[:18]:
             p=a
