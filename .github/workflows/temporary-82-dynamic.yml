@@ -1,0 +1,35 @@
+name: Temporary 82 dynamic source inspection
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/temporary-82-dynamic.yml"]
+  workflow_dispatch:
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip install requests beautifulsoup4 lxml -q
+      - run: |
+          python - <<'PY'
+          import requests,re
+          from urllib.parse import urljoin
+          from bs4 import BeautifulSoup
+          for num,url in {'1707':'https://www.town.yoshinogari.lg.jp/news.html','1725':'https://www.city.iki.nagasaki.jp/news.html'}.items():
+            try:
+              r=requests.get(url,timeout=25);r.raise_for_status()
+              s=BeautifulSoup(r.content,'lxml')
+              print('START',num,'ENC',r.apparent_encoding,flush=True)
+              for node in s.select('.newPageListBlock,.news-area,.pageListBlock,[data-url*="news"],[data-url*="update"]'):
+                print('CONTAINER',str(node)[:2600],flush=True)
+              for node in s.select('script[src]'):
+                v=node.get('src','')
+                if 'news' in v or 'update' in v or 'common' in v or 'index' in v:
+                  print('SCRIPT',v,flush=True)
+              for node in s.select('[data-url],[url]'):
+                v=node.get('data-url') or node.get('url')
+                if v and ('news' in v or 'json' in v or 'update' in v): print('DATAURL',v,flush=True)
+              for path in ('/index.update.json','/news.update.json','/news.json','/news.html','/index.json'):
+                rr=requests.get(urljoin(url,path),timeout=15)
+                print('CHECK',path,rr.status_code,rr.headers.get('content-type'),len(rr.content),rr.text[:120],flush=True)
+            except Exception as exc:print('ERROR',num,repr(exc),flush=True)
+          PY
