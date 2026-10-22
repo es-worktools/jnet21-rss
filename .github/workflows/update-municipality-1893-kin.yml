@@ -1,0 +1,41 @@
+name: Update Municipality 1893 kin RSS
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scrape_municipality_1893_kin.py"
+      - ".github/workflows/update-municipality-1893-kin.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "14 19 * * *"
+
+concurrency:
+  group: municipality-1893-${{ github.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Generate RSS
+        run: python scrape_municipality_1893_kin.py
+      - name: Commit RSS
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add municipality-1893-kin.xml
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Municipality 1893 kin RSS"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main || exit 1
+            if git push origin main; then exit 0; fi
+            if [ "$attempt" -lt 5 ]; then sleep $((attempt * 2)); fi
+          done
+          exit 1
