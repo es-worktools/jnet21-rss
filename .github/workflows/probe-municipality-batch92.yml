@@ -10,15 +10,34 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch official source
+      - run: pip install lxml
+      - name: Fetch official news and sample articles
         run: |
           python - <<'PYCODE'
-          import urllib.request,json,base64,gzip
-          url='https://www.city.shibuya.tokyo.jp/'
+          import urllib.request,json,base64,gzip,re
+          from urllib.parse import urljoin,urlparse
+          from lxml import html
+          url='https://www.city.shibuya.tokyo.jp/contents/news/'
           try:
               with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=40) as r:
                   b=r.read()
                   print('SOURCE_JSON:'+json.dumps({'url':url,'final_url':r.url,'status':r.status,'gzip_base64':base64.b64encode(gzip.compress(b)).decode()}))
+              t=html.fromstring(b)
+              seen=set()
+              for a in t.xpath('//a[@href]'):
+                  text=' '.join(a.text_content().split())
+                  href=urljoin(url,a.get('href'))
+                  if not re.search(r'20[0-9]{2}年[0-9]+月[0-9]+日',text) or urlparse(href).netloc!='www.city.shibuya.tokyo.jp' or href in seen:
+                      continue
+                  seen.add(href)
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(href,headers={'User-Agent':'Mozilla/5.0'}),timeout=40) as response:
+                          detail=html.fromstring(response.read())
+                          print('DETAIL_JSON:'+json.dumps({'url':href,'status':response.status,'list_text':text,'detail_titles':[' '.join(x.text_content().split()) for x in detail.xpath('//h1')]},ensure_ascii=False))
+                  except Exception as e:
+                      print('DETAIL_JSON:'+json.dumps({'url':href,'error':str(e)}))
+                  if len(seen)>=2:
+                      break
           except Exception as e:
               print('SOURCE_JSON:'+json.dumps({'url':url,'error':str(e)}))
           PYCODE
