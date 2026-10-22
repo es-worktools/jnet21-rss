@@ -1,0 +1,24 @@
+name: Probe Municipality Batch89 Sources
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/probe-municipality-batch89.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check official source status
+        run: |
+          python - <<'PYCODE'
+          import urllib.request,json
+          for url in ['https://www.city.isa.kagoshima.jp/', 'https://www.town.minamitane.kagoshima.jp/']:
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=40) as r:
+                      b=r.read()
+                      print('SOURCE_STATUS:'+json.dumps({'url':url,'final_url':r.url,'status':r.status,'length':len(b),'maintenance':('メンテナンス' in b.decode('utf-8',errors='ignore')),'excerpt':b.decode('utf-8',errors='ignore')[:1800]},ensure_ascii=False))
+              except Exception as e:
+                  print('SOURCE_STATUS:'+json.dumps({'url':url,'error':str(e)}))
+          PYCODE
