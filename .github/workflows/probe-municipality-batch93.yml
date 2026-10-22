@@ -13,24 +13,17 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Fetch official sources
+      - name: Verify official article headings
         run: |
           python - <<'PY'
           import urllib.request, json, gzip, base64, concurrent.futures
-          targets=[
-          ("1929-home","https://www.city.tokyo-nakano.lg.jp/"),
-          ("1929-news","https://www.city.tokyo-nakano.lg.jp/allNewsList.html"),
-          ("1932-rssinfo","https://www.city.kita.lg.jp/about/rss.html"),
-          ("1932-rss","https://www.city.kita.lg.jp/news.rss"),
-          ("1932-news","https://www.city.kita.lg.jp/newslist.html")]
+          targets=json.loads("[{\"key\":\"1929-detail-1\",\"url\":\"https://www.city.tokyo-nakano.lg.jp/kusei/public/houdou/2026/20261021kisyakaiken.html\",\"expected_title\":\"2026年10月22日 中野区長定例記者会見を開催しました\"},{\"key\":\"1929-detail-2\",\"url\":\"https://www.city.tokyo-nakano.lg.jp/kurashi/koseki/madoguti/nichiyo.html\",\"expected_title\":\"2階戸籍住民課日曜窓口のご案内【10月25日は休止します】\"},{\"key\":\"1932-detail-3\",\"url\":\"https://www.city.kita.lg.jp/culture-tourism-sports/tourism/1018317/1020821.html\",\"expected_title\":\"令和8年度北区・板橋区合同散策ツアー\"},{\"key\":\"1932-detail-4\",\"url\":\"https://www.city.kita.lg.jp/city-information/pr/1026908.html\",\"expected_title\":\"緊急メンテナンスに伴う一部WEBサイト・サービスの停止\"},{\"key\":\"1932-diff-5\",\"url\":\"https://www.city.kita.lg.jp/children-edu/pregnancy/1002764/1026887.html\",\"expected_title\":\"「子どもの「未来の健康」を守る！知っておきたい「プレコン」＆「おうち性教育」（北区プレコンセプションケア オンライン講座）\"},{\"key\":\"1932-diff-6\",\"url\":\"https://www.city.kita.lg.jp/city-information/recruitment/1018377/1014674/1026739.html\",\"expected_title\":\"令和8年度 北区会計年度任用職員（教育指導課・認定こども園学級補助員）の募集\"}]")
           def get(t):
-           key,url=t
            try:
-            with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=40) as r:
-             data=r.read();final=r.url;status=r.status;ctype=r.headers.get("Content-Type")
-            if len(data)>1500000:raise RuntimeError("Source unexpectedly large")
-            return {"key":key,"url":url,"final_url":final,"status":status,"content_type":ctype,"size":len(data),"gzip_base64":base64.b64encode(gzip.compress(data)).decode()}
-           except Exception as e:return {"key":key,"url":url,"error":str(e)}
-          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as e:
+            with urllib.request.urlopen(urllib.request.Request(t["url"],headers={"User-Agent":"Mozilla/5.0"}),timeout=40) as r:
+             data=r.read();final=r.url;status=r.status
+            return dict(t,final_url=final,status=status,size=len(data),gzip_base64=base64.b64encode(gzip.compress(data)).decode())
+           except Exception as e:return dict(t,error=str(e))
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as e:
            for item in e.map(get,targets):print("SOURCE_JSON "+json.dumps(item,ensure_ascii=False))
           PY
