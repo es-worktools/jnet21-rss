@@ -14250,7 +14250,7 @@
     },
     "37eef123921d3c7d1738e43b23b480db7be9f15b124c866acb240aa656627fb4": {
       "code": "7M522",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター伊勢",
       "key": "37eef123921d3c7d1738e43b23b480db7be9f15b124c866acb240aa656627fb4",
       "list_url": "https://www3.jeed.go.jp/ise/poly/zaishoku/index3.html",
@@ -16093,19 +16093,6 @@
       "status_category": "キャンセル待ち",
       "title": "制御盤設計・製作技術",
       "url": "https://www3.jeed.go.jp/osaka/poly/zaishoku/B0026.html"
-    },
-    "3f0a93acf6f93276d5211c469c1b1e527b7fc1f2d9c9de8c81ff2d72edd2686c": {
-      "code": "5H120",
-      "eligible": true,
-      "facility": "ポリテクセンター鹿児島",
-      "key": "3f0a93acf6f93276d5211c469c1b1e527b7fc1f2d9c9de8c81ff2d72edd2686c",
-      "list_url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
-      "schedule": "10/31(土)、11/1(日)",
-      "start_date": "2026-10-31",
-      "status_category": "受付中",
-      "title": "トラブル事例から学ぶ各種管の加工・接合技術",
-      "url": "https://www3.jeed.go.jp/kagoshima/poly/zaishoku/2026/5H120.html"
     },
     "3f0fe334b7f8d7daaa56c95971feeec33601880e2e6bbe4383a323bad510a0f4": {
       "code": "6M132",
