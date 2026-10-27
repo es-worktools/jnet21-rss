@@ -5,6 +5,9 @@ on:
     paths:
       - diagnose_hold_20261027.py
       - .github/workflows/diagnose-hold-20261027.yml
+      - scrape_municipality_0818_sekikawa.py
+      - scrape_municipality_0716_miyake.py
+      - scrape_municipality_0296_ohira.py
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,7 +21,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install lxml
-      - run: python diagnose_hold_20261027.py
+      - name: Validate candidate feeds without publishing
+        run: |
+          mkdir -p hold-diagnostics
+          python scrape_municipality_0818_sekikawa.py
+          cp municipality-0818-sekikawa.xml hold-diagnostics/
+          python scrape_municipality_0716_miyake.py
+          cp municipality-0716-miyake.xml hold-diagnostics/
+          python scrape_municipality_0296_ohira.py
+          cp municipality-0296-ohira.xml hold-diagnostics/
       - uses: actions/upload-artifact@v7
         if: always()
         with:
