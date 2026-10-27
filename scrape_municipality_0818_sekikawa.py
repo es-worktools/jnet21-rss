@@ -2,6 +2,7 @@ import json, re, time
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from urllib.parse import urljoin, urlparse
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 from pathlib import Path
@@ -10,26 +11,32 @@ from lxml import html
 SOURCES = ['https://www.vill.sekikawa.niigata.jp/news/index.html']
 SOURCE_URL = SOURCES[0]
 OUTPUT_FILE = 'municipality-0818-sekikawa.xml'
-CHANNEL_TITLE = '0818_新潟県関川村'
+CHANNEL_TITLE = '0818_【GH】新潟県関川村 新着情報'
 ALLOWED_DOMAIN = urlparse(SOURCE_URL).netloc
 MAX_ITEMS = 30
 JST = timezone(timedelta(hours=9))
 
-ALLOWED_ARTICLE_DOMAINS = {ALLOWED_DOMAIN}
+# External links are copied from the official list; they are never fetched.
+# Only the specific official-list partner news host/path verified on 2026-10-27
+# is accepted. An unknown external target fails before touching the RSS.
+ALLOWED_ARTICLE_DOMAINS = {ALLOWED_DOMAIN, "sekikawa-zerocarbon.com"}
 
 def normalize(text):
     return re.sub(r"\s+", " ", (text or "").replace("\u00ad", "")).strip()
 
 def fetch(url):
-    for attempt in range(4):
+    for attempt in range(2):
         try:
             fetch_url=url+('&' if '?' in url else '?')+'_rss_refresh='+str(int(time.time()))
-            with urlopen(Request(fetch_url, headers={"User-Agent":"Mozilla/5.0","Cache-Control":"no-cache","Pragma":"no-cache"}), timeout=60) as response:
+            with urlopen(Request(fetch_url, headers={"User-Agent":"Mozilla/5.0","Cache-Control":"no-cache","Pragma":"no-cache"}), timeout=30) as response:
                 if urlparse(response.url).netloc != ALLOWED_DOMAIN:
                     raise RuntimeError("Unexpected redirect domain")
                 return response.read().decode("utf-8")
+        except HTTPError as error:
+            if error.code in {401,403,429} or attempt == 1: raise
+            time.sleep(2)
         except Exception:
-            if attempt == 3: raise
+            if attempt == 1: raise
             time.sleep(2 ** attempt)
 
 def official_date(text):
@@ -50,6 +57,11 @@ def add(items, title, href, date, source_url):
     if not title or not href: raise RuntimeError("Missing article title or URL")
     if urlparse(url).scheme not in {"http","https"} or urlparse(url).netloc not in ALLOWED_ARTICLE_DOMAINS:
         raise RuntimeError("Unexpected article URL")
+    parsed = urlparse(url)
+    if parsed.username or parsed.password or parsed.port not in (None, 80, 443):
+        raise RuntimeError("Unexpected article URL authority")
+    if parsed.netloc == "sekikawa-zerocarbon.com" and (parsed.scheme != "https" or not parsed.path.startswith("/news/")):
+        raise RuntimeError("Unexpected external article path")
     if date.date() > datetime.now(JST).date(): return
     if url not in items or items[url][0] < date: items[url] = (date,title,url)
 
