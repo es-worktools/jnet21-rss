@@ -2,6 +2,7 @@
 Every discovered article must resolve; never discard a failed/404 article.
 """
 import hashlib, json, re, sys, threading
+from html import escape
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
@@ -26,6 +27,38 @@ def safe(url):
     if p.scheme not in ('https', 'http') or p.netloc != HOST or p.username or p.password:
         raise RuntimeError('Unexpected official URL: ' + url)
     return urlunparse(('https', HOST, p.path, p.params, p.query, ''))
+
+def parse_article(raw, row):
+    doc = html.fromstring(raw)
+    titles = doc.xpath('//*[@id="contents"]/h1')
+    dates = doc.xpath('//*[@id="contents"]//p[contains(concat(" ",normalize-space(@class)," ")," update ")]')
+    bodies = doc.xpath('//*[@id="contents-in"]')
+    if len(titles) != 1 or len(dates) != 1 or len(bodies) != 1:
+        raise RuntimeError('Article structure changed: ' + row['url'])
+    title = norm(titles[0].text_content())
+    if title != row['title']:
+        raise RuntimeError('Official listing/title mismatch: ' + row['url'])
+    match = re.search(r'更新日[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日', norm(dates[0].text_content()))
+    if not match:
+        raise RuntimeError('Official update date missing: ' + row['url'])
+    date = datetime(*map(int, match.groups()), tzinfo=JST)
+    if date > datetime.now(JST):
+        raise RuntimeError('Future update date: ' + row['url'])
+    body_node = bodies[0]
+    for element in body_node.xpath('.//script|.//style|.//aside|.//*[contains(concat(" ",normalize-space(@class)," ")," toiawase ")]'):
+        element.drop_tree()
+    body = norm(body_node.text_content())
+    image_only = not bool(body)
+    images = []
+    if image_only:
+        for img in body_node.xpath('.//img[@src]'):
+            images.append({'url': safe(urljoin(row['url'], img.get('src'))), 'alt': norm(img.get('alt'))})
+        if not images:
+            raise RuntimeError('Official article body empty: ' + row['url'])
+        body = '画像本文：' + ' / '.join(img['alt'] or '掲載画像' for img in images)
+    canonical = doc.xpath('//link[@rel="canonical"]/@href')
+    canonical = safe(urljoin(row['url'], canonical[0])) if len(canonical) == 1 else row['url']
+    return dict(row, title=title, date=date.isoformat(), date_basis='official individual page update date (date only, JST)', body=body, image_only=image_only, images=images, canonical_url=canonical)
 
 def collect(evidence):
     lock = threading.Lock()
@@ -81,6 +114,17 @@ def collect(evidence):
             titles = doc.xpath('//*[@id="contents"]/h1')
             body = doc.xpath('//*[@id="contents-in"]/div[contains(concat(" ",normalize-space(@class)," ")," free-layout-area ")]')
             if len(titles) == 1 and body and norm(' '.join(e.text_content() for e in body)):
+                dates = doc.xpath('//*[@id="contents"]//p[contains(concat(" ",normalize-space(@class)," ")," update ")]')
+                if not dates:
+                    # An undated category is a source, not an RSS article. Follow
+                    # the actual article links within its body instead.
+                    links = [a for b in body for a in b.xpath('.//a[@href]') if re.search(r'/\d+\.html$', urljoin(url, a.get('href')))]
+                    if not links:
+                        raise RuntimeError('Undated category has no article links: ' + url)
+                    evidence.setdefault('undated_category_pages', []).append({'url': url, 'title': norm(titles[0].text_content()), 'article_links': len(links)})
+                    for a in links:
+                        add(urljoin(url, a.get('href')), a.text_content(), url)
+                    return
                 add(url, titles[0].text_content(), url)
                 evidence.setdefault('content_category_pages', []).append(url)
                 return
@@ -137,30 +181,7 @@ def collect(evidence):
             raise RuntimeError('HTML/JSON listing disagreement: ' + scope)
     evidence['candidates'] = list(candidates.values())
     def article(row):
-        doc = html.fromstring(fetch(row['url']))
-        titles = doc.xpath('//*[@id="contents"]/h1')
-        dates = doc.xpath('//*[@id="contents"]//p[contains(concat(" ",normalize-space(@class)," ")," update ")]')
-        bodies = doc.xpath('//*[@id="contents-in"]/div[contains(concat(" ",normalize-space(@class)," ")," free-layout-area ")]')
-        if len(titles) != 1 or len(dates) != 1 or not bodies:
-            raise RuntimeError('Article structure changed: ' + row['url'])
-        title = norm(titles[0].text_content())
-        if title != row['title']:
-            raise RuntimeError('Official listing/title mismatch: ' + row['url'])
-        match = re.search(r'更新日[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日', norm(dates[0].text_content()))
-        if not match:
-            raise RuntimeError('Official update date missing: ' + row['url'])
-        date = datetime(*map(int, match.groups()), tzinfo=JST)
-        if date > datetime.now(JST):
-            raise RuntimeError('Future update date: ' + row['url'])
-        for body in bodies:
-            for element in body.xpath('.//script|.//style'):
-                element.drop_tree()
-        body = norm(' '.join(b.text_content() for b in bodies))
-        if not body:
-            raise RuntimeError('Official article body empty: ' + row['url'])
-        canonical = doc.xpath('//link[@rel="canonical"]/@href')
-        canonical = safe(urljoin(row['url'], canonical[0])) if len(canonical) == 1 else row['url']
-        return dict(row, title=title, date=date.isoformat(), date_basis='official individual page update date (date only, JST)', body=body, canonical_url=canonical)
+        return parse_article(fetch(row['url']), row)
     rows, errors = [], []
     def checked(row):
         try:
@@ -190,14 +211,14 @@ def collect(evidence):
     by_url = {r['url']: r for r in rows + canonical_rows}
     for row in rows:
         canonical = by_url[row['canonical_url']]
-        if canonical['canonical_url'] != row['canonical_url'] or (row['title'], row['date'], row['body']) != (canonical['title'], canonical['date'], canonical['body']):
+        if canonical['canonical_url'] != row['canonical_url'] or (row['title'], row['date'], row['body'], row['images']) != (canonical['title'], canonical['date'], canonical['body'], canonical['images']):
             raise RuntimeError('Canonical content differs: ' + row['url'])
     merged = {}
     for row in rows:
         key = row['canonical_url']
         if key in merged:
             prev = merged[key]
-            if (prev['title'], prev['date'], prev['body']) != (row['title'], row['date'], row['body']):
+            if (prev['title'], prev['date'], prev['body'], prev['images']) != (row['title'], row['date'], row['body'], row['images']):
                 raise RuntimeError('Conflicting canonical article: ' + key)
             prev['aliases'].append(row['url'])
             prev['sources'] = sorted(set(prev['sources'] + row['sources']))
@@ -225,7 +246,10 @@ def main():
             SubElement(item, 'link').text = row['url']
             SubElement(item, 'guid', isPermaLink='true').text = row['url']
             SubElement(item, 'pubDate').text = format_datetime(datetime.fromisoformat(row['date']))
-            SubElement(item, 'description').text = row['body'][:1500]
+            description = escape(row['body'][:1500])
+            for img in row['images']:
+                description += '<p><img src="' + escape(img['url'], quote=True) + '" alt="' + escape(img['alt'], quote=True) + '"></p>'
+            SubElement(item, 'description').text = description
         out = Path(OUTPUT)
         temp = Path(OUTPUT + '.tmp')
         ElementTree(rss).write(temp, encoding='utf-8', xml_declaration=True)
