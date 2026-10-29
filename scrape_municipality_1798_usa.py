@@ -23,6 +23,7 @@ def safe_url(url):
 
 def fetch_json(url, evidence):
     url=safe_url(url)
+    print('Fetch',url,flush=True)
     if len(evidence)>=80:raise RuntimeError('Category tree exceeded reviewed request bound')
     for attempt in range(2):
         try:
@@ -61,7 +62,12 @@ def collect():
                 elif n.get('child_pages_count',0)>0:
                     url=safe_url(n['url'])
                     if not url.endswith('.html'):raise RuntimeError('Unexpected category URL')
-                    tree=url[:-5]+'.tree.json'
+                    shortcut_trees={11769:'4',11770:'5',11771:'6',11772:'3',11773:'1_1'}
+                    if n.get('is_shortcut') and not url.endswith('/index.html'):
+                        key=n.get('page_no')
+                        if key not in shortcut_trees:raise RuntimeError('Unreviewed folder shortcut')
+                        tree='https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/'+shortcut_trees[key]+'/index.tree.json'
+                    else:tree=url[:-5]+'.tree.json'
                     if tree not in visited:
                         visited.add(tree);nodes(fetch_json(tree,evidence),tree,depth+1)
             else:article(n,source)
