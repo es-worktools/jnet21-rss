@@ -1,0 +1,55 @@
+name: J-Net21 Diagnostic Vol3 East and Ibusuki
+on:
+  push:
+    branches: [diagnostic-1888-1837-vol3-261029]
+    paths: [.github/workflows/jnet21-technical-vol3.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check list coverage and article access once
+        run: |
+          python -m pip install --quiet requests beautifulsoup4
+          python - <<'PY'
+          import requests,re,json,hashlib,sys
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin,urlparse
+          s=requests.Session()
+          s.headers.update({'User-Agent':'Mozilla/5.0 (compatible; JNet21-Monitor/1.0)'})
+          urls=[
+            "https://www.vill.higashi.okinawa.jp/oshirase/index.html",
+            "https://www.vill.higashi.okinawa.jp/boshuu/index.html",
+            "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/index.html",
+            "https://www.vill.higashi.okinawa.jp/oshirase/3548.html",
+            "https://www.vill.higashi.okinawa.jp/oshirase/3070.html",
+            "https://www.vill.higashi.okinawa.jp/boshuu/3440.html",
+            "https://www.city.ibusuki.lg.jp/main/info/company/index.html",
+          ]
+          all_links={}
+          for url in urls:
+            try:
+              r=s.get(url,timeout=17,allow_redirects=True)
+              soup=BeautifulSoup(r.content,'html.parser')
+              h1=soup.find('h1')
+              links={}
+              for a in soup.find_all('a',href=True):
+                dest=urljoin(url,a['href'])
+                if re.search(r'/((?:oshirase)|(?:boshuu))/\d+\.html(?:$|\?)',dest):
+                  links[dest]=a.get_text(' ',strip=True)
+              all_links[url]=links
+              text=soup.get_text(' ',strip=True)
+              date=re.search(r'更新日\s*[：:]\s*(\d{4}年\d{1,2}月\d{1,2}日)',text)
+              visible=[(x.get('class'),x.get('id'),len(x.get_text(' ',strip=True))) for x in soup.find_all(['div','section','article']) if x.get('class') and ('detail' in str(x.get('class')) or 'content' in str(x.get('class')))][:8]
+              print('RESULT '+json.dumps({'url':url,'status':r.status_code,'length':len(r.content),'title':h1.get_text(' ',strip=True) if h1 else None,'date':date.group(1) if date else None,'links_count':len(links),'links':list(links.items())[:12],'markup_candidates':visible,'text_excerpt':text[:220]},ensure_ascii=False),flush=True)
+            except Exception as ex:
+              print('RESULT '+json.dumps({'url':url,'error':str(ex)[:230]},ensure_ascii=False),flush=True)
+          print('UNIQUE_LIST_LINKS '+json.dumps({'from_lists': {x:len(all_links.get(x,{})) for x in urls[:3]},'union':len(set().union(*(set(all_links.get(x,{})) for x in urls[:3]))),'oshirase_boshuu_overlap':len(set(all_links.get(urls[0],{}))&set(all_links.get(urls[1],{})))},ensure_ascii=False))
+          PY
