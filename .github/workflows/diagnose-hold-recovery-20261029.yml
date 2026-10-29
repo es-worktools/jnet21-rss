@@ -4,6 +4,9 @@ on:
     branches: [diagnostics/hold-recovery-20261029]
     paths:
       - 'diagnostics/hold-recovery-20261029/probe.py'
+      - 'diagnostics/hold-recovery-20261029/verify.py'
+      - 'diagnostics/hold-recovery-20261029/east.py'
+      - 'scrape_municipality_1798_usa.py'
       - 'diagnostics/hold-recovery-20261029/urls.json'
       - '.github/workflows/diagnose-hold-recovery-20261029.yml'
 permissions:
