@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-29T13:37:06.688674+09:00",
+  "status": "failed",
+  "requests": [
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/index.tree.json",
+      "checked_at": "2026-10-29T13:37:06.688733+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/index.tree.json",
+      "bytes": 110226,
+      "sha256": "e4536cfe326dce1fa933b9a17878e5f46d6d0e45309eb6b8acb4be742ce32d88"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/nogyo_ringyo_suisangyo/index.tree.json",
+      "checked_at": "2026-10-29T13:37:08.094722+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/nogyo_ringyo_suisangyo/index.tree.json",
+      "bytes": 15257,
+      "sha256": "ba744900bbd3669b22f80743d872229f1565d73cc9620f02d3b7213bc68c3e2a"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/soshikikarasagasu/norinsuisanka/5/tamenteki/index.tree.json",
+      "checked_at": "2026-10-29T13:37:08.825277+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/soshikikarasagasu/norinsuisanka/5/tamenteki/index.tree.json",
+      "bytes": 463,
+      "sha256": "5fb6904944786a885d28cb0f1e8c9de146256ee0a4b0152ffc59be9e838b5d95"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/soshikikarasagasu/norinsuisanka/5/sinkouhojo/index.tree.json",
+      "checked_at": "2026-10-29T13:37:09.188141+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/soshikikarasagasu/norinsuisanka/5/sinkouhojo/index.tree.json",
+      "bytes": 1463,
+      "sha256": "83317a6c23b42971f923b950cf96099e4392a6c46f497f8a27abd7416913b24f"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/pineapple/index.tree.json",
+      "checked_at": "2026-10-29T13:37:09.742495+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/pineapple/index.tree.json",
+      "bytes": 1321,
+      "sha256": "f2869ed3f17b1926629fdbd0bdf5f126ce486b157ece047fd9397b226b8a3219"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/nyusatsu_keiyaku/index.tree.json",
+      "checked_at": "2026-10-29T13:37:10.102754+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/nyusatsu_keiyaku/index.tree.json",
+      "bytes": 509,
+      "sha256": "5c014ae4a07ca2ba070796a97f0d49d8d3cd78a25e5fb868691ac2d67576212e"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/kenchiku/index.tree.json",
+      "checked_at": "2026-10-29T13:37:10.442247+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/kenchiku/index.tree.json",
+      "bytes": 421,
+      "sha256": "e520a3f40a7836f4441c799b6190764fe1174bb696fcd0ab600c8a3426a91fbe"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/koyo_shugyo/index.tree.json",
+      "checked_at": "2026-10-29T13:37:11.023115+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/koyo_shugyo/index.tree.json",
+      "bytes": 1291,
+      "sha256": "3557fbbd587d662ad1db54b867fdbd32c32b7ee6fd35b3a5528d71250d1c8069"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/kokokujigyo/index.tree.json",
+      "checked_at": "2026-10-29T13:37:11.366218+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/kokokujigyo/index.tree.json",
+      "bytes": 459,
+      "sha256": "f5b0508506f1e001d017820f200cd2cf31b352cb92563f1c911e17718953ba24"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/boshuosagasu/eventnadosankashaboshu/index.tree.json",
+      "checked_at": "2026-10-29T13:37:11.739109+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/boshuosagasu/eventnadosankashaboshu/index.tree.json",
+      "bytes": 894,
+      "sha256": "23f78521d99d5c01ffe452cdbdb90cc4253d7c1764ff0888b6f270aba95875a5"
+    },
+    {
+      "url": "https://www.vill.higashi.okinawa.jp/boshuosagasu/sonohokanoboshu/index.tree.json",
+      "checked_at": "2026-10-29T13:37:12.097577+09:00",
+      "status": 200,
+      "final_url": "https://www.vill.higashi.okinawa.jp/boshuosagasu/sonohokanoboshu/index.tree.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "scope": [
+    {
+      "name": "oshirase",
+      "url": "https://www.vill.higashi.okinawa.jp/oshirase/index.html",
+      "listed_children": 99
+    },
+    {
+      "name": "boshuu",
+      "url": "https://www.vill.higashi.okinawa.jp/boshuu/index.html",
+      "listed_children": 18
+    },
+    {
+      "name": "sangyo_shigoto",
+      "url": "https://www.vill.higashi.okinawa.jp/sangyo_shigoto/index.html",
+      "listed_children": 6
+    },
+    {
+      "name": "hojokin_joseikin",
+      "url": "https://www.vill.higashi.okinawa.jp/hojokin_joseikin/index.html",
+      "listed_children": 2
+    }
+  ],
+  "error": "RuntimeError('Category unexpectedly empty: https://www.vill.higashi.okinawa.jp/boshuosagasu/sonohokanoboshu/index.tree.json')"
+}
