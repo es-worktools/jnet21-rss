@@ -14,6 +14,9 @@ def get(url):
  try:
   with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=25) as r:
    data=r.read();rec.update(status=r.status,final_url=r.url,bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
+  
+  if url.endswith('.json'):
+   rec['json_data']=json.loads(data);rec['file']=hashlib.sha256(url.encode()).hexdigest()[:12]+'.json';(OUT/rec['file']).write_bytes(data);return rec
   d=html.fromstring(data);main=d.xpath('//*[@id="contents" or @id="main" or @id="mainContent" or @id="content"]')
   root=main[0] if main else d
   rec['h1']=[norm(x.text_content()) for x in d.xpath('//h1')]
@@ -29,5 +32,5 @@ def get(url):
 urls=json.load(open(CONFIG))
 for round_no in range(1,3):
  with ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(get,urls))
- (OUT/f'round{round_no}.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+ (OUT/f'phase2-round{round_no}.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
  if round_no==1:time.sleep(12)
