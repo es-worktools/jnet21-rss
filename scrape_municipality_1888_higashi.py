@@ -76,6 +76,14 @@ def collect(evidence):
         pages = doc.xpath('//*[@id="contents-in"]//li[contains(concat(" ",normalize-space(@class)," ")," page ")]/a[@href]')
         dirs = doc.xpath('//*[@id="contents-in"]//li[contains(concat(" ",normalize-space(@class)," ")," dir ")]/a[@href]')
         if not pages and not dirs:
+            # Some official folder shortcuts point to a content page (for example,
+            # the cat-adoption page), whose body is not a child-page list.
+            titles = doc.xpath('//*[@id="contents"]/h1')
+            body = doc.xpath('//*[@id="contents-in"]/div[contains(concat(" ",normalize-space(@class)," ")," free-layout-area ")]')
+            if len(titles) == 1 and body and norm(' '.join(e.text_content() for e in body)):
+                add(url, titles[0].text_content(), url)
+                evidence.setdefault('content_category_pages', []).append(url)
+                return
             raise RuntimeError('Category unexpectedly empty: ' + url)
         for a in pages:
             add(urljoin(url, a.get('href')), a.text_content(), url)
@@ -167,6 +175,23 @@ def collect(evidence):
     evidence['verified_articles'] = [r for r in rows if r]
     if errors:
         raise RuntimeError(f'{len(errors)} articles failed; no articles silently excluded; RSS preserved')
+    # RSS uses the canonical URLs explicitly advertised by the official site.
+    # Verify those URLs directly too; a working shortcut alone is insufficient.
+    missing_canonical = {}
+    for row in rows:
+        key = row['canonical_url']
+        if key not in candidates:
+            missing_canonical.setdefault(key, dict(row, url=key))
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        canonical_rows = list(pool.map(checked, missing_canonical.values()))
+    evidence['canonical_checks'] = [r for r in canonical_rows if r]
+    if errors:
+        raise RuntimeError('Canonical URL verification failed; RSS preserved')
+    by_url = {r['url']: r for r in rows + canonical_rows}
+    for row in rows:
+        canonical = by_url[row['canonical_url']]
+        if canonical['canonical_url'] != row['canonical_url'] or (row['title'], row['date'], row['body']) != (canonical['title'], canonical['date'], canonical['body']):
+            raise RuntimeError('Canonical content differs: ' + row['url'])
     merged = {}
     for row in rows:
         key = row['canonical_url']
