@@ -18,8 +18,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install lxml
-      - run: python diagnostics/hold-recovery-20261029/probe.py
+      - run: python diagnostics/hold-recovery-20261029/verify.py
       - name: Save diagnostic evidence on diagnostic branch only
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
