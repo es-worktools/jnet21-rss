@@ -1,0 +1,33 @@
+Fetch https://www.city.usa.oita.jp/index.update.json
+Fetch https://www.city.usa.oita.jp/sougo/index.update.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/1/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/2/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/3/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/5/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/4/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/suidou/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/5/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/6/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/3/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/soshiki/10/gyozaiseikeiei/2_1/1_1/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/sankasikaku/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/1_1/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/siteikanri/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/1/1/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/1/3/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/1/4/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/1/5/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/1/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/2/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/3/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/4/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/5/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/6/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/7/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/8/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/9/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/jigyosha/2/shuno/index.tree.json
+Fetch https://www.city.usa.oita.jp/sougo/3/index.tree.json
+{"output": "municipality-1798-usa.xml", "items": 100, "all_articles": 325, "requests": 31}
+

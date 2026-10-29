@@ -1,0 +1,770 @@
+[
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/3548.html",
+    "checked_at": "2026-10-29T03:34:45.223925+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/3548.html",
+    "bytes": 44383,
+    "sha256": "cb6c2dd22496d6cccb8e6f6a36f1b2a843696608496af5a58d8ea58bd5726cfe",
+    "h1": [
+      "やんばるマルシェ IN 国頭村"
+    ],
+    "rss": [],
+    "text": "やんばるマルシェ IN 国頭村 $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2026年10月19日 やんばるマルシェが行われます！ 東村、大宜味村、国頭村のやんばる3村の就労継続支援B型事業所が作った食品や工芸品等を展示販売する『やんばるマルシェ IN 国頭村』が行われます。 日時 令和8年12月11日（金曜日） 10時～14時 場所 道の駅『ゆいゆい国頭』屋根付き広場 大きな地図を見る（GoogleMapページへ） お問合せ先 国頭村役場 福祉課 0980-41-2765 やんばるマルシェ IN 国頭(PDFファイル:1.4MB) このページに関するお問い合わせ先 福祉保健課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2202ファックス：0980-43-3050 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "大きな地図を見る（GoogleMapページへ）",
+        "url": "https://maps.google.co.jp/maps?q=%E9%81%93%E3%81%AE%E9%A7%85%E3%82%86%E3%81%84%E3%82%86%E3%81%84%E5%9B%BD%E9%A0%AD&ll=26.7320866,128.1694309&z=14",
+        "parent": "大きな地図を見る（GoogleMapページへ）",
+        "html": "<p class=\"map-link\"><a href=\"https://maps.google.co.jp/maps?q=%E9%81%93%E3%81%AE%E9%A7%85%E3%82%86%E3%81%84%E3%82%86%E3%81%84%E5%9B%BD%E9%A0%AD&amp;ll=26.7320866,128.1694309&amp;z=14\" target=\"_blank\">大きな地図を見る（GoogleMapページへ）</a></p>\n          \n\n\n"
+      },
+      {
+        "title": "やんばるマルシェ IN 国頭(PDFファイル:1.4MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/5/yanbarumarushe.pdf",
+        "parent": "やんばるマルシェ IN 国頭(PDFファイル:1.4MB)",
+        "html": "<p><a target=\"_blank\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/5/yanbarumarushe.pdf\">やんばるマルシェ IN 国頭(PDFファイル:1.4MB)</a></p>\n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "8868b96b7c0b.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/3070.html",
+    "checked_at": "2026-10-29T03:34:45.224319+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/3070.html",
+    "bytes": 44359,
+    "sha256": "4049cb07fc3ee3dfb84667534d15945af2c6878ef4007397ae2c7667c5bb247a",
+    "h1": [
+      "令和8年度 東村農林水産業振興補助金の受給者申請について"
+    ],
+    "rss": [],
+    "text": "令和8年度 東村農林水産業振興補助金の受給者申請について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2026年01月14日 農家のみなさまへ 東村では、農業の振興を目的に、肥料や農薬などの購入費の一部に補助金を交付します。 補助金（東村農林水産業振興補助金）の交付を希望される農家の方は、役場農林水産課にて申請を行ってください。 ※補助を受けるには、毎年申請が必要です。 対象者 東村内に住所があり、実際に東村で生活をしている農家 確定申告または住民税申告で、農業所得申告をしている農家 村内に自己所有または農地法の規定に基づき貸借権または使用貸借権が設定されている農地があるの農家（農業委員会を通して賃貸借契約をしている農家） 新規就農者については営農開始から2年間は農産物の販売実績を問いません。 提出書類 東村農林水産振興補助金 受給者申請書 東村農林水産業振興補助金 受給者申請書（第17号様式）(Excelファイル:15.8KB) 確定申告または住民税申告書類の控え（写し） このページに関するお問い合わせ先 農林水産課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2208ファックス：0980-43-2184",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "東村農林水産業振興補助金 受給者申請書（第17号様式）(Excelファイル:15.8KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/7/zyukyuusyasinnseisyo.xlsx",
+        "parent": "東村農林水産業振興補助金 受給者申請書（第17号様式）(Excelファイル:15.8KB)",
+        "html": "<p><a target=\"_blank\" class=\"icon2\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/7/zyukyuusyasinnseisyo.xlsx\">東村農林水産業振興補助金 受給者申請書（第17号様式）(Excelファイル:15.8KB)</a></p>\n\n"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "3c5d6c344e6e.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2854.html",
+    "checked_at": "2026-10-29T03:34:45.224694+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2854.html",
+    "bytes": 44704,
+    "sha256": "5da4eb2d63e717d4a3e075728fe4adfe8a8955728bb5ce3f69fd4e5dc246e574",
+    "h1": [
+      "令和8年度東村消費喚起商品券『取扱加盟店』募集について"
+    ],
+    "rss": [],
+    "text": "令和8年度東村消費喚起商品券『取扱加盟店』募集について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2026年07月07日 取扱加盟店を募集いたします 物価高騰により大きな影響を受けている村内事業者への支援と、村民への家計支援を行うことで、村内の経済回復を図るため、『東村消費喚起商品券』を発行いたします。 つきましては、商品券の取扱加盟店を募集いたします。 加盟をご希望の事業者様は、東村商工会までお問い合せください。 募集期間 令和8年6月24日（水曜日）～ 随時受付 ※なお、7月8日（水曜日）までにお申込いただいた事業者様については、商品券配布時にあわせて作成するチラシに店舗名を掲載いたします。 以降のお申し込みも随時受付けておりますが、チラシ掲載をご希望の方はお早めにお申し込みください。 〈お問い合わせ〉東村商工会 電話：0980-43-2931 『取扱店』の募集案内及び説明会開催について 商品券取扱店の加盟募集を行うにあたり、加盟を希望される事業者の皆様を対象に、7月23日（木曜日）16：00から出店者説明会を行います。 参加を希望される方は下記の取扱店説明会参加申込書ご記入の上、東村商工会まで7月8日（水曜日）17時までに商工会へ持参下さいますようお願いします。（FAXでの申込も可） 申請書様式 (Wordファイル: 23.1KB) 取扱店説明会参加申込書 (Wordファイル: 23.6KB) このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "申請書様式 (Wordファイル: 23.1KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/sinnsei.docx",
+        "parent": "申請書様式 (Wordファイル: 23.1KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/sinnsei.docx\">申請書様式 (Wordファイル: 23.1KB)</a></p>\n"
+      },
+      {
+        "title": "取扱店説明会参加申込書 (Wordファイル: 23.6KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/syouhinken.docx",
+        "parent": "取扱店説明会参加申込書 (Wordファイル: 23.6KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/syouhinken.docx\">取扱店説明会参加申込書 (Wordファイル: 23.6KB)</a></p>\n"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "3319da367a74.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2665.html",
+    "checked_at": "2026-10-29T03:34:45.889018+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2665.html",
+    "bytes": 46100,
+    "sha256": "5232c2fc3a02b084c54a4f9079e761da97350b344bf3c94b9196627d1694ce3e",
+    "h1": [
+      "【お知らせ】東村農林水産業振興補助金交付規程の一部改正について"
+    ],
+    "rss": [],
+    "text": "【お知らせ】東村農林水産業振興補助金交付規程の一部改正について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2026年03月30日 東村農林水産業振興補助金交付規程が一部変更になります。 「東村農林水産業振興補助金交付規程」について、規定を一部改正いたしましたので、ご報告いたします。また、改正により、補助を受けるには、申請が必要となります。補助金の交付を希望される農家の方は、役場農林水産課にて申請を行ってください。 農業収入があり確定申告または住民税申告をしている方が対象になります。 確定申告書または住民税申告書の写し（コピー）の提出が必要です。申告後、農林水産課窓口までご提出ください。 受給者申請書を提出後、受給者として認定されると補助を受けることができます。（JA東支店購買の肥料などを含む） ※受給者申請書は農林水産課窓口にてご用意しております。 ※新規就農者については営農開始から2年間は販売実績を問いません。 土地について 村内に自己所有または農地法等の規定に基づき、貸借権または使用貸借権が設定されている農地があることが条件になります。 ※現在、相対契約の方は農業委員会で手続を行ってください。 優良農機具について 申請の際、同機種は個人1台、法人2台まで申請できます。ただし、動力噴霧器とそれに付随する器具について、用途が異なる場合は台数の制限はありません。（除草剤用と肥料用を使い分ける場合など） 侵入防止柵について 有害鳥獣施設事業のうち、侵入防止柵（イノ垣など）については赤土流出防止に取り組んでください。 ※侵入防止柵（イノ垣など）を申請する際は、建設環境課の赤土対策事業に申請していただきます。 ※侵入防止策を設置する土地は、自己所有または農地法等の規定に基づき貸借権または使用貸借権が設定されている農地に限られます。 土づくり推進事業に「土壌分析（補助率50％）」が追加されます。 申請を希望される方は、見積書を窓口に提出してください。 このページに関するお問い合わせ先 農林水産課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2208ファックス：0980-43-2184",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "2e0112bac5cf.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2596.html",
+    "checked_at": "2026-10-29T03:34:46.273710+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2596.html",
+    "bytes": 47518,
+    "sha256": "03e653a04769821e8736d29d7e84fb99e0fd71eb6172d0f4cf767ba16a9cc620",
+    "h1": [
+      "東村建設工事競争入札参加者資格及び指名基準等に関する規程の一部改正について"
+    ],
+    "rss": [],
+    "text": "東村建設工事競争入札参加者資格及び指名基準等に関する規程の一部改正について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2025年01月15日 東村建設工事競争入札参加者資格及び指名基準等に関する規程の一部改正に基づき、下記のとおり改正し、運用しますのでお知らせします。 主な変更内容 本村への入札参加者資格申請は不要とし、規程第2条第2項に基づき「競争入札の参加資格者は、沖縄県知事の入札参加資格審査に合格し、沖縄県の入札参加資格者名簿に登録されたものであるものとする。」 東村建設工事競争入札参加者資格及び指名基準等に関する規程 (PDFファイル: 168.8KB) 新旧対照表 (PDFファイル: 194.5KB) 問合せ先 〒905-1292 沖縄県国頭郡東村字平良804番地 東村役場 建設環境課 電話：0980-43-2205 ファックス：0980-43-2184 東村役場 建設環境課 このページに関するお問い合わせ先 建設環境課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2205ファックス：0980-43-2184 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "東村建設工事競争入札参加者資格及び指名基準等に関する規程 (PDFファイル: 168.8KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/6/kennsetsukoujikyousounyusatsusannkashashikakuoyobishimeikijuntounikannsurukitei.pdf",
+        "parent": "東村建設工事競争入札参加者資格及び指名基準等に関する規程 (PDFファイル: 168.8KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/6/kennsetsukoujikyousounyusatsusannkashashikakuoyobishimeikijuntounikannsurukitei.pdf\">東村建設工事競争入札参加者資格及び指名基準等に関する規程 (PDFファイル: 168.8KB)</a></p>\n"
+      },
+      {
+        "title": "新旧対照表 (PDFファイル: 194.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/6/shinkyuutaishouhyou.pdf",
+        "parent": "新旧対照表 (PDFファイル: 194.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/6/shinkyuutaishouhyou.pdf\">新旧対照表 (PDFファイル: 194.5KB)</a></p>\n\n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "東村役場 建設環境課",
+        "url": "mailto:kensetsu@vill.okinawa-higashi.lg.jp",
+        "parent": "東村役場 建設環境課",
+        "html": "<span class=\"icon3\"><a href=\"mailto:kensetsu@vill.okinawa-higashi.lg.jp\">東村役場 建設環境課</a></span>"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "c5a345b76bef.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2564.html",
+    "checked_at": "2026-10-29T03:34:46.285426+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2564.html",
+    "bytes": 49030,
+    "sha256": "52c180bef8f27cea80ec3d038ac84d164754a69cc0074c8f187bac1dfdcae849",
+    "h1": [
+      "過疎地域の持続的発展の支援に関する特別措置法に基づく固定資産税の課税免除について"
+    ],
+    "rss": [],
+    "text": "過疎地域の持続的発展の支援に関する特別措置法に基づく固定資産税の課税免除について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2024年12月06日 固定資産税の課税免除についてお知らせします 過疎地域の持続的発展の支援に関する特別措置法が制定されたことに伴い、令和9年3月31日までに事業用の資産を取得した方で次の要件に該当する場合は、固定資産税の課税免除が受けられます。 対象者 青色申告をしている個人又は法人 対象事業 旅館業（下宿営業を除く） 情報サービス業等（情報サービス業、有線放送業、インターネット付随サービス業、通信販売、市場調査等の業務に係る事業） 農林水産物等販売業( 農林水産物等販売業とは・・・地域内で生産された農林水産物又は当該農林水産物を原料若しくは材料として、製造、加工若しく は調理したものを、店舗において、主に、地域外の者に販売することを目的とする事業。） （例：観光客向けの農林水産物の直売所、農家レストランなど） 対象資産 家屋：建物及び建物付属設備のうち、直接事業の用に供する部分 償却資産：機械及び装置のうち、直接事業の用に供するもの 土地：直接事業の用に供する部分のみ(土地の取得後1年以内に対象家屋の建設に着手した 敷地に限る) 対象要件 租税特別措置法第12条第4項、または同法第45条第3項に規定する特別償却を実施しているか、または特別償却を実施することができる資産であること。 令和3年4月1日から令和9年3月31日までの間に取得等をした設備であること。 直接事業の用に供する家屋及び償却資産の取得価額の合計が下表の基準額以上であること。 取得価額要件表 対象事業 資本金の額等 取得価額 製造業 旅館業 5,000万円以下（個人を含む） 5,000万円超、1億円以下 1億円超 500万円以上 1,000万円 以上 ※1 2,000万円以上 農林水産物等販売業 情報サービス業等 5,000万円以下（個人を含む） 5,000万円超、1億円以下 1億円超 500万円以上 500万円以上 ※1 ※1 資本金の額等が5,000万円超の法人については、新設、増設の場合のみ該当 免除期間 固定資産税が課税されることになった最初の年度から3年度分。 課税免除の申請 申請期限 令和9年3月31日（水曜日） 申請は課税免除を受ける期間、毎年行っていただく必要があります。 取得等してから1年以上経過している固定資産に係る申請については、課税免除出来ない場合がありますので、住民課までご相談下さい。 課税免除の申請書は住民課へ提出してください。（申請方法などご不明な点は、住民課にお問い合わせください。） 申請書は、次のファイルをダウンロードしてご使用ください。 固定資産税課税免除申請書 (RTFファイル: 98.8KB) 添付書類 青色申告書の写し（個人の場合確定申告書、法人の場合法人税申告書） 定款、会社概要、事業報告書、生産工程表、事業計画書など 法人税法施行規則別表第16の減価償却費の償却額の計算に関する明細書の写し（法人の場合） 特別償却の附票（18）、特別償却を行わない場合は特別償却を行わない理由書 事業所全体の平面図など 償却資産の明細を明らかにする書類 家屋、土地の取得日及び取得価格が分かる書類の写し（建築請負契約書や登記事項証明書） 旅館業営業許可証の写し（旅館業の場合） その他、村長が必要と認める書類 参考法令等 過疎地域の持続的発展の支援に関する特別措置法（令和3年法律第19号) 東村固定資産税の課税免除に関する条例（令和元年条例第20号） このページに関するお問い合わせ先 住民課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2203ファックス：0980-43-3050",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "固定資産税課税免除申請書 (RTFファイル: 98.8KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/koteisisann.rtf",
+        "parent": "固定資産税課税免除申請書 (RTFファイル: 98.8KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"edit\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/koteisisann.rtf\">固定資産税課税免除申請書 (RTFファイル: 98.8KB)</a></p>\n\n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "72f910c8ba35.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2429.html",
+    "checked_at": "2026-10-29T03:34:47.292589+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2429.html",
+    "bytes": 50833,
+    "sha256": "f85c433892ff93a46d66e2a5f97ec02680d2d71d871880140a050956911ffc5a",
+    "h1": [
+      "東村村有地有効利活用事業（仮称）の再募集について"
+    ],
+    "rss": [],
+    "text": "東村村有地有効利活用事業（仮称）の再募集について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2024年10月04日 はじめに 東村では、人口減少・少子化などに対処し、本村の活性化を図るため、公有地等の有効活用に際して、民間の意見・ノウハウ・経験・実績を活かした開発を計画しています。 つきましては、公募による公有地の民間利活用に関して再募集を行います。 再募集にあたって皆様にご迷惑をおかけしましたことをお詫び申し上げます。 できるだけ多くの企業の方にお聞きいただき、提案いただけると幸甚です。 よろしくお願いいたします。 募集要項 東村村有地有効利活用事業（仮称） 東村村有地有効利活用事業（仮称） 募集要項 位置図 敷地概略図 提案様式集（エクセル） 提案様式集 優先交渉権者決定基準 基本協定書(案) 事業契約書(案) 別紙1 質問及び意見書【村有地】 1.東村村有地有効利活用事業（仮称） 募集要項 (PDFファイル: 360.9KB) 2.位置図 (PDFファイル: 459.0KB) 3.敷地概略図 (PDFファイル: 1.6MB) 4.提案様式集（エクセル） (Excelファイル: 57.7KB) 5.提案様 (Wordファイル: 109.2KB) 6.優先交渉権者決定 (PDFファイル: 914.8KB) 7.基本協定書(案） (PDFファイル: 225.1KB) 8.事業契約書(案) (PDFファイル: 411.9KB) 9.別紙1 質問及び意見書【村有地】 (Wordファイル: 17.4KB) 募集要項等に関する質問・回答の公表について 1．質疑回答（村有地有効活用事業） (PDFファイル: 1.1MB) 2．筆番号リスト (PDFファイル: 298.0KB) 3．対象筆 (PDFファイル: 568.5KB) 4．中央公民館利用状況 (PDFファイル: 277.2KB) 5．東村SS過疎地対策計画 (PDFファイル: 1.2MB) 応募資格適格通知について（結果） 令和6年8月30日に募集した「東村村有地有効活用利活用事業（仮称）」の一次審査において下記の応募番号に応募資格適格通知いたします。 なお、本事業における事業計画等の提案内容を記載した提案書類を令和6年11月29日までに提出してください。 応募番号：1 応募番号：2 審査結果について（公表） 令和6年8月30日に募集した「東村村有地有効活用利活用事業（仮称）」の二次審査において令和7年1月24日の審査委員会で結果を決定しましたので公表致します。 【審査結果】：優先交渉権者（応募番号：1） 今後、村は優先交渉権者と本事業の事業契約の締結のための交渉を開始します。 このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "1.東村村有地有効利活用事業（仮称） 募集要項 (PDFファイル: 360.9KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoukou2.pdf",
+        "parent": "1.東村村有地有効利活用事業（仮称） 募集要項 (PDFファイル: 360.9KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoukou2.pdf\">1.東村村有地有効利活用事業（仮称） 募集要項 (PDFファイル: 360.9KB)</a></p>\n"
+      },
+      {
+        "title": "2.位置図 (PDFファイル: 459.0KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashiiti2.pdf",
+        "parent": "2.位置図 (PDFファイル: 459.0KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashiiti2.pdf\">2.位置図 (PDFファイル: 459.0KB)</a></p>\n"
+      },
+      {
+        "title": "3.敷地概略図 (PDFファイル: 1.6MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashishikici2.pdf",
+        "parent": "3.敷地概略図 (PDFファイル: 1.6MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashishikici2.pdf\">3.敷地概略図 (PDFファイル: 1.6MB)</a></p>\n"
+      },
+      {
+        "title": "4.提案様式集（エクセル） (Excelファイル: 57.7KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoushikielsx2.xlsx",
+        "parent": "4.提案様式集（エクセル） (Excelファイル: 57.7KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"excel\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoushikielsx2.xlsx\">4.提案様式集（エクセル） (Excelファイル: 57.7KB)</a></p>\n"
+      },
+      {
+        "title": "5.提案様 (Wordファイル: 109.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoushikiword2.docx",
+        "parent": "5.提案様 (Wordファイル: 109.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashiyoushikiword2.docx\">5.提案様 (Wordファイル: 109.2KB)</a></p>\n"
+      },
+      {
+        "title": "6.優先交渉権者決定 (PDFファイル: 914.8KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashiyuusen2.pdf",
+        "parent": "6.優先交渉権者決定 (PDFファイル: 914.8KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashiyuusen2.pdf\">6.優先交渉権者決定 (PDFファイル: 914.8KB)</a></p>\n"
+      },
+      {
+        "title": "7.基本協定書(案） (PDFファイル: 225.1KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashikyoutei2.pdf",
+        "parent": "7.基本協定書(案） (PDFファイル: 225.1KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashikyoutei2.pdf\">7.基本協定書(案） (PDFファイル: 225.1KB)</a></p>\n"
+      },
+      {
+        "title": "8.事業契約書(案) (PDFファイル: 411.9KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashikeiyaku2.pdf",
+        "parent": "8.事業契約書(案) (PDFファイル: 411.9KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashikeiyaku2.pdf\">8.事業契約書(案) (PDFファイル: 411.9KB)</a></p>\n"
+      },
+      {
+        "title": "9.別紙1 質問及び意見書【村有地】 (Wordファイル: 17.4KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/higashishitumoniken2.docx",
+        "parent": "9.別紙1 質問及び意見書【村有地】 (Wordファイル: 17.4KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/higashishitumoniken2.docx\">9.別紙1 質問及び意見書【村有地】 (Wordファイル: 17.4KB)</a></p>\n\n            \n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "1．質疑回答（村有地有効活用事業） (PDFファイル: 1.1MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonshitugi.pdf",
+        "parent": "1．質疑回答（村有地有効活用事業） (PDFファイル: 1.1MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonshitugi.pdf\">1．質疑回答（村有地有効活用事業） (PDFファイル: 1.1MB)</a></p>\n"
+      },
+      {
+        "title": "2．筆番号リスト (PDFファイル: 298.0KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonhudebanrisuto.pdf",
+        "parent": "2．筆番号リスト (PDFファイル: 298.0KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonhudebanrisuto.pdf\">2．筆番号リスト (PDFファイル: 298.0KB)</a></p>\n"
+      },
+      {
+        "title": "3．対象筆 (PDFファイル: 568.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sontaisyouhitu.pdf",
+        "parent": "3．対象筆 (PDFファイル: 568.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sontaisyouhitu.pdf\">3．対象筆 (PDFファイル: 568.5KB)</a></p>\n"
+      },
+      {
+        "title": "4．中央公民館利用状況 (PDFファイル: 277.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sontyuoukouminkanriyoujyoukyou.pdf",
+        "parent": "4．中央公民館利用状況 (PDFファイル: 277.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sontyuoukouminkanriyoujyoukyou.pdf\">4．中央公民館利用状況 (PDFファイル: 277.2KB)</a></p>\n"
+      },
+      {
+        "title": "5．東村SS過疎地対策計画 (PDFファイル: 1.2MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonSSkaso.pdf",
+        "parent": "5．東村SS過疎地対策計画 (PDFファイル: 1.2MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonSSkaso.pdf\">5．東村SS過疎地対策計画 (PDFファイル: 1.2MB)</a></p>\n\n            \n            \n            \n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "fa1e3a97f5d3.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/2335.html",
+    "checked_at": "2026-10-29T03:34:47.338878+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/2335.html",
+    "bytes": 49298,
+    "sha256": "e3c4b18058b7750667575e62330f98e7e2d26b0d7ff0d2d06ca1f03a6b64850a",
+    "h1": [
+      "慶佐次ロラン局跡地有効活用事業（仮称）の再募集について"
+    ],
+    "rss": [],
+    "text": "慶佐次ロラン局跡地有効活用事業（仮称）の再募集について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2024年09月20日 はじめに 東村では、人口減少・少子化などに対処し、本村の活性化を図るため、公有地等の有効活用に際して、民間の意見・ノウハウ・経験・実績を活かした開発を計画しています。 慶佐次ロラン局跡地有効活用事業（仮称）について、令和6年3月末に民間事業者から提案をご提出頂き、令和6年4月以降に審査会を開く運びとなっておりましたが、再募集する事と致しました。 再募集にあたって皆様にご迷惑をおかけしましたことをお詫び申し上げます。 募集要項 慶佐次ロラン局跡地有効利活用事業（仮称） 慶佐次ロラン局跡地有効利活用事業（仮称） 募集要項 別紙1 募集要項等に関する質問及び意見書 資料1．2 基本協定書（案） 提案様式集 事業者選審査基準 1.慶佐次ロラン局跡地有効利活用事業（仮称） 募集要項 (PDFファイル: 413.5KB) 2. 別紙1 募集要項等に関する質問及び意見書 (Wordファイル: 17.2KB) 3．資料1．2 (PDFファイル: 775.7KB) 4．基本協定書 (PDFファイル: 157.2KB) 5．提案様式集 (Wordファイル: 82.7KB) 6．事業者審査基準 (PDFファイル: 496.8KB) 募集要項等に関する質問・回答の公表について 1．質疑回答（ロラン局跡地） (PDFファイル: 985.0KB) 2．地図（ロラン局跡地） (PDFファイル: 80.1KB) 3．運営規程・名簿（ロラン局跡地） (PDFファイル: 119.5KB) 4．地番・面積表（ロラン局跡地） (PDFファイル: 628.2KB) 応募資格適格通知について（結果） 令和6年5月20日に募集した「慶佐次ロラン局跡地有効利活用事業（仮称）」の一次審査において下記の応募番号に応募資格適格通知いたします。 なお、本事業における事業計画等の提案内容を記載した提案書類を令和6年10月31日までに提出してください。 応募番号：1 応募番号：2 応募番号：3 審査結果について（公表） 令和6年5月20日に募集した「慶佐次ロラン局跡地有効利活用事業（仮称）」の二次審査において令和7年1月16日の審査委員会で結果を決定しましたので公表致します。 【審査結果】：非選定（優先交渉権者なし） なお、本事業における有効活用に関しては今後、再募集等の手段によりさらなる民間事業者の提案を求めていく。 このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "1.慶佐次ロラン局跡地有効利活用事業（仮称） 募集要項 (PDFファイル: 413.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606youkou.pdf",
+        "parent": "1.慶佐次ロラン局跡地有効利活用事業（仮称） 募集要項 (PDFファイル: 413.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606youkou.pdf\">1.慶佐次ロラン局跡地有効利活用事業（仮称） 募集要項 (PDFファイル: 413.5KB)</a></p>\n"
+      },
+      {
+        "title": "2. 別紙1 募集要項等に関する質問及び意見書 (Wordファイル: 17.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606shitumon.docx",
+        "parent": "2. 別紙1 募集要項等に関する質問及び意見書 (Wordファイル: 17.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606shitumon.docx\">2. 別紙1 募集要項等に関する質問及び意見書 (Wordファイル: 17.2KB)</a></p>\n"
+      },
+      {
+        "title": "3．資料1．2 (PDFファイル: 775.7KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606shiryou12.pdf",
+        "parent": "3．資料1．2 (PDFファイル: 775.7KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606shiryou12.pdf\">3．資料1．2 (PDFファイル: 775.7KB)</a></p>\n"
+      },
+      {
+        "title": "4．基本協定書 (PDFファイル: 157.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606kyoutei.pdf",
+        "parent": "4．基本協定書 (PDFファイル: 157.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606kyoutei.pdf\">4．基本協定書 (PDFファイル: 157.2KB)</a></p>\n"
+      },
+      {
+        "title": "5．提案様式集 (Wordファイル: 82.7KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606youshiki.docx",
+        "parent": "5．提案様式集 (Wordファイル: 82.7KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606youshiki.docx\">5．提案様式集 (Wordファイル: 82.7KB)</a></p>\n"
+      },
+      {
+        "title": "6．事業者審査基準 (PDFファイル: 496.8KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/20240606shinsa.pdf",
+        "parent": "6．事業者審査基準 (PDFファイル: 496.8KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/20240606shinsa.pdf\">6．事業者審査基準 (PDFファイル: 496.8KB)</a></p>\n\n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "1．質疑回答（ロラン局跡地） (PDFファイル: 985.0KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/kaitou.pdf",
+        "parent": "1．質疑回答（ロラン局跡地） (PDFファイル: 985.0KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/kaitou.pdf\">1．質疑回答（ロラン局跡地） (PDFファイル: 985.0KB)</a></p>\n"
+      },
+      {
+        "title": "2．地図（ロラン局跡地） (PDFファイル: 80.1KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/tizu.pdf",
+        "parent": "2．地図（ロラン局跡地） (PDFファイル: 80.1KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/tizu.pdf\">2．地図（ロラン局跡地） (PDFファイル: 80.1KB)</a></p>\n"
+      },
+      {
+        "title": "3．運営規程・名簿（ロラン局跡地） (PDFファイル: 119.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/uneimeibo.pdf",
+        "parent": "3．運営規程・名簿（ロラン局跡地） (PDFファイル: 119.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/uneimeibo.pdf\">3．運営規程・名簿（ロラン局跡地） (PDFファイル: 119.5KB)</a></p>\n"
+      },
+      {
+        "title": "4．地番・面積表（ロラン局跡地） (PDFファイル: 628.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/tibanenseki.pdf",
+        "parent": "4．地番・面積表（ロラン局跡地） (PDFファイル: 628.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/tibanenseki.pdf\">4．地番・面積表（ロラン局跡地） (PDFファイル: 628.2KB)</a></p>\n\n            \n            \n            \n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "1c4af81d8789.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/1965.html",
+    "checked_at": "2026-10-29T03:34:48.160018+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/1965.html",
+    "bytes": 53081,
+    "sha256": "8441ef5ec9e114f08f77552ef54fd214dd6235204892bdb546945fdbf4c88855",
+    "h1": [
+      "東村村有地有効活用事業（仮称）・慶佐次ロラン局跡地有効活用事業（仮称）募集要項説明会の開催について"
+    ],
+    "rss": [],
+    "text": "東村村有地有効活用事業（仮称）・慶佐次ロラン局跡地有効活用事業（仮称）募集要項説明会の開催について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2024年04月12日 初めに 東村では、人口減少・少子化などに対処し、本村の活性化を図るため、公有地等の有効活用に際して、民間の意見・ノウハウ・経験・実績を活かした開発を計画しています。 令和4年12月～1月にかけて民間事業者と個別対話を行いました。説明会、個別対話には多くの民間事業者にご参加頂き様々な意見交換を行うことが出来ました。 つきましては、公募による公有地の民間利活用に関する募集要項についての説明会を開催します。ふるって説明会に参加申込をいただきたくご案内申し上げます。 できるだけ多くの企業の方にお聞きいただき、提案いただけると幸甚です。 よろしくお願いいたします。 募集要項説明会の開催について (PDFファイル: 124.5KB) 説明会実施日程 説明会日時 令和5年9月29日（火曜日） 14時～15時 「東村村有地有効活用事業（仮称）について」 「慶佐次ロラン局跡地有効活用事業（仮称）について」 会場 東村字平良550-4 東村農民研修施設（東村中央公民館2F） 大きな地図を見る（GoogleMapページへ） 申込期限 令和5年9月22日（金曜日）～令和5年9月28日（木曜日）まで 申込方法 別紙「説明会参加申込書」に記載の上、下記メールアドレス送付してください。 別紙_説明会参加申込書 (Wordファイル: 20.6KB) 送り先 東村役場 企画観光課 担当（金城） 電話：0980-43-2265 公募による公有地の民間利活用に関する募集 説明会資料 東村村有地有効活用事業（仮称） 01＿村有地募集要項 (PDFファイル: 391.5KB) 02＿別紙1 質問及び意見書【村有地】 (Wordファイル: 17.1KB) 03＿資料1・2 (PDFファイル: 1.2MB) 04＿参考資料（第5次東村総合計画-概要版-） (PDFファイル: 1.8MB) 慶佐次ロラン局跡地有効活用事業（仮称） 01＿ロラン局跡地募集要項 (PDFファイル: 368.4KB) 02＿別紙1 質問及び意見書【ロラン】 (Wordファイル: 17.2KB) 03＿【ロラン】資料1・2 (PDFファイル: 775.7KB) 04＿参考資料（慶佐次ロラン局跡地利用計画基本方針-概要版-） (PDFファイル: 720.7KB) 当日の説明資料は9月28日（木曜日）までに、東村HPに公表します。 会場にて説明会資料の配布は行いませんので、持参して下さい。 募集要項に係る質問及び意見 募集要項に係る質問及び意見はございませんでした。 民間提案の再募集について 東村村有地有効活用事業（仮称）および慶佐次ロラン局跡地有効活用事業（仮称）について、令和6年3月末に民間事業者から提案をご提出頂き、令和6年4月以降に審査会を開く運びとなっておりましたが、再募集する事と致しました。 慶佐次ロラン局跡地有効活用事業（仮称）の再募集は5月22日を予定しております。 東村村有地有効活用事業（仮称）の再募集については別途お知らせします。 再募集にあたって皆様にご迷惑をおかけしますことをお詫び申し上げます。 このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "募集要項説明会の開催について (PDFファイル: 124.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/setumeikaikaisai.pdf",
+        "parent": "募集要項説明会の開催について (PDFファイル: 124.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/setumeikaikaisai.pdf\">募集要項説明会の開催について (PDFファイル: 124.5KB)</a></p>\n\n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "大きな地図を見る（GoogleMapページへ）",
+        "url": "https://maps.google.co.jp/maps?q=%E6%9D%B1%E6%9D%91%E8%BE%B2%E6%B0%91%E7%A0%94%E4%BF%AE%E6%96%BD%E8%A8%AD&ll=26.6314748,128.1533025&z=16",
+        "parent": "大きな地図を見る（GoogleMapページへ）",
+        "html": "<p class=\"map-link\"><a href=\"https://maps.google.co.jp/maps?q=%E6%9D%B1%E6%9D%91%E8%BE%B2%E6%B0%91%E7%A0%94%E4%BF%AE%E6%96%BD%E8%A8%AD&amp;ll=26.6314748,128.1533025&amp;z=16\" target=\"_blank\">大きな地図を見る（GoogleMapページへ）</a></p>\n          \n\n\n"
+      },
+      {
+        "title": "別紙_説明会参加申込書 (Wordファイル: 20.6KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/22.docx",
+        "parent": "別紙_説明会参加申込書 (Wordファイル: 20.6KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/22.docx\">別紙_説明会参加申込書 (Wordファイル: 20.6KB)</a></p>\n\n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "公募による公有地の民間利活用に関する募集",
+        "url": "mailto:kikaku@vill.okinawa-higashi.lg.jp",
+        "parent": "公募による公有地の民間利活用に関する募集",
+        "html": "<span class=\"icon3\"><a href=\"mailto:kikaku@vill.okinawa-higashi.lg.jp\">公募による公有地の民間利活用に関する募集</a></span>"
+      },
+      {
+        "title": "01＿村有地募集要項 (PDFファイル: 391.5KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti1.pdf",
+        "parent": "01＿村有地募集要項 (PDFファイル: 391.5KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti1.pdf\">01＿村有地募集要項 (PDFファイル: 391.5KB)</a></p>\n"
+      },
+      {
+        "title": "02＿別紙1 質問及び意見書【村有地】 (Wordファイル: 17.1KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti4.docx",
+        "parent": "02＿別紙1 質問及び意見書【村有地】 (Wordファイル: 17.1KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti4.docx\">02＿別紙1 質問及び意見書【村有地】 (Wordファイル: 17.1KB)</a></p>\n"
+      },
+      {
+        "title": "03＿資料1・2 (PDFファイル: 1.2MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti2.pdf",
+        "parent": "03＿資料1・2 (PDFファイル: 1.2MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti2.pdf\">03＿資料1・2 (PDFファイル: 1.2MB)</a></p>\n"
+      },
+      {
+        "title": "04＿参考資料（第5次東村総合計画-概要版-） (PDFファイル: 1.8MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti4.pdf",
+        "parent": "04＿参考資料（第5次東村総合計画-概要版-） (PDFファイル: 1.8MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/sonnyuuti4.pdf\">04＿参考資料（第5次東村総合計画-概要版-） (PDFファイル: 1.8MB)</a></p>\n\n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "01＿ロラン局跡地募集要項 (PDFファイル: 368.4KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/rorann1.pdf",
+        "parent": "01＿ロラン局跡地募集要項 (PDFファイル: 368.4KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/rorann1.pdf\">01＿ロラン局跡地募集要項 (PDFファイル: 368.4KB)</a></p>\n"
+      },
+      {
+        "title": "02＿別紙1 質問及び意見書【ロラン】 (Wordファイル: 17.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/rorann2.docx",
+        "parent": "02＿別紙1 質問及び意見書【ロラン】 (Wordファイル: 17.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/rorann2.docx\">02＿別紙1 質問及び意見書【ロラン】 (Wordファイル: 17.2KB)</a></p>\n"
+      },
+      {
+        "title": "03＿【ロラン】資料1・2 (PDFファイル: 775.7KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/02.pdf",
+        "parent": "03＿【ロラン】資料1・2 (PDFファイル: 775.7KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/02.pdf\">03＿【ロラン】資料1・2 (PDFファイル: 775.7KB)</a></p>\n"
+      },
+      {
+        "title": "04＿参考資料（慶佐次ロラン局跡地利用計画基本方針-概要版-） (PDFファイル: 720.7KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/rorann4.pdf",
+        "parent": "04＿参考資料（慶佐次ロラン局跡地利用計画基本方針-概要版-） (PDFファイル: 720.7KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/rorann4.pdf\">04＿参考資料（慶佐次ロラン局跡地利用計画基本方針-概要版-） (PDFファイル: 720.7KB)</a></p>\n\n            \n            \n            \n            \n            \n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "a9e55b04357c.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/1530.html",
+    "checked_at": "2026-10-29T03:34:48.354935+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/1530.html",
+    "bytes": 43265,
+    "sha256": "ebbed0e6ce126395140df9ad69141b4e6b0b9c1bd7a601ae352673096cb5d75b",
+    "h1": [
+      "東村漁業燃油高騰緊急対策事業補助金について"
+    ],
+    "rss": [],
+    "text": "東村漁業燃油高騰緊急対策事業補助金について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2022年07月01日 近年の円安及びコロナ禍からの世界経済の回復に伴う原油の需要増や一部産油国の生産停滞などによる原油価格高騰を受け、漁業用燃油も高値水準に達しています。漁業者の事業継続を支援するため、国頭漁業協同組合が仕入れする燃油価格の一部を補助し漁業者が購入する燃油価格の軽減を図っていきます。 詳しいことにつきましては、東村役場農林水産課又は、国頭漁業協同組合までお問い合わせください。 お問い合わせ先 東村役場農林水産課 水産係 0980－43－2008 国頭漁業協同組合 0980－41－5101 このページに関するお問い合わせ先 農林水産課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2208ファックス：0980-43-2184",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "5eb77a936829.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/1478.html",
+    "checked_at": "2026-10-29T03:34:48.381917+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/1478.html",
+    "bytes": 48820,
+    "sha256": "10ffb0cef5253b3a97a743a5699e8ddeaca79b97839c9281e3754af10143fc06",
+    "h1": [
+      "公有地等の有効活用に係るサウンディング調査事前対話について"
+    ],
+    "rss": [],
+    "text": "公有地等の有効活用に係るサウンディング調査事前対話について $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2022年11月16日 初めに 東村では、人口減少・少子化などに対処し、本村の活性化を図るため、公有地等の有効活用に際して、民間の意見・ノウハウ・経験・実績を活かした開発を計画しています。 事前対話は、東村の公有地などを有効活用するため、事業検討の段階で民間事業者のアイディアや市場性の有無を対話で把握し、参入しやすい公募条件の設定により、地域課題や配慮事項を事前に伝える事で優れた提案にしていく事を目的としております。 事前対話の実施に先立ちまして、令和4年11月15日に説明会を開催いたしました。ご多忙の中、多くの事業者にご参加頂きまして誠にありがとうございます。説明会に引き続き、事前対話に参加いただけると幸甚です。 個別対話実施日程 令和4年12月1日（木曜日）、令和4年12月6日（火曜日）、令和4年12月7日（水曜日） 会場 1.村有地有効活用及び公共施設整備について 会場：東村役場（沖縄県国頭郡東村字平良804番地） 2.慶佐次ロラン局跡地利用について 会場：東村役場または慶佐次公民館（沖縄県国頭郡東村字慶佐次19番地） 会場は予定です。 申込期限 令和4年11月24日（木曜日）まで 申込方法 説明会にて2カ所、別々で送るよう説明いたしましたが、東村役場企画観光課にてとりまとめます。 別紙「事前対話申込書」に記載の上、下記メールアドレスへ送付してください。 メールタイトルは「事前対話申込」としてください。 東村長宛てと、慶佐次ロラン局跡地利用推進委員会長宛てがあります。両方参加される場合は2枚ご提出願います。 1.村有地有効活用及び公共施設整備について（東村長あて） 2.慶佐次ロラン局跡地利用について（慶佐次ロラン局跡地利用推進委員会長あて） 申込書（村長あて） (Wordファイル: 23.9KB) 申込書（慶佐次ロラン局跡地利用推進委員会長あて） (Wordファイル: 24.1KB) 送り先 東村役場 企画観光課 担当（平良、金城） 電話：0980-43-2265 企画観光課代表メールアドレス 備考 説明会に参加していない事業者も個別対話に申込可能です。 対話希望日時にチェックを入れてください。 対話は1事業者1時間程度を予定しております。 対話希望者が複数の場合はご希望に添えない可能性があります。 日程が決まり次第、個別に連絡いたします。 記入欄が不足する場合は適宜追加してください。 説明会の内容はコチラ このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "申込書（村長あて） (Wordファイル: 23.9KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/mousikomisonntyou.docx",
+        "parent": "申込書（村長あて） (Wordファイル: 23.9KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/mousikomisonntyou.docx\">申込書（村長あて） (Wordファイル: 23.9KB)</a></p>\n"
+      },
+      {
+        "title": "申込書（慶佐次ロラン局跡地利用推進委員会長あて） (Wordファイル: 24.1KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/mousikomigesasi.docx",
+        "parent": "申込書（慶佐次ロラン局跡地利用推進委員会長あて） (Wordファイル: 24.1KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/mousikomigesasi.docx\">申込書（慶佐次ロラン局跡地利用推進委員会長あて） (Wordファイル: 24.1KB)</a></p>\n\n            \n            \n            \n            "
+      },
+      {
+        "title": "企画観光課代表メールアドレス",
+        "url": "mailto:kikaku@vill.okinawa-higashi.lg.jp",
+        "parent": "企画観光課代表メールアドレス",
+        "html": "<span class=\"icon3\"><a href=\"mailto:kikaku@vill.okinawa-higashi.lg.jp\">企画観光課代表メールアドレス</a></span>"
+      },
+      {
+        "title": "説明会の内容はコチラ",
+        "url": "https://www.vill.higashi.okinawa.jp/soshikikarasagasu/kikakukankoka/5/saundhingu/1439.html",
+        "parent": "説明会の内容はコチラ",
+        "html": "<p class=\"link-item\"><a class=\"icon\" href=\"https://www.vill.higashi.okinawa.jp/soshikikarasagasu/kikakukankoka/5/saundhingu/1439.html\">説明会の内容はコチラ</a></p>\n"
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "03041a7df220.html"
+  },
+  {
+    "url": "https://www.vill.higashi.okinawa.jp/oshirase/1440.html",
+    "checked_at": "2026-10-29T03:34:48.860738+00:00",
+    "status": 200,
+    "final_url": "https://www.vill.higashi.okinawa.jp/oshirase/1440.html",
+    "bytes": 51016,
+    "sha256": "9200a94d64a2d9d679d05844538eb9ba4c9ee23ce00baf954c493d5b96a14867",
+    "h1": [
+      "「公有地等の有効活用に係るサウンディング調査」説明会の開催について（説明資料追加）"
+    ],
+    "rss": [],
+    "text": "「公有地等の有効活用に係るサウンディング調査」説明会の開催について（説明資料追加） $(document).ready(function () { $('.fb-like').attr('data-href', location.href); $('.fb-share-button').attr('data-href', location.href); $('.line-it-button').attr('data-url', location.href); }); !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs'); (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.3\"; fjs.parentNode.insertBefore(js, fjs); } (document, 'script', 'facebook-jssdk')); Tweet 更新日：2022年11月16日 初めに 東村では、人口減少・少子化などに対処し、本村の活性化を図るため、公有地等の有効活用に際して、民間の意見・ノウハウ・経験・実績を活かした開発を計画しています。 つきましては、本事業に興味をお持ちの企業と、個別に対話を行う為、公有地の概要及び公有地の民間利活用に関する説明会を開催いたします。 できるだけ多くの企業の方にお聞きいただき、説明会に引き続き計画しております民間企業との個別対話に参加いただけると幸甚です。 ふるって説明会に参加申込をいただきたくご案内申し上げます。 よろしくお願いいたします。 説明会実施日程 説明会日時 令和4年11月15日（火曜日） 10時～12時 第1部「村有地有効活用及び公共施設整備について」 第2部「慶佐次ロラン局跡地利用について」 会場 東村農民研修施設（東村中央公民館2F） 東村字平良550-4 申込期限 令和4年10月27日（木曜日）～令和4年11月11日（金曜日）まで 申込方法 別紙「説明会参加申込書」に記載の上、下記メールアドレス送付してください。 説明会参加申込書 (Wordファイル: 22.2KB) 送り先 東村役場 企画観光課 担当（平良、金城） 電話：0980-43-2265 E-mail：kikaku@vill.okinawa-higashi.lg.jp 備考 当日の説明資料は11月9日（水曜日）までに、東村HPに公表する。 会場にて説明会資料の配布は行いませんので、持参して下さい。 下記の添付ファイルをご確認ください。 公有地等の有効活用に係るサウンディング調査（東村） (PDFファイル: 4.3MB) 慶佐次ロラン局跡地説明資料 (PDFファイル: 3.7MB) 対象地及び記者発表の写真 東村屋外運動場周辺 慶佐次ロラン局跡地 記者発表（R4.10.27） このページに関するお問い合わせ先 企画観光課〒905-1292 沖縄県国頭郡東村字平良804番地電話番号：0980-43-2265ファックス：0980-43-2457 PDFファイルを閲覧するには「Adobe Reader（Acrobat Reader）」が必要です。お持ちでない方は、左記の「Adobe Reader（Acrobat Reader）」ダウンロードボタンをクリックして、ソフトウェアをダウンロードし、インストールしてください。",
+    "links": [
+      {
+        "title": "Tweet",
+        "url": "https://twitter.com/share",
+        "parent": "Tweet",
+        "html": "<div><a href=\"https://twitter.com/share\" target=\"_blank\" class=\"twitter-share-button\">Tweet</a></div>"
+      },
+      {
+        "title": "説明会参加申込書 (Wordファイル: 22.2KB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/1/mousikomi2.docx",
+        "parent": "説明会参加申込書 (Wordファイル: 22.2KB)",
+        "html": "<p class=\"file-link-item\"><a class=\"word\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/1/mousikomi2.docx\">説明会参加申込書 (Wordファイル: 22.2KB)</a></p>\n\n            \n            \n            \n            \n            \n            \n            "
+      },
+      {
+        "title": "公有地等の有効活用に係るサウンディング調査（東村） (PDFファイル: 4.3MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/higasiyuutiriyou.pdf",
+        "parent": "公有地等の有効活用に係るサウンディング調査（東村） (PDFファイル: 4.3MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/higasiyuutiriyou.pdf\">公有地等の有効活用に係るサウンディング調査（東村） (PDFファイル: 4.3MB)</a></p>\n"
+      },
+      {
+        "title": "慶佐次ロラン局跡地説明資料 (PDFファイル: 3.7MB)",
+        "url": "https://www.vill.higashi.okinawa.jp/material/files/group/3/gesasiatotiriypu.pdf",
+        "parent": "慶佐次ロラン局跡地説明資料 (PDFファイル: 3.7MB)",
+        "html": "<p class=\"file-link-item\"><a class=\"pdf\" href=\"//www.vill.higashi.okinawa.jp/material/files/group/3/gesasiatotiriypu.pdf\">慶佐次ロラン局跡地説明資料 (PDFファイル: 3.7MB)</a></p>\n\n            \n            \n            \n            \n            \n            \n            "
+      }
+    ],
+    "scripts": [
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_cookie.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common_lib.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/common.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/jquery.smartslider.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.google.com/jsapi",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/sub.js",
+      "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js",
+      "https://www.vill.higashi.okinawa.jp/theme/base/js/external.js"
+    ],
+    "file": "4ebf3879a638.html"
+  }
+]

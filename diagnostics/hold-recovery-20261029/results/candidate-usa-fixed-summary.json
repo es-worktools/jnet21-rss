@@ -1,0 +1,20 @@
+[
+  {
+    "number": "1798",
+    "round": 1,
+    "returncode": 0
+  },
+  {
+    "number": "1798",
+    "round": 2,
+    "returncode": 0
+  },
+  {
+    "number": "1798",
+    "all_stable": true,
+    "output_stable": true,
+    "source_count": 31,
+    "all_count": 325,
+    "output_count": 100
+  }
+]
