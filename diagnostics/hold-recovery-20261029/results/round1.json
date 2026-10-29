@@ -1,0 +1,1207 @@
+[
+  {
+    "url": "https://www.city.ibusuki.lg.jp/main/info/company/index.html",
+    "checked_at": "2026-10-29T03:20:39.426096+00:00",
+    "status": 503,
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "body": "<!DOCTYPE html>\r\n<html lang=\"ja\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>サービス停止のお知らせ</title>\r\n<style>\r\n  html, body {\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Hiragino Kaku Gothic ProN\", \"Yu Gothic"
+  },
+  {
+    "url": "https://www.city.ibusuki.lg.jp/main/info/collect/",
+    "checked_at": "2026-10-29T03:20:39.427027+00:00",
+    "status": 503,
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "body": "<!DOCTYPE html>\r\n<html lang=\"ja\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>サービス停止のお知らせ</title>\r\n<style>\r\n  html, body {\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Hiragino Kaku Gothic ProN\", \"Yu Gothic"
+  },
+  {
+    "url": "https://www.city.ibusuki.lg.jp/main/machi/syoko/",
+    "checked_at": "2026-10-29T03:20:39.427408+00:00",
+    "status": 503,
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "body": "<!DOCTYPE html>\r\n<html lang=\"ja\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>サービス停止のお知らせ</title>\r\n<style>\r\n  html, body {\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Hiragino Kaku Gothic ProN\", \"Yu Gothic"
+  },
+  {
+    "url": "https://www.city.ibusuki.lg.jp/main/shisei/nyusatsu/",
+    "checked_at": "2026-10-29T03:20:41.614623+00:00",
+    "status": 503,
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "body": "<!DOCTYPE html>\r\n<html lang=\"ja\">\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>サービス停止のお知らせ</title>\r\n<style>\r\n  html, body {\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: \"Hiragino Kaku Gothic ProN\", \"Yu Gothic"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/news.html",
+    "checked_at": "2026-10-29T03:20:41.668186+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/news.html",
+    "bytes": 36390,
+    "sha256": "3063adea53bb092b7e3fb571d37da77add614acc8ed133420d4e3eb02543882a",
+    "h1": [
+      "新着一覧"
+    ],
+    "rss": [],
+    "text": "新着一覧 更新日：2020年04月01日 新着情報 NEW! 現在、新着情報はございません。 $(function() { var jpWeek = ['日', '月', '火', '水', '木', '金', '土']; function dateFormat(date, format) { return format.replace('%Y',date.getFullYear()).replace('%m',('0'+(date.getMonth()+1)).slice(-2)).replace('%d',('0'+date.getDate()).slice(-2)).replace('%a',jpWeek[date.getDay()]).replace('%H',('0'+date.getHours()).slice(-2)).replace('%M',('0'+date.getMinutes()).slice(-2)).replace('%S',('0'+date.getSeconds()).slice(-2)); } $.getJSON('//www.city.usa.oita.jp/index.update.json', function(json) { var outer = $('#newPageDynList1'); outer.find('.newPageExists').css('display', 'none'); outer.find('.newPageNotFound').css('display', 'none'); var list = outer.find('.newPageListBlock'); list.find('.newPageEntity').remove(); var template = list.find('.newPageTemplate').clone().removeClass('newPageTemplate').addClass('newPageEntity').css('display', ''); var count = 0; var dateBegin = Date.now() - 90 * 86400000; for (var i=0; i<json.length; i++) { var item = json[i]; var itemDate = new Date(item.publish_datetime); if (item.is_category_index) { continue; } if (item.is_keitai_page) { continue; } if (itemDate.getTime() < dateBegin) { break; } var entity = template.clone(); entity.find('.newPageDate').each(function () { var dateString = dateFormat(itemDate, $(this).attr('data-date-template')); $(this).text(dateString); $(this).removeAttr('data-date-template'); }); entity.find('.newPageLink').attr('href', item.url).text(item.page_name); entity.find('.newPageDescription').text(item.description); entity.find('.newPageRecent').remove(); list.append(entity); count ++; if (count >= 50) { break; } } list.find('.newPageTemplate').remove() if (count) { outer.find('.newPageExists').css('display', 'block'); outer.find('.newPageNotFound').remove(); } else { outer.find('.newPageNotFound').css('display', 'block'); outer.find('.newPageExists').remove(); } }); });",
+    "links": [],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "57ff21957d6c.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/3/index.html",
+    "checked_at": "2026-10-29T03:20:41.669255+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/3/index.html",
+    "bytes": 50800,
+    "sha256": "412176872bb39274c6187402b43584d2caab558bc997eb7b92f02ba443771f63",
+    "h1": [
+      "募集"
+    ],
+    "rss": [],
+    "text": "募集 西大堀地区公園の指定管理候補者が決定しました 【コンサート】「ファミリーコンサート 音楽と絵本」を開催します 南院内小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ 佐田小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ 「男女共同参画川柳」の入賞作品を発表します！ 【3/13締切】男女共同参画川柳を募集します！ （情報更新）【コンサート】ズーラシアンブラス「音楽の絵本」ダンディズムを開催します 第19回いんない石橋の郷コンサートが開催されました！ 【募集は終了しました】2025宇佐海軍航空隊跡「遺構めぐりガイド」養成講座を開催します！ 令和8年度宇佐市浄化槽設置整備事業補助金の一次募集を開始します 実証実験inUSA-そのアイデア、試してみませんか？ 【募集は終了しました】宇佐・奈良友好20周年ツアーを実施します！ JR柳ヶ浦出店情報 スマホ教室を開催します 【スマホ出前講座】開催したいスマホ講座に講師を無料で派遣します！ 【随時募集】子育て世帯向け住宅の入居者を募集します 先端設備等導入計画の申請を受け付けます 【募集終了】オンライン婚活セミナーを開催します！ 【終了しました】答えて食べよう宇佐ん味！健康チャレンジクイズ～県内第1位の高血糖！血糖値の急上昇を防ぐ食事のポイント～ 2023年度第24回宇佐市スポーツ少年団駅伝競走大会を開催します! 【募集】結婚を希望する男女の無料相談会を開催します。 【募集終了】出会いのためのセミナー＆イベント「ほっこりカレーランチパーティー＠宇佐」を開催します！ ごみ集積ボックス施設設置費補助金制度について 令和8年度認知症を知る講演会を開催します 選挙の準備業務に係る競争入札参加資格登録の募集について（令和5年12月1日から令和10年11月30日まで） 【受付終了】令和5年度宇佐市職員採用試験（秋試験） 【募集終了】コミュニティ助成事業（宝くじ助成金）の申請を募集します！ 【7月16日開催】令和8年度宇佐市人権啓発講演会を開催しました！ 中小企業振興資金融資のお知らせ 不妊治療助成 分譲地のご紹介 ぶどうファーマーズスクール研修生を募集します! 【空き家バンク】空き家を貸したい!売りたい!空き家に住みたい! 宇佐市下水道接続促進補助金 特殊詐欺等防止機能付き電話機等の購入費を補助します 宇佐市男性の育児休業取得促進奨励金（事業終了のお知らせ） 【移住全般】移住を検討されている方へ セーフティネット保証制度について 令和8年度【補助金】地域に伝わる伝統文化などの継承活動を行う団体を応援します 宇佐市芸術文化全国大会等出場補助金について 【終了しました】大分県宇佐市への旅がお得です！（宇佐市宿泊補助商品券配布事業） 令和4年度 宇佐市多文化共生講演会を開催しました 出張してマイナンバーカードの申請をお手伝いします！ 令和4年度宇佐市職員採用試験（夏試験）のご案内 宇佐文化会館・ウサノピアの指定管理候補者が決定しました 市役所窓口のマルチ決済対応について フードドライブ（令和8年度）にご協力ください！ 宇佐市宇佐文化会館・ウサノピアの指定管理者が決定しました 登録統計調査員を募集しています スズメバチの駆除費補助について 【受付終了】電気式生ごみ処理機購入に対する補助金について 合併処理浄化槽の設置に助成します 奨学金の返還を支援します 令和4年度宇佐市職員採用試験（秋試験）のご案内※お申し込みの受付は終了しました 住居確保給付金のご案内 両合棚田「シイタケ駒打ち体験」を開催します！ 宇佐市文化財保存活用地域計画(案)へのパブリックコメントの結果について 日本語教室・文化交流活動を支援します！ 【オリンピックアスリート編公開！】元全日本新鍋理沙さん協力の動画公開中！！",
+    "links": [
+      {
+        "title": "西大堀地区公園の指定管理候補者が決定しました",
+        "url": "https://www.city.usa.oita.jp/sougo/3/25152.html",
+        "parent": "西大堀地区公園の指定管理候補者が決定しました",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/25152.html\">西大堀地区公園の指定管理候補者が決定しました</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【コンサート】「ファミリーコンサート 音楽と絵本」を開催します",
+        "url": "http://www.city.usa.oita.jp/sougo/3/25044.html",
+        "parent": "【コンサート】「ファミリーコンサート 音楽と絵本」を開催します",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/25044.html\">【コンサート】「ファミリーコンサート 音楽と絵本」を開催します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "南院内小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ",
+        "url": "https://www.city.usa.oita.jp/sougo/3/24705.html",
+        "parent": "南院内小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/24705.html\">南院内小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "佐田小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ",
+        "url": "https://www.city.usa.oita.jp/sougo/3/24704.html",
+        "parent": "佐田小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/24704.html\">佐田小学校閉校記念誌に寄せる「思い出の写真」・「寄稿文」募集のお知らせ</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "「男女共同参画川柳」の入賞作品を発表します！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/24217.html",
+        "parent": "「男女共同参画川柳」の入賞作品を発表します！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/24217.html\">「男女共同参画川柳」の入賞作品を発表します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【3/13締切】男女共同参画川柳を募集します！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/23556.html",
+        "parent": "【3/13締切】男女共同参画川柳を募集します！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/23556.html\">【3/13締切】男女共同参画川柳を募集します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "（情報更新）【コンサート】ズーラシアンブラス「音楽の絵本」ダンディズムを開催します",
+        "url": "http://www.city.usa.oita.jp/sougo/3/23468.html",
+        "parent": "（情報更新）【コンサート】ズーラシアンブラス「音楽の絵本」ダンディズムを開催します",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/23468.html\">（情報更新）【コンサート】ズーラシアンブラス「音楽の絵本」ダンディズムを開催します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "第19回いんない石橋の郷コンサートが開催されました！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/23254.html",
+        "parent": "第19回いんない石橋の郷コンサートが開催されました！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/23254.html\">第19回いんない石橋の郷コンサートが開催されました！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集は終了しました】2025宇佐海軍航空隊跡「遺構めぐりガイド」養成講座を開催します！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/22691.html",
+        "parent": "【募集は終了しました】2025宇佐海軍航空隊跡「遺構めぐりガイド」養成講座を開催します！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/22691.html\">【募集は終了しました】2025宇佐海軍航空隊跡「遺構めぐりガイド」養成講座を開催します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年度宇佐市浄化槽設置整備事業補助金の一次募集を開始します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/21908.html",
+        "parent": "令和8年度宇佐市浄化槽設置整備事業補助金の一次募集を開始します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/21908.html\">令和8年度宇佐市浄化槽設置整備事業補助金の一次募集を開始します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "実証実験inUSA-そのアイデア、試してみませんか？",
+        "url": "http://www.city.usa.oita.jp/sougo/3/21811.html",
+        "parent": "実証実験inUSA-そのアイデア、試してみませんか？",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/21811.html\">実証実験inUSA-そのアイデア、試してみませんか？</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集は終了しました】宇佐・奈良友好20周年ツアーを実施します！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/21645.html",
+        "parent": "【募集は終了しました】宇佐・奈良友好20周年ツアーを実施します！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/21645.html\">【募集は終了しました】宇佐・奈良友好20周年ツアーを実施します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "JR柳ヶ浦出店情報",
+        "url": "https://www.city.usa.oita.jp/sougo/3/21442.html",
+        "parent": "JR柳ヶ浦出店情報",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/21442.html\">JR柳ヶ浦出店情報</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "スマホ教室を開催します",
+        "url": "http://www.city.usa.oita.jp/sougo/3/21388.html",
+        "parent": "スマホ教室を開催します",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/21388.html\">スマホ教室を開催します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【スマホ出前講座】開催したいスマホ講座に講師を無料で派遣します！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/21273.html",
+        "parent": "【スマホ出前講座】開催したいスマホ講座に講師を無料で派遣します！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/21273.html\">【スマホ出前講座】開催したいスマホ講座に講師を無料で派遣します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【随時募集】子育て世帯向け住宅の入居者を募集します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/21222.html",
+        "parent": "【随時募集】子育て世帯向け住宅の入居者を募集します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/21222.html\">【随時募集】子育て世帯向け住宅の入居者を募集します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "先端設備等導入計画の申請を受け付けます",
+        "url": "https://www.city.usa.oita.jp/sougo/3/20814.html",
+        "parent": "先端設備等導入計画の申請を受け付けます",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/20814.html\">先端設備等導入計画の申請を受け付けます</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集終了】オンライン婚活セミナーを開催します！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/20698.html",
+        "parent": "【募集終了】オンライン婚活セミナーを開催します！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/20698.html\">【募集終了】オンライン婚活セミナーを開催します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【終了しました】答えて食べよう宇佐ん味！健康チャレンジクイズ～県内第1位の高血糖！血糖値の急上昇を防ぐ食事のポイント～",
+        "url": "https://www.city.usa.oita.jp/sougo/3/20455.html",
+        "parent": "【終了しました】答えて食べよう宇佐ん味！健康チャレンジクイズ～県内第1位の高血糖！血糖値の急上昇を防ぐ食事のポイント～",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/20455.html\">【終了しました】答えて食べよう宇佐ん味！健康チャレンジクイズ～県内第1位の高血糖！血糖値の急上昇を防ぐ食事のポイント～</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "2023年度第24回宇佐市スポーツ少年団駅伝競走大会を開催します!",
+        "url": "https://www.city.usa.oita.jp/sougo/3/20264.html",
+        "parent": "2023年度第24回宇佐市スポーツ少年団駅伝競走大会を開催します!",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/20264.html\">2023年度第24回宇佐市スポーツ少年団駅伝競走大会を開催します!</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集】結婚を希望する男女の無料相談会を開催します。",
+        "url": "http://www.city.usa.oita.jp/sougo/3/20231.html",
+        "parent": "【募集】結婚を希望する男女の無料相談会を開催します。",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/20231.html\">【募集】結婚を希望する男女の無料相談会を開催します。</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集終了】出会いのためのセミナー＆イベント「ほっこりカレーランチパーティー＠宇佐」を開催します！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/20226.html",
+        "parent": "【募集終了】出会いのためのセミナー＆イベント「ほっこりカレーランチパーティー＠宇佐」を開催します！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/20226.html\">【募集終了】出会いのためのセミナー＆イベント「ほっこりカレーランチパーティー＠宇佐」を開催します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "ごみ集積ボックス施設設置費補助金制度について",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19815.html",
+        "parent": "ごみ集積ボックス施設設置費補助金制度について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19815.html\">ごみ集積ボックス施設設置費補助金制度について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年度認知症を知る講演会を開催します",
+        "url": "http://www.city.usa.oita.jp/sougo/3/19771.html",
+        "parent": "令和8年度認知症を知る講演会を開催します",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/19771.html\">令和8年度認知症を知る講演会を開催します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "選挙の準備業務に係る競争入札参加資格登録の募集について（令和5年12月1日から令和10年11月30日まで）",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19752.html",
+        "parent": "選挙の準備業務に係る競争入札参加資格登録の募集について（令和5年12月1日から令和10年11月30日まで）",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19752.html\">選挙の準備業務に係る競争入札参加資格登録の募集について（令和5年12月1日から令和10年11月30日まで）</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【受付終了】令和5年度宇佐市職員採用試験（秋試験）",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19649.html",
+        "parent": "【受付終了】令和5年度宇佐市職員採用試験（秋試験）",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19649.html\">【受付終了】令和5年度宇佐市職員採用試験（秋試験）</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【募集終了】コミュニティ助成事業（宝くじ助成金）の申請を募集します！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19643.html",
+        "parent": "【募集終了】コミュニティ助成事業（宝くじ助成金）の申請を募集します！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19643.html\">【募集終了】コミュニティ助成事業（宝くじ助成金）の申請を募集します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【7月16日開催】令和8年度宇佐市人権啓発講演会を開催しました！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19324.html",
+        "parent": "【7月16日開催】令和8年度宇佐市人権啓発講演会を開催しました！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19324.html\">【7月16日開催】令和8年度宇佐市人権啓発講演会を開催しました！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "中小企業振興資金融資のお知らせ",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19227.html",
+        "parent": "中小企業振興資金融資のお知らせ",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19227.html\">中小企業振興資金融資のお知らせ</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "不妊治療助成",
+        "url": "http://www.city.usa.oita.jp/sougo/3/19082.html",
+        "parent": "不妊治療助成",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/19082.html\">不妊治療助成</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "分譲地のご紹介",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19060.html",
+        "parent": "分譲地のご紹介",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19060.html\">分譲地のご紹介</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "ぶどうファーマーズスクール研修生を募集します!",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19050.html",
+        "parent": "ぶどうファーマーズスクール研修生を募集します!",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19050.html\">ぶどうファーマーズスクール研修生を募集します!</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【空き家バンク】空き家を貸したい!売りたい!空き家に住みたい!",
+        "url": "https://www.city.usa.oita.jp/sougo/3/19042.html",
+        "parent": "【空き家バンク】空き家を貸したい!売りたい!空き家に住みたい!",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/19042.html\">【空き家バンク】空き家を貸したい!売りたい!空き家に住みたい!</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐市下水道接続促進補助金",
+        "url": "http://www.city.usa.oita.jp/sougo/3/19021.html",
+        "parent": "宇佐市下水道接続促進補助金",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/19021.html\">宇佐市下水道接続促進補助金</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "特殊詐欺等防止機能付き電話機等の購入費を補助します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/18999.html",
+        "parent": "特殊詐欺等防止機能付き電話機等の購入費を補助します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/18999.html\">特殊詐欺等防止機能付き電話機等の購入費を補助します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐市男性の育児休業取得促進奨励金（事業終了のお知らせ）",
+        "url": "http://www.city.usa.oita.jp/sougo/3/18939.html",
+        "parent": "宇佐市男性の育児休業取得促進奨励金（事業終了のお知らせ）",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/18939.html\">宇佐市男性の育児休業取得促進奨励金（事業終了のお知らせ）</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【移住全般】移住を検討されている方へ",
+        "url": "https://www.city.usa.oita.jp/sougo/3/6099.html",
+        "parent": "【移住全般】移住を検討されている方へ",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/6099.html\">【移住全般】移住を検討されている方へ</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "セーフティネット保証制度について",
+        "url": "https://www.city.usa.oita.jp/sougo/3/10255.html",
+        "parent": "セーフティネット保証制度について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/10255.html\">セーフティネット保証制度について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年度【補助金】地域に伝わる伝統文化などの継承活動を行う団体を応援します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/11998.html",
+        "parent": "令和8年度【補助金】地域に伝わる伝統文化などの継承活動を行う団体を応援します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/11998.html\">令和8年度【補助金】地域に伝わる伝統文化などの継承活動を行う団体を応援します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐市芸術文化全国大会等出場補助金について",
+        "url": "https://www.city.usa.oita.jp/sougo/3/12003.html",
+        "parent": "宇佐市芸術文化全国大会等出場補助金について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/12003.html\">宇佐市芸術文化全国大会等出場補助金について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【終了しました】大分県宇佐市への旅がお得です！（宇佐市宿泊補助商品券配布事業）",
+        "url": "http://www.city.usa.oita.jp/sougo/3/12054.html",
+        "parent": "【終了しました】大分県宇佐市への旅がお得です！（宇佐市宿泊補助商品券配布事業）",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/12054.html\">【終了しました】大分県宇佐市への旅がお得です！（宇佐市宿泊補助商品券配布事業）</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和4年度 宇佐市多文化共生講演会を開催しました",
+        "url": "http://www.city.usa.oita.jp/sougo/3/12366.html",
+        "parent": "令和4年度 宇佐市多文化共生講演会を開催しました",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/12366.html\">令和4年度 宇佐市多文化共生講演会を開催しました</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "出張してマイナンバーカードの申請をお手伝いします！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/14777.html",
+        "parent": "出張してマイナンバーカードの申請をお手伝いします！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/14777.html\">出張してマイナンバーカードの申請をお手伝いします！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和4年度宇佐市職員採用試験（夏試験）のご案内",
+        "url": "https://www.city.usa.oita.jp/sougo/3/15048.html",
+        "parent": "令和4年度宇佐市職員採用試験（夏試験）のご案内",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/15048.html\">令和4年度宇佐市職員採用試験（夏試験）のご案内</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐文化会館・ウサノピアの指定管理候補者が決定しました",
+        "url": "https://www.city.usa.oita.jp/sougo/3/15479.html",
+        "parent": "宇佐文化会館・ウサノピアの指定管理候補者が決定しました",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/15479.html\">宇佐文化会館・ウサノピアの指定管理候補者が決定しました</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "市役所窓口のマルチ決済対応について",
+        "url": "http://www.city.usa.oita.jp/sougo/3/15543.html",
+        "parent": "市役所窓口のマルチ決済対応について",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/15543.html\">市役所窓口のマルチ決済対応について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "フードドライブ（令和8年度）にご協力ください！",
+        "url": "https://www.city.usa.oita.jp/sougo/3/15550.html",
+        "parent": "フードドライブ（令和8年度）にご協力ください！",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/15550.html\">フードドライブ（令和8年度）にご協力ください！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐市宇佐文化会館・ウサノピアの指定管理者が決定しました",
+        "url": "https://www.city.usa.oita.jp/sougo/3/16126.html",
+        "parent": "宇佐市宇佐文化会館・ウサノピアの指定管理者が決定しました",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/16126.html\">宇佐市宇佐文化会館・ウサノピアの指定管理者が決定しました</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "登録統計調査員を募集しています",
+        "url": "https://www.city.usa.oita.jp/sougo/3/16566.html",
+        "parent": "登録統計調査員を募集しています",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/16566.html\">登録統計調査員を募集しています</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "スズメバチの駆除費補助について",
+        "url": "https://www.city.usa.oita.jp/sougo/3/16791.html",
+        "parent": "スズメバチの駆除費補助について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/16791.html\">スズメバチの駆除費補助について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【受付終了】電気式生ごみ処理機購入に対する補助金について",
+        "url": "https://www.city.usa.oita.jp/sougo/3/16993.html",
+        "parent": "【受付終了】電気式生ごみ処理機購入に対する補助金について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/16993.html\">【受付終了】電気式生ごみ処理機購入に対する補助金について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "合併処理浄化槽の設置に助成します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/17014.html",
+        "parent": "合併処理浄化槽の設置に助成します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/17014.html\">合併処理浄化槽の設置に助成します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "奨学金の返還を支援します",
+        "url": "https://www.city.usa.oita.jp/sougo/3/17016.html",
+        "parent": "奨学金の返還を支援します",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/17016.html\">奨学金の返還を支援します</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和4年度宇佐市職員採用試験（秋試験）のご案内※お申し込みの受付は終了しました",
+        "url": "https://www.city.usa.oita.jp/sougo/3/17560.html",
+        "parent": "令和4年度宇佐市職員採用試験（秋試験）のご案内※お申し込みの受付は終了しました",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.city.usa.oita.jp/sougo/3/17560.html\">令和4年度宇佐市職員採用試験（秋試験）のご案内※お申し込みの受付は終了しました</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "住居確保給付金のご案内",
+        "url": "http://www.city.usa.oita.jp/sougo/3/17565.html",
+        "parent": "住居確保給付金のご案内",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/17565.html\">住居確保給付金のご案内</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "両合棚田「シイタケ駒打ち体験」を開催します！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/18641.html",
+        "parent": "両合棚田「シイタケ駒打ち体験」を開催します！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/18641.html\">両合棚田「シイタケ駒打ち体験」を開催します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "宇佐市文化財保存活用地域計画(案)へのパブリックコメントの結果について",
+        "url": "http://www.city.usa.oita.jp/sougo/3/18766.html",
+        "parent": "宇佐市文化財保存活用地域計画(案)へのパブリックコメントの結果について",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/18766.html\">宇佐市文化財保存活用地域計画(案)へのパブリックコメントの結果について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "日本語教室・文化交流活動を支援します！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/18866.html",
+        "parent": "日本語教室・文化交流活動を支援します！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/18866.html\">日本語教室・文化交流活動を支援します！</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "【オリンピックアスリート編公開！】元全日本新鍋理沙さん協力の動画公開中！！",
+        "url": "http://www.city.usa.oita.jp/sougo/3/12510.html",
+        "parent": "【オリンピックアスリート編公開！】元全日本新鍋理沙さん協力の動画公開中！！",
+        "html": "<li class=\"page\">\n              <a href=\"http://www.city.usa.oita.jp/sougo/3/12510.html\">【オリンピックアスリート編公開！】元全日本新鍋理沙さん協力の動画公開中！！</a>\n              \n\n                        </li>\n                  \n          "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "27a43d4f7ca0.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/jigyosha/index.html",
+    "checked_at": "2026-10-29T03:20:42.674692+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/jigyosha/index.html",
+    "bytes": 48465,
+    "sha256": "649d49386054a786a781a53e0cd82da60518ebbc299d35a07fb745d2015130b1",
+    "h1": [
+      "事業者の方へ"
+    ],
+    "rss": [],
+    "text": "事業者の方へ 企業・労働 企業支援・誘致 雇用・Uターン 広告 相談 入札・契約 入札・契約情報 入札・契約情報(水道事業分) 入札参加資格 物品 電子入札 建設工事・建設コンサルタント 小規模修繕 競争入札参加資格申請 プロポーザル 指定管理 商工業 事業用地情報 工業 少年少女発明クラブ 中小企業振興セミナー 補助金・支援金 税制上の優遇措置一覧 奨学金の返還を支援します 農林水産 イベント情報 世界農業遺産 地籍調査 鳥獣害対策 農業委員会 農業経営 農業政策・整備 農業生産・流通 林業 クロダマルキャラクターの選考結果について ため池や水路などで遊ばないように!! 宇佐市ため池ハザードマップ 就農",
+    "links": [
+      {
+        "title": "企業・労働",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/index.html",
+        "parent": "企業・労働",
+        "html": "<span class=\"bg2\">\n                    <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/index.html\">企業・労働</a>\n                    </span>"
+      },
+      {
+        "title": "企業支援・誘致",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/1/index.html",
+        "parent": "企業支援・誘致",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/1/index.html\">企業支援・誘致</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "雇用・Uターン",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/2/index.html",
+        "parent": "雇用・Uターン",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/2/index.html\">雇用・Uターン</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "広告",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/3/index.html",
+        "parent": "広告",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/3/index.html\">広告</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "相談",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/5/index.html",
+        "parent": "相談",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/5/index.html\">相談</a>\n                            \n\n                                                    </li>\n                                                                    "
+      },
+      {
+        "title": "入札・契約",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/index.html",
+        "parent": "入札・契約",
+        "html": "<span class=\"bg2\">\n                    <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/index.html\">入札・契約</a>\n                    </span>"
+      },
+      {
+        "title": "入札・契約情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11769.html",
+        "parent": "入札・契約情報",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11769.html\">入札・契約情報</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "入札・契約情報(水道事業分)",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/suidou/index.html",
+        "parent": "入札・契約情報(水道事業分)",
+        "html": "<li class=\"dir\">\n                            <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/suidou/index.html\">入札・契約情報(水道事業分)</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "入札参加資格",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11770.html",
+        "parent": "入札参加資格",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11770.html\">入札参加資格</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "物品",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11771.html",
+        "parent": "物品",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11771.html\">物品</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "電子入札",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11772.html",
+        "parent": "電子入札",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11772.html\">電子入札</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "建設工事・建設コンサルタント",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11773.html",
+        "parent": "建設工事・建設コンサルタント",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11773.html\">建設工事・建設コンサルタント</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "小規模修繕",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11774.html",
+        "parent": "小規模修繕",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11774.html\">小規模修繕</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "競争入札参加資格申請",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/sankasikaku/index.html",
+        "parent": "競争入札参加資格申請",
+        "html": "<li class=\"dir\">\n                            <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/sankasikaku/index.html\">競争入札参加資格申請</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "プロポーザル",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/1_1/index.html",
+        "parent": "プロポーザル",
+        "html": "<li class=\"dir\">\n                            <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/1_1/index.html\">プロポーザル</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "指定管理",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/siteikanri/index.html",
+        "parent": "指定管理",
+        "html": "<li class=\"dir\">\n                            <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/siteikanri/index.html\">指定管理</a>\n                            \n\n                                                    </li>\n                                                                    "
+      },
+      {
+        "title": "商工業",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/index.html",
+        "parent": "商工業",
+        "html": "<span class=\"bg2\">\n                    <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/index.html\">商工業</a>\n                    </span>"
+      },
+      {
+        "title": "事業用地情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/21820.html",
+        "parent": "事業用地情報",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/21820.html\">事業用地情報</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "工業",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/1/index.html",
+        "parent": "工業",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/1/index.html\">工業</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "少年少女発明クラブ",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/3/index.html",
+        "parent": "少年少女発明クラブ",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/3/index.html\">少年少女発明クラブ</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "中小企業振興セミナー",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/4/index.html",
+        "parent": "中小企業振興セミナー",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/4/index.html\">中小企業振興セミナー</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "補助金・支援金",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/5/index.html",
+        "parent": "補助金・支援金",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/5/index.html\">補助金・支援金</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "税制上の優遇措置一覧",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/7316.html",
+        "parent": "税制上の優遇措置一覧",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/7316.html\">税制上の優遇措置一覧</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "奨学金の返還を支援します",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/7356.html",
+        "parent": "奨学金の返還を支援します",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/7356.html\">奨学金の返還を支援します</a>\n                            \n\n                                                    </li>\n                                                                    "
+      },
+      {
+        "title": "農林水産",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/index.html",
+        "parent": "農林水産",
+        "html": "<span class=\"bg2\">\n                    <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/index.html\">農林水産</a>\n                    </span>"
+      },
+      {
+        "title": "イベント情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/1/index.html",
+        "parent": "イベント情報",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/1/index.html\">イベント情報</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "世界農業遺産",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/2/index.html",
+        "parent": "世界農業遺産",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/2/index.html\">世界農業遺産</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "地籍調査",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/3/index.html",
+        "parent": "地籍調査",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/3/index.html\">地籍調査</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "鳥獣害対策",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/4/index.html",
+        "parent": "鳥獣害対策",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/4/index.html\">鳥獣害対策</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "農業委員会",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/5/index.html",
+        "parent": "農業委員会",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/5/index.html\">農業委員会</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "農業経営",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/6/index.html",
+        "parent": "農業経営",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/6/index.html\">農業経営</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "農業政策・整備",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7/index.html",
+        "parent": "農業政策・整備",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7/index.html\">農業政策・整備</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "農業生産・流通",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/8/index.html",
+        "parent": "農業生産・流通",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/8/index.html\">農業生産・流通</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "林業",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/9/index.html",
+        "parent": "林業",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/9/index.html\">林業</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "クロダマルキャラクターの選考結果について",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7250.html",
+        "parent": "クロダマルキャラクターの選考結果について",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7250.html\">クロダマルキャラクターの選考結果について</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "ため池や水路などで遊ばないように!!",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7285.html",
+        "parent": "ため池や水路などで遊ばないように!!",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7285.html\">ため池や水路などで遊ばないように!!</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "宇佐市ため池ハザードマップ",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7286.html",
+        "parent": "宇佐市ため池ハザードマップ",
+        "html": "<li class=\"page\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7286.html\">宇佐市ため池ハザードマップ</a>\n                            \n\n                                                    </li>\n                                                                                                "
+      },
+      {
+        "title": "就農",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/shuno/index.html",
+        "parent": "就農",
+        "html": "<li class=\"dir\">\n                            <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/shuno/index.html\">就農</a>\n                            \n\n                                                    </li>\n                                                                    "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "da2d4936fafc.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/index.html",
+    "checked_at": "2026-10-29T03:20:42.873063+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/index.html",
+    "bytes": 35657,
+    "sha256": "45a40b1d91cfcab20e2b72c8ae11efc5708f3d707a0ee833824d336e10a0a897",
+    "h1": [
+      "企業・労働"
+    ],
+    "rss": [],
+    "text": "企業・労働 企業支援・誘致 雇用・Uターン 広告 相談",
+    "links": [
+      {
+        "title": "企業支援・誘致",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/1/index.html",
+        "parent": "企業支援・誘致",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/1/index.html\">企業支援・誘致</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "雇用・Uターン",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/2/index.html",
+        "parent": "雇用・Uターン",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/2/index.html\">雇用・Uターン</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "広告",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/3/index.html",
+        "parent": "広告",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/3/index.html\">広告</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "相談",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/5/index.html",
+        "parent": "相談",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/kigyo_rodo/5/index.html\">相談</a>\n          \n\n                  </li>\n                    \n                      "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "47a780d35d81.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/index.html",
+    "checked_at": "2026-10-29T03:20:43.027247+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/index.html",
+    "bytes": 36938,
+    "sha256": "5572ce1c7a51a317ccca190fc008b71c594b479780451ef1762c266d70ae1149",
+    "h1": [
+      "入札・契約"
+    ],
+    "rss": [],
+    "text": "入札・契約 入札・契約情報 入札・契約情報(水道事業分) 入札参加資格 物品 電子入札 建設工事・建設コンサルタント 競争入札参加資格申請 プロポーザル 指定管理",
+    "links": [
+      {
+        "title": "入札・契約情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11769.html",
+        "parent": "入札・契約情報",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11769.html\">入札・契約情報</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "入札・契約情報(水道事業分)",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/suidou/index.html",
+        "parent": "入札・契約情報(水道事業分)",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/suidou/index.html\">入札・契約情報(水道事業分)</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "入札参加資格",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11770.html",
+        "parent": "入札参加資格",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11770.html\">入札参加資格</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "物品",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11771.html",
+        "parent": "物品",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11771.html\">物品</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "電子入札",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11772.html",
+        "parent": "電子入札",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11772.html\">電子入札</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "建設工事・建設コンサルタント",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11773.html",
+        "parent": "建設工事・建設コンサルタント",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/11773.html\">建設工事・建設コンサルタント</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "競争入札参加資格申請",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/sankasikaku/index.html",
+        "parent": "競争入札参加資格申請",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/sankasikaku/index.html\">競争入札参加資格申請</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "プロポーザル",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/1_1/index.html",
+        "parent": "プロポーザル",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/1_1/index.html\">プロポーザル</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "指定管理",
+        "url": "http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/siteikanri/index.html",
+        "parent": "指定管理",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.city.usa.oita.jp/sougo/jigyosha/nyusatsu_keiyaku/siteikanri/index.html\">指定管理</a>\n          \n\n                  </li>\n                    \n                      "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "a4598a8780e3.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/index.html",
+    "checked_at": "2026-10-29T03:20:43.777554+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/index.html",
+    "bytes": 36261,
+    "sha256": "b82de7a523ef9f6e2e106ed6c28a8aa457a773b9ae6bebcc649f9b8a39361c43",
+    "h1": [
+      "商工業"
+    ],
+    "rss": [],
+    "text": "商工業 事業用地情報 工業 少年少女発明クラブ 中小企業振興セミナー 補助金・支援金 税制上の優遇措置一覧 奨学金の返還を支援します",
+    "links": [
+      {
+        "title": "事業用地情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/21820.html",
+        "parent": "事業用地情報",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/21820.html\">事業用地情報</a>\n          \n\n                </li>\n                              "
+      },
+      {
+        "title": "工業",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/1/index.html",
+        "parent": "工業",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/1/index.html\">工業</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "少年少女発明クラブ",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/3/index.html",
+        "parent": "少年少女発明クラブ",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/3/index.html\">少年少女発明クラブ</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "中小企業振興セミナー",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/4/index.html",
+        "parent": "中小企業振興セミナー",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/4/index.html\">中小企業振興セミナー</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "補助金・支援金",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/5/index.html",
+        "parent": "補助金・支援金",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/5/index.html\">補助金・支援金</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "税制上の優遇措置一覧",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/7316.html",
+        "parent": "税制上の優遇措置一覧",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/7316.html\">税制上の優遇措置一覧</a>\n          \n\n                </li>\n                              "
+      },
+      {
+        "title": "奨学金の返還を支援します",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/1/7356.html",
+        "parent": "奨学金の返還を支援します",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/1/7356.html\">奨学金の返還を支援します</a>\n          \n\n                </li>\n                    \n                      "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "8c2e217e2b60.html"
+  },
+  {
+    "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/index.html",
+    "checked_at": "2026-10-29T03:20:43.867234+00:00",
+    "status": 200,
+    "final_url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/index.html",
+    "bytes": 37559,
+    "sha256": "592da1b82dc2c463b3bbda519f2da80385afab119ac5cda7a167097506ec1967",
+    "h1": [
+      "農林水産"
+    ],
+    "rss": [],
+    "text": "農林水産 イベント情報 世界農業遺産 地籍調査 鳥獣害対策 農業委員会 農業経営 農業政策・整備 農業生産・流通 林業 クロダマルキャラクターの選考結果について ため池や水路などで遊ばないように!! 宇佐市ため池ハザードマップ 就農",
+    "links": [
+      {
+        "title": "イベント情報",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/1/index.html",
+        "parent": "イベント情報",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/1/index.html\">イベント情報</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "世界農業遺産",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/2/index.html",
+        "parent": "世界農業遺産",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/2/index.html\">世界農業遺産</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "地籍調査",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/3/index.html",
+        "parent": "地籍調査",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/3/index.html\">地籍調査</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "鳥獣害対策",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/4/index.html",
+        "parent": "鳥獣害対策",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/4/index.html\">鳥獣害対策</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業委員会",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/5/index.html",
+        "parent": "農業委員会",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/5/index.html\">農業委員会</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業経営",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/6/index.html",
+        "parent": "農業経営",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/6/index.html\">農業経営</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業政策・整備",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7/index.html",
+        "parent": "農業政策・整備",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7/index.html\">農業政策・整備</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業生産・流通",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/8/index.html",
+        "parent": "農業生産・流通",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/8/index.html\">農業生産・流通</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "林業",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/9/index.html",
+        "parent": "林業",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/9/index.html\">林業</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "クロダマルキャラクターの選考結果について",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7250.html",
+        "parent": "クロダマルキャラクターの選考結果について",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7250.html\">クロダマルキャラクターの選考結果について</a>\n          \n\n                </li>\n                              "
+      },
+      {
+        "title": "ため池や水路などで遊ばないように!!",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7285.html",
+        "parent": "ため池や水路などで遊ばないように!!",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7285.html\">ため池や水路などで遊ばないように!!</a>\n          \n\n                </li>\n                              "
+      },
+      {
+        "title": "宇佐市ため池ハザードマップ",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/7286.html",
+        "parent": "宇佐市ため池ハザードマップ",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/7286.html\">宇佐市ため池ハザードマップ</a>\n          \n\n                </li>\n                              "
+      },
+      {
+        "title": "就農",
+        "url": "https://www.city.usa.oita.jp/sougo/jigyosha/2/shuno/index.html",
+        "parent": "就農",
+        "html": "<li class=\"dir\">\n          <a href=\"https://www.city.usa.oita.jp/sougo/jigyosha/2/shuno/index.html\">就農</a>\n          \n\n                  </li>\n                    \n                      "
+      }
+    ],
+    "scripts": [
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_cookie.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common_lib.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.city.usa.oita.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.city.usa.oita.jp/theme/base/js/common.js",
+      "https://www.google.com/jsapi",
+      "https://www.city.usa.oita.jp/theme/base/js/sub.js",
+      "https://www.city.usa.oita.jp/resource/js/scms_yahoo_agreement.js",
+      "https://www.city.usa.oita.jp/theme/base/js/external.js"
+    ],
+    "file": "1d3db5d1341d.html"
+  },
+  {
+    "url": "https://www.town.taragi.lg.jp/news_list.html",
+    "checked_at": "2026-10-29T03:20:43.868538+00:00",
+    "status": 200,
+    "final_url": "https://www.town.taragi.lg.jp/news_list.html",
+    "bytes": 149657,
+    "sha256": "12d72ec6bd76f641ec9be25734cde91724270f37232a910a7367e3220403a5bd",
+    "h1": [
+      "新着情報一覧"
+    ],
+    "rss": [],
+    "text": "新着情報 NEW! 現在、新着情報はございません。 $(function() { var jpWeek = ['日', '月', '火', '水', '木', '金', '土']; function dateFormat(date, format) { return format.replace('%Y',date.getFullYear()).replace('%m',('0'+(date.getMonth()+1)).slice(-2)).replace('%d',('0'+date.getDate()).slice(-2)).replace('%a',jpWeek[date.getDay()]).replace('%H',('0'+date.getHours()).slice(-2)).replace('%M',('0'+date.getMinutes()).slice(-2)).replace('%S',('0'+date.getSeconds()).slice(-2)); } $.getJSON('//www.town.taragi.lg.jp/index.update.json', function(json) { var outer = $('#newPageDynList1'); outer.find('.newPageExists').css('display', 'none'); outer.find('.newPageNotFound').css('display', 'none'); var list = outer.find('.newPageListBlock'); list.find('.newPageEntity').remove(); var template = list.find('.newPageTemplate').clone().removeClass('newPageTemplate').addClass('newPageEntity').css('display', ''); var count = 0; var dateBegin = Date.now() - 90 * 86400000; for (var i=0; i<json.length; i++) { var item = json[i]; var itemDate = new Date(item.publish_datetime); if (item.is_category_index) { continue; } if (item.is_keitai_page) { continue; } if (itemDate.getTime() < dateBegin) { break; } var entity = template.clone(); entity.find('.newPageDate').each(function () { var dateString = dateFormat(itemDate, $(this).attr('data-date-template')); $(this).text(dateString); $(this).removeAttr('data-date-template'); }); entity.find('.newPageLink').attr('href', item.url).text(item.page_name); entity.find('.newPageDescription').text(item.description); entity.find('.newPageRecent').remove(); list.append(entity); count ++; if (count >= 50) { break; } } list.find('.newPageTemplate').remove() if (count) { outer.find('.newPageExists').css('display', 'block'); outer.find('.newPageNotFound').remove(); } else { outer.find('.newPageNotFound').css('display', 'block'); outer.find('.newPageExists').remove(); } }); });",
+    "links": [],
+    "scripts": [
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_cookie.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common_lib.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/scroll-hint.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/sidebar-nav.js",
+      "https://www.google.com/jsapi",
+      "https://www.town.taragi.lg.jp/theme/base/js/sub.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external_prod.js"
+    ],
+    "file": "7340c057acca.html"
+  },
+  {
+    "url": "https://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/index.html",
+    "checked_at": "2026-10-29T03:20:44.859008+00:00",
+    "status": 200,
+    "final_url": "https://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/index.html",
+    "bytes": 148785,
+    "sha256": "af0816a5750e00279735b667de2d2049610dc69200b26b3e98f755bf7d35f3e0",
+    "h1": [
+      "しごと・産業"
+    ],
+    "rss": [],
+    "text": "商工業振興 農業振興 農業委員会 林業 農林商工の新規就業者へお祝い金を交付します",
+    "links": [
+      {
+        "title": "商工業振興",
+        "url": "http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/shokogyoshinko/index.html",
+        "parent": "商工業振興",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/shokogyoshinko/index.html\">商工業振興</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業振興",
+        "url": "http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/nogyoshinko/index.html",
+        "parent": "農業振興",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/nogyoshinko/index.html\">農業振興</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農業委員会",
+        "url": "http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/nogyoiinkai/index.html",
+        "parent": "農業委員会",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/nogyoiinkai/index.html\">農業委員会</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "林業",
+        "url": "http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/ringyo/index.html",
+        "parent": "林業",
+        "html": "<li class=\"dir\">\n          <a href=\"http://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/ringyo/index.html\">林業</a>\n          \n\n                  </li>\n                              "
+      },
+      {
+        "title": "農林商工の新規就業者へお祝い金を交付します",
+        "url": "https://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/2947.html",
+        "parent": "農林商工の新規就業者へお祝い金を交付します",
+        "html": "<li class=\"page\">\n          <a href=\"https://www.town.taragi.lg.jp/gyousei/shigoto_sangyo/2947.html\">農林商工の新規就業者へお祝い金を交付します</a>\n          \n\n                </li>\n                    \n                      "
+      }
+    ],
+    "scripts": [
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_cookie.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common_lib.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/scroll-hint.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/sidebar-nav.js",
+      "https://www.google.com/jsapi",
+      "https://www.town.taragi.lg.jp/theme/base/js/sub.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external_prod.js"
+    ],
+    "file": "950521d4cedb.html"
+  },
+  {
+    "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/index.html",
+    "checked_at": "2026-10-29T03:20:44.859301+00:00",
+    "status": 200,
+    "final_url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/index.html",
+    "bytes": 150903,
+    "sha256": "089d48ce10dc50915822f357e033e1ae47dc8a9afd81a08641b8c8653f2a083b",
+    "h1": [
+      "入札"
+    ],
+    "rss": [],
+    "text": "令和8年度【第2四半期】入札及び契約に係る情報の公表について 令和8年5月14日入札・結果の公表について 令和8年5月27日入札結果の公表について 多良木町電子入札システム利用者登録について 令和8年6月26日入札結果の公表について 令和8年7月29日入札結果の公表について 令和8年8月27日入札結果の公表について 建設工事等入札金額内訳書の提出について 令和8年9月30日入札結果の公表について 令和8年度【第3四半期】入札及び契約に係る情報の公表について",
+    "links": [
+      {
+        "title": "令和8年度【第2四半期】入札及び契約に係る情報の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4181.html",
+        "parent": "令和8年度【第2四半期】入札及び契約に係る情報の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4181.html\">令和8年度【第2四半期】入札及び契約に係る情報の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年5月14日入札・結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/3814.html",
+        "parent": "令和8年5月14日入札・結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/3814.html\">令和8年5月14日入札・結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年5月27日入札結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/3819.html",
+        "parent": "令和8年5月27日入札結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/3819.html\">令和8年5月27日入札結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "多良木町電子入札システム利用者登録について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/2788.html",
+        "parent": "多良木町電子入札システム利用者登録について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/2788.html\">多良木町電子入札システム利用者登録について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年6月26日入札結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4184.html",
+        "parent": "令和8年6月26日入札結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4184.html\">令和8年6月26日入札結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年7月29日入札結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4186.html",
+        "parent": "令和8年7月29日入札結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4186.html\">令和8年7月29日入札結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年8月27日入札結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4218.html",
+        "parent": "令和8年8月27日入札結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4218.html\">令和8年8月27日入札結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "建設工事等入札金額内訳書の提出について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4222.html",
+        "parent": "建設工事等入札金額内訳書の提出について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4222.html\">建設工事等入札金額内訳書の提出について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年9月30日入札結果の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4245.html",
+        "parent": "令和8年9月30日入札結果の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4245.html\">令和8年9月30日入札結果の公表について</a>\n              \n\n                        </li>\n                                  "
+      },
+      {
+        "title": "令和8年度【第3四半期】入札及び契約に係る情報の公表について",
+        "url": "https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4252.html",
+        "parent": "令和8年度【第3四半期】入札及び契約に係る情報の公表について",
+        "html": "<li class=\"page\">\n              <a href=\"https://www.town.taragi.lg.jp/gyousei/chosei_gikai/kanzai/nyusatsu/4252.html\">令和8年度【第3四半期】入札及び契約に係る情報の公表について</a>\n              \n\n                        </li>\n                  \n          "
+      }
+    ],
+    "scripts": [
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_cookie.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery-ui.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common_lib.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.easing.1.3.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery.bxslider.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/jquery_dropmenu.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/common.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/scroll-hint.min.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/mutual_switching/mutual_switching.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/sidebar-nav.js",
+      "https://www.google.com/jsapi",
+      "https://www.town.taragi.lg.jp/theme/base/js/sub.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external.js",
+      "https://www.town.taragi.lg.jp/theme/base/js/external_prod.js"
+    ],
+    "file": "b54ed3c479c6.html"
+  }
+]
