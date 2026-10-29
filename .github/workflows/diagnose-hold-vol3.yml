@@ -22,9 +22,6 @@ jobs:
         run: python scrape_municipality_1888_higashi.py --diagnostic-out diagnostics/hold-vol3-20261029/results/higashi-round1.json
       - name: Higashi complete scope round 2
         run: python scrape_municipality_1888_higashi.py --diagnostic-out diagnostics/hold-vol3-20261029/results/higashi-round2.json
-      - name: Ibusuki previously failing route single check
-        if: always()
-        run: python diagnostics/hold-vol3-20261029/probe_ibusuki.py
       - name: Preserve evidence on diagnostic branch
         if: always()
         run: |

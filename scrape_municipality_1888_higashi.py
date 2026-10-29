@@ -104,8 +104,10 @@ def collect(evidence):
                         visited.add(tree)
                         children = get_json(tree)
                         if not children:
-                            raise RuntimeError('Category unexpectedly empty: ' + tree)
-                        nodes(children, tree, depth + 1)
+                            evidence.setdefault('json_empty_html_fallbacks', []).append({'json': tree, 'html': url})
+                            html_category(url, depth + 1)
+                        else:
+                            nodes(children, tree, depth + 1)
     root = get_json(BASE + 'index.tree.json')
     evidence['scope'] = []
     for scope in SCOPE:
