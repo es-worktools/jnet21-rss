@@ -206,7 +206,7 @@ def collect(evidence):
     for row in rows:
         key = row['canonical_url']
         if key not in candidates:
-            missing_canonical.setdefault(key, dict(row, url=key))
+            missing_canonical.setdefault(key, dict(row, url=key, json_dates=[]))
     with ThreadPoolExecutor(max_workers=3) as pool:
         canonical_rows = list(pool.map(checked, missing_canonical.values()))
     evidence['canonical_checks'] = [r for r in canonical_rows if r]
@@ -215,11 +215,18 @@ def collect(evidence):
     by_url = {r['url']: r for r in rows + canonical_rows}
     for row in rows:
         canonical = by_url[row['canonical_url']]
-        if canonical['canonical_url'] != row['canonical_url'] or (row['title'], row['date'], row['body'], row['images']) != (canonical['title'], canonical['date'], canonical['body'], canonical['images']):
+        if canonical['canonical_url'] != row['canonical_url'] or (row['date'], row['body'], row['images']) != (canonical['date'], canonical['body'], canonical['images']):
             raise RuntimeError('Canonical content differs: ' + row['url'])
+        row['rss_url'] = row['canonical_url']
+        if row['title'] != canonical['title']:
+            # An official news shortcut can carry a more specific heading than
+            # its canonical information page. Preserve that verified news URL,
+            # so the RSS title still matches the page opened by the reader.
+            row['rss_url'] = row['url']
+            evidence.setdefault('canonical_heading_differences', []).append({'url': row['url'], 'title': row['title'], 'canonical_url': canonical['url'], 'canonical_title': canonical['title'], 'same_body_and_date': True})
     merged = {}
     for row in rows:
-        key = row['canonical_url']
+        key = row['rss_url']
         if key in merged:
             prev = merged[key]
             if (prev['title'], prev['date'], prev['body'], prev['images']) != (row['title'], row['date'], row['body'], row['images']):
