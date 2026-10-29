@@ -1,0 +1,44 @@
+name: Update Municipality 1888 higashi RSS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scrape_municipality_1888_higashi.py'
+      - '.github/workflows/update-municipality-1888-higashi.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '47 13 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: municipality-1888-higashi
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - name: Generate RSS with complete scope verification
+        run: python scrape_municipality_1888_higashi.py
+      - name: Commit RSS
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add municipality-1888-higashi.xml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Update Municipality 1888 higashi RSS'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main || exit 1
+            if git push origin main; then exit 0; fi
+            if [ "$attempt" -lt 5 ]; then sleep $((attempt * 2)); fi
+          done
+          exit 1
