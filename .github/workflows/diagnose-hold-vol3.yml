@@ -1,0 +1,37 @@
+name: Diagnose Higashi and Ibusuki vol3
+on:
+  push:
+    branches: [diagnostics/hold-vol3-20261029]
+    paths:
+      - 'scrape_municipality_1888_higashi.py'
+      - 'diagnostics/hold-vol3-20261029/probe_ibusuki.py'
+      - '.github/workflows/diagnose-hold-vol3.yml'
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - name: Higashi complete scope round 1
+        run: python scrape_municipality_1888_higashi.py --diagnostic-out diagnostics/hold-vol3-20261029/results/higashi-round1.json
+      - name: Higashi complete scope round 2
+        run: python scrape_municipality_1888_higashi.py --diagnostic-out diagnostics/hold-vol3-20261029/results/higashi-round2.json
+      - name: Ibusuki previously failing route single check
+        if: always()
+        run: python diagnostics/hold-vol3-20261029/probe_ibusuki.py
+      - name: Preserve evidence on diagnostic branch
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/hold-vol3-20261029/results
+          if [ -f municipality-1888-higashi.xml ]; then git add municipality-1888-higashi.xml; fi
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record Higashi and Ibusuki vol3 diagnostic evidence'
+          git push origin HEAD:diagnostics/hold-vol3-20261029
