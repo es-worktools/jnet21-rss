@@ -53,3 +53,45 @@ jobs:
               print('RESULT '+json.dumps({'url':url,'error':str(ex)[:230]},ensure_ascii=False),flush=True)
           print('UNIQUE_LIST_LINKS '+json.dumps({'from_lists': {x:len(all_links.get(x,{})) for x in urls[:3]},'union':len(set().union(*(set(all_links.get(x,{})) for x in urls[:3]))),'oshirase_boshuu_overlap':len(set(all_links.get(urls[0],{}))&set(all_links.get(urls[1],{})))},ensure_ascii=False))
           PY
+
+      - name: Check all listed East article links and business category sample
+        run: |
+          python - <<'PY'
+          import re,json,collections,concurrent.futures,requests
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin
+          root="https://www.vill.higashi.okinawa.jp"
+          paths=["/oshirase/index.html","/boshuu/index.html","/sangyo_shigoto/index.html"]
+          sess=requests.Session()
+          sess.headers.update({'User-Agent':'Mozilla/5.0 (compatible; JNet21-Monitor/1.0)'})
+          listings={}
+          for p in paths:
+            r=sess.get(root+p,timeout=15)
+            if r.status_code!=200: raise RuntimeError('listing unavailable '+p+' '+str(r.status_code))
+            sp=BeautifulSoup(r.content,'html.parser')
+            links={}
+            for a in sp.select('a[href]'):
+              href=urljoin(root+p,a.get('href'))
+              if re.search(r'/(oshirase|boshuu)/\d+\.html$',href): links[href]=a.get_text(' ',strip=True)
+            listings[p]=links
+            bizlinks=[(urljoin(root+p,a.get('href')),a.get_text(' ',strip=True)) for a in sp.select('a[href]') if '/sangyo_shigoto/' in urljoin(root+p,a.get('href'))]
+            print('SECTION '+json.dumps({'path':p,'status':r.status_code,'article_links':len(links),'business_links':bizlinks[:24]},ensure_ascii=False),flush=True)
+          targets=sorted(set().union(*(set(v) for v in listings.values())))
+          def fetch(u):
+            try:
+              r=requests.get(u,timeout=18,headers={'User-Agent':'Mozilla/5.0 (compatible; JNet21-Monitor/1.0)'})
+              sp=BeautifulSoup(r.content,'html.parser')
+              h1=sp.find('h1')
+              title=h1.get_text(' ',strip=True) if h1 else ''
+              txt=sp.get_text(' ',strip=True)
+              date=re.search(r'更新日\s*[：:]\s*(\d{4}年\d{1,2}月\d{1,2}日)',txt)
+              return {'url':u,'status':r.status_code,'title':title,'date':date.group(1) if date else None,'text_length':len(txt),'body_match':all(x in txt for x in ['お問い合わせ先'])}
+            except Exception as e:
+              return {'url':u,'error':str(e)[:140]}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+            results=list(pool.map(fetch,targets))
+          status=collections.Counter(str(x.get('status',x.get('error','error'))) for x in results)
+          healthy=[x for x in results if x.get('status')==200 and x.get('date') and x.get('title')]
+          problems=[x for x in results if x.get('status')!=200 or not x.get('date') or not x.get('title')]
+          print('AUDIT '+json.dumps({'total':len(results),'statuses':dict(status),'healthy_dated':len(healthy),'problem_count':len(problems),'problem_records':problems[:100],'samples_healthy':healthy[:12]},ensure_ascii=False),flush=True)
+          PY
