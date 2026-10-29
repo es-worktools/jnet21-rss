@@ -37,7 +37,11 @@ def parse_article(raw, row):
         raise RuntimeError('Article structure changed: ' + row['url'])
     title = norm(titles[0].text_content())
     if title != row['title']:
-        raise RuntimeError('Official listing/title mismatch: ' + row['url'])
+        if row.get('json_dates'):
+            raise RuntimeError('Official JSON/title mismatch: ' + row['url'])
+        # HTML category links can use abbreviated labels. The individual
+        # official H1 is the article title; retain the label as evidence.
+        row = dict(row, listing_label=row['title'])
     match = re.search(r'更新日[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日', norm(dates[0].text_content()))
     if not match:
         raise RuntimeError('Official update date missing: ' + row['url'])
