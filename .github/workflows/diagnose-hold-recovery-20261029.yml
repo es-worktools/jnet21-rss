@@ -1,0 +1,29 @@
+name: Diagnose hold recovery 1779 1798 1837
+on:
+  push:
+    branches: [diagnostics/hold-recovery-20261029]
+    paths:
+      - 'diagnostics/hold-recovery-20261029/probe.py'
+      - 'diagnostics/hold-recovery-20261029/urls.json'
+      - '.github/workflows/diagnose-hold-recovery-20261029.yml'
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - run: python diagnostics/hold-recovery-20261029/probe.py
+      - name: Save diagnostic evidence on diagnostic branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/hold-recovery-20261029/results
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record hold recovery diagnostic evidence'
+          git push origin HEAD:diagnostics/hold-recovery-20261029
