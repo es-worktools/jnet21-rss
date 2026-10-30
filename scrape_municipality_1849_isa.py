@@ -224,9 +224,29 @@ def main():
                 if urlparse(target).netloc == HOST and re.search(r'/blog/(?!category/).*/\d+/$', target):
                     add(target, a.text_content(), None, u)
         evidence['candidates'] = list(candidates.values())
+        # Reviewed on 2026-10-30: the forestry page still advertises deleted
+        # post 41088 (Actions HTTP404), while the current official news listing
+        # advertises replacement 77039 under exactly the same heading. This is
+        # a documented stale reference, not permission to drop arbitrary errors.
+        old = BASE + 'blog/info-residency/41088/'
+        current = BASE + 'blog/info-residency/77039/'
+        heading = '森林環境譲与税及び森林経営管理制度について'
+        if old in candidates:
+            if current not in candidates or any(r['title'] != heading for r in candidates[old]['listings']) or not any(r['title'] == heading and r['date'] for r in candidates[current]['listings']):
+                raise RuntimeError('Reviewed forestry reference no longer matches current official listing')
+            evidence['legacy_reference_resolution'] = [{'old_url': old, 'current_url': current, 'title': heading,
+                'old_status_basis': 'HTTP404 in Actions run 41019742449 on 2026-10-30',
+                'replacement_basis': 'current official residency listing, exact same title; current article must pass normal validation'}]
+            del candidates[old]
+            for static_row in static_rows:
+                for link in static_row['links']:
+                    if link['url'] == old:
+                        link['rss_url'] = current
 
         def article(row):
             result = content(fetch(row['url']), row['url'])
+            if row['url'] == current and evidence.get('legacy_reference_resolution') and result['title'] != heading:
+                raise RuntimeError('Current forestry article heading mismatch')
             result['listings'] = row['listings']
             for listing_row in row['listings']:
                 if listing_row['date'] and listing_row['date'] != result['date']:
@@ -273,10 +293,9 @@ def main():
             from html import escape
             desc = '<p>' + escape(row['body'][:3000]) + '</p>'
             for link in row['links']:
-                desc += '<p><a href="' + escape(link['url'], quote=True) + '">' + escape(link['label'] or link['url']) + '</a></p>'
-            if not row['body']:
-                for img in row['images']:
-                    desc += '<p><img src="' + escape(img['url'], quote=True) + '" alt="' + escape(img['alt'], quote=True) + '"></p>'
+                desc += '<p><a href="' + escape(link.get('rss_url', link['url']), quote=True) + '">' + escape(link['label'] or link['url']) + '</a></p>'
+            for img in row['images']:
+                desc += '<p><img src="' + escape(img['url'], quote=True) + '" alt="' + escape(img['alt'], quote=True) + '"></p>'
             SubElement(item, 'description').text = desc
         temp = Path(OUTPUT + '.tmp')
         ElementTree(rss).write(temp, encoding='utf-8', xml_declaration=True)
