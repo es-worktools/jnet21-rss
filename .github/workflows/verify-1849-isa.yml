@@ -2,17 +2,20 @@ name: Verify Municipality 1849 isa
 on:
   push:
     branches: [verify-1849-isa-261030]
-    paths: ['verify_1849_isa.py', '.github/workflows/verify-1849-isa.yml']
+    paths: ['scrape_municipality_1849_isa.py', '.github/workflows/verify-1849-isa.yml']
 permissions:
   contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - run: pip install lxml
-      - run: python verify_1849_isa.py
+      - run: python scrape_municipality_1849_isa.py --diagnostic-out isa-first.json --diagnostic-log
+      - run: cp municipality-1849-isa.xml isa-first.xml
+      - run: python scrape_municipality_1849_isa.py --diagnostic-out isa-second.json --diagnostic-log
+      - run: cmp isa-first.xml municipality-1849-isa.xml
