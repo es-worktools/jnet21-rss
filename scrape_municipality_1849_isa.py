@@ -138,7 +138,7 @@ def main():
         if len(bodies) != 1:
             raise RuntimeError('Official body structure changed: ' + url)
         body = copy.deepcopy(bodies[0])
-        for e in body.xpath('.//script|.//style|.//noscript|.//iframe|.//*[@id="ank_info"]|.//*[@class="ank_list"]'):
+        for e in body.xpath('.//script|.//style|.//noscript|.//*[@id="ank_info"]|.//*[@class="ank_list"]'):
             e.drop_tree()
         links = []
         for a in body.xpath('.//a[@href]'):
@@ -147,6 +147,10 @@ def main():
             if p.scheme in ('https', 'http') and not p.username and not p.password:
                 label = norm(a.text_content()) or norm(' '.join(a.xpath('.//img/@alt')))
                 links.append({'url': target, 'label': label})
+        for media in body.xpath('.//iframe[@src]|.//embed[@src]|.//object[@data]'):
+            target = urljoin(url, media.get('src') or media.get('data'))
+            if urlparse(target).scheme in ('https', 'http'):
+                links.append({'url': target, 'label': '公式ページの埋め込み資料'})
         images = []
         for img in body.xpath('.//img[@src or @data-src]'):
             target = urljoin(url, img.get('data-src') or img.get('src'))
@@ -156,6 +160,9 @@ def main():
                     images.append(record)
         text = norm(body.text_content())
         if not text and not images and not links:
+            if static:
+                evidence.setdefault('empty_static_sources', []).append({'url': url, 'title': title, 'official_body_html': html.tostring(body, encoding='unicode')})
+                return None
             raise RuntimeError('Empty official body: ' + url)
         semantic = {'text': text, 'links': links, 'images': images}
         digest = hashlib.sha256(json.dumps(semantic, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
@@ -203,10 +210,13 @@ def main():
         if len(static_urls) < 10:
             raise RuntimeError('Business/contract scope unexpectedly reduced')
         static_rows = []
+        evidence['static_pages'] = static_rows
         for u in sorted(static_urls):
             doc = fetch(u)
             discover(u, doc)
-            static_rows.append(content(doc, u, static=True))
+            row = content(doc, u, static=True)
+            if row:
+                static_rows.append(row)
             # Permanent pages can advertise news posts absent from current lists.
             for a in doc.xpath('//*[@id="p_main"]//a[@href]'):
                 target = urljoin(u, a.get('href'))
