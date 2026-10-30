@@ -126,8 +126,9 @@ def main():
         evidence['sources'].append({'url': url, 'listed': len(rows)})
 
     def content(doc, url, static=False):
-        titles = doc.xpath('//*[@id="page_cont"]//h1')
+        titles = doc.xpath('//*[@id="page_cont"]/article/header//h1')
         if len(titles) != 1 or not norm(titles[0].text_content()):
+            evidence.setdefault('heading_errors', []).append({'url': url, 'h1': [{'text': norm(e.text_content()), 'path': doc.getroottree().getpath(e)} for e in doc.xpath('//h1')]})
             raise RuntimeError('Official page heading missing: ' + url)
         title = norm(titles[0].text_content())
         dates = doc.xpath('//*[@id="p_main"]/p[' + CLASS % 'post_day' + ']')
@@ -235,11 +236,22 @@ def main():
                         evidence['title_differences'].append({'url': row['url'], 'listing': listing_row['title'], 'article': result['title']})
             return result
 
+        article_errors = []
+        evidence['article_errors'] = article_errors
+        def checked(row):
+            try:
+                return article(row)
+            except Exception as error:
+                with lock:
+                    article_errors.append({'url': row['url'], 'error': repr(error)})
+                return None
         with ThreadPoolExecutor(max_workers=3) as pool:
-            articles = list(pool.map(article, candidates.values()))
+            articles = [row for row in pool.map(checked, candidates.values()) if row]
+        evidence['articles'] = sorted(articles, key=lambda row: (row['date'], row['url']), reverse=True)
+        if article_errors:
+            raise RuntimeError(str(len(article_errors)) + ' articles failed; RSS preserved')
         if len(articles) < 40:
             raise RuntimeError('Unexpectedly few dated posts')
-        evidence['articles'] = sorted(articles, key=lambda row: (row['date'], row['url']), reverse=True)
         evidence['static_pages'] = static_rows
         rows = evidence['articles'][:100] + static_rows
         if len({row['url'] for row in rows}) != len(rows):
