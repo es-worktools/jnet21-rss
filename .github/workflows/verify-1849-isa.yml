@@ -1,0 +1,18 @@
+name: Verify Municipality 1849 isa
+on:
+  push:
+    branches: [verify-1849-isa-261030]
+    paths: ['verify_1849_isa.py', '.github/workflows/verify-1849-isa.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install lxml
+      - run: python verify_1849_isa.py
