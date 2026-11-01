@@ -30812,7 +30812,7 @@
     },
     "760dc8429477be18130e5a2e7c6a5ecf773c228f57667047d048de256590b1f9": {
       "code": "E04-1",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター和歌山",
       "key": "760dc8429477be18130e5a2e7c6a5ecf773c228f57667047d048de256590b1f9",
       "list_url": "https://www3.jeed.go.jp/wakayama/poly/zaishoku/index3.html",
