@@ -1,0 +1,24 @@
+[
+  {
+    "label": "verified_bid_article",
+    "url": "https://www.city.ibusuki.lg.jp/main/shisei/nyusatsu/nyusatsu/page013759.html",
+    "candidate_evidence": "Exact official URL verified in search; first run article path was miscopied and is excluded from conclusions",
+    "checked_at": "2026-11-02T06:18:31.282637+00:00",
+    "attempts": 1,
+    "status": 503,
+    "final_url": "https://www.city.ibusuki.lg.jp/main/shisei/nyusatsu/nyusatsu/page013759.html",
+    "content_type": "text/html",
+    "error": "HTTP Error 503: Service Temporarily Unavailable",
+    "bytes": 2438,
+    "sha256": "e9a6b0d4bcc69a673dd3c11b1c6113a3112608462a91a625f537c0d7031d26fa",
+    "truncated": false,
+    "title": "サービス停止のお知らせ",
+    "text": "サービス停止のお知らせ ⚠️ サービス一時停止のお知らせ 10月21日(水)現在、皆さまの情報とサービスの安全を守るための予防的な措置として、 全サービスを順次停止しております。 今回の措置は、利用しているソフトウェアに重大な脆弱性が確認されたことを受けたものです。 現時点で、本件に起因する不正アクセスや情報漏えいは確認されておりません。 サービスの再開時刻は未定です。 ご不便、ご迷惑をおかけし、誠に申し訳ございません。 ご理解とご協力のほど、何卒よろしくお願い申し上げます。",
+    "links": [],
+    "feed_links": [],
+    "body_file": "verified_bid_article.body",
+    "feed_xml": false,
+    "sitemap_xml": false,
+    "stop_notice": true
+  }
+]
