@@ -92,6 +92,9 @@ def parse_index(body):
     notice_lists = doc.xpath('//div[@id="Layer9"]/ul')
     if len(notice_lists) != 1:
         raise RuntimeError('Dated notice list layout changed')
+    entries = notice_lists[0].xpath('./li')
+    if not entries or any(len(li.xpath('./a[@href]')) != 1 for li in entries):
+        raise RuntimeError('Notice row missing a unique article link')
     for a in notice_lists[0].xpath('./li/a[@href]'):
         title = norm(a.text_content())
         m = DATE_TITLE.fullmatch(title)
@@ -109,6 +112,9 @@ def parse_index(body):
             raise RuntimeError('Duplicate notice URL')
         seen.add(url)
         section = section_for(doc, p.fragment)
+        headings = section.xpath('.//td[contains(@class,"hpb-subh02-cell1")]')
+        if len(headings) != 1 or match_title(m.group(4)) not in match_title(headings[0].text_content()):
+            raise RuntimeError('Notice title does not match article section')
         pdfs = [checked_url(urljoin(SIMPLE, u)) for u in section.xpath('.//a/@href') if urlparse(u).path.lower().endswith('.pdf')]
         text = norm(section.text_content())
         if not pdfs or len(text) < 50:

@@ -67,6 +67,14 @@ class SafetyTests(unittest.TestCase):
         for body in (self.index.replace(b'name="akifesta" id="akifesta"',b'name="changed" id="changed"'), self.index.replace(b'.pdf"',b'.dat"')):
             with self.assertRaises(RuntimeError): m.parse_index(body)
 
+    def test_unlinked_notice_row_cannot_silently_disappear(self):
+        body=self.index.replace(b'<li><a href="#akifesta">', b'<li>2026.11.02 Unlinked notice</li><li><a href="#akifesta">')
+        with self.assertRaises(RuntimeError):m.parse_index(body)
+
+    def test_mismatched_article_section_rejected(self):
+        body=self.index.replace(b'href="#akifesta"',b'href="#ekiden"')
+        with self.assertRaises(RuntimeError):m.parse_index(body)
+
     def test_merge_is_idempotent(self):
         once,_=m.merge(self.old,self.rows)
         twice,r=m.merge(once,self.rows)
