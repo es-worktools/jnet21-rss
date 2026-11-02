@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サービス停止のお知らせ</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+  }
+  .container {
+    max-width: 640px;
+    margin: 60px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+  }
+  .icon {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 0 24px;
+    color: #c0392b;
+  }
+  p {
+    line-height: 1.8;
+    font-size: 15px;
+    margin: 0 0 16px;
+  }
+  .footer {
+    margin-top: 32px;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+  }
+  .service-notice:empty {
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">⚠️</div>
+    <!-- ▼▼▼ サービス名（任意）ここに入力 ▼▼▼ -->
+    <h1><span id="service-name"></span>サービス一時停止のお知らせ</h1>
+    <!-- ▲▲▲ ここまで ▲▲▲ -->
+    <p>
+      10月21日(水)現在、皆さまの情報とサービスの安全を守るための予防的な措置として、
+      全サービスを順次停止しております。
+    </p>
+    <p>
+      今回の措置は、利用しているソフトウェアに重大な脆弱性が確認されたことを受けたものです。
+      現時点で、本件に起因する不正アクセスや情報漏えいは確認されておりません。
+    </p>
+    <p>
+      サービスの再開時刻は未定です。
+      ご不便、ご迷惑をおかけし、誠に申し訳ございません。
+    </p>
+
+    <!-- ▼▼▼ サービス固有の案内文（任意）ここに入力 ▼▼▼ -->
+    <div class="service-notice" id="service-notice"></div>
+    <!-- ▲▲▲ ここまで ▲▲▲ -->
+
+    <div class="footer">
+      ご理解とご協力のほど、何卒よろしくお願い申し上げます。
+    </div>
+  </div>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1727388196" async></script></body>
+</html>
