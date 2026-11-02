@@ -1,0 +1,10 @@
+{
+  "mode": "temporary",
+  "automatic_switchback": false,
+  "normal_review": {
+    "approved": false,
+    "reviewed_at": null,
+    "coverage_note": "",
+    "articles": {}
+  }
+}

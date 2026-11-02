@@ -60,25 +60,23 @@ def parse_source(text, source_url, items):
         date=official_date(one(a,'.//p[@class="date"]').text)
         add(items,one(a,'.//p[@class="name"]').text_content(),a.get('href'),date,source_url)
 
-def main():
+def normal_rows():
     items={}
     for url in SOURCES: parse_source(fetch(url),url,items)
     if not items: raise RuntimeError("No articles found; existing RSS preserved")
-    rows=sorted(items.values(),key=lambda row:row[0],reverse=True)[:MAX_ITEMS]
-    rss=Element("rss",version="2.0")
-    channel=SubElement(rss,"channel")
-    SubElement(channel,"title").text=CHANNEL_TITLE
-    SubElement(channel,"link").text=SOURCE_URL
-    SubElement(channel,"description").text=CHANNEL_TITLE+" GitHub generated RSS"
-    for date,title,url in rows:
-        item=SubElement(channel,"item")
-        SubElement(item,"title").text=title
-        SubElement(item,"link").text=url
-        SubElement(item,"guid",isPermaLink="true").text=url
-        SubElement(item,"pubDate").text=format_datetime(date)
-    temp=Path(OUTPUT_FILE+".tmp")
-    ElementTree(rss).write(temp,encoding="utf-8",xml_declaration=True)
-    temp.replace(OUTPUT_FILE)
-    print(OUTPUT_FILE,len(rows))
+    return [dict(date=date.isoformat(),title=title,url=url) for date,title,url in sorted(items.values(),reverse=True)]
+
+def main():
+    import argparse
+    import rss_1014
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--config',default='config/rss-1014.json')
+    parser.add_argument('--mode',choices=['normal','temporary'])
+    parser.add_argument('--output',default=OUTPUT_FILE)
+    parser.add_argument('--history',default='history/municipality-1014-higashishirakawa.json')
+    parser.add_argument('--evidence',default='validation-output/1014')
+    args=parser.parse_args()
+    report=rss_1014.run(args.config,args.output,args.history,args.evidence,mode=args.mode,normal_provider=normal_rows)
+    print(json.dumps(report,ensure_ascii=False,indent=2))
 
 if __name__ == "__main__": main()
