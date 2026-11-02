@@ -1,0 +1,59 @@
+name: Validate RSS 1014 temporary source (no publish)
+
+on:
+  push:
+    branches: ["validation/1014-temporary-20261102"]
+    paths:
+      - "experiments/rss-recovery-1014/**"
+      - ".github/workflows/validate-rss-1014-temporary.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install parser
+        run: pip install lxml
+      - name: Safety and reconciliation tests
+        run: python -m unittest discover -s experiments/rss-recovery-1014 -p 'test_*.py' -v
+      - name: First live retrieval (isolated output)
+        run: >-
+          python experiments/rss-recovery-1014/verify_higashishirakawa.py
+          --baseline experiments/rss-recovery-1014/fixtures/baseline.xml
+          --output validation-output/first.xml
+          --evidence validation-output/first-evidence
+      - name: Repeat live retrieval using previous candidate as history
+        run: >-
+          python experiments/rss-recovery-1014/verify_higashishirakawa.py
+          --baseline validation-output/first.xml
+          --output validation-output/second.xml
+          --evidence validation-output/second-evidence
+      - name: Confirm stable GUIDs and no duplicates on repeat
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          a=Path('validation-output/first.xml').read_bytes()
+          b=Path('validation-output/second.xml').read_bytes()
+          result=json.loads(Path('validation-output/second.xml.json').read_text())
+          assert a == b, 'Source changed between fetches; inspect both snapshots'
+          assert result['output_count'] == 19 and not result['added']
+          print('Two live retrievals agree; 19 items; no duplicate additions:', hashlib.sha256(a).hexdigest())
+          PY
+      - name: Retain validation evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rss-1014-temporary-validation
+          path: validation-output/
+          if-no-files-found: warn
+          retention-days: 14
