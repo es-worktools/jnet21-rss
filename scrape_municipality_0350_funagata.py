@@ -1,4 +1,4 @@
-import json, re, time
+import json, re, time, logging
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from urllib.request import Request, urlopen
@@ -49,8 +49,9 @@ def add(items, title, href, date, source_url):
     if not title or not href: raise RuntimeError("Missing article title or URL")
     if urlparse(url).scheme not in {"http","https"} or urlparse(url).netloc not in ALLOWED_ARTICLE_DOMAINS:
         raise RuntimeError("Unexpected article URL")
-    if date.date() > datetime.now(JST).date(): return
-    if url not in items or items[url][0] < date: items[url] = (date,title,url)
+    if date is not None and date.date() > datetime.now(JST).date(): return
+    if url not in items or (date is not None and (items[url][0] is None or items[url][0] < date)):
+        items[url] = (date,title,url)
 
 def one(node, xpath):
     found = node.xpath(xpath)
@@ -61,7 +62,7 @@ def parse_source(text,source_url,items):
     tree=html.fromstring(text)
     nodes=tree.xpath('//dl[@class="news icon"]/dd')
     if not nodes: raise RuntimeError("Official dated news list not found")
-    # The list omits the year. Use each article's explicit official update date.
+    # The list omits the year. Never infer it from the URL or current date.
     candidates=[]
     for node in nodes[:MAX_ITEMS]:
         a=one(node,'./a[@href]')
@@ -71,8 +72,26 @@ def parse_source(text,source_url,items):
     def article(candidate):
         title,url=candidate
         detail=html.fromstring(fetch(url))
-        date_node=one(detail,'//p[contains(concat(" ",normalize-space(@class)," ")," right ") and contains(text(),"更新日")]')
-        return title,url,official_date(date_node.text_content())
+        date_nodes=detail.xpath('//p[contains(concat(" ",normalize-space(@class)," ")," right ") and contains(text(),"更新日")]')
+        if date_nodes:
+            if len(date_nodes) != 1: raise RuntimeError('Ambiguous official update date')
+            return title,url,official_date(date_nodes[0].text_content())
+        # The town's PR templates omit p.right; some explicitly give a
+        # publication date at the start of the article's text box.
+        published=[]
+        for node in detail.xpath('//div[contains(concat(" ",normalize-space(@class)," ")," txtbox ")]'):
+            label=re.match(r'^掲載日\s*[：:]\s*((?:令和|平成)?(?:元|\d{1,4})年\s*\d{1,2}月\s*\d{1,2}日)', normalize(node.text_content()))
+            if label: published.append(official_date(label.group(1)))
+        if published:
+            if len(published) != 1: raise RuntimeError('Ambiguous official publication date')
+            return title,url,published[0]
+        # Preserve a listed article even when its PR template has no full
+        # date. RSS permits omitted pubDate. Verify the expected detail
+        # structure so an error/block page cannot silently become an item.
+        if not detail.xpath('//h1') or not detail.xpath('//div[contains(concat(" ",normalize-space(@class)," ")," txtbox ")]'):
+            raise RuntimeError('Official article structure changed: '+url)
+        logging.warning('Official full date unavailable; included without pubDate: %s', url)
+        return title,url,None
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(max_workers=4) as pool:
         for title,url,date in pool.map(article,candidates):
@@ -82,7 +101,7 @@ def main():
     items={}
     for url in SOURCES: parse_source(fetch(url),url,items)
     if not items: raise RuntimeError("No dated articles found; existing RSS preserved")
-    rows=sorted(items.values(),key=lambda row:row[0],reverse=True)[:MAX_ITEMS]
+    rows=sorted(items.values(),key=lambda row:row[0] or datetime.min.replace(tzinfo=JST),reverse=True)[:MAX_ITEMS]
     rss=Element("rss",version="2.0")
     channel=SubElement(rss,"channel")
     SubElement(channel,"title").text=CHANNEL_TITLE
@@ -93,7 +112,7 @@ def main():
         SubElement(item,"title").text=title
         SubElement(item,"link").text=url
         SubElement(item,"guid",isPermaLink="true").text=url
-        SubElement(item,"pubDate").text=format_datetime(date)
+        if date is not None: SubElement(item,"pubDate").text=format_datetime(date)
     temp=Path(OUTPUT_FILE+".tmp")
     ElementTree(rss).write(temp,encoding="utf-8",xml_declaration=True)
     temp.replace(OUTPUT_FILE)

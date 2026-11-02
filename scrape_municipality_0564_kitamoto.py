@@ -1,4 +1,4 @@
-import json, re, time
+import json, re, time, logging
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from urllib.request import Request, urlopen
@@ -69,6 +69,12 @@ def parse_source(text,source_url,items):
         if date.tzinfo is None: raise RuntimeError("Official date has no timezone")
         date=date.astimezone(JST)
         if date < datetime.now(JST)-timedelta(days=90): continue
+        # Official JSON also contains external shortcut links. Keep the
+        # existing same-domain scope without blocking all municipal news.
+        article_url = urljoin(source_url, record['url'])
+        if urlparse(article_url).scheme in {'http', 'https'} and urlparse(article_url).netloc not in ALLOWED_ARTICLE_DOMAINS:
+            logging.warning('Excluded external official-list link: %s (%s)', record['page_name'], article_url)
+            continue
         add(items,record['page_name'],record['url'],date,SOURCE_URL)
 
 def main():
