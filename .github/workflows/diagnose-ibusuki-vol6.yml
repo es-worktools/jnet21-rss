@@ -1,0 +1,31 @@
+name: Ibusuki vol6 alternate routes diagnostic
+on:
+  push:
+    branches: ['diagnostics/ibusuki-vol6-20261102']
+    paths:
+      - '.github/workflows/diagnose-ibusuki-vol6.yml'
+      - 'diagnostics/ibusuki-vol6-20261102/probe_ibusuki.py'
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check eight new routes once each
+        run: python diagnostics/ibusuki-vol6-20261102/probe_ibusuki.py
+      - name: Preserve evidence on diagnostic branch only
+        if: always()
+        run: |
+          test "$(git branch --show-current)" = "diagnostics/ibusuki-vol6-20261102"
+          test -f diagnostics/ibusuki-vol6-20261102/results/results.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/ibusuki-vol6-20261102/results
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record Ibusuki vol6 alternate-route evidence'
+          git push origin HEAD:diagnostics/ibusuki-vol6-20261102
