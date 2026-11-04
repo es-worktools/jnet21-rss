@@ -8,13 +8,21 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: noastec-rss-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update:
+    # Validation branches cannot write to main with this workflow.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -22,18 +30,46 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4
 
-      - name: Generate RSS
-        run: |
-          python scrape_noastec.py
+      - name: Test protection without network
+        run: python -m unittest discover -s tests -p 'test_noastec*.py' -v
 
-      - name: Commit RSS files
+      - name: Generate RSS independently
+        id: generate
+        continue-on-error: true
         run: |
+          rm -f noastec-status.json
+          python scrape_noastec.py --summary noastec-status.json
+
+      - name: Stage only verified successful categories
+        if: ${{ success() && (steps.generate.outcome == 'success' || steps.generate.outcome == 'failure') }}
+        run: python stage_noastec.py
+
+      - name: Commit successful RSS files
+        if: ${{ success() && (steps.generate.outcome == 'success' || steps.generate.outcome == 'failure') }}
+        run: |
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          # Integrate unrelated updates only. Refuse stale NOASTEC data/code.
+          git fetch origin main
+          git diff --quiet HEAD FETCH_HEAD -- \
+            noastec-seminar.xml noastec-pressrelease.xml noastec-subsidy.xml \
+            scrape_noastec.py stage_noastec.py 'tests/test_noastec*.py' \
+            'tests/noastec_fixtures/**' \
+            .github/workflows/update-noastec.yml || {
+              echo 'NOASTEC changed upstream; refusing to publish a stale result.'
+              exit 1
+            }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add noastec-*.xml
-          git diff --cached --quiet || git commit -m "Update NOASTEC RSS"
-          git pull --rebase origin main
-          git push origin main
+          git commit -m "Update NOASTEC RSS (validated categories)"
+          git rebase FETCH_HEAD
+          git push origin HEAD:main
+
+      - name: Report category failures
+        if: ${{ !cancelled() && steps.generate.outcome != 'success' }}
+        run: |
+          echo 'NOASTEC: one or more categories failed; their existing RSS files were preserved.'
+          exit 1
