@@ -1,0 +1,62 @@
+{
+  "url": "https://www.pref.shiga.lg.jp/cgi-bin/press/index.php?ds=2026-09-02&de=2026-09-02&limit=300",
+  "status": 200,
+  "total": 9,
+  "rows": [
+    {
+      "category": "イベント",
+      "date": "2026-09-02",
+      "title": "『ファンドレイジング実践セミナー』開催のお知らせ",
+      "url": "https://www.pref.shiga.lg.jp/de00/press-release/32917.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "令和7年度第1回滋賀県死因究明等推進協議会の開催について",
+      "url": "https://www.pref.shiga.lg.jp/ef00/press-release/25255.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "令和8年度スマート・ライフスタイル普及促進事業補助金における重点対策加速化事業（再エネ分）の受付終了について（予告）",
+      "url": "https://www.pref.shiga.lg.jp/cg00/press-release/32870.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "令和8年度第1回滋賀県環境審議会廃棄物部会の開催について",
+      "url": "https://www.pref.shiga.lg.jp/df00/press-release/32894.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "令和8年度第1回滋賀県観光事業審議会を開催します",
+      "url": "https://www.pref.shiga.lg.jp/sa00/press-release/32895.html"
+    },
+    {
+      "category": "イベント",
+      "date": "2026-09-02",
+      "title": "企業の「魅力ある職場づくり」を支援します！～アドバイザー派遣およびセミナーのご案内～",
+      "url": "https://www.pref.shiga.lg.jp/fe00/press-release/32915.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "滋賀県医療審議会の開催について",
+      "url": "https://www.pref.shiga.lg.jp/ef00/press-release/32896.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "県民の皆様へ （令和8年台風第24号接近と前線の影響に伴う大雨の恐れに関する知事メッセージ）",
+      "url": "https://www.pref.shiga.lg.jp/as00/32881.html"
+    },
+    {
+      "category": "お知らせ",
+      "date": "2026-09-02",
+      "title": "選挙人名簿登録者数について（令和8年9月1日現在）",
+      "url": "https://www.pref.shiga.lg.jp/lf00/press-release/32898.html"
+    }
+  ],
+  "review_status": "旧購読との9件全件差分未照合。437候補には含めず、補完の完了扱いにしない。"
+}
