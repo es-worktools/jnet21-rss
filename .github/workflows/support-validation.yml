@@ -1,0 +1,48 @@
+name: Support recovery validation 20261106
+on:
+  push:
+    branches: ["validation/support-vol2-20261106"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Read-only official source probes
+        run: |
+          python - <<'PY'
+          import requests, json, base64, zlib, concurrent.futures
+          from datetime import datetime, timezone
+          urls = [
+          "https://www.pref.shiga.lg.jp/",
+          "https://www.pref.shiga.lg.jp/menu/32767.html",
+          "https://www.pref.shiga.lg.jp/menu/32769.html",
+          "https://www.pref.shiga.lg.jp/menu/32768.html",
+          "https://www.pref.shiga.lg.jp/cgi-bin/press/index.php",
+          "https://www.pref.shiga.lg.jp/cgi-bin/press/index.php?page=2",
+          "https://www.pref.shiga.lg.jp/ab00/press-release/32885.html",
+          "https://www.pref.shiga.lg.jp/file/rss/kensei_koho_e-shinbun_oshirase_index.rss",
+          "https://www.pref.shiga.lg.jp/file/rss/kensei_koho_e-shinbun_event_index.rss",
+          "https://www.pref.shiga.lg.jp/file/rss/kensei_koho_e-shinbun_bosyuu_index.rss",
+          "https://chusho.center.sec.or.jp/establish/woman/",
+          "https://chusho.center.sec.or.jp/establish/consultation-2/",
+          "https://www.ehime-iinet.or.jp/information",
+          "https://h-chuokai.or.jp/news/feed/",
+          "https://h-chuokai.or.jp/news/"
+          ]
+          def probe(url):
+              result = {"url":url, "observed_at":datetime.now(timezone.utc).isoformat()}
+              try:
+                  r=requests.get(url,headers={"User-Agent":"Mozilla/5.0"},timeout=30)
+                  result.update(status=r.status_code,final_url=r.url,content_type=r.headers.get("Content-Type"),bytes=len(r.content),body=base64.b64encode(zlib.compress(r.content)).decode())
+              except Exception as e: result["error"]=str(e)
+              return result
+          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+              for result in pool.map(probe,urls): print("PROBE_JSON "+json.dumps(result),flush=True)
+          
+          PY
