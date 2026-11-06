@@ -1,0 +1,22 @@
+name: Support recovery validation 20261106
+on:
+  push:
+    branches: ["validation/support-vol2-ready-20261106"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: History and failure protection tests
+        run: python -m unittest discover -s validation -p 'test_*.py' -v
+      - name: Live candidate generation in temporary directories
+        run: python validation/run_live_validation.py
