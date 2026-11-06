@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:schedule="urn:jnet21:sapporo:schedule:v1" version="2.0"><channel><title>札幌中小企業支援センター 相談予定・補完監視</title><link>https://chusho.center.sec.or.jp/</link><description>固定ページの月次予定と変更を検知。配信日時は検知日時。</description><item><title>【2026年11月・予定更新検知】女性起業家・経営者向け相談 中小企業診断士 小西 麻衣 （こにし まい）</title><link>https://chusho.center.sec.or.jp/establish/woman/</link><guid isPermaLink="false">urn:jnet21:sapporo:c2b9f826e681f345c808ca8787284ef1f121347ba76fb7d958475463d45d63d0:r1:4d17661f7906b2648acc9469570ea354a4581bd3145fc8e554e64e03a7ebd040</guid><pubDate>Fri, 06 Nov 2026 12:11:31 +0900</pubDate><description>公式ページの予定を初回取得、または変更を検知しました。配信日時は検知日時です。
+<rss xmlns:schedule="urn:jnet21:sapporo:schedule:v1" version="2.0"><channel><title>札幌中小企業支援センター 相談予定・補完監視</title><link>https://chusho.center.sec.or.jp/</link><description>【試験専用・本番採用不可】元の3記事と、公式予定ではない模擬変更1記事。</description><item><title>【模擬変更・試験データ】【2026年11月・予定更新検知】女性起業家・経営者向け相談 中小企業診断士 小西 麻衣 （こにし まい）</title><link>https://chusho.center.sec.or.jp/establish/woman/</link><guid isPermaLink="false">urn:jnet21:sapporo:c2b9f826e681f345c808ca8787284ef1f121347ba76fb7d958475463d45d63d0:r2:fd46645aab2b4267f410272a7bd9cab7427925e0be92d6466d70a3f2828f0940</guid><pubDate>Fri, 06 Nov 2026 17:58:29 +0900</pubDate><description>【模擬変更・試験データ】実際の公式予定変更ではありません。24日から25日への変更は検証用です。
+公式ページの予定を初回取得、または変更を検知しました。配信日時は検知日時です。
+2026年11月
+中小企業診断士 小西 麻衣 （こにし まい）
+【模擬変更・試験データ】以下の日程は受信検証用です。実際の公式予定変更ではありません。
+2日（月曜日）※午後のみ・4日（水曜日）※午後のみ・10日（火曜日）・17日（火曜日）・25日（水曜日）
+https://chusho.center.sec.or.jp/establish/woman/</description><schedule:series>c2b9f826e681f345c808ca8787284ef1f121347ba76fb7d958475463d45d63d0</schedule:series><schedule:fingerprint>fd46645aab2b4267f410272a7bd9cab7427925e0be92d6466d70a3f2828f0940</schedule:fingerprint><schedule:revision>2</schedule:revision></item><item><title>【2026年11月・予定更新検知】女性起業家・経営者向け相談 中小企業診断士 小西 麻衣 （こにし まい）</title><link>https://chusho.center.sec.or.jp/establish/woman/</link><guid isPermaLink="false">urn:jnet21:sapporo:c2b9f826e681f345c808ca8787284ef1f121347ba76fb7d958475463d45d63d0:r1:4d17661f7906b2648acc9469570ea354a4581bd3145fc8e554e64e03a7ebd040</guid><pubDate>Fri, 06 Nov 2026 12:11:31 +0900</pubDate><description>公式ページの予定を初回取得、または変更を検知しました。配信日時は検知日時です。
 2026年11月
 中小企業診断士 小西 麻衣 （こにし まい）
 2日（月曜日）※午後のみ・4日（水曜日）※午後のみ・10日（火曜日）・17日（火曜日）・24日（火曜日）
