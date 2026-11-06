@@ -1,0 +1,22 @@
+name: Ehime 0094 isolated reachability validation
+on:
+  push:
+    branches: ["validation/0094-ehime-vol1-20261106"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Bounded read-only official probes
+        run: python3 validation/probe_ehime.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: ehime-0094-vol1-evidence
+          path: evidence/
+          retention-days: 14
