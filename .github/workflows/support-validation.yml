@@ -20,3 +20,16 @@ jobs:
         run: python -m unittest discover -s validation -p 'test_*.py' -v
       - name: Live candidate generation in temporary directories
         run: python validation/run_live_validation.py
+      - name: Check recruitment last-received-date boundary
+        run: |
+          python - <<'PY'
+          import requests,json
+          from datetime import date
+          from validation.shiga_candidate import parse_page
+          u="https://www.pref.shiga.lg.jp/cgi-bin/press/index.php?ds=2026-09-02&de=2026-09-02&limit=300"
+          r=requests.get(u,timeout=30,headers={"User-Agent":"Mozilla/5.0"});r.raise_for_status()
+          rows,total,lo,hi,nxt=parse_page(r.content,date(2026,9,2),date(2026,9,2))
+          if nxt or total!=len(rows):raise RuntimeError("boundary incomplete")
+          print("BOUNDARY_RESULT_JSON "+json.dumps({"url":u,"status":r.status_code,"total":total,"rows":rows},ensure_ascii=False))
+          
+          PY
