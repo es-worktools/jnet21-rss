@@ -9089,7 +9089,7 @@
     },
     "2372c56616290aba08a747fe73551d7d22779a02d52c4b881aba66948bccc5f0": {
       "code": "H521",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "2372c56616290aba08a747fe73551d7d22779a02d52c4b881aba66948bccc5f0",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
@@ -18592,7 +18592,7 @@
     },
     "48362113d0d50beed3fd6d5aff0abd79de7ea68e7b11eb9c277b05fb5fc1e5e8": {
       "code": "6H102",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター三重",
       "key": "48362113d0d50beed3fd6d5aff0abd79de7ea68e7b11eb9c277b05fb5fc1e5e8",
       "list_url": "https://www3.jeed.go.jp/mie/poly/zaishoku/2026/index3.html",
@@ -29772,7 +29772,7 @@
     },
     "7197d8afc8834c95c01a03b52b34e2e6d6b207f8446109bfc85f20a8b7630354": {
       "code": "1H112",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター徳島",
       "key": "7197d8afc8834c95c01a03b52b34e2e6d6b207f8446109bfc85f20a8b7630354",
       "list_url": "https://www3.jeed.go.jp/tokushima/poly/zaishoku/2026/index3.html",
@@ -30253,7 +30253,7 @@
     },
     "74001be13495f44a34f69eae3eab8c1dbb4460ec23839b6f02d228fba1b7401d": {
       "code": "1H020",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター新潟",
       "key": "74001be13495f44a34f69eae3eab8c1dbb4460ec23839b6f02d228fba1b7401d",
       "list_url": "https://www3.jeed.go.jp/niigata/poly/zaishoku/2026/index3.html",
@@ -31644,7 +31644,7 @@
     },
     "7a07fc6227af562d0da07ef8b79582bfcb242afd316aee825e78bbcb60759571": {
       "code": "J102",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター加古川",
       "key": "7a07fc6227af562d0da07ef8b79582bfcb242afd316aee825e78bbcb60759571",
       "list_url": "https://www3.jeed.go.jp/kakogawa/poly/zaishoku/2026/index3.html",
@@ -37923,7 +37923,7 @@
     },
     "929b4f1967d114f830d09484d558f9d9c48e2b30853daa8c7b63309bf1eef4d1": {
       "code": "4D322",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター佐賀",
       "key": "929b4f1967d114f830d09484d558f9d9c48e2b30853daa8c7b63309bf1eef4d1",
       "list_url": "https://www3.jeed.go.jp/saga/poly/zaishoku/2026/index3.html",
@@ -60283,7 +60283,7 @@
     },
     "edb89c6105ecd78c6e600a8d8850926d1a24c2424c6d38c88e7ec34f6c3f1c21": {
       "code": "5D132",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター石川",
       "key": "edb89c6105ecd78c6e600a8d8850926d1a24c2424c6d38c88e7ec34f6c3f1c21",
       "list_url": "https://www3.jeed.go.jp/ishikawa/poly/zaishoku/2026/or3a63000000h1ou.html",
