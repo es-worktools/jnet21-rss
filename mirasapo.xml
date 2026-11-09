@@ -12,7 +12,7 @@
 	<atom:link href="https://mirasapo-plus.go.jp/category/infomation/feed/" rel="self" type="application/rss+xml" />
 	<link>https://mirasapo-plus.go.jp</link>
 	<description>経済産業省 中小企業庁</description>
-	<lastBuildDate>Thu, 05 Nov 2026 09:19:43 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 09 Nov 2026 01:12:38 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,35 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.2</generator>
 	<item>
+		<title>【メンテナンス告知】GビズIDのシステムメンテナンス</title>
+		<link>https://mirasapo-plus.go.jp/infomation/34203/</link>
+					<comments>https://mirasapo-plus.go.jp/infomation/34203/#respond</comments>
+		
+		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
+		<pubDate>Mon, 09 Nov 2026 05:00:48 +0000</pubDate>
+				<category><![CDATA[お知らせ]]></category>
+		<category><![CDATA[メンテナンス]]></category>
+		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=34203</guid>
+
+					<description><![CDATA[平素よりミラサポplusをご利用いただきありがとうございます。 以下の期間でGビズIDシステムメンテナンスを実施いたします。 該当時間においては、ミラサポplus上で、GビズIDのすべての機能がご利用いただけません。 【 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="u-mtb40">
+<p>平素よりミラサポplusをご利用いただきありがとうございます。</p>
+<p>以下の期間でGビズIDシステムメンテナンスを実施いたします。</p>
+<p>該当時間においては、ミラサポplus上で、GビズIDのすべての機能がご利用いただけません。</p>
+<div class="u-mt20">
+<p>【メンテナンス期間】</p>
+<p>2026年11月24日（火）20時00分から2026年11月25日（水）1時00分頃まで</p>
+</div>
+<p class="u-mt20">ご不便をおかけしますが、どうぞよろしくお願いいたします。</p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/34203/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
 		<title>【重要】中小企業・小規模事業者向け「サイバーセキュリティ特別相談窓口」を設置します</title>
 		<link>https://mirasapo-plus.go.jp/infomation/34086/</link>
 					<comments>https://mirasapo-plus.go.jp/infomation/34086/#respond</comments>
@@ -273,35 +302,6 @@
 ]]></content:encoded>
 					
 					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/34119/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
-		<title>【メンテナンス告知】GビズIDのシステムメンテナンス</title>
-		<link>https://mirasapo-plus.go.jp/infomation/34035/</link>
-					<comments>https://mirasapo-plus.go.jp/infomation/34035/#respond</comments>
-		
-		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
-		<pubDate>Wed, 14 Oct 2026 04:00:36 +0000</pubDate>
-				<category><![CDATA[お知らせ]]></category>
-		<category><![CDATA[メンテナンス]]></category>
-		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=34035</guid>
-
-					<description><![CDATA[平素よりミラサポplusをご利用いただきありがとうございます。 以下の期間でGビズIDシステムメンテナンスを実施いたします。 該当時間においては、ミラサポplus上で、GビズIDのすべての機能がご利用いただけません。 【 [&#8230;]]]></description>
-										<content:encoded><![CDATA[<div class="u-mtb40">
-<p>平素よりミラサポplusをご利用いただきありがとうございます。</p>
-<p>以下の期間でGビズIDシステムメンテナンスを実施いたします。</p>
-<p>該当時間においては、ミラサポplus上で、GビズIDのすべての機能がご利用いただけません。</p>
-<div class="u-mt20">
-<p>【メンテナンス期間】</p>
-<p>2026年10月19日（月）20時00分から23時30分頃まで</p>
-</div>
-<p class="u-mt20">ご不便をおかけしますが、どうぞよろしくお願いいたします。</p>
-</div>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/34035/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		
