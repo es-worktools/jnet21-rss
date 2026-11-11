@@ -1,0 +1,47 @@
+name: Update Sapporo consultation supplemental RSS safely
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Commit validated schedule revisions to main (approval required)
+        type: boolean
+        default: false
+  schedule:
+    - cron: '37 22 * * *' # 07:37 JST; only active after approved main integration
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sapporo-consultation-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install requests==2.34.2 beautifulsoup4==4.15.0 PyYAML==6.0.3
+      - name: Run schedule and publication safety tests
+        run: python -m unittest discover -s tests/sapporo_consultation -v
+      - name: Generate preview or publish ledger
+        env:
+          SHOULD_PUBLISH: ${{ github.event_name == 'schedule' || inputs.publish }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$SHOULD_PUBLISH" == true ]]; then
+            python publish_sapporo_consultation.py --publish
+          else
+            python publish_sapporo_consultation.py --output "$RUNNER_TEMP/sapporo-preview"
+          fi
