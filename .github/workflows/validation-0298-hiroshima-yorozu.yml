@@ -8,56 +8,52 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 7
     steps:
-      - name: Network and HTML probes (read only; no commits or artifacts)
+      - name: Install parser
+        run: python -m pip install beautifulsoup4
+      - name: Validate current listing and RSS alternatives
         shell: bash
         run: |
           python - <<'PY'
-          import urllib.request, urllib.parse, xml.etree.ElementTree as ET, re
+          import urllib.request,urllib.parse,json,re
           from html.parser import HTMLParser
+          from bs4 import BeautifulSoup
+          import xml.etree.ElementTree as ET
           base='https://www.yorozu-hiroshima.go.jp'
           paths=[
-             '/blog-feed.xml','/rss.xml','/feed.xml','/feed/','/news/feed/','/news/feed.xml',
-             '/news/rss.xml','/news/index.xml','/robots.txt','/sitemap.xml',
-             '/news/','/onestop/seminar/','/news/20261006/'
+            '/feed/','/?taxonomy=case_category&term=onestop/feed/',
+            '/?feed=rss2','/news/?feed=rss2','/onestop/seminar/?feed=rss2',
+            '/wp-json/','/wp-json/wp/v2/types','/wp-json/wp/v2/posts?per_page=5',
+            '/wp-json/wp/v2/pages?per_page=5','/wp-sitemap.xml',
+            '/news/','/news/page/2/','/onestop/seminar/','/onestop/seminar/page/2/'
           ]
-          class LinkFinder(HTMLParser):
-              def __init__(self):
-                  super().__init__()
-                  self.links=[]; self.current=None
-              def handle_starttag(self,tag,attrs):
-                  at=dict(attrs)
-                  if tag=='a' and 'href' in at:
-                      self.current=[at['href'],'']
-                  elif tag=='link' and at.get('rel','').lower() in ('alternate','alternate stylesheet'):
-                      self.links.append((at.get('href',''),at.get('type','')))
-              def handle_data(self,data):
-                  if self.current is not None: self.current[1]+=data
-              def handle_endtag(self,tag):
-                  if tag=='a' and self.current is not None:
-                      self.links.append(tuple(self.current));self.current=None
           for path in paths:
-              url=base+path
               try:
-                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; FeedCheck/1.0)'})
+                  req=urllib.request.Request(base+path,headers={'User-Agent':'Mozilla/5.0'})
                   with urllib.request.urlopen(req,timeout=12) as res:
-                      status=res.status; final=res.url; typ=res.headers.get('Content-Type','')
-                      body=res.read(900000)
-                  print('URL',path,'HTTP',status,'BYTES',len(body),'TYPE',typ,'FINAL',final,flush=True)
-                  if 'xml' in typ or body.lstrip().startswith(b'<?xml'):
-                      try:
-                          root=ET.fromstring(body)
-                          tags=[el.tag for el in root.iter()]
-                          print('  XML_ROOT',root.tag,'ITEMS',sum(t.lower().endswith('item') for t in tags),'ENTRIES',sum(t.lower().endswith('entry') for t in tags),flush=True)
-                      except Exception as e: print('  XML_PARSE',type(e).__name__,str(e)[:130],flush=True)
-                  elif 'text/html' in typ.lower():
-                      p=LinkFinder();p.feed(body.decode('utf-8','replace'))
-                      l=[(h,t.strip().replace('\\n',' ')[:85]) for h,t in p.links if h.startswith('/news/') or h.startswith('/onestop/seminar/') or ('rss' in h.lower()) or ('feed' in h.lower())]
-                      unique=list(dict.fromkeys(l))
-                      print('  LINKS',len(p.links),'RELEVANT',len(l),'SAMPLE',repr(unique[:12]),flush=True)
-                  else:
-                      print('  SAMPLE',repr(body[:140]),flush=True)
+                      data=res.read(500000);ct=res.headers.get('Content-Type','');final=res.url
+                  print('PATH',path,'STATUS 200','LEN',len(data),'CT',ct,'FINAL',final,flush=True)
+                  if 'json' in ct:
+                      o=json.loads(data)
+                      if isinstance(o,list):
+                          print(' JSON_LIST',len(o),'SAMPLE',[(x.get('date'),x.get('slug'),x.get('link')) for x in o[:5] if isinstance(x,dict)],flush=True)
+                      elif isinstance(o,dict):
+                          print(' JSON_ROOT_KEYS',list(o.keys())[:18], 'TYPE_KEYS',list(o.keys())[:18] if '/types' in path else '',flush=True)
+                  elif 'xml' in ct or data.lstrip().startswith(b'<?xml'):
+                      root=ET.fromstring(data)
+                      items=root.findall('.//item');entries=root.findall('.//{http://www.w3.org/2005/Atom}entry')
+                      print(' XML_ROOT',root.tag,'ITEMS',len(items),'ATOM_ENTRIES',len(entries),'ITEM_SAMPLE',[(x.findtext('title'),x.findtext('link')) for x in items[:3]],flush=True)
+                  elif 'html' in ct:
+                      soup=BeautifulSoup(data,'html.parser')
+                      title=soup.title.get_text(' ',strip=True) if soup.title else ''
+                      print(' TITLE',title[:140],flush=True)
+                      for tag in soup.find_all('link',rel='alternate'):
+                          print(' ALTERNATE',tag.get('href'),tag.get('type'),flush=True)
+                      matches=[(x.get('href'),x.get_text(' ',strip=True)[:90]) for x in soup.select('a[href]') if re.search(r'news/|/seminar|/feed|rss|case_category',x.get('href',''),re.I)]
+                      print(' LINKS',len(matches),'SAMPLE',matches[:16],flush=True)
+                      for sel in ('article','.news-list','.news_item','.news-item','.list-news','.post','.topics-list','.item-list'):
+                          print(' SELECT',sel,len(soup.select(sel)),flush=True)
               except Exception as e:
-                  print('URL',path,'ERROR',type(e).__name__,str(e)[:210],flush=True)
+                  print('PATH',path,'ERROR',type(e).__name__,str(e)[:170],flush=True)
           PY
