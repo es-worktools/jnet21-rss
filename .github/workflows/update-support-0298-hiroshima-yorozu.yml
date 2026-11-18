@@ -63,15 +63,19 @@ jobs:
             echo 'No change to RSS or history.'
             exit 0
           fi
-          git -c user.name='github-actions[bot]' \
-              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-              commit -m 'Update Hiroshima Yorozu supplemental RSS and history'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update Hiroshima Yorozu supplemental RSS and history'
           for attempt in 1 2 3; do
             git fetch --no-tags origin main
             tip="$(git rev-parse FETCH_HEAD)"
             if git merge-base --is-ancestor HEAD "$tip"; then
               echo 'This publication commit already reached main.'
               exit 0
+            fi
+            if ! git merge-base --is-ancestor "$base" "$tip"; then
+              echo 'main no longer descends from the verified checkout; rerun from current main.' >&2
+              exit 1
             fi
             if ! git diff --quiet "$base" "$tip" -- "$history" "$feed" \
                 scrape_support_0298_hiroshima_yorozu.py tests/hiroshima_yorozu \
