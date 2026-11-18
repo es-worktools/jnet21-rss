@@ -1,0 +1,168 @@
+name: Ehime 0094 official source validation vol.2
+on:
+  push:
+    branches: ["validation/0094-ehime-vol2-20261118"]
+    paths: [".github/workflows/ehime-validation-vol2.yml"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Check the foundation and prefectural sources
+        shell: bash
+        run: |
+          mkdir -p evidence
+          python3 - <<'PY' | tee evidence/results.jsonl
+          import hashlib
+          import json
+          import re
+          import subprocess
+          import tempfile
+          from datetime import datetime, timezone
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urljoin, urlsplit
+          from xml.etree import ElementTree as ET
+
+          FOUNDATION = "https://www.ehime-iinet.or.jp"
+          PREFECTURE = "https://en-base.pref.ehime.jp"
+          FOUNDATION_HOSTS = {"www.ehime-iinet.or.jp", "ehime-iinet.or.jp"}
+          FEED_TYPES = {"application/rss+xml", "application/atom+xml", "application/rdf+xml"}
+          FOUNDATION_NAME = "えひめ産業振興財団"
+
+          class Page(HTMLParser):
+              def __init__(self, base):
+                  super().__init__()
+                  self.base = base
+                  self.feeds = []
+                  self.anchors = []
+                  self.link = None
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  href = attrs.get("href")
+                  if not href:
+                      return
+                  href = urljoin(self.base, href)
+                  if tag == "link" and "alternate" in (attrs.get("rel") or "").split():
+                      if attrs.get("type") in FEED_TYPES:
+                          self.feeds.append(href)
+                  if tag == "a":
+                      self.link = [href, []]
+
+              def handle_data(self, data):
+                  if self.link:
+                      self.link[1].append(data)
+
+              def handle_endtag(self, tag):
+                  if tag == "a" and self.link:
+                      href, chunks = self.link
+                      self.anchors.append((href, " ".join(" ".join(chunks).split())))
+                      self.link = None
+
+          def feed_summary(body, base):
+              try:
+                  root = ET.fromstring(body)
+              except ET.ParseError:
+                  return None
+              tag = root.tag.rsplit("}", 1)[-1]
+              if tag not in {"rss", "feed", "RDF"}:
+                  return None
+              entries = root.findall(".//{*}item") + root.findall("./{*}entry")
+              sample = []
+              for entry in entries[:5]:
+                  link = next(
+                      (node.get("href") or node.text for node in entry.findall("{*}link")
+                       if node.get("rel", "alternate") == "alternate"),
+                      None,
+                  )
+                  date_fields = ("pubDate", "published", "date", "updated")
+                  dates = {field: value for field in date_fields
+                           if (value := entry.findtext("{*}" + field))}
+                  sample.append({
+                      "title": entry.findtext("{*}title"),
+                      "url": urljoin(base, link) if link else None,
+                      "date_fields": dates,
+                  })
+              return {"format": tag, "count": len(entries), "sample": sample}
+
+          def probe(label, url):
+              with tempfile.TemporaryDirectory() as tmp:
+                  body_path = Path(tmp) / "body"
+                  call = subprocess.run([
+                      "curl", "-q", "--silent", "--show-error", "--location",
+                      "--proto", "=https", "--proto-redir", "=https",
+                      "--max-redirs", "2", "--connect-timeout", "8", "--max-time", "15",
+                      "--max-filesize", "2097152",
+                      "--user-agent", "Mozilla/5.0", "--output", str(body_path),
+                      "--write-out", "%{json}", url,
+                  ], capture_output=True, text=True, timeout=18)
+                  body = body_path.read_bytes() if body_path.exists() else b""
+              stats = json.loads(call.stdout)
+              result = {
+                  "label": label, "url": url, "curl_exit": call.returncode,
+                  "status": stats["http_code"], "effective_url": stats["url_effective"],
+                  "content_type": stats.get("content_type"),
+                  "dns_s": stats["time_namelookup"], "tcp_s": stats["time_connect"],
+                  "tls_s": stats["time_appconnect"], "total_s": stats["time_total"],
+                  "remote_ip": stats.get("remote_ip"), "bytes": len(body),
+              }
+              if call.stderr:
+                  result["error"] = call.stderr.strip()
+              page = None
+              if call.returncode == 0 and stats["http_code"] == 200:
+                  result["sha256"] = hashlib.sha256(body).hexdigest()
+                  result["feed"] = feed_summary(body, result["effective_url"])
+                  if "html" in (result["content_type"] or "").lower():
+                      html = body.decode("utf-8", errors="replace")
+                      page = Page(result["effective_url"])
+                      page.feed(html)
+                      result["declared_feeds"] = list(dict.fromkeys(page.feeds))
+                      result["title"] = re.sub(r"\s+", " ", title.group(1)).strip() if (
+                          title := re.search(r"<title[^>]*>(.*?)</title>", html, re.I | re.S)
+                      ) else None
+                      if label == "prefecture_event_list":
+                          events = {href: text for href, text in page.anchors
+                                    if urlsplit(href).hostname == "en-base.pref.ehime.jp"
+                                    and re.fullmatch(r"/archives/event/\d+/?", urlsplit(href).path)}
+                          result["visible_event_links"] = len(events)
+                          result["foundation_event_links"] = [
+                              {"url": href, "text": text} for href, text in events.items()
+                              if FOUNDATION_NAME in text
+                          ]
+                      if label == "foundation_list":
+                          result["article_links_sample"] = list(dict.fromkeys(
+                              href for href, text in page.anchors
+                              if text and urlsplit(href).hostname in FOUNDATION_HOSTS
+                              and re.match(r"^/[^/]+-posts/[^/]+", urlsplit(href).path)
+                          ))[:12]
+              print(json.dumps(result, ensure_ascii=False), flush=True)
+              return page
+
+          print(json.dumps({"checked_utc": datetime.now(timezone.utc).isoformat()}))
+          page = probe("foundation_list", FOUNDATION + "/information")
+          planned = [
+              ("wp_subdirectory_rss", FOUNDATION + "/wp/feed/"),
+              ("root_atom", FOUNDATION + "/feed/atom/"),
+          ]
+          if page:
+              discovered = [url for url in dict.fromkeys(page.feeds)
+                            if urlsplit(url).scheme == "https"
+                            and urlsplit(url).hostname in FOUNDATION_HOSTS]
+              if discovered:
+                  planned = [("declared_feed", url) for url in discovered[:3]]
+              else:
+                  planned.append(("root_rss", FOUNDATION + "/feed/"))
+          for label, url in planned:
+              probe(label, url)
+          probe("prefecture_event_list", PREFECTURE + "/event")
+          probe("prefecture_event_detail", PREFECTURE + "/archives/event/102423")
+          PY
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: ehime-0094-vol2-evidence
+          path: evidence/
+          retention-days: 14
