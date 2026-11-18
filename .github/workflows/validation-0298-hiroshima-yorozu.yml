@@ -12,48 +12,52 @@ jobs:
     steps:
       - name: Install parser
         run: python -m pip install beautifulsoup4
-      - name: Validate current listing and RSS alternatives
+      - name: Test structured listing extraction read-only
         shell: bash
         run: |
           python - <<'PY'
-          import urllib.request,urllib.parse,json,re
-          from html.parser import HTMLParser
+          import urllib.request,re,collections,json
+          from urllib.parse import urlparse,urljoin
           from bs4 import BeautifulSoup
-          import xml.etree.ElementTree as ET
           base='https://www.yorozu-hiroshima.go.jp'
-          paths=[
-            '/feed/','/?taxonomy=case_category&term=onestop/feed/',
-            '/?feed=rss2','/news/?feed=rss2','/onestop/seminar/?feed=rss2',
-            '/wp-json/','/wp-json/wp/v2/types','/wp-json/wp/v2/posts?per_page=5',
-            '/wp-json/wp/v2/pages?per_page=5','/wp-sitemap.xml',
-            '/news/','/news/page/2/','/onestop/seminar/','/onestop/seminar/page/2/'
-          ]
-          for path in paths:
-              try:
-                  req=urllib.request.Request(base+path,headers={'User-Agent':'Mozilla/5.0'})
-                  with urllib.request.urlopen(req,timeout=12) as res:
-                      data=res.read(500000);ct=res.headers.get('Content-Type','');final=res.url
-                  print('PATH',path,'STATUS 200','LEN',len(data),'CT',ct,'FINAL',final,flush=True)
-                  if 'json' in ct:
-                      o=json.loads(data)
-                      if isinstance(o,list):
-                          print(' JSON_LIST',len(o),'SAMPLE',[(x.get('date'),x.get('slug'),x.get('link')) for x in o[:5] if isinstance(x,dict)],flush=True)
-                      elif isinstance(o,dict):
-                          print(' JSON_ROOT_KEYS',list(o.keys())[:18], 'TYPE_KEYS',list(o.keys())[:18] if '/types' in path else '',flush=True)
-                  elif 'xml' in ct or data.lstrip().startswith(b'<?xml'):
-                      root=ET.fromstring(data)
-                      items=root.findall('.//item');entries=root.findall('.//{http://www.w3.org/2005/Atom}entry')
-                      print(' XML_ROOT',root.tag,'ITEMS',len(items),'ATOM_ENTRIES',len(entries),'ITEM_SAMPLE',[(x.findtext('title'),x.findtext('link')) for x in items[:3]],flush=True)
-                  elif 'html' in ct:
-                      soup=BeautifulSoup(data,'html.parser')
-                      title=soup.title.get_text(' ',strip=True) if soup.title else ''
-                      print(' TITLE',title[:140],flush=True)
-                      for tag in soup.find_all('link',rel='alternate'):
-                          print(' ALTERNATE',tag.get('href'),tag.get('type'),flush=True)
-                      matches=[(x.get('href'),x.get_text(' ',strip=True)[:90]) for x in soup.select('a[href]') if re.search(r'news/|/seminar|/feed|rss|case_category',x.get('href',''),re.I)]
-                      print(' LINKS',len(matches),'SAMPLE',matches[:16],flush=True)
-                      for sel in ('article','.news-list','.news_item','.news-item','.list-news','.post','.topics-list','.item-list'):
-                          print(' SELECT',sel,len(soup.select(sel)),flush=True)
-              except Exception as e:
-                  print('PATH',path,'ERROR',type(e).__name__,str(e)[:170],flush=True)
+          roots=['/news/','/onestop/news/','/onestop/seminar/','/productivity/news/','/productivity/seminar/']
+          output={}
+          for root in roots:
+              allitems={}
+              for path in [root,root+'page/2/']:
+                  try:
+                      req=urllib.request.Request(base+path,headers={'User-Agent':'Mozilla/5.0'})
+                      with urllib.request.urlopen(req,timeout=12) as res:
+                          body=res.read(300000);ct=res.headers.get('Content-Type','')
+                      soup=BeautifulSoup(body,'html.parser')
+                      links=[]
+                      for a in soup.find_all('a',href=True):
+                          u=urljoin(base,a['href'])
+                          if not u.startswith(base+root):continue
+                          sub=u[len(base+root):].split('?')[0].strip('/')
+                          if not sub or sub.startswith('page/') or '/' in sub:continue
+                          title=a.get_text(' ',strip=True)
+                          if len(title)<8:continue
+                          parent=a
+                          for _ in range(2):
+                              if parent.parent:parent=parent.parent
+                          label=parent.get_text(' ',strip=True)
+                          label=re.sub(r'\s+',' ',label)[:190]
+                          links.append((u,title[:130],label))
+                          allitems[u]=(title,label)
+                      print('LIST',path,'HTTP 200','FOUND',len(links),'UNIQUE',len(set(u for u,_,_ in links)),flush=True)
+                      print(' LIST_EXAMPLES',repr(links[:4]),flush=True)
+                  except Exception as e:print('LIST',path,'ERROR',type(e).__name__,str(e)[:160],flush=True)
+              print('TOTAL',root,'URLS',len(allitems),'SAMPLE',repr(list(allitems.items())[:6]),flush=True)
+              output[root]=set(allitems)
+          print('OVERLAP',[(x,y,len(output[x]&output[y])) for x in roots for y in roots if x<y],flush=True)
+          sample='/news/20261116/'
+          try:
+              with urllib.request.urlopen(urllib.request.Request(base+sample,headers={'User-Agent':'Mozilla/5.0'}),timeout=10) as resp:
+                  soup=BeautifulSoup(resp.read(200000),'html.parser')
+              print('ARTICLE',sample,'TITLE',soup.title.get_text(' ',strip=True)[:120],flush=True)
+              print('ARTICLE_DATES',[x.get_text(' ',strip=True)[:130] for x in soup.find_all(['time'])][:8],flush=True)
+              print('ARTICLE_META',[(m.get('property'),m.get('name'),m.get('content','')[:120]) for m in soup.find_all('meta') if 'date' in str(m).lower() or 'modified' in str(m).lower()][:8],flush=True)
+              print('ARTICLE_HEADINGS',[(h.name,h.get_text(' ',strip=True)[:130]) for h in soup.find_all(['h1','h2'])][:8],flush=True)
+          except Exception as e:print('ARTICLE_ERROR',type(e).__name__,str(e)[:150],flush=True)
           PY
