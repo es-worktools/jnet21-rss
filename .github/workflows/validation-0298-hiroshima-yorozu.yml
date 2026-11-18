@@ -1,0 +1,63 @@
+name: Validation 0298 Hiroshima Yorozu HTTP Read-Only
+on:
+  push:
+    branches:
+      - validation/0298-hiroshima-yorozu-20261118
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Network and HTML probes (read only; no commits or artifacts)
+        shell: bash
+        run: |
+          python - <<'PY'
+          import urllib.request, urllib.parse, xml.etree.ElementTree as ET, re
+          from html.parser import HTMLParser
+          base='https://www.yorozu-hiroshima.go.jp'
+          paths=[
+             '/blog-feed.xml','/rss.xml','/feed.xml','/feed/','/news/feed/','/news/feed.xml',
+             '/news/rss.xml','/news/index.xml','/robots.txt','/sitemap.xml',
+             '/news/','/onestop/seminar/','/news/20261006/'
+          ]
+          class LinkFinder(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links=[]; self.current=None
+              def handle_starttag(self,tag,attrs):
+                  at=dict(attrs)
+                  if tag=='a' and 'href' in at:
+                      self.current=[at['href'],'']
+                  elif tag=='link' and at.get('rel','').lower() in ('alternate','alternate stylesheet'):
+                      self.links.append((at.get('href',''),at.get('type','')))
+              def handle_data(self,data):
+                  if self.current is not None: self.current[1]+=data
+              def handle_endtag(self,tag):
+                  if tag=='a' and self.current is not None:
+                      self.links.append(tuple(self.current));self.current=None
+          for path in paths:
+              url=base+path
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; FeedCheck/1.0)'})
+                  with urllib.request.urlopen(req,timeout=12) as res:
+                      status=res.status; final=res.url; typ=res.headers.get('Content-Type','')
+                      body=res.read(900000)
+                  print('URL',path,'HTTP',status,'BYTES',len(body),'TYPE',typ,'FINAL',final,flush=True)
+                  if 'xml' in typ or body.lstrip().startswith(b'<?xml'):
+                      try:
+                          root=ET.fromstring(body)
+                          tags=[el.tag for el in root.iter()]
+                          print('  XML_ROOT',root.tag,'ITEMS',sum(t.lower().endswith('item') for t in tags),'ENTRIES',sum(t.lower().endswith('entry') for t in tags),flush=True)
+                      except Exception as e: print('  XML_PARSE',type(e).__name__,str(e)[:130],flush=True)
+                  elif 'text/html' in typ.lower():
+                      p=LinkFinder();p.feed(body.decode('utf-8','replace'))
+                      l=[(h,t.strip().replace('\\n',' ')[:85]) for h,t in p.links if h.startswith('/news/') or h.startswith('/onestop/seminar/') or ('rss' in h.lower()) or ('feed' in h.lower())]
+                      unique=list(dict.fromkeys(l))
+                      print('  LINKS',len(p.links),'RELEVANT',len(l),'SAMPLE',repr(unique[:12]),flush=True)
+                  else:
+                      print('  SAMPLE',repr(body[:140]),flush=True)
+              except Exception as e:
+                  print('URL',path,'ERROR',type(e).__name__,str(e)[:210],flush=True)
+          PY
