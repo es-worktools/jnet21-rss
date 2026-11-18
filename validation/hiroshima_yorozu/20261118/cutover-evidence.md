@@ -1,6 +1,6 @@
 # 0298 広島県よろず支援拠点 初回配信照合
 
-2026年11月18日（JST）時点。検証コミット `5fbf4d0b61186ef3c78bc59a51337063a0e1b9a3` の77件を対象とした進行管理への承認案。
+2026年11月18日（JST）時点。検証コミット `5fbf4d0b61186ef3c78bc59a51337063a0e1b9a3` の77件に、本番反映直前に掲載されたWP 932を追加した78件。進行管理で初回配信28件、履歴保全50件、判断保留0件を承認済み。
 
 ## 照合範囲と判断
 
@@ -12,10 +12,10 @@
 
 | 区分 | publish | history | review |
 | --- | ---: | ---: | ---: |
-| お知らせ | 6 | 19 | 0 |
+| お知らせ | 6 | 20 | 0 |
 | セミナー・出張相談会 | 8 | 30 | 0 |
 | マンツーマン勉強会 | 14 | 0 | 0 |
-| 合計 | 28 | 49 | 0 |
+| 合計 | 28 | 50 | 0 |
 
 募集状況は [セミナー一覧](https://www.yorozu-hiroshima.go.jp/onestop/seminar/)、[勉強会一覧](https://www.yorozu-hiroshima.go.jp/onestop/1on1/)（2ページ）、各記事の公式ページで確認した。外部主催の申込期限は [広島県](https://www.pref.hiroshima.lg.jp/soshiki/70/jigyousyoukei08.html) と [呉市](https://www.city.kure.lg.jp/soshiki/40/tinnageouen08.html) の案内を参照した。
 
@@ -27,6 +27,7 @@ WP欄は `urn:hiroshima-yorozu:wp:<ID>` の末尾。
 
 | WP | 公式記事 | 結果 | 根拠 |
 | ---: | --- | --- | --- |
+| 932 | [【開催報告】11月15日「よろずマルシェ＠尾道駅前芝生広場」ご来場ありがとうございました！](https://www.yorozu-hiroshima.go.jp/news/2026marche-closing-report-onomichi/) | `history` | 11/18 14:43 JST掲載。11/15に終了した催事の開催報告。進行管理で履歴保全を承認。 |
 | 928 | [メール配信サービスにおける不正アクセス事案に関するご報告及び配信再開について](https://www.yorozu-hiroshima.go.jp/news/%E3%83%A1%E3%83%BC%E3%83%AB%E9%85%8D%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E4%B8%8D%E6%AD%A3%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E4%BA%8B%E6%A1%88%E3%81%AB/) | `publish` | 11/16の最終報告とメールマガジン配信再開。10月の経過報告は履歴保全。 |
 | 926 | [相談時間変更のお知らせ（令和８年12月１日以降）](https://www.yorozu-hiroshima.go.jp/news/20261116/) | `publish` | 12/1から相談時間が変わる。今後の相談予約に影響。 |
 | 923 | [HP申込フォーム利用再開のお知らせ](https://www.yorozu-hiroshima.go.jp/news/hp%E7%94%B3%E8%BE%BC%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E5%88%A9%E7%94%A8%E5%86%8D%E9%96%8B%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/) | `publish` | 11/16に申込フォームが復旧。障害中の申込者には受付確認が必要な場合がある。 |
