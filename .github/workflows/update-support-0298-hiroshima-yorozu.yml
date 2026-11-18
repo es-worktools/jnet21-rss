@@ -1,0 +1,92 @@
+name: Update Hiroshima Yorozu supplemental RSS safely
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the verified RSS and matching history
+        type: boolean
+        default: false
+  schedule:
+    - cron: '47 22 * * *' # 07:47 JST
+
+permissions:
+  contents: read
+
+concurrency:
+  group: support-0298-hiroshima-yorozu-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4==4.15.0
+      - run: python -m unittest discover -s tests/hiroshima_yorozu -v
+      - name: Verify source and build isolated candidate
+        run: |
+          python scrape_support_0298_hiroshima_yorozu.py --source . --output "$RUNNER_TEMP/0298-candidate"
+      - name: Keep manual preview
+        if: github.event_name == 'workflow_dispatch' && !inputs.publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: support-0298-dry-run
+          path: ${{ runner.temp }}/0298-candidate/
+          if-no-files-found: error
+      - name: Publish RSS and history in one commit
+        if: github.event_name == 'schedule' || inputs.publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          history=support_0298_hiroshima_yorozu/history.json
+          feed=support-0298-hiroshima-yorozu.xml
+          candidate="$RUNNER_TEMP/0298-candidate"
+          base="$(git rev-parse HEAD)"
+          cp "$candidate/$history" "$history"
+          git add -- "$history"
+          if [[ -f "$candidate/$feed" ]]; then
+            cp "$candidate/$feed" "$feed"
+            git add -- "$feed"
+          fi
+          if git diff --cached --quiet; then
+            echo 'No change to RSS or history.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update Hiroshima Yorozu supplemental RSS and history'
+          for attempt in 1 2 3; do
+            git fetch --no-tags origin main
+            tip="$(git rev-parse FETCH_HEAD)"
+            if git merge-base --is-ancestor HEAD "$tip"; then
+              echo 'This publication commit already reached main.'
+              exit 0
+            fi
+            if ! git merge-base --is-ancestor "$base" "$tip"; then
+              echo 'main no longer descends from the verified checkout; rerun from current main.' >&2
+              exit 1
+            fi
+            if ! git diff --quiet "$base" "$tip" -- "$history" "$feed" \
+                scrape_support_0298_hiroshima_yorozu.py tests/hiroshima_yorozu \
+                .github/workflows/update-support-0298-hiroshima-yorozu.yml; then
+              echo 'RSS, history or 0298 code changed upstream; rerun using the current main.' >&2
+              exit 1
+            fi
+            git rebase "$tip"
+            if git push origin HEAD:refs/heads/main; then
+              exit 0
+            fi
+            echo "Push attempt $attempt failed." >&2
+          done
+          exit 1
