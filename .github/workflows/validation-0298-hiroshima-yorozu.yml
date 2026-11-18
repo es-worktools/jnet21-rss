@@ -1,18 +1,53 @@
-name: Validation 0298 Hiroshima Yorozu HTTP Read-Only
+name: Validate Hiroshima Yorozu supplemental RSS
+
 on:
   push:
     branches:
       - validation/0298-hiroshima-yorozu-20261118
+    paths:
+      - .github/workflows/validation-0298-hiroshima-yorozu.yml
+      - .github/workflows/update-support-0298-hiroshima-yorozu.yml
+      - scrape_support_0298_hiroshima_yorozu.py
+      - tests/hiroshima_yorozu/**
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: support-0298-hiroshima-yorozu-validation
+  cancel-in-progress: false
+
 jobs:
-  probe:
+  validation:
+    if: github.ref == 'refs/heads/validation/0298-hiroshima-yorozu-20261118'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: Checkout validation branch
-        uses: actions/checkout@v7
-      - name: Install parser
-        run: python -m pip install beautifulsoup4
-      - name: Build validation-only RSS in temporary directory
-        run: python validation_0298_hiroshima_yrz.py
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4==4.15.0
+      - run: python -m unittest discover -s tests/hiroshima_yorozu -v
+      - name: Generate two independent captures with previous history
+        run: |
+          python scrape_support_0298_hiroshima_yorozu.py \
+            --source "$RUNNER_TEMP/0298-empty" --output "$RUNNER_TEMP/0298-first" --preview-all
+          python scrape_support_0298_hiroshima_yorozu.py \
+            --source "$RUNNER_TEMP/0298-first" --output "$RUNNER_TEMP/0298-next"
+          cmp "$RUNNER_TEMP/0298-first/support-0298-hiroshima-yorozu.xml" \
+              "$RUNNER_TEMP/0298-next/support-0298-hiroshima-yorozu.xml"
+          cmp "$RUNNER_TEMP/0298-first/support_0298_hiroshima_yorozu/history.json" \
+              "$RUNNER_TEMP/0298-next/support_0298_hiroshima_yorozu/history.json"
+          sha256sum "$RUNNER_TEMP/0298-first/support-0298-hiroshima-yorozu.xml" \
+                    "$RUNNER_TEMP/0298-first/support_0298_hiroshima_yorozu/history.json"
+      - name: Retain first comparison preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hiroshima-0298-comparison-preview
+          path: ${{ runner.temp }}/0298-first/
+          if-no-files-found: ignore
