@@ -2,6 +2,16 @@
   "version": 1,
   "items": [
     {
+      "guid": "urn:hiroshima-yorozu:wp:941",
+      "title": "「人手不足時代の経営改革セミナー」のご案内",
+      "url": "https://www.yorozu-hiroshima.go.jp/news/20261119/",
+      "published": "2026-11-19T11:54:16+09:00",
+      "categories": [
+        "お知らせ"
+      ],
+      "visible": true
+    },
+    {
       "guid": "urn:hiroshima-yorozu:wp:932",
       "title": "【開催報告】11月15日「よろずマルシェ＠尾道駅前芝生広場」ご来場ありがとうございました！",
       "url": "https://www.yorozu-hiroshima.go.jp/news/2026marche-closing-report-onomichi/",
