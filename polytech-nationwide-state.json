@@ -26847,14 +26847,14 @@
     },
     "66f6ebb102f1d9953dc618f619b458390cd28146dfa57a493c156409da691547": {
       "code": "5H011",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター長崎",
       "key": "66f6ebb102f1d9953dc618f619b458390cd28146dfa57a493c156409da691547",
       "list_url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/index3.html",
-      "raw_status": "受付中",
+      "raw_status": "締切",
       "schedule": "12/5(土),6(日),12(日)",
       "start_date": "2026-12-05",
-      "status_category": "受付中",
+      "status_category": "受付終了",
       "title": "トラブル事例から学ぶ各種管の加工・接合技術",
       "url": "https://www3.jeed.go.jp/nagasaki/poly/zaishoku/2026/5H011.html"
     },
@@ -41862,7 +41862,7 @@
     },
     "a496b3fde0ebc6ee5bda2ff2d28c4023758b01a19615bf4acd5a3cd4e1563a15": {
       "code": "H331",
-      "eligible": true,
+      "eligible": false,
       "facility": "ポリテクセンター奈良",
       "key": "a496b3fde0ebc6ee5bda2ff2d28c4023758b01a19615bf4acd5a3cd4e1563a15",
       "list_url": "https://www3.jeed.go.jp/nara/poly/zaishoku/2026/index3.html",
