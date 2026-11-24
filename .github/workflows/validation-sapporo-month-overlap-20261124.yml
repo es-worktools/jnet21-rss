@@ -1,0 +1,61 @@
+name: Validate Sapporo consultation month overlap
+
+on:
+  push:
+    branches: [validation/sapporo-month-overlap-20261124]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/validation/sapporo-month-overlap-20261124'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests==2.34.2 beautifulsoup4==4.15.0 PyYAML==6.0.3
+      - name: Run schedule and publication safety tests
+        run: python -m unittest discover -s tests/sapporo_consultation -v
+      - name: Verify official December schedules and existing GUIDs
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+
+          from publish_sapporo_consultation import build
+          from scrape_sapporo_consultation import (
+              ET, FILE, TZ, dated_days, generate, item_record, preserve_history, validate,
+          )
+
+          baseline = Path(FILE).read_bytes()
+          assert len(validate(ET.fromstring(baseline))) == 4
+          now = datetime(2026, 11, 24, 18, tzinfo=TZ)
+          with TemporaryDirectory() as output:
+              result = build('.', output, now=now)
+              candidate = (Path(output) / FILE).read_bytes()
+          assert Path(FILE).read_bytes() == baseline
+          assert (result['added'], result['total']) == (3, 7), result
+          preserve_history(baseline, candidate)
+          old_guids = {item.findtext('guid') for item in validate(ET.fromstring(baseline))}
+          new = [item for item in validate(ET.fromstring(candidate))
+                 if item.findtext('guid') not in old_guids]
+          dates = []
+          for item in new:
+              record = item_record(item)
+              assert record['month'] == '2026年12月'
+              days = dated_days(record['lines'][0], 2026, 12)
+              dates.append(days)
+              print(item.findtext('title'), record['url'], days, item.findtext('guid'))
+          assert sorted(dates) == [[1, 2, 8, 14, 22, 25, 28], [4, 11, 18, 25], [7, 10, 21, 25]], dates
+          assert len({item.findtext('link') for item in new}) == 2
+          assert len({item.findtext('guid') for item in new}) == 3
+          assert generate(candidate, result['records'], now) == (candidate, 0)
+          print('Retained all 4 original items and GUIDs; distinct new GUIDs: 3; repeat additions: 0.')
+          PY
