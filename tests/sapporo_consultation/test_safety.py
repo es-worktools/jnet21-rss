@@ -105,6 +105,44 @@ class Safety(unittest.TestCase):
         self.assertEqual((result['added'], result['total']), (3, 7))
         self.assertIn('新月予定', self.target.read_text())
 
+    def test_overlapping_months_add_three_and_preserve_history(self):
+        self.run_feed()
+        before = self.target.read_bytes()
+        december = [
+            ('woman', '2日（月曜日）※午後のみ・4日（水曜日）※午後のみ・10日（火曜日）・17日（火曜日）・',
+             '１日（火曜日）・2日（水曜日）※午前のみ・8日（火曜日）・14日（月曜日）・22日（火曜日）・25日（金曜日）※午前のみ・28日（月曜日）'),
+            ('woman', '6日（金曜日）※午前のみ・12日（木曜日）・13日（金曜日）※午前のみ・20日（金曜日）※午前のみ・',
+             '4日（金曜日）・11日（金曜日）・18日（金曜日）・25日（金曜日）'),
+            ('consultation-2', '5日（木曜日）・9日（月曜日）・16日（月曜日）・',
+             '７日（月曜日）・10日（木曜日）・21日（月曜日）・25日（金曜日）'),
+        ]
+        for slug, elapsed, new_dates in december:
+            path = self.fx / f'{slug}.html'
+            pattern = rf'(<h5>相談予定（2026年11月）</h5>\s*<p>){re.escape(elapsed)}([^<]+)(</p>)'
+            block = f'<h5>相談予定（2026年12月）</h5><p>{new_dates}</p>'
+            # Also exercise a source that lists the newer month first.
+            november = r'\1\2\3'
+            substitution = november + block if slug == 'woman' else block + november
+            updated, count = re.subn(pattern, substitution, path.read_text())
+            self.assertEqual(count, 1)
+            path.write_text(updated)
+        result = m.run(self.out, self.fx, now=NOW.replace(day=24))
+        after = self.target.read_bytes()
+        self.assertEqual((result['added'], result['total']), (3, 7))
+        m.preserve_history(before, after)
+        new = m.validate(ET.fromstring(after))[:3]
+        self.assertEqual([m.dated_days(m.item_record(i)['lines'][0], 2026, 12)[0] for i in new], [1, 4, 7])
+        self.assertEqual(len({i.findtext('link') for i in new}), 2)
+        self.assertEqual(len({i.findtext('guid') for i in new}), 3)
+        self.assertEqual(m.run(self.out, self.fx, now=NOW.replace(month=12, day=1))['added'], 0)
+        self.assertEqual(self.target.read_bytes(), after)
+
+    def test_duplicate_series_and_month_rejected(self):
+        original = '<h5>相談予定（2026年11月）</h5>\n<p>5日（木曜日）'
+        self.edit(original, '<h5>相談予定（2026年11月）</h5><p>5日（木曜日）</p>' + original,
+                  slug='consultation-2')
+        self.unchanged_after_error()
+
     def test_month_regression_rejected(self):
         self.test_month_rollover()
         shutil.copyfile(FIX / 'woman.html', self.fx / 'woman.html')
