@@ -1,0 +1,29 @@
+name: Validate municipality article URL recovery
+
+on:
+  push:
+    branches: [validation/municipality-url-recovery-20261124]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        municipality: [0281_tomiya, 0354_tozawa, 0408_asakawa, 0517_kawaba]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install lxml
+      - name: Check current official lists and candidate RSS
+        env:
+          MUNICIPALITY: ${{ matrix.municipality }}
+        run: python validate_municipality_urls_20261124.py "$MUNICIPALITY"
