@@ -6,7 +6,7 @@ RSS is also the revision ledger, avoiding inconsistent RSS/state file pairs.
 import argparse
 import copy
 import fcntl
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from email.utils import format_datetime
 import hashlib
 import html as html_module
@@ -108,17 +108,14 @@ def extract(html, slug, title, count, now):
         raise ValueError("content region missing")
     body = bodies[0]
     headings = [h for h in body.find_all("h5") if "相談予定" in h.get_text()]
-    if len(headings) != count:
+    if not count <= len(headings) <= 2 * count:
         raise ValueError("unexpected schedule count; refuse partial capture")
-    records = []
+    schedules = {}
     for h in headings:
         m = re.fullmatch(r"相談予定\((20\d{2})年(\d{1,2})月\)", normalize(h.get_text()))
         if not m:
             raise ValueError("unrecognized month heading")
         year, month = map(int, m.groups())
-        following = (now.year + (now.month == 12), now.month % 12 + 1)
-        if (year, month) not in {(now.year, now.month), following}:
-            raise ValueError("schedule not for the current or following month; manual review")
         previous = h.find_previous(['h3', 'h4'])
         if previous is None or previous.name != 'h4' or previous not in body.descendants:
             raise ValueError('consultation label missing')
@@ -147,12 +144,27 @@ def extract(html, slug, title, count, now):
         url = f"https://chusho.center.sec.or.jp/establish/{slug}/"
         series = hashlib.sha256((url + normalize(label)).encode()).hexdigest()
         payload = normalize(f"{year}-{month}|{label}|" + "|".join(lines))
-        records.append(dict(series=series, fingerprint=hashlib.sha256(payload.encode()).hexdigest(),
-                            url=url, title=title, label=label, month=f"{year}年{month}月", lines=lines))
-    for record in records:
+        record = dict(series=series, fingerprint=hashlib.sha256(payload.encode()).hexdigest(),
+                      url=url, title=title, label=label, month=f"{year}年{month}月", lines=lines)
+        key = check_record(record)
+        months = schedules.setdefault(series, {})
+        if key in months:
+            raise ValueError('duplicate consultation series and month')
+        months[key] = record
+    if set(schedules) != {k for k, v in identities().items() if f'/{slug}/' in v[0]}:
+        raise ValueError('missing consultation series')
+
+    # During rollover, the older heading may remain on the page with elapsed days removed.
+    # Keep its published history and pass only the newest schedule per series to the ledger.
+    records = []
+    for months in schedules.values():
+        latest = max(months)
+        previous_month = date(*latest, 1) - timedelta(days=1)
+        if months.keys() - {latest, (previous_month.year, previous_month.month)}:
+            raise ValueError('nonconsecutive consultation months; manual review')
+        record = months[latest]
         check_record(record, now)
-    if {r['series'] for r in records} != {k for k, v in identities().items() if f'/{slug}/' in v[0]}:
-        raise ValueError('duplicate or missing consultation series')
+        records.append(record)
     return records
 
 
