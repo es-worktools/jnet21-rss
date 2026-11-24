@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scrape_municipality_0517_kawaba.py"
+      - "municipality_rss_history.py"
       - ".github/workflows/update-municipality-0517-kawaba.yml"
   workflow_dispatch:
   schedule:
@@ -15,6 +16,7 @@ permissions:
 
 jobs:
   update:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

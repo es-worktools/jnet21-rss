@@ -2,8 +2,10 @@ name: Update Municipality 0281 tomiya RSS
 
 on:
   push:
+    branches: [main]
     paths:
       - "scrape_municipality_0281_tomiya.py"
+      - "municipality_rss_history.py"
       - ".github/workflows/update-municipality-0281-tomiya.yml"
   workflow_dispatch:
   schedule:
@@ -14,6 +16,7 @@ permissions:
 
 jobs:
   update:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
