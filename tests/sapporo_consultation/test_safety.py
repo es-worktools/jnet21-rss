@@ -340,9 +340,10 @@ class Safety(unittest.TestCase):
     def test_prepared_rss_keeps_original_guids_and_has_no_mock(self):
         data = (ROOT / m.FILE).read_bytes()
         items = m.validate(ET.fromstring(data))
-        old = {i.findtext('guid') for i in m.validate(ET.fromstring(self.initial))}
-        self.assertTrue(old <= {i.findtext('guid') for i in items})
-        self.assertEqual(len(items), 4)
+        # Recreate the original publication to pin its GUIDs while allowing later revisions.
+        prepared, _ = m.generate(self.initial, records(), NOW)
+        original_guids = {i.findtext('guid') for i in m.validate(ET.fromstring(prepared))}
+        self.assertTrue(original_guids <= {i.findtext('guid') for i in items})
         self.assertNotIn('模擬変更', data.decode())
 
     def test_workflow_publish_guards_and_schedule(self):
