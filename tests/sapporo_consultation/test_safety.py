@@ -13,12 +13,15 @@ from xml.etree import ElementTree as ET
 
 import requests
 import yaml
+from bs4 import Tag
 import scrape_sapporo_consultation as m
 import publish_sapporo_consultation as p
 
 FIX = Path(__file__).parent / 'fixtures'
 NOW = datetime(2026, 11, 11, 18, 0, tzinfo=m.TZ)
 ROOT = Path(__file__).resolve().parents[2]
+KIHARA_DATES = '4日（金曜日）・11日（金曜日）・18日（金曜日）・25日（金曜日）'
+KIHARA_NOTE = '<p><span style="text-decoration: underline;">★12日以外は午前のみの受付となります★</span></p>'
 
 
 def records(fixtures=FIX, now=NOW):
@@ -105,14 +108,12 @@ class Safety(unittest.TestCase):
         self.assertEqual((result['added'], result['total']), (3, 7))
         self.assertIn('新月予定', self.target.read_text())
 
-    def test_overlapping_months_add_three_and_preserve_history(self):
-        self.run_feed()
-        before = self.target.read_bytes()
+    def add_overlapping_december(self):
         december = [
             ('woman', '2日（月曜日）※午後のみ・4日（水曜日）※午後のみ・10日（火曜日）・17日（火曜日）・',
              '１日（火曜日）・2日（水曜日）※午前のみ・8日（火曜日）・14日（月曜日）・22日（火曜日）・25日（金曜日）※午前のみ・28日（月曜日）'),
             ('woman', '6日（金曜日）※午前のみ・12日（木曜日）・13日（金曜日）※午前のみ・20日（金曜日）※午前のみ・',
-             '4日（金曜日）・11日（金曜日）・18日（金曜日）・25日（金曜日）'),
+             KIHARA_DATES),
             ('consultation-2', '5日（木曜日）・9日（月曜日）・16日（月曜日）・',
              '７日（月曜日）・10日（木曜日）・21日（月曜日）・25日（金曜日）'),
         ]
@@ -126,6 +127,11 @@ class Safety(unittest.TestCase):
             updated, count = re.subn(pattern, substitution, path.read_text())
             self.assertEqual(count, 1)
             path.write_text(updated)
+
+    def test_overlapping_months_add_three_and_preserve_history(self):
+        self.run_feed()
+        before = self.target.read_bytes()
+        self.add_overlapping_december()
         result = m.run(self.out, self.fx, now=NOW.replace(day=24))
         after = self.target.read_bytes()
         self.assertEqual((result['added'], result['total']), (3, 7))
@@ -136,6 +142,86 @@ class Safety(unittest.TestCase):
         self.assertEqual(len({i.findtext('guid') for i in new}), 3)
         self.assertEqual(m.run(self.out, self.fx, now=NOW.replace(month=12, day=1))['added'], 0)
         self.assertEqual(self.target.read_bytes(), after)
+
+    def prepare_december_ledger(self):
+        self.run_feed()
+        self.add_overlapping_december()
+        self.assertEqual(self.run_feed()['total'], 7)
+        return self.target.read_bytes()
+
+    def test_carried_over_november_note_removal_adds_one_revision_once(self):
+        before = self.prepare_december_ledger()
+        self.edit(KIHARA_NOTE, '<p>&nbsp;</p>')
+        self.assertEqual(self.run_feed()['added'], 1)
+        after = self.target.read_bytes()
+        m.preserve_history(before, after)
+        items = m.validate(ET.fromstring(after))
+        self.assertEqual(len(items), 8)
+        self.assertIn('2026年12月・予定変更 r3', items[0].findtext('title'))
+        self.assertIn('木原', items[0].findtext('title'))
+        self.assertEqual(m.item_record(items[0])['lines'], [KIHARA_DATES])
+        self.assertEqual(self.run_feed()['added'], 0)
+        self.assertEqual(self.target.read_bytes(), after)
+
+    def test_parser_losing_a_note_still_present_in_html_stops(self):
+        self.prepare_december_ledger()
+        get_text = Tag.get_text
+        note = '★12日以外は午前のみの受付となります★'
+
+        def drop_note(tag, *args, **kwargs):
+            if tag.name == 'p' and note in get_text(tag, *args, **kwargs):
+                return ''
+            return get_text(tag, *args, **kwargs)
+
+        with patch.object(Tag, 'get_text', drop_note):
+            self.unchanged_after_error()
+            self.edit(KIHARA_NOTE, f'<p>{note}</p>')
+            self.unchanged_after_error()
+
+    def test_removal_with_unverified_schedule_boundary_stops(self):
+        self.prepare_december_ledger()
+        self.edit(KIHARA_NOTE, '<p>&nbsp;</p>')
+        self.edit('<h3>申込受付</h3>', '<h5>申込受付</h5>')
+        self.unchanged_after_error()
+
+    def test_date_loss_still_stops_during_carried_over_note_removal(self):
+        self.prepare_december_ledger()
+        self.edit(KIHARA_NOTE, '<p>&nbsp;</p>')
+        self.edit('・18日（金曜日）', '')
+        self.unchanged_after_error()
+
+    def test_current_month_appointment_note_cannot_be_removed(self):
+        self.run_feed()
+        self.add_overlapping_december()
+        self.edit('★12日以外', '★11日以外')
+        self.assertEqual(self.run_feed()['total'], 7)
+        self.edit(KIHARA_NOTE.replace('12日', '11日'), '<p>&nbsp;</p>')
+        self.unchanged_after_error()
+
+    def test_inline_and_paragraph_time_condition_losses_stop(self):
+        before = self.prepare_december_ledger()
+        cases = [
+            ('2日（水曜日）※午前のみ', '2日（水曜日）'),
+            ('25日（金曜日）※午前のみ', '25日（金曜日）※午前'),
+            ('★12日以外は午前のみの受付となります★', '★事前にご連絡ください★'),
+        ]
+        html = (self.fx / 'woman.html').read_text()
+        for old, new in cases:
+            with self.subTest(prior=old):
+                (self.fx / 'woman.html').write_text(html)
+                self.edit(old, new)
+                self.unchanged_after_error()
+                self.assertEqual(self.target.read_bytes(), before)
+
+    def test_clock_time_edit_notifies_but_losing_a_time_stops(self):
+        self.prepare_december_ledger()
+        dates = '<p>７日（月曜日）・10日（木曜日）・21日（月曜日）・25日（金曜日）</p>'
+        self.edit(dates, dates + '<p>9時から16時まで。</p>', slug='consultation-2')
+        self.assertEqual(self.run_feed()['added'], 1)
+        self.edit('16時まで', '15時まで', slug='consultation-2')
+        self.assertEqual(self.run_feed()['added'], 1)
+        self.edit('15時まで', '未定', slug='consultation-2')
+        self.unchanged_after_error()
 
     def test_duplicate_series_and_month_rejected(self):
         original = '<h5>相談予定（2026年11月）</h5>\n<p>5日（木曜日）'

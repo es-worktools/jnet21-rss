@@ -4,6 +4,7 @@ Existing official subscriptions are deliberately outside this program's scope.
 RSS is also the revision ledger, avoiding inconsistent RSS/state file pairs.
 """
 import argparse
+from collections import Counter
 import copy
 import fcntl
 from datetime import datetime, date, timedelta
@@ -21,7 +22,7 @@ from email.utils import parsedate_to_datetime
 from xml.etree import ElementTree as ET
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 TZ = ZoneInfo("Asia/Tokyo")
 NS = "urn:jnet21:sapporo:schedule:v1"
@@ -40,6 +41,13 @@ LABELS = {
 }
 INTRO = '公式ページの予定を初回取得、または変更を検知しました。配信日時は検知日時です。'
 HEX = r'[0-9a-f]{64}'
+APPOINTMENT_DATE = re.compile(r'(?<!\d)(\d{1,2})日\(([月火水木金土日])曜日\)')
+PREVIOUS_MONTH_NOTE = re.compile(r'★(\d{1,2})日以外は午前のみの受付となります★')
+TIME_CONDITION = re.compile(
+    r'(?P<clock>(?<!\d)\d{1,2}(?::\d{2}|時(?:\d{1,2}分|半)?))'
+    r'|(?P<period>午前|午後|終日)'
+    r'|(?P<limit>のみ|限定|受付不可|休止|休憩|昼休み|最終受付)'
+)
 
 
 def digest(value):
@@ -54,7 +62,7 @@ def identities():
 
 def dated_days(line, year, month):
     text = normalize(line)
-    dates = re.findall(r'(?<!\d)(\d{1,2})日\(([月火水木金土日])曜日\)', text)
+    dates = APPOINTMENT_DATE.findall(text)
     # Every date token in the appointment line must have a recognized weekday.
     if not dates or len(dates) != len(re.findall(r'\d+日', text)):
         raise ValueError('incomplete or unrecognized appointment date')
@@ -121,12 +129,16 @@ def extract(html, slug, title, count, now):
             raise ValueError('consultation label missing')
         label = previous.get_text(" ", strip=True)
         lines = []
+        paragraphs = []
+        boundary = None
         for node in h.next_siblings:
             if getattr(node, "name", None) in {"h3", "h4", "h5"}:
+                boundary = node
                 break
             if getattr(node, "name", None):
                 if node.name != 'p' or node.find(['img', 'iframe', 'table', 'script']):
                     raise ValueError('unexpected schedule structure')
+                paragraphs.append(node)
                 text = node.get_text(" ", strip=True)
                 if text:
                     lines.append(text)
@@ -134,18 +146,19 @@ def extract(html, slug, title, count, now):
                 raise ValueError('unexpected unwrapped schedule text')
         if not lines:
             raise ValueError("empty schedule")
-        days = re.findall(r"(?<!\d)(\d{1,2})日\(([月火水木金土日])曜日\)", normalize(lines[0]))
-        if not days:
-            raise ValueError("schedule has no dated appointments")
-        for day, weekday in days:
-            d = date(year, month, int(day))
-            if "月火水木金土日"[d.weekday()] != weekday:
-                raise ValueError("appointment weekday mismatch")
         url = f"https://chusho.center.sec.or.jp/establish/{slug}/"
-        series = hashlib.sha256((url + normalize(label)).encode()).hexdigest()
+        series = digest(url + normalize(label))
         payload = normalize(f"{year}-{month}|{label}|" + "|".join(lines))
-        record = dict(series=series, fingerprint=hashlib.sha256(payload.encode()).hexdigest(),
+        record = dict(series=series, fingerprint=digest(payload),
                       url=url, title=title, label=label, month=f"{year}年{month}月", lines=lines)
+        if (slug == 'woman' and normalize(label) == normalize(LABELS['woman'][1])
+                and len(lines) == 1 and boundary is not None and boundary.name == 'h3'
+                and normalize(boundary.get_text()) == '申込受付'
+                and boundary.find_next_sibling('h3', string='リーフレット') is not None
+                and all(type(child) is NavigableString for p in paragraphs for child in p.contents)
+                and [text for p in paragraphs if (text := normalize(''.join(p.contents)))]
+                == [normalize(lines[0])]):
+            record['ends_at_booking'] = True
         key = check_record(record)
         months = schedules.setdefault(series, {})
         if key in months:
@@ -231,6 +244,55 @@ def preserve_history(before, after):
             raise ValueError('history changed or disappeared')
 
 
+def appointment_qualifiers(line):
+    text = normalize(line)
+    dates = list(APPOINTMENT_DATE.finditer(text))
+    ends = [match.start() for match in dates[1:]] + [len(text)]
+    return {int(match[1]): text[match.end():end] for match, end in zip(dates, ends)}
+
+
+def time_conditions(lines):
+    return Counter(
+        match[0] if match.lastgroup == 'limit' else match.lastgroup
+        for line in lines for match in TIME_CONDITION.finditer(normalize(line))
+    )
+
+
+def removed_previous_month_note(record, previous, preceding, current_month, current_days):
+    # The only shrink eligible for automatic publication is a carried-over
+    # note that refers to an appointment in the preceding month's ledger.
+    if (not record.get('ends_at_booking') or len(record['lines']) != 1
+            or len(previous['lines']) != 2 or preceding is None
+            or normalize(record['lines'][0]) != normalize(previous['lines'][0])):
+        return False
+    note = normalize(previous['lines'][1])
+    match = PREVIOUS_MONTH_NOTE.fullmatch(note)
+    if match is None or int(match[1]) in current_days:
+        return False
+    older = item_record(preceding)
+    last_month = date(*current_month, 1) - timedelta(days=1)
+    older_month = (last_month.year, last_month.month)
+    return (check_record(older) == older_month and len(older['lines']) == 2
+            and normalize(older['lines'][1]) == note
+            and int(match[1]) in dated_days(older['lines'][0], *older_month))
+
+
+def check_same_month(record, previous, preceding, month):
+    current = appointment_qualifiers(record['lines'][0])
+    prior = appointment_qualifiers(previous['lines'][0])
+    if len(current) < len(prior):
+        raise ValueError('schedule shrank; possible partial capture, manual review')
+    for day, qualifier in prior.items():
+        if time_conditions([qualifier]) - time_conditions([current.get(day, '')]):
+            raise ValueError('appointment time condition lost; manual review')
+    if removed_previous_month_note(record, previous, preceding, month, current):
+        return
+    if len(record['lines']) < len(previous['lines']):
+        raise ValueError('schedule shrank; possible partial capture, manual review')
+    if time_conditions(previous['lines'][1:]) - time_conditions(record['lines'][1:]):
+        raise ValueError('schedule note time condition lost; manual review')
+
+
 def generate(before, records, now):
     if now.utcoffset() is None:
         raise ValueError('timezone-aware detection timestamp required')
@@ -250,9 +312,12 @@ def generate(before, records, now):
         old = validate(root)
         channel = root.find("channel")
     latest = {}
+    revisions = {}
     for item in old:
         key = item.findtext(f"{{{NS}}}series")
-        if key not in latest or int(item.findtext(f"{{{NS}}}revision")) > int(latest[key].findtext(f"{{{NS}}}revision")):
+        revision = int(item.findtext(f"{{{NS}}}revision"))
+        revisions[key, revision] = item
+        if key not in latest or revision > int(latest[key].findtext(f"{{{NS}}}revision")):
             latest[key] = item
     if latest and set(latest) != {r["series"] for r in records}:
         raise ValueError("consultant identity changed; manual review")
@@ -266,8 +331,8 @@ def generate(before, records, now):
             if current_month < previous_month:
                 raise ValueError('schedule month regressed; manual review')
             if current_month == previous_month:
-                if len(record['lines']) < len(previous['lines']) or len(dated_days(record['lines'][0], *current_month)) < len(dated_days(previous['lines'][0], *previous_month)):
-                    raise ValueError('schedule shrank; possible partial capture, manual review')
+                prior_revision = int(prev.findtext(f'{{{NS}}}revision')) - 1
+                check_same_month(record, previous, revisions.get((record['series'], prior_revision)), current_month)
         if prev is not None and prev.findtext(f"{{{NS}}}fingerprint") == record["fingerprint"]:
             continue
         revision = int(prev.findtext(f"{{{NS}}}revision")) + 1 if prev is not None else 1
