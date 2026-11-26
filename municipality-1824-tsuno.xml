@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Tsuno townRSS（NEWS）</title>
+    <link>https://www.town.tsuno.lg.jp</link>
+    <description>都農町の新着情報をお伝えします</description>
+    <language>ja</language>
+    <copyright>Copyright (C) TSUNO TOWN All rights reserved.</copyright>
+    <item>
+      <title>週報</title>
+      <link>https://www.town.tsuno.lg.jp/article?articleId=60519ba0bb91df444d8bf1dc</link>
+      <description>毎月2回発行の「週報」をPDFファイルでご覧になれます。</description>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://www.town.tsuno.lg.jp/article?articleId=60519ba0bb91df444d8bf1dc</guid>
+    </item>
+    <item>
+      <title>学生向け手話講座を開催します！</title>
+      <link>https://www.town.tsuno.lg.jp/article?articleId=6afbdf1890f9562f5715693c</link>
+      <description />
+      <pubDate>Wed, 25 Nov 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://www.town.tsuno.lg.jp/article?articleId=6afbdf1890f9562f5715693c</guid>
+    </item>
+    <item>
+      <title>【広報つの】子どもの写真募集！！</title>
+      <link>https://www.town.tsuno.lg.jp/article?articleId=6195d67597cf314058198c52</link>
+      <description />
+      <pubDate>Wed, 25 Nov 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://www.town.tsuno.lg.jp/article?articleId=6195d67597cf314058198c52</guid>
+    </item>
+    <item>
+      <title>都農町体育施設指定管理業務に伴う公募型プロポーザルについて（１１月２４日追記）</title>
+      <link>https://www.town.tsuno.lg.jp/article?articleId=6ae3ef505807e160c8fcef4c</link>
+      <description />
+      <pubDate>Tue, 24 Nov 2026 01:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://www.town.tsuno.lg.jp/article?articleId=6ae3ef505807e160c8fcef4c</guid>
+    </item>
+    <item>
+      <title>腹部超音波検診について</title>
+      <link>https://www.town.tsuno.lg.jp/article?articleId=6b050547f68bd0034f17f743</link>
+      <description>腹部超音波検診を次のとおり実施します。
+希望される人は、健康管理センターまで申し込みをしてください。</description>
+      <pubDate>Mon, 23 Nov 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://www.town.tsuno.lg.jp/article?articleId=6b050547f68bd0034f17f743</guid>
+    </item>
+  </channel>
+</rss>
