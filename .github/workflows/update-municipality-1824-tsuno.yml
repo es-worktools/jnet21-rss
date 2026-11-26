@@ -1,0 +1,80 @@
+name: Update Municipality 1824 Tsuno RSS relay
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the verified RSS
+        type: boolean
+        default: false
+  schedule:
+    - cron: '58 */3 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: municipality-1824-tsuno-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - name: Build the candidate with retained articles
+        run: |
+          python relay_municipality_1824_tsuno.py \
+            --previous municipality-1824-tsuno.xml \
+            --output "$RUNNER_TEMP/tsuno/municipality-1824-tsuno.xml"
+      - name: Keep the manual preview
+        if: github.event_name == 'workflow_dispatch' && !inputs.publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: tsuno-1824-rss-preview
+          path: ${{ runner.temp }}/tsuno/
+          if-no-files-found: error
+      - name: Publish the validated RSS
+        if: github.event_name == 'schedule' || inputs.publish
+        run: |
+          set -euo pipefail
+          feed=municipality-1824-tsuno.xml
+          base="$(git rev-parse HEAD)"
+          cp "$RUNNER_TEMP/tsuno/$feed" "$feed"
+          git add -- "$feed"
+          if git diff --cached --quiet; then
+            echo 'No change to RSS.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update Municipality 1824 Tsuno RSS'
+          for attempt in 1 2 3; do
+            git fetch --no-tags origin main
+            tip="$(git rev-parse FETCH_HEAD)"
+            if git merge-base --is-ancestor HEAD "$tip"; then
+              exit 0
+            fi
+            if ! git merge-base --is-ancestor "$base" "$tip" ||
+               ! git diff --quiet "$base" "$tip" -- "$feed" relay_municipality_1824_tsuno.py \
+                   .github/workflows/update-municipality-1824-tsuno.yml; then
+              echo 'The relay or retained RSS changed in main. Generate again from current main.' >&2
+              exit 1
+            fi
+            git rebase "$tip"
+            if git push origin HEAD:refs/heads/main; then
+              exit 0
+            fi
+            echo "Push attempt $attempt failed." >&2
+          done
+          exit 1

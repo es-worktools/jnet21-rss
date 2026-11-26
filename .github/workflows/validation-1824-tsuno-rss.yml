@@ -1,0 +1,61 @@
+name: Validate Tsuno Town official RSS relay
+
+on:
+  push:
+    branches: [validation/1824-tsuno-rss-20261126]
+    paths:
+      - relay_municipality_1824_tsuno.py
+      - tests/tsuno_rss/**
+      - .github/workflows/validation-1824-tsuno-rss.yml
+      - .github/workflows/update-municipality-1824-tsuno.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/validation/1824-tsuno-rss-20261126'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - name: Test RSS validation and retention
+        run: python -m unittest discover -s tests/tsuno_rss -v
+      - name: Fetch and verify the official RSS twice
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/tsuno"
+          cd "$RUNNER_TEMP/tsuno"
+          script="$GITHUB_WORKSPACE/relay_municipality_1824_tsuno.py"
+          feed=municipality-1824-tsuno.xml
+          python "$script" --output "preview/$feed" --save-source official.xml
+          python "$script" --snapshot official.xml --previous "preview/$feed" --output "repeat/$feed"
+          cmp "preview/$feed" "repeat/$feed"
+          sha256sum "preview/$feed" "repeat/$feed"
+          python "$script" --previous "preview/$feed" --output "second/$feed"
+          if cmp -s "preview/$feed" "second/$feed"; then
+            echo 'Independent live captures are identical after normalization.'
+          else
+            echo 'The live source changed between captures. See the article lists above.'
+          fi
+      - name: Inspect the alternate XML response
+        run: |
+          curl --silent --show-error --max-time 25 -L \
+            -H 'Accept: application/xhtml+xml' \
+            -o "$RUNNER_TEMP/tsuno/alternate.xml" \
+            -w 'HTTP %{http_code}; %{content_type}; redirects=%{num_redirects}; %{url_effective}\n' \
+            'https://www.town.tsuno.lg.jp/tsuno/rss'
+          python -c 'import sys, xml.etree.ElementTree as E; print("XML root:", E.parse(sys.argv[1]).getroot().tag)' \
+            "$RUNNER_TEMP/tsuno/alternate.xml"
+      - name: Keep the RSS preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tsuno-1824-rss-preview
+          path: ${{ runner.temp }}/tsuno/preview/
+          if-no-files-found: ignore
