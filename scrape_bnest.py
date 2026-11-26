@@ -1,117 +1,116 @@
+import re
+from copy import deepcopy
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from urllib.parse import urljoin, urlsplit
+from xml.etree.ElementTree import Element, SubElement, fromstring, tostring
+
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 SOURCE_URL = "https://www.b-nest.jp/topics/"
-OUTPUT_FILE = "bnest-topics.xml"
+OUTPUT_FILE = Path("bnest-topics.xml")
+HEADERS = {"User-Agent": "Mozilla/5.0"}
+MAX_ITEMS = 30
+CATEGORIES = {"講座・セミナー", "イベント", "各種公募・補助金情報"}
+ARTICLE_DATE = re.compile(r"[0-9]{4}年[0-9]{1,2}月[0-9]{1,2}日")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
 
-response = requests.get(
-    SOURCE_URL,
-    headers=HEADERS,
-    timeout=60,
-)
-response.raise_for_status()
+def parse_articles(html):
+    soup = BeautifulSoup(html, "html.parser")
+    articles = {}
+    for card in soup.select(".eventTab > .eventTab__item > .eventItem"):
+        category = card.select_one(":scope > .eventItem__head > .tag")
+        if category is None:
+            raise ValueError("B-nest article card is missing its category")
+        if category.get_text(strip=True) not in CATEGORIES:
+            continue
 
-response.encoding = response.apparent_encoding
-soup = BeautifulSoup(response.text, "html.parser")
+        date = card.select_one(":scope > .eventItem__head > .date")
+        if date is None or not ARTICLE_DATE.fullmatch(date.get_text(strip=True)):
+            raise ValueError("B-nest article card has a missing or invalid date")
 
-rss = Element("rss", version="2.0")
-channel = SubElement(rss, "channel")
+        links = {}
+        for anchor in card.select(":scope > p a[href]"):
+            href = anchor["href"].strip()
+            title = anchor.get_text(" ", strip=True)
+            if not title or not href or href.startswith("#"):
+                continue
 
-SubElement(channel, "title").text = "B-nest セミナー＆イベント情報"
-SubElement(channel, "link").text = SOURCE_URL
-SubElement(channel, "description").text = "B-nest セミナー・イベント・公募・補助金情報"
+            url = urljoin(SOURCE_URL, href)
+            parts = urlsplit(url)
+            if parts.scheme in {"http", "https"} and parts.hostname:
+                links.setdefault(url, title)
 
-seen = set()
-count = 0
-
-for a in soup.find_all("a", href=True):
-    title = a.get_text(" ", strip=True)
-    href = a.get("href", "")
-
-    if not title:
-        continue
-
-    if title in [
-        "ホーム",
-        "施設予約",
-        "施設利用",
-        "B-nestとは",
-        "お問い合わせ",
-        "閉じる",
-        "トップ",
-    ]:
-        continue
-
-    if href.startswith("javascript:"):
-        continue
-
-    if href.startswith("/search"):
-        continue
-
-    if href in [
-        "/",
-        "/topics/",
-        "/blog/",
-        "/profile/",
-        "/shisetsu/",
-        "/shien/",
-        "/kigyo-shien/",
-        "/soudan/",
-    ]:
-        continue
-
-    parent = a.parent
-    found_article = False
-
-    for _ in range(5):
-        if parent is None:
+        if len(links) != 1:
+            raise ValueError("B-nest article card must have one article link")
+        url, title = next(iter(links.items()))
+        articles.setdefault(url, title)
+        if len(articles) == MAX_ITEMS:
             break
 
-        text = parent.get_text(" ", strip=True)
+    if not articles:
+        raise ValueError("B-nest article extraction returned no items")
+    return articles
 
-        if (
-            "2026年" in text
-            and (
-                "講座・セミナー" in text
-                or "イベント" in text
-                or "各種公募・補助金情報" in text
-            )
-        ):
-            found_article = True
-            break
 
-        parent = parent.parent
+def fetch_topics():
+    response = requests.get(SOURCE_URL, headers=HEADERS, timeout=60)
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding
+    return response.text
 
-    if not found_article:
-        continue
 
-    url = urljoin(SOURCE_URL, href)
+def update_rss(output=OUTPUT_FILE):
+    articles = parse_articles(fetch_topics())
+    try:
+        previous_data = output.read_bytes()
+    except FileNotFoundError:
+        previous_data = None
 
-    if url in seen:
-        continue
+    previous = {}
+    if previous_data is not None:
+        previous = {
+            item.findtext("link"): item
+            for item in fromstring(previous_data).findall("./channel/item")
+        }
 
-    seen.add(url)
+    if len(articles) * 2 <= len(previous):
+        raise ValueError(
+            f"B-nest article count dropped from {len(previous)} to {len(articles)}"
+        )
 
-    item = SubElement(channel, "item")
-    SubElement(item, "title").text = title
-    SubElement(item, "link").text = url
-    SubElement(item, "guid").text = url
+    rss = Element("rss", version="2.0")
+    channel = SubElement(rss, "channel")
+    SubElement(channel, "title").text = "B-nest セミナー＆イベント情報"
+    SubElement(channel, "link").text = SOURCE_URL
+    SubElement(channel, "description").text = "B-nest セミナー・イベント・公募・補助金情報"
 
-    count += 1
+    for url, title in articles.items():
+        item = SubElement(channel, "item")
+        SubElement(item, "title").text = title
+        SubElement(item, "link").text = url
+        existing = previous.get(url)
+        guid = existing.find("guid") if existing is not None else None
+        if guid is None:
+            SubElement(item, "guid").text = url
+        else:
+            item.append(deepcopy(guid))
 
-    if count >= 30:
-        break
+        published = existing.find("pubDate") if existing is not None else None
+        if published is not None:
+            item.append(deepcopy(published))
 
-ElementTree(rss).write(
-    OUTPUT_FILE,
-    encoding="utf-8",
-    xml_declaration=True,
-)
+    data = tostring(rss, encoding="utf-8", xml_declaration=True)
+    if previous_data != data:
+        # Replace the feed only after the full XML has been written successfully.
+        with TemporaryDirectory(dir=output.parent) as directory:
+            temporary_path = Path(directory) / output.name
+            temporary_path.write_bytes(data)
+            temporary_path.replace(output)
 
-print(OUTPUT_FILE, count)
+    print(output, len(articles))
+
+
+if __name__ == "__main__":
+    update_rss()
