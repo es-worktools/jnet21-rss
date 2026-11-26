@@ -12,7 +12,7 @@
 	<atom:link href="https://mirasapo-plus.go.jp/category/infomation/feed/" rel="self" type="application/rss+xml" />
 	<link>https://mirasapo-plus.go.jp</link>
 	<description>経済産業省 中小企業庁</description>
-	<lastBuildDate>Wed, 25 Nov 2026 07:22:19 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 20 Nov 2026 01:14:48 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,41 +20,6 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.4</generator>
 	<item>
-		<title>【メンテナンス告知】GビズID緊急メンテナンスのお知らせ</title>
-		<link>https://mirasapo-plus.go.jp/infomation/34306/</link>
-					<comments>https://mirasapo-plus.go.jp/infomation/34306/#respond</comments>
-		
-		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
-		<pubDate>Wed, 25 Nov 2026 07:45:25 +0000</pubDate>
-				<category><![CDATA[お知らせ]]></category>
-		<category><![CDATA[メンテナンス]]></category>
-		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=34306</guid>
-
-					<description><![CDATA[平素よりミラサポplusをご利用いただき、ありがとうございます。 デジタル庁において、以下の日時にGビズIDの緊急システムメンテナンスが実施されます。 メンテナンス中は、ミラサポplus上でのGビズIDによるログイン、お [&#8230;]]]></description>
-										<content:encoded><![CDATA[<div class="u-mtb40">
-<p>平素よりミラサポplusをご利用いただき、ありがとうございます。</p>
-<p>デジタル庁において、以下の日時にGビズIDの緊急システムメンテナンスが実施されます。</p>
-<p>メンテナンス中は、ミラサポplus上でのGビズIDによるログイン、およびログインが必要な機能（マイページ等）を一切ご利用いただけません。</p>
-<p>この間にGビズIDのログイン画面等にアクセスした場合は、メンテナンス画面が表示されます。</p>
-<div class="u-mt20">
-<p>【メンテナンス期間】</p>
-<p>2026年11月25日（水）20時00分から21時30分頃まで</p>
-<p>※作業状況により、終了時刻が前後する場合があります。</p>
-</div>
-<div class="u-mt20">
-<p>詳細は、GビズIDのお知らせをご確認ください。</p>
-<p><a href="https://gbiz-id.go.jp/top/" target="_blank">https://gbiz-id.go.jp/top/</a></p>
-</div>
-<p class="u-mt20">ご不便をおかけいたしますが、ご理解のほどよろしくお願いいたします。</p>
-</div>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/34306/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
 		<title>省力化投資補助事業（一般型）第７回公募の補助金交付候補者を採択</title>
 		<link>https://mirasapo-plus.go.jp/infomation/34230/</link>
 					<comments>https://mirasapo-plus.go.jp/infomation/34230/#respond</comments>
@@ -1495,6 +1460,37 @@
 					
 					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33511/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>中小企業庁担当者に聞く「持続化補助金」</title>
+		<link>https://mirasapo-plus.go.jp/infomation/33469/</link>
+					<comments>https://mirasapo-plus.go.jp/infomation/33469/#comments</comments>
+		
+		<dc:creator><![CDATA[ミラサポplus運営事務局]]></dc:creator>
+		<pubDate>Mon, 03 Aug 2026 05:30:18 +0000</pubDate>
+				<category><![CDATA[お知らせ]]></category>
+		<category><![CDATA[補助金・助成金]]></category>
+		<category><![CDATA[賃上げ]]></category>
+		<category><![CDATA[事業計画・経営企画]]></category>
+		<category><![CDATA[担当者に聞く]]></category>
+		<category><![CDATA[支援制度]]></category>
+		<category><![CDATA[起業]]></category>
+		<guid isPermaLink="false">https://mirasapo-plus.go.jp/?p=33469</guid>
+
+					<description><![CDATA[]]></description>
+										<content:encoded><![CDATA[<div class="c-box-borderbox-double"><p> </p>
+<div>
+<p>小規模事業者持続化補助金（持続化補助金）は、小規模事業者が「自ら経営計画を策定」し、地域の商工会・商工会議所の支援を受けながら、販路開拓などの取組を行う際に必要な経費の一部を補助する制度です。</p>
+<p class="u-mt20">今回は、令和８年度の持続化補助金の一般型（通常枠）（第20回公募・応募締切令和8年12月15日）と創業型（第4回公募・応募締切令和8年12月15日）のポイントについて、中小企業庁の担当者にお話をうかがいました。</p>
+</div>
+<p class="u-mt20"><a class="c-link-blue c-link-arrow-blue" style="word-break: break-all;" href="/hint/33462/">中小企業庁担当者に聞く | 令和8年度 小規模事業者持続化補助金のポイント</a></p>
+</p></div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://mirasapo-plus.go.jp/infomation/33469/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
 		
 		
 			</item>
