@@ -1,0 +1,56 @@
+name: Validate Sapporo consultation schedule shrink
+
+on:
+  push:
+    branches: [validation/sapporo-schedule-shrink-20261126]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests==2.34.2 beautifulsoup4==4.15.0 PyYAML==6.0.3
+      - name: Run Sapporo safety and regression tests
+        run: python -m unittest discover -s tests/sapporo_consultation -v
+      - name: Verify live preview, preserved ledger and repeat
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+
+          import requests
+          from publish_sapporo_consultation import build
+          from scrape_sapporo_consultation import ET, FILE, NS, TZ, generate, item_record, preserve_history, validate
+
+          source = Path(FILE)
+          baseline = source.read_bytes()
+          assert len(validate(ET.fromstring(baseline))) == 7
+          now = datetime.now(TZ)
+          with TemporaryDirectory() as output:
+              preview = build('.', output, now=now)
+              feed = (Path(output) / FILE).read_bytes()
+              preserve_history(baseline, feed)
+              items = validate(ET.fromstring(feed))
+              assert (preview['added'], preview['total'], len(items)) == (1, 8, 8), preview
+              change = item_record(items[0])
+              assert '木原' in change['label'] and change['month'] == '2026年12月', change
+              assert change['lines'] == ['4日（金曜日）・11日（金曜日）・18日（金曜日）・25日（金曜日）']
+              assert items[0].findtext(f'{{{NS}}}revision') == '3'
+              assert generate(feed, preview['records'], now) == (feed, 0)
+              print('Live preview: 7 original items and GUIDs retained, 1 Kihara revision, 0 additions on repeat.')
+          assert source.read_bytes() == baseline
+          response = requests.get(f'https://es-worktools.github.io/jnet21-rss/{FILE}', timeout=25)
+          response.raise_for_status()
+          assert response.content == baseline
+          print('Published RSS and candidate baseline are byte-identical (7 items).')
+          PY
