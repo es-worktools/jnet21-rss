@@ -11,7 +11,7 @@ permissions:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v7
         with:
@@ -20,209 +20,83 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - name: Compare official listings with the current parser
+      - name: Compare the two HTML sources referenced by the official site
         run: |
           python - <<'PY'
           import ast
           import json
-          import os
           from pathlib import Path
           import re
-          import runpy
-          from tempfile import TemporaryDirectory
-          from unittest.mock import patch
-          from urllib.parse import urljoin, urlsplit
+          from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
           from xml.etree import ElementTree
 
           from bs4 import BeautifulSoup
           import requests
 
-          ROOT = "https://www.tohoku.meti.go.jp/"
-          PAGES = {
-              "home": "",
-              "archive": "koho/koshin/archive.html",
-              "past_email": "ml_tohoku_news_past_rss.html",
-          }
-          ARTICLE = re.compile(r"(?:^|/)(?:k)?\d{6,9}(?:_\d+)?\.html$")
-          DATE = re.compile(r"(?:20\d{2}|令和\s*\d+)\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日")
-          MARKERS = re.compile(r"トピックス|新着|イベント|公募|補助金|募集|支援|RSS|Atom|ニューズレター", re.I)
-          DETAILS = re.compile(r"締切|期限|までに|まで受付|最終更新|掲載日|開催日時|公募期間|応募期間|受付期間")
-          script = Path("scrape_tohoku_meti.py").resolve()
+          SOURCES = (
+              "https://www.tohoku.meti.go.jp/ml_tohoku_news_past_rss.html",
+              "https://www.tohoku.meti.go.jp/ml_tohoku_news_2026.html",
+          )
+          DATE = re.compile(r"20\d{2}年\d{2}月\d{2}日")
+          script = ast.parse(Path("scrape_tohoku_meti.py").read_text())
           headers = next(
               ast.literal_eval(node.value)
-              for node in ast.parse(script.read_text()).body
-              if isinstance(node, ast.Assign) and any(
-                  isinstance(target, ast.Name) and target.id == "HEADERS" for target in node.targets
-              )
+              for node in script.body if isinstance(node, ast.Assign)
+              and any(isinstance(target, ast.Name) and target.id == "HEADERS" for target in node.targets)
           )
 
-          def report(**data):
-              print(json.dumps(data, ensure_ascii=False), flush=True)
+          def normalized(url):
+              parts = urlsplit(url)
+              query = urlencode([(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+                                 if not k.startswith("utm_")])
+              return urlunsplit((parts.scheme, parts.netloc, parts.path, query, parts.fragment))
 
-          def clean(text):
-              return " ".join(text.split())
-
-          def identity(url):
-              parsed = urlsplit(url)
-              return (parsed.hostname, parsed.path.rstrip("/"))
-
-          loaded_assets = set()
-
-          def inspect_topics_script(label, url, soup):
-              for tag in soup.select("script:not([src])"):
-                  script_text = tag.string or ""
-                  active_lines = [
-                      line for line in script_text.splitlines() if not line.strip().startswith("//")
-                  ]
-                  active = "\n".join(active_lines)
-                  for mention in re.finditer(r"news[_-]?menulist", active, re.I):
-                      context = active[max(0, mention.start() - 750):mention.end() + 400]
-                      report(page=label, script_context=clean(context))
-                      options = re.findall(
-                          r"""(?:\burl\s*:\s*|\.load\(\s*)["']([^"']+\.(?:html?|json|csv|xml)(?:\?[^"']*)?)["']""",
-                          context, re.I,
-                      )
-                      if not options:
-                          continue
-                      asset = urljoin(url, options[-1])
-                      if urlsplit(asset).hostname != urlsplit(ROOT).hostname or asset in loaded_assets:
-                          continue
-                      loaded_assets.add(asset)
-                      asset_response = requests.get(asset, headers=headers, timeout=15)
-                      report(page=label, topics_asset=asset_response.url, status=asset_response.status_code,
-                             type=asset_response.headers.get("Content-Type"), bytes=len(asset_response.content))
-                      if asset_response.status_code != 200:
-                          continue
-                      asset_response.encoding = asset_response.apparent_encoding
-                      parsed = BeautifulSoup(asset_response.text, "html.parser")
-                      report(page=label, topics_asset=asset,
-                             sample=[
-                                 (clean(a.get_text(" ", strip=True)), urljoin(asset, a["href"]),
-                                  a.parent.name, a.parent.get("class", []), a.parent.get("id"))
-                                 for a in parsed.select("a[href]")[:25]
-                             ],
-                             count=len(parsed.select("a[href]")),
-                             start=clean(asset_response.text)[:700])
-
-          feed_by_link = {}
+          feed_lookup = {}
           for file in Path(".").glob("*.xml"):
               raw = file.read_bytes()
-              if b"tohoku.meti.go.jp" not in raw:
+              if b"www.tohoku.meti.go.jp" not in raw:
                   continue
               try:
                   entries = ElementTree.fromstring(raw).findall("./channel/item")
               except ElementTree.ParseError:
                   continue
-              for entry in entries:
-                  if (link := entry.findtext("link")):
-                      feed_by_link.setdefault(identity(link), []).append(file.name)
+              for item in entries:
+                  if (link := item.findtext("link")):
+                      feed_lookup.setdefault(normalized(link), []).append(file.name)
 
-          listings = {"home", "archive", "archive_index", "subsidy", "delivery_information", "past_email"}
-          for label, path in PAGES.items():
-              url = urljoin(ROOT, path)
-              try:
-                  response = requests.get(url, headers=headers, timeout=15)
-              except requests.RequestException as error:
-                  report(page=label, error=str(error))
-                  continue
-              report(page=label, url=response.url, status=response.status_code,
-                     type=response.headers.get("Content-Type"), bytes=len(response.content),
-                     redirects=[(hop.status_code, hop.url) for hop in response.history])
+          for url in SOURCES:
+              response = requests.get(url, headers=headers, timeout=15)
+              result = {"url": response.url, "status": response.status_code,
+                        "content_type": response.headers.get("Content-Type")}
               if response.status_code != 200:
+                  print(json.dumps(result, ensure_ascii=False), flush=True)
                   continue
               response.encoding = response.apparent_encoding
               soup = BeautifulSoup(response.text, "html.parser")
-              if label in {"home", "archive"}:
-                  inspect_topics_script(label, response.url, soup)
-              if label in {"home", "archive", "delivery_information"}:
-                  scripts = [urljoin(response.url, tag["src"]) for tag in soup.select("script[src]")]
-                  inlines = [
-                      clean(tag.string or "")[:650]
-                      for tag in soup.select("script:not([src])")
-                      if re.search(r"topics|koshin|load\(|\.json|\.csv|\.xml", tag.string or "", re.I)
-                  ]
-                  main = soup.select_one("main, [role=main], div#main") or soup
-                  report(page=label, scripts=scripts, inline=inlines,
-                         listed_anchors=[
-                             (clean(tag.get_text(" ", strip=True)), urljoin(response.url, tag["href"]))
-                             for tag in soup.select("a[href]")
-                             if re.search(r"RSS|Atom|この配信|バックナンバー|過去の|年度|新着", tag.get_text(" ", strip=True))
-                             or re.search(r"rss|atom|\.xml", tag["href"], re.I)
-                         ][:35],
-                         empty_markers=[
-                             (tag.name, tag.get("id"), tag.get("class"), str(tag)[:400])
-                             for tag in main.find_all(["div", "section", "ul", "dl", "table", "template", "iframe"])
-                             if not clean(tag.get_text(" ", strip=True))
-                             and (tag.get("id") or tag.get("class") or tag.get("src"))
-                         ][:24])
-              for tag in soup.select("script, style, noscript"):
-                  tag.decompose()
-              scope = soup.select_one("main, [role=main]") or soup
-              title = soup.title.get_text(" ", strip=True) if soup.title else ""
-              headings = [tag.get_text(" ", strip=True) for tag in scope.find_all(["h1", "h2", "h3", "h4"])][:20]
-              feeds = [
-                  (tag.get("type", ""), urljoin(response.url, tag["href"]))
-                  for tag in soup.select("link[href]")
-                  if re.search(r"rss|atom|rdf", tag.get("type", ""), re.I)
+              result["declared_feeds"] = [
+                  urljoin(response.url, tag["href"]) for tag in soup.select("link[href]")
+                  if tag.get("type") in {"application/rss+xml", "application/atom+xml"}
               ]
-              report(page=label, title=title, headings=headings, declared_feeds=feeds)
-              if label not in listings:
-                  lines = [clean(line) for line in scope.stripped_strings]
-                  matches = sorted({
-                      nearby for index, line in enumerate(lines)
-                      if DATE.search(line) or DETAILS.search(line)
-                      for nearby in range(max(0, index - 1), min(len(lines), index + 3))
-                  })
-                  report(page=label, detail_lines=[lines[index] for index in matches][:45],
-                         overlaps=feed_by_link.get(identity(response.url), []),
-                         pdfs=[
-                             (clean(tag.get_text(" ", strip=True)), urljoin(response.url, tag["href"]))
-                             for tag in scope.select("a[href]")
-                             if urlsplit(tag["href"]).path.lower().endswith(".pdf")
-                         ][:6])
-                  continue
-              report(page=label, structure=[
-                  (tag.name, tag.get("id"), tag.get("class", []), clean(tag.get_text(" ", strip=True)))
-                  for tag in scope.find_all(["h1", "h2", "h3", "h4", "p", "dt", "dd", "time", "li", "span", "div"])
-                  if len(clean(tag.get_text(" ", strip=True))) <= 80 and DATE.search(tag.get_text(" ", strip=True))
-              ][:22])
-              links = []
-              navigation = []
-              for tag in scope.select("a[href]"):
-                  text = clean(tag.get_text(" ", strip=True))
-                  href = urljoin(response.url, tag["href"])
-                  parent = tag.parent
-                  if ARTICLE.search(urlsplit(href).path):
-                      parent_text = clean(parent.get_text(" ", strip=True))
-                      links.append((text, href, parent.name, parent.get("class", []), parent_text[:140]))
-                  elif MARKERS.search(text) or re.search(r"rss|atom|\.xml(?:$|\?)", href, re.I):
-                      navigation.append((text, href))
-              report(page=label, article_count=len(links), articles=links[:45],
-                     navigation=list(dict.fromkeys(navigation))[:30])
-              if label == "past_email":
-                  current = ""
-                  dated = []
-                  for tag in scope.find_all(["dt", "a"]):
-                      if tag.name == "dt":
-                          current = clean(tag.get_text(" ", strip=True))
-                      elif tag.has_attr("href") and current:
-                          href = urljoin(response.url, tag["href"])
-                          text = clean(tag.get_text(" ", strip=True))
-                          if text:
-                              category = tag.find_previous_sibling("img")
-                              dated.append((current, text, href,
-                                            category.get("alt", "") if category else "",
-                                            feed_by_link.get(identity(href), [])))
-                  report(page=label, dated_rows=dated[:70])
-              if label in {"archive", "past_email"}:
-                  with TemporaryDirectory() as tmp:
-                      previous = Path.cwd()
-                      try:
-                          os.chdir(tmp)
-                          with patch("requests.get", return_value=response):
-                              runpy.run_path(str(script))
-                          root = ElementTree.parse("tohoku-meti-news.xml")
-                          report(page=label, replay_count=len(root.findall("channel/item")))
-                      finally:
-                          os.chdir(previous)
+              date = ""
+              dated_rows = []
+              for element in soup.find_all(["dt", "a"]):
+                  title = element.get_text(" ", strip=True)
+                  if element.name == "dt":
+                      date = title if DATE.fullmatch(title) else ""
+                      continue
+                  if not date or not title or not element.has_attr("href"):
+                      continue
+                  link = normalized(urljoin(response.url, element["href"]))
+                  icon = element.find_previous_sibling("img")
+                  dated_rows.append([date, title, link, icon.get("alt", "") if icon else "",
+                                     feed_lookup.get(link, [])])
+              result["items"] = len(dated_rows)
+              result["first_date"] = dated_rows[0][0] if dated_rows else ""
+              result["last_date"] = dated_rows[-1][0] if dated_rows else ""
+              print(json.dumps(result, ensure_ascii=False), flush=True)
+              for date, title, url, category, feeds in dated_rows:
+                  if date.startswith("2026年11月") or url.endswith("/261022001.html"):
+                      print(json.dumps({"date": date, "title": title, "article": url,
+                                        "category": category, "repo_feeds": feeds},
+                                       ensure_ascii=False), flush=True)
           PY
