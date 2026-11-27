@@ -15,60 +15,87 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - name: Inspect official event sources
+      - name: Verify event dates, applications and field markup
         run: |
           python - <<'PY'
+          import ast
           from concurrent.futures import ThreadPoolExecutor
+          from datetime import date
+          import json
           from pathlib import Path
-          from urllib.parse import urljoin
-          from bs4 import BeautifulSoup
           import re
+          from urllib.parse import urljoin, urlsplit, urlunsplit
+          from bs4 import BeautifulSoup
           import requests
-          BASE_URL = 'https://www.tohoku.meti.go.jp/'
-          HEADERS = {
-              "User-Agent": (
-                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                  "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/139.0.0.0 Safari/537.36"
-              ),
-              "Accept": (
-                  "text/html,application/xhtml+xml,application/xml;q=0.9,"
-                  "image/avif,image/webp,image/apng,*/*;q=0.8"
-              ),
-              "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
-              "Cache-Control": "no-cache",
-              "Pragma": "no-cache",
-              "Referer": "https://www.tohoku.meti.go.jp/",
-          }
-          paths = ['/', '/koho/koshin/archive.html', '/ml_tohoku_news_past_rss.html', '/ml_tohoku_news_past.html',
-                   '/ml_tohoku_news_2026.html', '/s_sancle/index_sancle.html',
-                   '/2026/261125_2.html', '/2026/261022001.html']
-          def inspect(path):
-              response = requests.get(urljoin(BASE_URL, path), headers=HEADERS, timeout=20)
-              Path('/tmp/tohoku-inspect').mkdir(exist_ok=True)
-              Path('/tmp/tohoku-inspect/' + (path.rsplit('/',1)[-1] or 'top.html')).write_bytes(response.content)
-              soup = BeautifulSoup(response.content, 'html.parser')
-              lines = [f'{path} {response.status_code} {response.url}']
-              for tag in soup.find_all(['a','iframe','script'], href=True) + soup.select('iframe[src],script[src]'):
-                  href = tag.get('href') or tag.get('src')
-                  if 'ml_tohoku_news' in href:
-                      lines.append(str(tag)[:450])
-              if 'past_rss' in path or '_2026.html' in path:
-                  for tag in soup.find_all('dt', limit=2):
-                      lines.append(str(tag) + ''.join(str(x) for x in list(tag.find_next_siblings())[:2])[:2200])
-                  for tag in soup.select('dt')[:1]:
-                      lines.append(str([(p.name, p.get('id'), p.get('class')) for p in tag.parents]))
-              if path in paths[-3:]:
-                  target = soup.find(id='study') if path == paths[-3] else None
-                  if target:
-                      lines.append(str(target.parent)[:8500])
-                  lines.extend(t for t in soup.stripped_strings if re.search(r'日[時程]|締切|締め切|申込|年[0-9０-９]+月|日開催|受[付け]|終了|対象者',t))
-              return '\n'.join(lines)
-          for path in paths:
-              print(inspect(path))
+          base='https://www.tohoku.meti.go.jp/'
+          def constant(file, name):
+              tree = ast.parse(Path(file).read_text())
+              return next(ast.literal_eval(node.value) for node in tree.body
+                          if isinstance(node, ast.Assign)
+                          and any(getattr(t, 'id', None) == name for t in node.targets))
+          headers=constant('scrape_tohoku_meti.py', 'HEADERS')
+          fields=constant('scrape_tohoku_meti_event.py', 'SOURCE_URLS')
+          old_words=constant('scrape_tohoku_meti_event.py', 'KEYWORDS')
+          out=Path('/tmp/tohoku-details')
+          out.mkdir()
+          def fetch(url, name):
+              r=requests.get(url,headers=headers,timeout=20)
+              print(f'HTTP {r.status_code} {url}',flush=True)
+              if r.status_code == 200:
+                  (out/name).write_bytes(r.content)
+                  return BeautifulSoup(r.content,'html.parser')
+          rows=[]
+          annual=fetch(urljoin(base,'ml_tohoku_news_2026.html'),'annual.html')
+          for dt in annual.find_all('dt'):
+              day=dt.get_text(strip=True)
+              if not re.match(r'2026年(10|11)月',day):
+                  continue
+              for li in dt.find_next_sibling('dd').select('li'):
+                  a, img=li.find('a'),li.find('img')
+                  if not a or not img: continue
+                  title=a.get_text(' ',strip=True)
+                  if img.get('alt') != 'イベント' and not any(w.lower() in title.lower() for w in old_words): continue
+                  parts=urlsplit(urljoin(base,a['href']))
+                  url=urlunsplit((parts.scheme,parts.netloc,parts.path,'',parts.fragment))
+                  if parts.netloc == 'www.tohoku.meti.go.jp' and parts.path.endswith('.html'):
+                      rows.append((day,title,url))
+          pattern=re.compile(r'開催(日時|日|概要|場所|形式)|締切|締め切|申込(期限|方法|期間|受付)|申込み(期限|方法|期間|受付)|参加(方法|募集)|受付(中|終了)|終了しました|予定|[2２][0０][2２][67６７]年|[１-９0-9]{1,2}月[１-９0-9]{1,2}日')
+          def inspect(pair):
+              i,(day,title,url)=pair
+              try:
+                  s=fetch(url, f'detail-{i}.html')
+              except requests.RequestException as e:
+                  print(f'DETAIL_ERROR {url} {e}',flush=True)
+                  return
+              if s is None:
+                  if url.endswith('261022001.html'):
+                      s=fetch(url+'?utm_source=tohokumeti&utm_medium=website&utm_campaign=261022_handoutai',f'detail-{i}.html')
+                  if s is None: return
+              frag=urlsplit(url).fragment
+              part=s.find(id=frag) if frag else None
+              if part: part=part.parent
+              lines=[re.sub(r'\s+',' ',t) for t in (part or s.select_one('main') or s).stripped_strings]
+              print('DETAIL '+json.dumps([day,title,url,[l[:350] for l in lines if pattern.search(l)][:40]],ensure_ascii=False),flush=True)
+          def field(pair):
+              i,url=pair
+              s=fetch(url, f'field-{i}.html')
+              if s is None: return
+              main=s.select_one('main') or s
+              print('FIELD '+json.dumps([i,url,[(p.name,p.get('id'),p.get('class')) for p in [main,*main.parents]],
+                    [[a.get_text(' ',strip=True),a['href'],str(a.parent)[:350]] for a in main.select('a[href]')
+                    if any(w.lower() in a.get_text(' ',strip=True).lower() for w in old_words)][:28]],ensure_ascii=False),flush=True)
+          with ThreadPoolExecutor(max_workers=4) as pool:
+              list(pool.map(field,enumerate(fields)))
+              list(pool.map(inspect,enumerate(rows)))
+          for url,name in [(urljoin(base,'s_sancle/pdf/study.pdf'),'study.pdf'),
+                           ('https://j-net21.smrj.go.jp/snavi2/','jnet.html')]:
+              try:
+                  fetch(url,name)
+              except requests.RequestException as e:
+                  print(e)
           PY
       - uses: actions/upload-artifact@v7
         with:
-          name: official-source-inspection
-          path: /tmp/tohoku-inspect
-          retention-days: 3
+          name: official-event-details
+          path: /tmp/tohoku-details
+          retention-days: 7
