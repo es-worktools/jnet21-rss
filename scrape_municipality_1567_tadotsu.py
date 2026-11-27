@@ -1,10 +1,10 @@
 import json, re, time
 from datetime import datetime, timedelta, timezone
-from email.utils import format_datetime
+from email.utils import format_datetime, parsedate_to_datetime
 from urllib.request import Request, build_opener, HTTPCookieProcessor
 from http.cookiejar import CookieJar
 from urllib.parse import urljoin, urlparse
-from xml.etree.ElementTree import Element, SubElement, ElementTree
+from xml.etree.ElementTree import Element, SubElement, ElementTree, parse
 from pathlib import Path
 from lxml import html
 
@@ -42,50 +42,88 @@ def official_date(text):
     if not match: raise RuntimeError("Official date missing: " + text)
     return datetime(*map(int, match.groups()), tzinfo=JST)
 
-def add(items, title, href, date, description=""):
-    title = normalize(title)
-    if not title or not href: raise RuntimeError("Missing article title or URL")
-    url = urljoin(SOURCE_URL, href)
-    if urlparse(url).scheme not in {"http","https"} or urlparse(url).netloc != ALLOWED_DOMAIN:
-        raise RuntimeError("Unexpected article URL: " + url)
-    if date is not None and (date.tzinfo is None or date > datetime.now(JST)):
-        raise RuntimeError("Invalid publication date")
-    if url not in items: items[url] = (date, title, url, description)
-
-def parse_source(text, items):
+def parse_source(text, now, cutoff):
     data = json.loads(text)
-    if not isinstance(data, list) or not data: raise RuntimeError("Official news JSON missing")
-    cutoff = datetime.now(JST) - timedelta(days=90)
+    if not isinstance(data, list) or not data:
+        raise RuntimeError("Official news JSON missing")
+
+    items = {}
+    deferred_urls = set()
+    deferred_count = 0
     for row in data:
-        if row['is_category_index'] or row['is_keitai_page']: continue
-        date = datetime.fromisoformat(row['publish_datetime'])
-        if date.tzinfo is None: raise RuntimeError("Official timezone missing")
-        if date < cutoff: continue
-        add(items, row['page_name'], row['url'], date)
+        if row["is_category_index"] or row["is_keitai_page"]:
+            continue
+        date = datetime.fromisoformat(row["publish_datetime"])
+        if date.utcoffset() is None:
+            raise RuntimeError(f"Official date has no timezone: {row['url']!r}")
+        if date < cutoff:
+            continue
+
+        title = normalize(row["page_name"])
+        href = row["url"]
+        if not title or not href:
+            raise RuntimeError("Missing article title or URL")
+        url = urljoin(SOURCE_URL, href)
+        parsed_url = urlparse(url)
+        if parsed_url.scheme not in {"http", "https"} or parsed_url.netloc != ALLOWED_DOMAIN:
+            raise RuntimeError("Unexpected article URL: " + url)
+
+        if date > now:
+            print(f"Deferred (future publication date {date.isoformat()}): {title} | {url}")
+            deferred_urls.add(url)
+            deferred_count += 1
+            continue
+        items.setdefault(url, (date, title, url))
+
+    print(f"Deferred rows: {deferred_count}")
+    return items, deferred_urls
+
+
+def check_previous_count(output, count, cutoff, deferred_urls):
+    if not output.exists():
+        return
+    previous = parse(output).findall("./channel/item")
+    # The existing 90-day window and newly deferred URLs can legitimately lower the count.
+    expected = sum(
+        parsedate_to_datetime(item.findtext("pubDate")) >= cutoff
+        for item in previous
+        if item.findtext("link") not in deferred_urls
+    )
+    if count < expected:
+        raise RuntimeError(
+            f"Unexpected item count decrease: {count} < {expected} "
+            "eligible previous items; existing RSS preserved"
+        )
 
 
 def main():
-    if DATA_URL != SOURCE_URL: fetch(SOURCE_URL)
-    items = {}
-    parse_source(fetch(DATA_URL), items)
-    if not items: raise RuntimeError("No articles found; existing RSS preserved")
-    # Preserve the official list order, including entries with no usable date.
-    rows = sorted(items.values(), key=lambda r:r[0], reverse=True)[:MAX_ITEMS]
+    if DATA_URL != SOURCE_URL:
+        fetch(SOURCE_URL)
+    data = fetch(DATA_URL)
+    now = datetime.now(JST)
+    cutoff = now - timedelta(days=90)
+    items, deferred_urls = parse_source(data, now, cutoff)
+    if not items:
+        raise RuntimeError("No articles found; existing RSS preserved")
+
+    # Sort by publication date, keeping the source order for equal dates.
+    rows = sorted(items.values(), key=lambda row: row[0], reverse=True)[:MAX_ITEMS]
+    output = Path(OUTPUT_FILE)
+    check_previous_count(output, len(rows), cutoff, deferred_urls)
     rss = Element("rss", version="2.0")
     channel = SubElement(rss, "channel")
     SubElement(channel, "title").text = CHANNEL_TITLE
     SubElement(channel, "link").text = SOURCE_URL
     SubElement(channel, "description").text = CHANNEL_TITLE + " GitHub generated RSS"
-    for date, title, url, description in rows:
+    for date, title, url in rows:
         item = SubElement(channel, "item")
         SubElement(item, "title").text = title
         SubElement(item, "link").text = url
         SubElement(item, "guid", isPermaLink="true").text = url
-        if date is not None: SubElement(item, "pubDate").text = format_datetime(date)
-        if description: SubElement(item, "description").text = description
+        SubElement(item, "pubDate").text = format_datetime(date)
     temp = Path(OUTPUT_FILE + ".tmp")
     ElementTree(rss).write(temp, encoding="utf-8", xml_declaration=True)
-    temp.replace(OUTPUT_FILE)
+    temp.replace(output)
     print(OUTPUT_FILE, len(rows))
 
 if __name__ == "__main__": main()
