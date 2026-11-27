@@ -1,0 +1,38 @@
+name: Validate Joho Kochi RSS
+
+on:
+  push:
+    branches:
+      - validation/0095-joho-kochi-20261127
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout validation branch
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Test RSS preservation and failure handling
+        run: python -m unittest discover -s tests -p test_joho_kochi.py -v
+
+      - name: Generate and compare live preview
+        run: python tests/test_joho_kochi.py --live
+
+      - name: Upload RSS preview
+        uses: actions/upload-artifact@v7
+        with:
+          name: joho-kochi-preview
+          path: ${{ runner.temp }}/joho-kochi-preview.xml
