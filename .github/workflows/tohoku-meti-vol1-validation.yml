@@ -41,26 +41,7 @@ jobs:
           PAGES = {
               "home": "",
               "archive": "koho/koshin/archive.html",
-              "archive_index": "koho/koshin/",
-              "subsidy": "somu/yosan/yosan.html",
-              "delivery_information": "koho/news/index_news.html",
               "past_email": "ml_tohoku_news_past_rss.html",
-              "morioka": "2026/261112_2.html",
-              "sendai": "2026/261113.html",
-              "workshop": "2026/261022001.html",
-              "snow": "2026/261125_3.html",
-              "essential": "2026/261125.html",
-              "dx_award": "2026/261125_2.html",
-              "energy_meeting": "2026/261021.html",
-              "j_credit": "2026/261119.html",
-              "plastics": "2026/261116.html",
-              "robot": "2026/261113_2.html",
-              "retail": "2026/261112.html",
-              "food": "2026/261111_2.html",
-              "tax": "2026/261110.html",
-              "trade": "2026/261110_2.html",
-              "yorozu": "2026/261109_2.html",
-              "semiconductor_ip": "2026/261106_2.html",
           }
           ARTICLE = re.compile(r"(?:^|/)(?:k)?\d{6,9}(?:_\d+)?\.html$")
           DATE = re.compile(r"(?:20\d{2}|令和\s*\d+)\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日")
@@ -84,6 +65,44 @@ jobs:
           def identity(url):
               parsed = urlsplit(url)
               return (parsed.hostname, parsed.path.rstrip("/"))
+
+          loaded_assets = set()
+
+          def inspect_topics_script(label, url, soup):
+              for tag in soup.select("script:not([src])"):
+                  script_text = tag.string or ""
+                  active_lines = [
+                      line for line in script_text.splitlines() if not line.strip().startswith("//")
+                  ]
+                  active = "\n".join(active_lines)
+                  for mention in re.finditer(r"news[_-]?menulist", active, re.I):
+                      context = active[max(0, mention.start() - 750):mention.end() + 400]
+                      report(page=label, script_context=clean(context))
+                      options = re.findall(
+                          r"""(?:\burl\s*:\s*|\.load\(\s*)["']([^"']+\.(?:html?|json|csv|xml)(?:\?[^"']*)?)["']""",
+                          context, re.I,
+                      )
+                      if not options:
+                          continue
+                      asset = urljoin(url, options[-1])
+                      if urlsplit(asset).hostname != urlsplit(ROOT).hostname or asset in loaded_assets:
+                          continue
+                      loaded_assets.add(asset)
+                      asset_response = requests.get(asset, headers=headers, timeout=15)
+                      report(page=label, topics_asset=asset_response.url, status=asset_response.status_code,
+                             type=asset_response.headers.get("Content-Type"), bytes=len(asset_response.content))
+                      if asset_response.status_code != 200:
+                          continue
+                      asset_response.encoding = asset_response.apparent_encoding
+                      parsed = BeautifulSoup(asset_response.text, "html.parser")
+                      report(page=label, topics_asset=asset,
+                             sample=[
+                                 (clean(a.get_text(" ", strip=True)), urljoin(asset, a["href"]),
+                                  a.parent.name, a.parent.get("class", []), a.parent.get("id"))
+                                 for a in parsed.select("a[href]")[:25]
+                             ],
+                             count=len(parsed.select("a[href]")),
+                             start=clean(asset_response.text)[:700])
 
           feed_by_link = {}
           for file in Path(".").glob("*.xml"):
@@ -113,6 +132,8 @@ jobs:
                   continue
               response.encoding = response.apparent_encoding
               soup = BeautifulSoup(response.text, "html.parser")
+              if label in {"home", "archive"}:
+                  inspect_topics_script(label, response.url, soup)
               if label in {"home", "archive", "delivery_information"}:
                   scripts = [urljoin(response.url, tag["src"]) for tag in soup.select("script[src]")]
                   inlines = [
