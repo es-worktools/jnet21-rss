@@ -1245,7 +1245,7 @@ def normalize_status(raw_status):
 
     if (
         "受付中" in status
-        or status == "募集中"
+        or status in ("募集中", "お申込みを募集中！")
         or "空きがあります" in status
     ):
         return "受付中"
