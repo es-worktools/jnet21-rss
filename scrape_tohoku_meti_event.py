@@ -156,16 +156,14 @@ def topic_rows(soup, source, today):
         raise ValueError(f"No dated rows in {source}")
 
     rows = []
-    previous_day = today
     for tag in tags:
         found = re.fullmatch(JAPANESE_DATE, tag_text(tag))
         if not found:
             raise ValueError(f"Invalid topic date in {source}: {tag_text(tag)}")
         day = match_date(found)
         block = tag.find_next_sibling()
-        if day > previous_day or block is None or block.name != "dd":
+        if day > today or block is None or block.name != "dd":
             raise ValueError(f"Unexpected date or missing article block in {source}: {day}")
-        previous_day = day
         links = block.select("ul > li")
         if not links:
             raise ValueError(f"No articles under {day} in {source}")
@@ -178,7 +176,7 @@ def topic_rows(soup, source, today):
             title = tag_text(anchor)
             published = None if "更新しました" in title else day
             rows.append(Event(title, article_url(anchor["href"], source), published, icon["alt"], day))
-    return rows
+    return sorted(rows, key=lambda row: row.listed, reverse=True)
 
 
 def field_events(soup, source, today):
