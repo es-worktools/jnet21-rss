@@ -1,0 +1,37 @@
+name: Validate Polytech Application Status
+
+on:
+  push:
+    branches:
+      - validation/0146-polytech-application-status-20261127
+    paths:
+      - scrape_polytech_nationwide.py
+      - tests/polytech_nationwide/verify_application_status.py
+      - .github/workflows/validation-polytech-application-status.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 3
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4
+      - name: Compare nationwide runs with the same official responses
+        env:
+          BASE_SHA: 42b90d904de1699f8d15404ec6e4e6e81dd26268
+        run: |
+          baseline="$(mktemp -d)"
+          git show "$BASE_SHA:scrape_polytech_nationwide.py" > "$baseline/before.py"
+          for file in polytech-nationwide-state.json polytech-nationwide.xml polytech-nationwide-current.csv; do
+            git show "$BASE_SHA:$file" > "$baseline/$file"
+          done
+          python -u tests/polytech_nationwide/verify_application_status.py "$baseline" scrape_polytech_nationwide.py
