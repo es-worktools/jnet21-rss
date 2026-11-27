@@ -48,11 +48,24 @@ jobs:
               "morioka": "2026/261112_2.html",
               "sendai": "2026/261113.html",
               "workshop": "2026/261022001.html",
+              "snow": "2026/261125_3.html",
+              "essential": "2026/261125.html",
+              "dx_award": "2026/261125_2.html",
+              "energy_meeting": "2026/261021.html",
+              "j_credit": "2026/261119.html",
+              "plastics": "2026/261116.html",
+              "robot": "2026/261113_2.html",
+              "retail": "2026/261112.html",
+              "food": "2026/261111_2.html",
+              "tax": "2026/261110.html",
+              "trade": "2026/261110_2.html",
+              "yorozu": "2026/261109_2.html",
+              "semiconductor_ip": "2026/261106_2.html",
           }
           ARTICLE = re.compile(r"(?:^|/)(?:k)?\d{6,9}(?:_\d+)?\.html$")
           DATE = re.compile(r"(?:20\d{2}|令和\s*\d+)\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日")
           MARKERS = re.compile(r"トピックス|新着|イベント|公募|補助金|募集|支援|RSS|Atom|ニューズレター", re.I)
-          DETAILS = re.compile(r"申込.{0,12}(締切|期限)|提出.{0,12}(締切|期限)|最終更新|掲載日|開催日時")
+          DETAILS = re.compile(r"締切|期限|までに|まで受付|最終更新|掲載日|開催日時|公募期間|応募期間|受付期間")
           script = Path("scrape_tohoku_meti.py").resolve()
           headers = next(
               ast.literal_eval(node.value)
@@ -68,6 +81,24 @@ jobs:
           def clean(text):
               return " ".join(text.split())
 
+          def identity(url):
+              parsed = urlsplit(url)
+              return (parsed.hostname, parsed.path.rstrip("/"))
+
+          feed_by_link = {}
+          for file in Path(".").glob("*.xml"):
+              raw = file.read_bytes()
+              if b"tohoku.meti.go.jp" not in raw:
+                  continue
+              try:
+                  entries = ElementTree.fromstring(raw).findall("./channel/item")
+              except ElementTree.ParseError:
+                  continue
+              for entry in entries:
+                  if (link := entry.findtext("link")):
+                      feed_by_link.setdefault(identity(link), []).append(file.name)
+
+          listings = {"home", "archive", "archive_index", "subsidy", "delivery_information", "past_email"}
           for label, path in PAGES.items():
               url = urljoin(ROOT, path)
               try:
@@ -82,6 +113,27 @@ jobs:
                   continue
               response.encoding = response.apparent_encoding
               soup = BeautifulSoup(response.text, "html.parser")
+              if label in {"home", "archive", "delivery_information"}:
+                  scripts = [urljoin(response.url, tag["src"]) for tag in soup.select("script[src]")]
+                  inlines = [
+                      clean(tag.string or "")[:650]
+                      for tag in soup.select("script:not([src])")
+                      if re.search(r"topics|koshin|load\(|\.json|\.csv|\.xml", tag.string or "", re.I)
+                  ]
+                  main = soup.select_one("main, [role=main], div#main") or soup
+                  report(page=label, scripts=scripts, inline=inlines,
+                         listed_anchors=[
+                             (clean(tag.get_text(" ", strip=True)), urljoin(response.url, tag["href"]))
+                             for tag in soup.select("a[href]")
+                             if re.search(r"RSS|Atom|この配信|バックナンバー|過去の|年度|新着", tag.get_text(" ", strip=True))
+                             or re.search(r"rss|atom|\.xml", tag["href"], re.I)
+                         ][:35],
+                         empty_markers=[
+                             (tag.name, tag.get("id"), tag.get("class"), str(tag)[:400])
+                             for tag in main.find_all(["div", "section", "ul", "dl", "table", "template", "iframe"])
+                             if not clean(tag.get_text(" ", strip=True))
+                             and (tag.get("id") or tag.get("class") or tag.get("src"))
+                         ][:24])
               for tag in soup.select("script, style, noscript"):
                   tag.decompose()
               scope = soup.select_one("main, [role=main]") or soup
@@ -93,14 +145,20 @@ jobs:
                   if re.search(r"rss|atom|rdf", tag.get("type", ""), re.I)
               ]
               report(page=label, title=title, headings=headings, declared_feeds=feeds)
-              if label in {"morioka", "sendai", "workshop"}:
+              if label not in listings:
                   lines = [clean(line) for line in scope.stripped_strings]
                   matches = sorted({
                       nearby for index, line in enumerate(lines)
                       if DATE.search(line) or DETAILS.search(line)
                       for nearby in range(max(0, index - 1), min(len(lines), index + 3))
                   })
-                  report(page=label, detail_lines=[lines[index] for index in matches][:45])
+                  report(page=label, detail_lines=[lines[index] for index in matches][:45],
+                         overlaps=feed_by_link.get(identity(response.url), []),
+                         pdfs=[
+                             (clean(tag.get_text(" ", strip=True)), urljoin(response.url, tag["href"]))
+                             for tag in scope.select("a[href]")
+                             if urlsplit(tag["href"]).path.lower().endswith(".pdf")
+                         ][:6])
                   continue
               report(page=label, structure=[
                   (tag.name, tag.get("id"), tag.get("class", []), clean(tag.get_text(" ", strip=True)))
@@ -120,7 +178,22 @@ jobs:
                       navigation.append((text, href))
               report(page=label, article_count=len(links), articles=links[:45],
                      navigation=list(dict.fromkeys(navigation))[:30])
-              if label == "archive":
+              if label == "past_email":
+                  current = ""
+                  dated = []
+                  for tag in scope.find_all(["dt", "a"]):
+                      if tag.name == "dt":
+                          current = clean(tag.get_text(" ", strip=True))
+                      elif tag.has_attr("href") and current:
+                          href = urljoin(response.url, tag["href"])
+                          text = clean(tag.get_text(" ", strip=True))
+                          if text:
+                              category = tag.find_previous_sibling("img")
+                              dated.append((current, text, href,
+                                            category.get("alt", "") if category else "",
+                                            feed_by_link.get(identity(href), [])))
+                  report(page=label, dated_rows=dated[:70])
+              if label in {"archive", "past_email"}:
                   with TemporaryDirectory() as tmp:
                       previous = Path.cwd()
                       try:
