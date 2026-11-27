@@ -1,0 +1,170 @@
+name: Verify Tohoku METI annual backfill fallback
+on:
+  push:
+    branches: [verify/tohoku-meti-events-annual-fallback]
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: Verify annual success, HTTP 202, and first-run safeguards
+        run: |
+          python - <<'PY'
+          from contextlib import redirect_stdout
+          from datetime import datetime
+          from io import StringIO
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+          from unittest.mock import patch
+          from urllib.parse import urljoin
+          from xml.etree import ElementTree as ET
+
+          import requests
+          import scrape_tohoku_meti_event as rss
+
+          before = datetime(2026, 11, 27, 23, 10, tzinfo=rss.JST)
+          after = datetime(2026, 11, 28, 9, 15, tzinfo=rss.JST)
+          workshop = "/2026/261022001.html"
+          expired = "/2026/261106_2.html"
+          annual_path = "/ml_tohoku_news_2026.html"
+          annual_url = urljoin(rss.BASE_URL, annual_path)
+          recent_paths = set(rss.BACKFILL_UNTIL) - {workshop}
+          field_html = '<main id="__main_contents">' + ''.join(
+              f'<a href="/2026/field-note-{i}.html">一般のお知らせ</a>'
+              for i in range(rss.FIELD_MINIMUM)
+          ) + '</main>'
+
+          def topics(paths):
+              items = ''.join(
+                  f'<li><img alt="イベント"><a href="{path}">セミナーを開催します</a></li>'
+                  for path in sorted(paths)
+              )
+              notes = ''.join(
+                  f'<li><img alt="お知らせ"><a href="/2026/note-{i}.html">一般のお知らせ</a></li>'
+                  for i in range(rss.RECENT_MINIMUM)
+              )
+              return f'<dl><dt>2026年11月27日</dt><dd><ul>{items}{notes}</ul></dd></dl>'
+
+          original = Path("tohoku-meti-event.xml").read_bytes()
+          def items(root):
+              entries = root.findall("channel/item")
+              indexed = {item.findtext("guid"): item for item in entries}
+              assert len(entries) == len(indexed) and all(indexed)
+              return indexed
+
+          old = items(ET.fromstring(original))
+          assert len(old) == 9
+          pages = {
+              **dict.fromkeys(rss.SOURCE_URLS, field_html),
+              rss.RECENT_URL: topics(recent_paths),
+              rss.ARCHIVE_INDEX: (
+                  f"""<script>loadHtml('#news_menulist', '{annual_path}')</script>"""
+              ),
+              annual_url: topics({workshop, "/2026/unreviewed.html"}),
+          }
+
+          with TemporaryDirectory() as work:
+              for label, url, override, now, expected in [
+                  ("annual success", None, None, before, recent_paths | {workshop}),
+                  ("annual HTML HTTP 202", annual_url, 202, before, recent_paths),
+                  ("archive index HTTP 202", rss.ARCHIVE_INDEX, 202, before, recent_paths),
+                  ("invalid archive index", rss.ARCHIVE_INDEX, "<p>no reference</p>", before, recent_paths),
+                  ("invalid annual HTML", annual_url, "<p>no topics</p>", before, recent_paths),
+                  ("annual candidate absent", annual_url, topics(set()), before, recent_paths),
+                  ("HTTP 202 after cutoff", annual_url, 202, after, recent_paths - {expired}),
+                  ("primary HTTP 202", rss.RECENT_URL, 202, before, None),
+                  ("field HTTP 202", rss.SOURCE_URLS[0], 202, before, None),
+              ]:
+                  def respond(request_url, **kwargs):
+                      response = requests.Response()
+                      response.url = request_url
+                      response.status_code = 202 if request_url == url and override == 202 else 200
+                      response.headers["Content-Type"] = "text/html; charset=utf-8"
+                      body = override if request_url == url and isinstance(override, str) else pages[request_url]
+                      response._content = body.encode()
+                      return response
+
+                  target = Path(work) / "preview.xml"
+                  target.write_bytes(original)
+                  log = StringIO()
+                  with patch.object(rss.requests, "get", side_effect=respond) as get, \
+                       patch.object(rss, "sleep"), redirect_stdout(log):
+                      if expected is None:
+                          try:
+                              rss.generate(target, now)
+                          except ValueError as error:
+                              assert "HTTP 202" in str(error) and url in str(error), error
+                          else:
+                              raise AssertionError(f"Missing initial safeguard for {label}")
+                          assert target.read_bytes() == original
+                      else:
+                          rss.generate(target, now)
+                          stable = target.read_bytes()
+                          get.reset_mock()
+                          rss.generate(target, now)
+                          assert target.read_bytes() == stable
+                          assert all(
+                              call.args[0] in {rss.RECENT_URL, *rss.SOURCE_URLS}
+                              for call in get.call_args_list
+                          ), f"Annual source retried after baseline in {label}"
+
+                  if expected is None:
+                      print(f"PASS {label}: first-run safeguard preserved original RSS bytes")
+                      continue
+                  root = ET.parse(target).getroot()
+                  current = items(root)
+                  assert all(ET.tostring(current[guid]) == ET.tostring(item) for guid, item in old.items())
+                  assert {item.findtext("link") for guid, item in current.items() if guid not in old} == {
+                      urljoin(rss.BASE_URL, path) for path in expected
+                  }, label
+                  sources = root.find(f"channel/{rss.MONITOR}sources")
+                  assert {s.get("url") for s in sources.findall(f"{rss.MONITOR}source")} == {
+                      rss.RECENT_URL, *rss.SOURCE_URLS
+                  }
+                  assert not sources.findall(f"{rss.MONITOR}unavailable")
+                  warnings = [line for line in log.getvalue().splitlines() if line.startswith("WARNING")]
+                  omitted = [line for line in warnings if "not included" in line]
+                  assert bool(omitted) == (workshop not in expected)
+                  if omitted:
+                      assert urljoin(rss.BASE_URL, workshop) in omitted[0]
+                      assert expired not in omitted[0]
+                  if override == 202:
+                      assert any("HTTP 202" in line and url in line for line in warnings)
+                  elif label.startswith("invalid"):
+                      assert any("Optional annual topics unavailable" in line and url in line for line in warnings)
+                  else:
+                      assert len(warnings) == len(omitted)
+                  print(*warnings, sep="\n")
+                  print(f"PASS {label}: 9 preserved, {len(expected)} added, {len(current)} total; "
+                        "unique GUIDs, nine baselines, byte-identical repeat")
+          PY
+      - name: Generate temporary RSS from live official pages
+        continue-on-error: true
+        run: |
+          preview="$RUNNER_TEMP/tohoku-annual-preview.xml"
+          cp tohoku-meti-event.xml "$preview"
+          python scrape_tohoku_meti_event.py --output "$preview"
+          python - "$preview" <<'PY'
+          import sys
+          from xml.etree import ElementTree as ET
+          import scrape_tohoku_meti_event as rss
+
+          original = ET.parse("tohoku-meti-event.xml").findall("channel/item")
+          result = ET.parse(sys.argv[1])
+          nodes = result.findall("channel/item")
+          items = {item.findtext("guid"): ET.tostring(item) for item in nodes}
+          assert len(original) == 9
+          assert len(items) == len(nodes)
+          assert all(items[item.findtext("guid")] == ET.tostring(item) for item in original)
+          sources = result.findall(f"channel/{rss.MONITOR}sources/{rss.MONITOR}source")
+          assert {node.get("url") for node in sources} == {rss.RECENT_URL, *rss.SOURCE_URLS}
+          print("PASS live preview: nine original items preserved, GUIDs unique, nine source baselines")
+          PY
