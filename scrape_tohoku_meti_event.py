@@ -335,16 +335,18 @@ def generate(output, now, fetch=page):
         path for path, deadline in BACKFILL_UNTIL.items()
         if now < datetime.fromisoformat(deadline).replace(tzinfo=JST)
     }
-    # Read the current official year reference only for the one-time recovery.
+    # The annual listing is an optional source for the one-time backfill.
     annual_events = []
     missing = active_paths - {urlsplit(row.url).path for row in recent_events}
     if first_run and missing:
-        annual_events = [
-            row for row in read_annual(today, fetch) if is_event(row) and urlsplit(row.url).path in missing
-        ]
-        missing -= {urlsplit(row.url).path for row in annual_events}
-        if missing:
-            raise ValueError(f"Missing reviewed backfill candidates: {sorted(missing)}")
+        try:
+            annual_rows = read_annual(today, fetch)
+        except (requests.RequestException, ParserRejectedMarkup, ValueError) as error:
+            print(f"WARNING Optional annual topics unavailable: {error}")
+        else:
+            annual_events = [
+                row for row in annual_rows if is_event(row) and urlsplit(row.url).path in missing
+            ]
 
     existing = {}
     base_and_title = {}
@@ -419,6 +421,11 @@ def generate(output, now, fetch=page):
     result_guids = {item.findtext("guid") for item in result_items}
     if len(result_guids) != len(result_items) or not old_guids <= result_guids:
         raise ValueError("Existing GUIDs missing or duplicate GUIDs detected")
+    if first_run and missing:
+        missing.difference_update(urlsplit(item.findtext("link")).path for item in result_items)
+        if missing:
+            skipped = ", ".join(urljoin(BASE_URL, path) for path in sorted(missing))
+            print(f"WARNING Reviewed backfill candidates not included: {skipped}")
     data = ET.tostring(root, encoding="utf-8", xml_declaration=True)
     if data != original:
         atomic_write(output, data)
