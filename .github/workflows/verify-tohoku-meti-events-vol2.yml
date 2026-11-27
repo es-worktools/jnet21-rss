@@ -1,0 +1,327 @@
+name: Verify Tohoku METI event source resilience
+on:
+  push:
+    branches: [verify/tohoku-meti-events-vol2-resilience]
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: Build and verify preview using live official pages
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from datetime import datetime, timedelta
+          from email.utils import parsedate_to_datetime
+          from pathlib import Path
+          import shutil
+          from tempfile import TemporaryDirectory
+          from urllib.parse import urlsplit
+          from xml.etree import ElementTree as ET
+          from bs4 import BeautifulSoup
+          import requests
+          import scrape_tohoku_meti_event as m
+
+          now = datetime.now(m.JST)
+          # Reuse the same fetched HTML for tests of repeatability and failure injection.
+          cache = {}
+          def fetch(url):
+              if url not in cache:
+                  cache[url] = str(m.page(url))
+              return BeautifulSoup(cache[url], 'html.parser')
+
+          def items(path):
+              return {i.findtext('guid'): ET.tostring(i)
+                      for i in ET.parse(path).findall('channel/item')}
+
+          base = m.OUTPUT_FILE
+          original = base.read_bytes()
+          Path('/tmp/tohoku-preview').mkdir()
+          out = Path('/tmp/tohoku-preview/tohoku-meti-event.xml')
+          shutil.copyfile(base, out)
+          m.generate(out, now, fetch)
+          assert len(items(base)) == 9 and items(base).items() <= items(out).items()
+          first = out.read_bytes()
+          assert out.read_bytes() != original
+          added = [i for i in ET.parse(out).findall('channel/item') if i.findtext('guid') not in items(base)]
+          expected = {
+              url for url, end in m.BACKFILL_UNTIL.items()
+              if now < datetime.fromisoformat(end).replace(tzinfo=m.JST)
+          }
+          assert expected <= {urlsplit(i.findtext('link')).path for i in added}
+          assert len({i.findtext('link') for i in added}) == len(added)
+          assert all(parsedate_to_datetime(i.findtext('pubDate')).date() <= now.date()
+                     for i in added if i.findtext('pubDate'))
+          recent = m.topic_rows(fetch(m.RECENT_URL), m.RECENT_URL, now.date())
+          annual = m.read_annual(now.date(), fetch)
+          counts = Counter(row.category for row in recent)
+          print('RECENT_CATEGORY_COUNTS', counts)
+          assert all(m.is_event(a) for a in recent if a.category == 'イベント')
+          assert any(r.url and r.url.endswith('261022001.html') and m.is_event(r) for r in annual)
+          assert all(not m.is_event(row) for row in recent if '従業員満足度' in row.title)
+          for i in added:
+              row = next((r for r in recent + annual if r.url == i.findtext('link')), None)
+              if row and row.published:
+                  assert parsedate_to_datetime(i.findtext('pubDate')).date() == row.published
+
+          def daily(url):
+              assert url != m.ARCHIVE_INDEX, 'Annual index fetched during normal monitoring'
+              return fetch(url)
+          m.generate(out, now, daily)
+          assert out.read_bytes() == first
+          print('PASS all 9 legacy items byte-equivalent, no GUID or file changes on re-run')
+
+          def inject(html, url=m.RECENT_URL):
+              def get(requested):
+                  return BeautifulSoup(html, 'html.parser') if requested == url else daily(requested)
+              return get
+
+          def rejects(label, fetcher, path=out, at=now):
+              before = path.read_bytes()
+              try:
+                  m.generate(path, at, fetcher)
+              except (ValueError, requests.RequestException, m.ParserRejectedMarkup) as e:
+                  assert path.read_bytes() == before
+                  print('PASS', label, '- existing XML byte-identical:', e)
+              else:
+                  raise AssertionError('Expected rejection: ' + label)
+
+          def unavailable(url):
+              raise requests.HTTPError('mock HTTP 503')
+
+          def override(overrides):
+              def get(url):
+                  if url in overrides:
+                      return overrides[url](url)
+                  return daily(url)
+              return get
+
+          def short_field(url):
+              return BeautifulSoup('<div id="__main_contents"><a href="/a.html">Test</a></div>', 'html.parser')
+
+          def broken_field(url):
+              return BeautifulSoup('<p>maintenance</p>', 'html.parser')
+
+          def source_state(path):
+              return ET.parse(path).find(f'channel/{m.MONITOR}sources')
+
+          def field_baseline(path, url):
+              return next(n.attrib for n in source_state(path).findall(f'{m.MONITOR}source')
+                          if n.attrib['url'] == url)
+
+          def unavailable_sources(path):
+              return {n.attrib['url']: n.attrib['since']
+                      for n in source_state(path).findall(f'{m.MONITOR}unavailable')}
+
+          def added_links(before, after):
+              return {i.findtext('link') for i in ET.parse(after).findall('channel/item')
+                      if i.findtext('guid') not in before}
+
+          def with_field_items(url, entries):
+              def get(_):
+                  soup = fetch(url)
+                  content = soup.select_one('#__main_contents, #contents_left')
+                  for path, title, listed in entries:
+                      date_label = f' [{listed:%Y年%m月%d日}]' if listed else ''
+                      node = BeautifulSoup(f'<li><a href="{path}">{title}</a>{date_label}</li>',
+                                           'html.parser').li
+                      content.append(node)
+                  return soup
+              return get
+
+          def with_topic_items(day, entries):
+              links = ''.join(f'<li><img alt="{category}"><a href="{uri}">{title}</a></li>'
+                              for uri, title, category in entries)
+              block = f'<dt>{day:%Y年%m月%d日}</dt><dd><ul>{links}</ul></dd>'
+              return inject(block + str(fetch(m.RECENT_URL)))
+
+          rejects('primary HTTP failure', override({m.RECENT_URL: unavailable}))
+          rejects('empty recent listing', inject(''))
+          broken = fetch(m.RECENT_URL)
+          broken.find('dd').decompose()
+          rejects('broken DT/DD grouping', inject(str(broken)))
+          subset = fetch(m.RECENT_URL)
+          for tag in list(subset.find_all(['dt', 'dd']))[4:]:
+              tag.decompose()
+          rejects('large decrease in row count', inject(str(subset)))
+          no_events = fetch(m.RECENT_URL)
+          for img in no_events.select('li img'):
+              img['alt'] = 'お知らせ'
+          for link in no_events.select('li a'):
+              link.string = '制度に関するお知らせ'
+          get_no_events = inject(str(no_events))
+
+          with TemporaryDirectory() as temp:
+              test_out = Path(temp) / 'test.xml'
+              healthy, failed_http, failed_markup, failed_short = m.SOURCE_URLS[:4]
+
+              # Every field source is required while creating the original basis.
+              for label, field, error in [
+                  ('HTTP failure', failed_http, unavailable),
+                  ('missing content', failed_markup, broken_field),
+                  ('coverage drop', failed_short, short_field),
+              ]:
+                  shutil.copyfile(base, test_out)
+                  rejects(f'initial field {label}', override({field: error}), test_out)
+                  assert test_out.read_bytes() == original
+
+              # The primary listing still has every valid non-event row.
+              shutil.copyfile(out, test_out)
+              m.generate(test_out, now, get_no_events)
+              assert test_out.read_bytes() == first
+              healthy_path = '/s_joho/topics/resilience-new.html'
+              healthy_update = with_field_items(
+                  healthy, [(healthy_path, '正常分野の新着セミナーを開催します', None)])
+              m.generate(test_out, now, lambda url: healthy_update(url) if url == healthy
+                         else get_no_events(url))
+              assert added_links(items(out), test_out) == {m.BASE_URL.rstrip('/') + healthy_path}
+              assert items(out).items() <= items(test_out).items()
+              print('PASS valid zero events yields byte-identical RSS, and field-only additions still publish')
+
+              # Advance a little beyond the review date so recovery cannot rely
+              # on the initial historical cutoff alone.
+              incident = now + timedelta(days=8)
+              recovery = incident + timedelta(days=2)
+              incident_day = incident.astimezone(m.JST).date()
+              recovery_day = recovery.astimezone(m.JST).date()
+              primary_path = '/2026/resilience-topic.html'
+              primary_update = with_topic_items(incident_day, [
+                  (primary_path, '主取得元の新着セミナーを開催します', 'イベント'),
+              ])
+              primary_page = lambda url: primary_update(url)
+              problems = {
+                  healthy: healthy_update,
+                  failed_http: unavailable,
+                  failed_markup: broken_field,
+                  failed_short: short_field,
+                  m.RECENT_URL: primary_page,
+              }
+              shutil.copyfile(out, test_out)
+              m.generate(test_out, incident, override(problems))
+              expected_outages = {url: incident_day.isoformat() for url in
+                                  (failed_http, failed_markup, failed_short)}
+              assert unavailable_sources(test_out) == expected_outages
+              assert added_links(items(out), test_out) == {
+                  m.BASE_URL.rstrip('/') + path for path in (primary_path, healthy_path)}
+              assert items(out).items() <= items(test_out).items()
+              for url in expected_outages:
+                  assert field_baseline(test_out, url) == field_baseline(out, url)
+              partial = test_out.read_bytes()
+              partial_items = items(test_out)
+              m.generate(test_out, incident + timedelta(days=1), override(problems))
+              assert test_out.read_bytes() == partial
+              print('PASS three failing fields retain prior coverage, primary and healthy field both publish')
+
+              checked = Path(temp) / 'all-fields-unavailable.xml'
+              shutil.copyfile(out, checked)
+              m.generate(checked, incident, override({
+                  **dict.fromkeys(m.SOURCE_URLS, unavailable),
+                  m.RECENT_URL: primary_page,
+              }))
+              assert added_links(items(out), checked) == {m.BASE_URL.rstrip('/') + primary_path}
+              assert len(unavailable_sources(checked)) == 8
+              print('PASS primary topics continue even if all eight fields are unavailable')
+
+              older = incident_day - timedelta(days=4)
+              fresh_path = '/s_cyusyo/topics/resilience-fresh.html'
+              old_path = '/s_cyusyo/topics/resilience-old.html'
+              undated_path = '/s_cyusyo/topics/resilience-undated.html'
+              published_link = ET.parse(out).findtext('channel/item/link')
+              recovery_update = with_field_items(failed_http, [
+                  (fresh_path, '復旧時に確認した最新のセミナーを開催します', recovery_day),
+                  (old_path, '復旧ページに現れた過去のセミナーを開催します', older),
+                  (undated_path, '開催日不明の過去講座を開催します', None),
+                  (published_link, '既出セミナーの表記修正を含む開催案内', recovery_day),
+              ])
+              problems[failed_http] = recovery_update
+              m.generate(test_out, recovery, override(problems))
+              assert unavailable_sources(test_out) == {url: expected_outages[url]
+                                                       for url in (failed_markup, failed_short)}
+              assert added_links(partial_items, test_out) == {m.BASE_URL.rstrip('/') + fresh_path}
+              assert partial_items.items() <= items(test_out).items()
+              recovered = test_out.read_bytes()
+              m.generate(test_out, recovery + timedelta(days=1), override(problems))
+              assert test_out.read_bytes() == recovered
+              print('PASS one restored field catches up with dated news, holds old and undated records, and preserves GUIDs')
+
+              final_pages = override({healthy: healthy_update, failed_http: recovery_update,
+                                      m.RECENT_URL: primary_page})
+              recovered_items = items(test_out)
+              m.generate(test_out, recovery + timedelta(days=1), final_pages)
+              assert unavailable_sources(test_out) == {}
+              assert items(test_out) == recovered_items
+              restored = test_out.read_bytes()
+              m.generate(test_out, recovery + timedelta(days=1), final_pages)
+              assert test_out.read_bytes() == restored
+              print('PASS remaining fields recover independently without duplicating existing items')
+
+              shutil.copyfile(out, test_out)
+              day = (now + timedelta(days=1)).date()
+              mod = fetch(m.RECENT_URL)
+              marks = [
+                  ('/2027/123456.html?utm_source=test#first', '新規ワークショップを開催します', '報道発表'),
+                  ('/2027/123456.html#first', '新規ワークショップを開催します', 'お知らせ'),
+                  ('/2027/123456.html', '新規ワークショップを開催します', 'お知らせ'),
+                  ('/2027/123456.html#second', '別の勉強会の参加者を募集します', 'お知らせ'),
+                  ('/2027/654321.html', '採用説明会を開催します', 'イベント'),
+                  ('/2027/654322.html', '交流会を開催しました', 'イベント'),
+                  ('/2026/261125_2.html', '公開済み記事のタイトル変更', 'イベント'),
+              ]
+              lis = ''.join(f'<li><img alt="{kind}"><a href="{uri}">{title}</a></li>'
+                            for uri, title, kind in marks)
+              block = f'<dt>{day:%Y年%m月%d日}</dt><dd><ul>{lis}</ul></dd>'
+              # Add a new listing and one field-only event, absent from both topic lists.
+              field = m.SOURCE_URLS[0]
+              field_soup = fetch(field)
+              elt = BeautifulSoup('<li><a href="/s_joho/topics/261201.html">'
+                                  '分野別の新しい講座を開催します</a></li>', 'html.parser').li
+              field_soup.select_one('#__main_contents').append(elt)
+              def next_pages(url):
+                  if url == field:
+                      return BeautifulSoup(str(field_soup), 'html.parser')
+                  return inject(block + str(mod))(url)
+              m.generate(test_out, now + timedelta(days=1), next_pages)
+              delta = items(test_out).keys() - items(out).keys()
+              assert len(delta) == 3
+              assert all(items(test_out)[g] == x for g, x in items(out).items())
+              added_links = {i.findtext('link') for i in ET.parse(test_out).findall('channel/item')
+                             if i.findtext('guid') in delta}
+              assert added_links == {m.BASE_URL + x for x in
+                  ('2027/123456.html#first', '2027/123456.html#second', 's_joho/topics/261201.html')}
+              assert set(i.findtext('pubDate') is None for i in ET.parse(test_out).findall('channel/item')
+                         if i.findtext('guid') in delta) == {False, True}
+              print('PASS fallbacks, same-URL updates, tracking aliases, independent anchors, dated/undated items')
+
+              # Verify the year comes from the public archive's reference.
+              def next_archive(url):
+                  if url == m.ARCHIVE_INDEX:
+                      return BeautifulSoup('<script>loadHtml("#news_menulist", "/ml_tohoku_news_2027.html");</script>', 'html.parser')
+                  assert url == m.BASE_URL + 'ml_tohoku_news_2027.html'
+                  return fetch(m.RECENT_URL)
+              assert m.read_annual(now.date(), next_archive)
+              print('PASS discovers next year from the official archive reference')
+              shutil.copyfile(base, test_out)
+              after_deadlines = datetime(2027, 2, 1, tzinfo=m.JST)
+              m.generate(test_out, after_deadlines, daily)
+              assert items(test_out) == items(base)
+              print('PASS expired backfill candidates are skipped')
+
+          for row in sorted(annual, key=lambda r: r.listed, reverse=True):
+              if row.listed.month >= 10 and m.is_event(row):
+                  print('REVIEW', row.listed.isoformat(), row.category, row.url,
+                        'publish' if urlsplit(row.url).path in expected else 'outside-backfill')
+          assert base.read_bytes() == original
+          PY
+      - uses: actions/upload-artifact@v7
+        with:
+          name: tohoku-meti-event-preview
+          path: /tmp/tohoku-preview/tohoku-meti-event.xml
+          retention-days: 14
