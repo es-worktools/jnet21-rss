@@ -7,6 +7,7 @@ import hashlib
 from pathlib import Path
 import re
 from tempfile import NamedTemporaryFile
+from time import sleep
 import unicodedata
 from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlsplit, urlunsplit
 from xml.etree import ElementTree as ET
@@ -105,7 +106,12 @@ class Event:
 
 
 def page(url):
-    response = requests.get(url, headers=HEADERS, timeout=(10, 25))
+    for delay in (0, 2, 4):
+        if delay:
+            sleep(delay)
+        response = requests.get(url, headers=HEADERS, timeout=(10, 25))
+        if response.status_code not in {202, 502, 503, 504}:
+            break
     response.raise_for_status()
     if (response.status_code != 200 or urlsplit(response.url).netloc != urlsplit(BASE_URL).netloc
             or "text/html" not in response.headers.get("Content-Type", "").lower()):
@@ -297,15 +303,13 @@ def generate(output, now, fetch=page):
     }
     # Read the current official year reference only for the one-time recovery.
     annual_events = []
-    if first_run and active_paths:
-        annual = read_annual(today, fetch)
+    missing = active_paths - {urlsplit(row.url).path for row in recent_events}
+    if first_run and missing:
         annual_events = [
-            row for row in annual if is_event(row) and urlsplit(row.url).path in active_paths
+            row for row in read_annual(today, fetch) if is_event(row) and urlsplit(row.url).path in missing
         ]
-        visible_paths = {
-            urlsplit(row.url).path for row in recent_events + annual_events
-        }
-        if missing := active_paths - visible_paths:
+        missing -= {urlsplit(row.url).path for row in annual_events}
+        if missing:
             raise ValueError(f"Missing reviewed backfill candidates: {sorted(missing)}")
 
     existing = {}
