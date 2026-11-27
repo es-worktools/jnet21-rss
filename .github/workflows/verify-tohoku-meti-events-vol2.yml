@@ -5,7 +5,7 @@ on:
 permissions:
   contents: read
 jobs:
-  inspect:
+  preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -15,87 +15,166 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - name: Verify event dates, applications and field markup
+      - name: Build and verify preview using live official pages
         run: |
           python - <<'PY'
-          import ast
-          from concurrent.futures import ThreadPoolExecutor
-          from datetime import date
-          import json
+          from collections import Counter
+          from datetime import datetime, timedelta
+          from email.utils import parsedate_to_datetime
           from pathlib import Path
-          import re
-          from urllib.parse import urljoin, urlsplit, urlunsplit
+          import shutil
+          from tempfile import TemporaryDirectory
+          from urllib.parse import urlsplit
+          from xml.etree import ElementTree as ET
           from bs4 import BeautifulSoup
           import requests
-          base='https://www.tohoku.meti.go.jp/'
-          def constant(file, name):
-              tree = ast.parse(Path(file).read_text())
-              return next(ast.literal_eval(node.value) for node in tree.body
-                          if isinstance(node, ast.Assign)
-                          and any(getattr(t, 'id', None) == name for t in node.targets))
-          headers=constant('scrape_tohoku_meti.py', 'HEADERS')
-          fields=constant('scrape_tohoku_meti_event.py', 'SOURCE_URLS')
-          old_words=constant('scrape_tohoku_meti_event.py', 'KEYWORDS')
-          out=Path('/tmp/tohoku-details')
-          out.mkdir()
-          def fetch(url, name):
-              r=requests.get(url,headers=headers,timeout=20)
-              print(f'HTTP {r.status_code} {url}',flush=True)
-              if r.status_code == 200:
-                  (out/name).write_bytes(r.content)
-                  return BeautifulSoup(r.content,'html.parser')
-          rows=[]
-          annual=fetch(urljoin(base,'ml_tohoku_news_2026.html'),'annual.html')
-          for dt in annual.find_all('dt'):
-              day=dt.get_text(strip=True)
-              if not re.match(r'2026年(10|11)月',day):
-                  continue
-              for li in dt.find_next_sibling('dd').select('li'):
-                  a, img=li.find('a'),li.find('img')
-                  if not a or not img: continue
-                  title=a.get_text(' ',strip=True)
-                  if img.get('alt') != 'イベント' and not any(w.lower() in title.lower() for w in old_words): continue
-                  parts=urlsplit(urljoin(base,a['href']))
-                  url=urlunsplit((parts.scheme,parts.netloc,parts.path,'',parts.fragment))
-                  if parts.netloc == 'www.tohoku.meti.go.jp' and parts.path.endswith('.html'):
-                      rows.append((day,title,url))
-          pattern=re.compile(r'開催(日時|日|概要|場所|形式)|締切|締め切|申込(期限|方法|期間|受付)|申込み(期限|方法|期間|受付)|参加(方法|募集)|受付(中|終了)|終了しました|予定|[2２][0０][2２][67６７]年|[１-９0-9]{1,2}月[１-９0-9]{1,2}日')
-          def inspect(pair):
-              i,(day,title,url)=pair
+          import scrape_tohoku_meti_event as m
+
+          now = datetime.now(m.JST)
+          # Reuse the same fetched HTML for tests of repeatability and failure injection.
+          cache = {}
+          def fetch(url):
+              if url not in cache:
+                  cache[url] = str(m.page(url))
+              return BeautifulSoup(cache[url], 'html.parser')
+
+          def items(path):
+              return {i.findtext('guid'): ET.tostring(i)
+                      for i in ET.parse(path).findall('channel/item')}
+
+          base = m.OUTPUT_FILE
+          original = base.read_bytes()
+          Path('/tmp/tohoku-preview').mkdir()
+          out = Path('/tmp/tohoku-preview/tohoku-meti-event.xml')
+          shutil.copyfile(base, out)
+          m.generate(out, now, fetch)
+          assert len(items(base)) == 9 and items(base).items() <= items(out).items()
+          first = out.read_bytes()
+          assert out.read_bytes() != original
+          added = [i for i in ET.parse(out).findall('channel/item') if i.findtext('guid') not in items(base)]
+          expected = {
+              url for url, end in m.BACKFILL_UNTIL.items()
+              if now < datetime.fromisoformat(end).replace(tzinfo=m.JST)
+          }
+          assert expected <= {urlsplit(i.findtext('link')).path for i in added}
+          assert len({i.findtext('link') for i in added}) == len(added)
+          assert all(parsedate_to_datetime(i.findtext('pubDate')).date() <= now.date()
+                     for i in added if i.findtext('pubDate'))
+          recent = m.topic_rows(fetch(m.RECENT_URL), m.RECENT_URL, now.date())
+          annual = m.read_annual(now.date(), fetch)
+          counts = Counter(row.category for row in recent)
+          print('RECENT_CATEGORY_COUNTS', counts)
+          assert all(m.is_event(a) for a in recent if a.category == 'イベント')
+          assert any(r.url and r.url.endswith('261022001.html') and m.is_event(r) for r in annual)
+          assert all(not m.is_event(row) for row in recent if '従業員満足度' in row.title)
+          for i in added:
+              row = next((r for r in recent + annual if r.url == i.findtext('link')), None)
+              if row and row.published:
+                  assert parsedate_to_datetime(i.findtext('pubDate')).date() == row.published
+
+          def daily(url):
+              assert url != m.ARCHIVE_INDEX, 'Annual index fetched during normal monitoring'
+              return fetch(url)
+          m.generate(out, now, daily)
+          assert out.read_bytes() == first
+          print('PASS all 9 legacy items byte-equivalent, no GUID or file changes on re-run')
+
+          def inject(html, url=m.RECENT_URL):
+              def get(requested):
+                  return BeautifulSoup(html, 'html.parser') if requested == url else daily(requested)
+              return get
+
+          def rejects(label, fetcher):
               try:
-                  s=fetch(url, f'detail-{i}.html')
-              except requests.RequestException as e:
-                  print(f'DETAIL_ERROR {url} {e}',flush=True)
-                  return
-              if s is None:
-                  if url.endswith('261022001.html'):
-                      s=fetch(url+'?utm_source=tohokumeti&utm_medium=website&utm_campaign=261022_handoutai',f'detail-{i}.html')
-                  if s is None: return
-              frag=urlsplit(url).fragment
-              part=s.find(id=frag) if frag else None
-              if part: part=part.parent
-              lines=[re.sub(r'\s+',' ',t) for t in (part or s.select_one('main') or s).stripped_strings]
-              print('DETAIL '+json.dumps([day,title,url,[l[:350] for l in lines if pattern.search(l)][:40]],ensure_ascii=False),flush=True)
-          def field(pair):
-              i,url=pair
-              s=fetch(url, f'field-{i}.html')
-              if s is None: return
-              main=s.select_one('main') or s
-              print('FIELD '+json.dumps([i,url,[(p.name,p.get('id'),p.get('class')) for p in [main,*main.parents]],
-                    [[a.get_text(' ',strip=True),a['href'],str(a.parent)[:350]] for a in main.select('a[href]')
-                    if any(w.lower() in a.get_text(' ',strip=True).lower() for w in old_words)][:28]],ensure_ascii=False),flush=True)
-          with ThreadPoolExecutor(max_workers=4) as pool:
-              list(pool.map(field,enumerate(fields)))
-              list(pool.map(inspect,enumerate(rows)))
-          for url,name in [(urljoin(base,'s_sancle/pdf/study.pdf'),'study.pdf'),
-                           ('https://j-net21.smrj.go.jp/snavi2/','jnet.html')]:
-              try:
-                  fetch(url,name)
-              except requests.RequestException as e:
-                  print(e)
+                  m.generate(out, now, fetcher)
+              except (ValueError, requests.RequestException) as e:
+                  assert out.read_bytes() == first
+                  print('PASS', label, '- existing XML byte-identical:', e)
+              else:
+                  raise AssertionError('Expected rejection: ' + label)
+
+          def failed(url):
+              if url == m.SOURCE_URLS[1]:
+                  raise requests.HTTPError('mock HTTP 503')
+              return daily(url)
+          rejects('field fetch failure', failed)
+          rejects('empty recent listing', inject(''))
+          rejects('field structure broken', inject('<p>maintenance</p>', m.SOURCE_URLS[0]))
+          broken = fetch(m.RECENT_URL)
+          broken.find('dd').decompose()
+          rejects('broken DT/DD grouping', inject(str(broken)))
+          subset = fetch(m.RECENT_URL)
+          for tag in list(subset.find_all(['dt', 'dd']))[4:]:
+              tag.decompose()
+          rejects('large decrease in row count', inject(str(subset)))
+          no_events = fetch(m.RECENT_URL)
+          for img in no_events.select('li img'):
+              img['alt'] = 'お知らせ'
+          for link in no_events.select('li a'):
+              link.string = '制度に関するお知らせ'
+          rejects('zero extracted events', inject(str(no_events)))
+
+          with TemporaryDirectory() as temp:
+              test_out = Path(temp) / 'test.xml'
+              shutil.copyfile(out, test_out)
+              day = (now + timedelta(days=1)).date()
+              mod = fetch(m.RECENT_URL)
+              marks = [
+                  ('/2027/123456.html?utm_source=test#first', '新規ワークショップを開催します', '報道発表'),
+                  ('/2027/123456.html#first', '新規ワークショップを開催します', 'お知らせ'),
+                  ('/2027/123456.html', '新規ワークショップを開催します', 'お知らせ'),
+                  ('/2027/123456.html#second', '別の勉強会の参加者を募集します', 'お知らせ'),
+                  ('/2027/654321.html', '採用説明会を開催します', 'イベント'),
+                  ('/2027/654322.html', '交流会を開催しました', 'イベント'),
+                  ('/2026/261125_2.html', '公開済み記事のタイトル変更', 'イベント'),
+              ]
+              lis = ''.join(f'<li><img alt="{kind}"><a href="{uri}">{title}</a></li>'
+                            for uri, title, kind in marks)
+              block = f'<dt>{day:%Y年%m月%d日}</dt><dd><ul>{lis}</ul></dd>'
+              # Add a new listing and one field-only event, absent from both topic lists.
+              field = m.SOURCE_URLS[0]
+              field_soup = fetch(field)
+              elt = BeautifulSoup('<li><a href="/s_joho/topics/261201.html">'
+                                  '分野別の新しい講座を開催します</a></li>', 'html.parser').li
+              field_soup.select_one('#__main_contents').append(elt)
+              def next_pages(url):
+                  if url == field:
+                      return BeautifulSoup(str(field_soup), 'html.parser')
+                  return inject(block + str(mod))(url)
+              m.generate(test_out, now + timedelta(days=1), next_pages)
+              delta = items(test_out).keys() - items(out).keys()
+              assert len(delta) == 3
+              assert all(items(test_out)[g] == x for g, x in items(out).items())
+              added_links = {i.findtext('link') for i in ET.parse(test_out).findall('channel/item')
+                             if i.findtext('guid') in delta}
+              assert added_links == {m.BASE_URL + x for x in
+                  ('2027/123456.html#first', '2027/123456.html#second', 's_joho/topics/261201.html')}
+              assert set(i.findtext('pubDate') is None for i in ET.parse(test_out).findall('channel/item')
+                         if i.findtext('guid') in delta) == {False, True}
+              print('PASS fallbacks, same-URL updates, tracking aliases, independent anchors, dated/undated items')
+
+              # Verify the year comes from the public archive's reference.
+              def next_archive(url):
+                  if url == m.ARCHIVE_INDEX:
+                      return BeautifulSoup('<script>loadHtml("#news_menulist", "/ml_tohoku_news_2027.html");</script>', 'html.parser')
+                  assert url == m.BASE_URL + 'ml_tohoku_news_2027.html'
+                  return fetch(m.RECENT_URL)
+              assert m.read_annual(now.date(), next_archive)
+              print('PASS discovers next year from the official archive reference')
+              shutil.copyfile(base, test_out)
+              after_deadlines = datetime(2027, 2, 1, tzinfo=m.JST)
+              m.generate(test_out, after_deadlines, daily)
+              assert items(test_out) == items(base)
+              print('PASS expired backfill candidates are skipped')
+
+          for row in sorted(annual, key=lambda r: r.listed, reverse=True):
+              if row.listed.month >= 10 and m.is_event(row):
+                  print('REVIEW', row.listed.isoformat(), row.category, row.url,
+                        'publish' if urlsplit(row.url).path in expected else 'outside-backfill')
+          assert base.read_bytes() == original
           PY
       - uses: actions/upload-artifact@v7
         with:
-          name: official-event-details
-          path: /tmp/tohoku-details
-          retention-days: 7
+          name: tohoku-meti-event-preview
+          path: /tmp/tohoku-preview/tohoku-meti-event.xml
+          retention-days: 14
