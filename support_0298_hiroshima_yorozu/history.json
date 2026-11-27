@@ -2,6 +2,26 @@
   "version": 1,
   "items": [
     {
+      "guid": "urn:hiroshima-yorozu:wp:962",
+      "title": "12/8（火）【満席】尾道しまなみ商工会出張相談会",
+      "url": "https://www.yorozu-hiroshima.go.jp/onestop/seminar/20261208-onomichi-shimanami/",
+      "published": null,
+      "categories": [
+        "ワンストップ・セミナー"
+      ],
+      "visible": true
+    },
+    {
+      "guid": "urn:hiroshima-yorozu:wp:967",
+      "title": "12/14（月）【満席】因島商工会議所出張相談会",
+      "url": "https://www.yorozu-hiroshima.go.jp/onestop/seminar/20261214-innoshima/",
+      "published": null,
+      "categories": [
+        "ワンストップ・セミナー"
+      ],
+      "visible": true
+    },
+    {
       "guid": "urn:hiroshima-yorozu:wp:958",
       "title": "12/8（火）東広島商工会議所出張相談会",
       "url": "https://www.yorozu-hiroshima.go.jp/onestop/seminar/20261208-higashihiroshima/",
