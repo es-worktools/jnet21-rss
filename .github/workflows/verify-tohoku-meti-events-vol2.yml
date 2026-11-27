@@ -25,8 +25,22 @@ jobs:
           import re
           import requests
           BASE_URL = 'https://www.tohoku.meti.go.jp/'
-          HEADERS = {'User-Agent': 'Mozilla/5.0'}
-          paths = ['/', '/ml_tohoku_news_past_rss.html', '/ml_tohoku_news_past.html',
+          HEADERS = {
+              "User-Agent": (
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/139.0.0.0 Safari/537.36"
+              ),
+              "Accept": (
+                  "text/html,application/xhtml+xml,application/xml;q=0.9,"
+                  "image/avif,image/webp,image/apng,*/*;q=0.8"
+              ),
+              "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+              "Cache-Control": "no-cache",
+              "Pragma": "no-cache",
+              "Referer": "https://www.tohoku.meti.go.jp/",
+          }
+          paths = ['/', '/koho/koshin/archive.html', '/ml_tohoku_news_past_rss.html', '/ml_tohoku_news_past.html',
                    '/ml_tohoku_news_2026.html', '/s_sancle/index_sancle.html',
                    '/2026/261125_2.html', '/2026/261022001.html']
           def inspect(path):
@@ -41,7 +55,7 @@ jobs:
                       lines.append(str(tag)[:450])
               if 'past_rss' in path or '_2026.html' in path:
                   for tag in soup.find_all('dt', limit=2):
-                      lines.append(str(tag.parent)[:2400])
+                      lines.append(str(tag) + ''.join(str(x) for x in list(tag.find_next_siblings())[:2])[:2200])
                   for tag in soup.select('dt')[:1]:
                       lines.append(str([(p.name, p.get('id'), p.get('class')) for p in tag.parents]))
               if path in paths[-3:]:
@@ -50,9 +64,8 @@ jobs:
                       lines.append(str(target.parent)[:8500])
                   lines.extend(t for t in soup.stripped_strings if re.search(r'日[時程]|締切|締め切|申込|年[0-9０-９]+月|日開催|受[付け]|終了|対象者',t))
               return '\n'.join(lines)
-          with ThreadPoolExecutor(max_workers=6) as pool:
-              for result in pool.map(inspect, paths):
-                  print(result)
+          for path in paths:
+              print(inspect(path))
           PY
       - uses: actions/upload-artifact@v7
         with:
