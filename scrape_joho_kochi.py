@@ -1,9 +1,11 @@
 import argparse
 from datetime import date
 from hashlib import sha256
+import json
 from pathlib import Path
 import re
 from tempfile import NamedTemporaryFile
+from unicodedata import category, normalize
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit
 from xml.etree import ElementTree as ET
 
@@ -17,6 +19,16 @@ SECTIONS = ("Topics・お知らせ", "セミナー", "展示会・商談会", "�
 INITIAL_SOURCE_COUNT = 14
 SOURCE_COUNT = "{urn:jnet21-rss:joho-kochi}sourceCount"
 DATE_PREFIX = re.compile(r"^(?:New\s*)?(\d{1,2})/(\d{1,2})\s*[-－–]\s*$", re.I)
+RSS_POSTED_DATE = re.compile(r"／公式トップ掲載日 (\d{1,2})/(\d{1,2})$")
+STATUS_LABEL = re.compile(
+    r"[【\[(]\s*(?:new|新着|受付中|申込受付中|受付終了|終了しました)\s*[】\])]"
+)
+ANNOUNCEMENT_WORDING = (
+    (re.compile(r"開催(?:のお知らせ|のご案内|いたします|します)"), "開催"),
+    (re.compile(r"出展(?:いたします|します)"), "出展"),
+    (re.compile(r"募集(?:のお知らせ|のご案内|について)"), "募集"),
+    (re.compile(r"申し込み|申込み"), "申込"),
+)
 DESCRIPTION = "高知県産業振興センターの公式トップに掲載された新着情報"
 ET.register_namespace("kochi", "urn:jnet21-rss:joho-kochi")
 
@@ -34,6 +46,30 @@ def url_key(url):
         if not key.lower().startswith("utm_")
     ])
     return host, parts.path or "/", query
+
+
+def title_key(title):
+    title = STATUS_LABEL.sub("", normalize("NFKC", title).casefold())
+    # Retain number boundaries so, for example, 1/11 and 11/1 remain distinguishable.
+    parts = re.split(r"(\d+)", title)
+    title = "".join(
+        f"|{part}|" if index % 2 else "".join(
+            char for char in part if not char.isspace() and not category(char).startswith("P")
+        )
+        for index, part in enumerate(parts)
+    )
+    for wording, replacement in ANNOUNCEMENT_WORDING:
+        title = wording.sub(replacement, title)
+    title = title.removesuffix("のお知らせ").removesuffix("のご案内")
+    if not title:
+        raise ValueError("Article title is empty after normalization")
+    return title
+
+
+def stored_identity(item):
+    posted = RSS_POSTED_DATE.search(item.findtext("description", "") or "")
+    month_day = tuple(map(int, posted.groups())) if posted else None
+    return url_key(item.findtext("link", "")), title_key(item.findtext("title", "")), month_day
 
 
 def parse_homepage(html):
@@ -71,7 +107,8 @@ def parse_homepage(html):
             key = url_key(url)
             if key[:2] == ("joho-kochi.or.jp", "/"):
                 raise ValueError(f"Article link points to the home page: {section}")
-            articles.setdefault(key, (title, url, section, month, day))
+            identity = (key, title_key(title), (month, day))
+            articles.setdefault(identity, (title, url, section))
 
     if sections_seen != set(SECTIONS):
         raise ValueError(f"Missing sections: {', '.join(sorted(set(SECTIONS) - sections_seen))}")
@@ -99,18 +136,15 @@ def generate(output):
             "Existing RSS preserved."
         )
 
-    legacy_urls = {
-        url_key(item.findtext("link", ""))
-        for item in old_items
-        if not item.findtext("guid").startswith("urn:sha256:")
-    }
+    existing_announcements = {stored_identity(item) for item in old_items}
     new_items = []
-    for key, (title, url, section, month, day) in articles.items():
-        if key in legacy_urls:
+    for identity, (title, url, section) in articles.items():
+        key, normalized_title, (month, day) = identity
+        undated_identity = (key, normalized_title, None)
+        if identity in existing_announcements or undated_identity in existing_announcements:
             continue
-        # Use the visible posting date so a recurring listing URL can carry a new announcement.
-        identity = "|".join((*key, f"{month}/{day}"))
-        guid = "urn:sha256:" + sha256(identity.encode("utf-8")).hexdigest()
+        serialized = json.dumps(identity, ensure_ascii=False)
+        guid = "urn:sha256:" + sha256(serialized.encode("utf-8")).hexdigest()
         if guid in old_guids:
             continue
         item = ET.Element("item")
