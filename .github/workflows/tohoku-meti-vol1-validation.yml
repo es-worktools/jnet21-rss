@@ -1,0 +1,134 @@
+name: Inspect Tohoku METI official listings
+
+on:
+  push:
+    branches: ["validation/0005-tohoku-meti-vol1-20261127"]
+    paths: [".github/workflows/tohoku-meti-vol1-validation.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - name: Compare official listings with the current parser
+        run: |
+          python - <<'PY'
+          import ast
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import runpy
+          from tempfile import TemporaryDirectory
+          from unittest.mock import patch
+          from urllib.parse import urljoin, urlsplit
+          from xml.etree import ElementTree
+
+          from bs4 import BeautifulSoup
+          import requests
+
+          ROOT = "https://www.tohoku.meti.go.jp/"
+          PAGES = {
+              "home": "",
+              "archive": "koho/koshin/archive.html",
+              "archive_index": "koho/koshin/",
+              "subsidy": "somu/yosan/yosan.html",
+              "delivery_information": "koho/news/index_news.html",
+              "past_email": "ml_tohoku_news_past_rss.html",
+              "morioka": "2026/261112_2.html",
+              "sendai": "2026/261113.html",
+              "workshop": "2026/261022001.html",
+          }
+          ARTICLE = re.compile(r"(?:^|/)(?:k)?\d{6,9}(?:_\d+)?\.html$")
+          DATE = re.compile(r"(?:20\d{2}|令和\s*\d+)\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日")
+          MARKERS = re.compile(r"トピックス|新着|イベント|公募|補助金|募集|支援|RSS|Atom|ニューズレター", re.I)
+          DETAILS = re.compile(r"申込.{0,12}(締切|期限)|提出.{0,12}(締切|期限)|最終更新|掲載日|開催日時")
+          script = Path("scrape_tohoku_meti.py").resolve()
+          headers = next(
+              ast.literal_eval(node.value)
+              for node in ast.parse(script.read_text()).body
+              if isinstance(node, ast.Assign) and any(
+                  isinstance(target, ast.Name) and target.id == "HEADERS" for target in node.targets
+              )
+          )
+
+          def report(**data):
+              print(json.dumps(data, ensure_ascii=False), flush=True)
+
+          def clean(text):
+              return " ".join(text.split())
+
+          for label, path in PAGES.items():
+              url = urljoin(ROOT, path)
+              try:
+                  response = requests.get(url, headers=headers, timeout=15)
+              except requests.RequestException as error:
+                  report(page=label, error=str(error))
+                  continue
+              report(page=label, url=response.url, status=response.status_code,
+                     type=response.headers.get("Content-Type"), bytes=len(response.content),
+                     redirects=[(hop.status_code, hop.url) for hop in response.history])
+              if response.status_code != 200:
+                  continue
+              response.encoding = response.apparent_encoding
+              soup = BeautifulSoup(response.text, "html.parser")
+              for tag in soup.select("script, style, noscript"):
+                  tag.decompose()
+              scope = soup.select_one("main, [role=main]") or soup
+              title = soup.title.get_text(" ", strip=True) if soup.title else ""
+              headings = [tag.get_text(" ", strip=True) for tag in scope.find_all(["h1", "h2", "h3", "h4"])][:20]
+              feeds = [
+                  (tag.get("type", ""), urljoin(response.url, tag["href"]))
+                  for tag in soup.select("link[href]")
+                  if re.search(r"rss|atom|rdf", tag.get("type", ""), re.I)
+              ]
+              report(page=label, title=title, headings=headings, declared_feeds=feeds)
+              if label in {"morioka", "sendai", "workshop"}:
+                  lines = [clean(line) for line in scope.stripped_strings]
+                  matches = sorted({
+                      nearby for index, line in enumerate(lines)
+                      if DATE.search(line) or DETAILS.search(line)
+                      for nearby in range(max(0, index - 1), min(len(lines), index + 3))
+                  })
+                  report(page=label, detail_lines=[lines[index] for index in matches][:45])
+                  continue
+              report(page=label, structure=[
+                  (tag.name, tag.get("id"), tag.get("class", []), clean(tag.get_text(" ", strip=True)))
+                  for tag in scope.find_all(["h1", "h2", "h3", "h4", "p", "dt", "dd", "time", "li", "span", "div"])
+                  if len(clean(tag.get_text(" ", strip=True))) <= 80 and DATE.search(tag.get_text(" ", strip=True))
+              ][:22])
+              links = []
+              navigation = []
+              for tag in scope.select("a[href]"):
+                  text = clean(tag.get_text(" ", strip=True))
+                  href = urljoin(response.url, tag["href"])
+                  parent = tag.parent
+                  if ARTICLE.search(urlsplit(href).path):
+                      parent_text = clean(parent.get_text(" ", strip=True))
+                      links.append((text, href, parent.name, parent.get("class", []), parent_text[:140]))
+                  elif MARKERS.search(text) or re.search(r"rss|atom|\.xml(?:$|\?)", href, re.I):
+                      navigation.append((text, href))
+              report(page=label, article_count=len(links), articles=links[:45],
+                     navigation=list(dict.fromkeys(navigation))[:30])
+              if label == "archive":
+                  with TemporaryDirectory() as tmp:
+                      previous = Path.cwd()
+                      try:
+                          os.chdir(tmp)
+                          with patch("requests.get", return_value=response):
+                              runpy.run_path(str(script))
+                          root = ElementTree.parse("tohoku-meti-news.xml")
+                          report(page=label, replay_count=len(root.findall("channel/item")))
+                      finally:
+                          os.chdir(previous)
+          PY
