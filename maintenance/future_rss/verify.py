@@ -165,6 +165,15 @@ def fixtures(module, days, midnight, stop_at_cutoff, now, work):
         assert not midnight and str(exc) == 'Invalid publication date'
         tests['old_future'] = 'Invalid publication date'
     if midnight:
+        original_before_due = old_output.read_bytes()
+        try:
+            run(candidate, json.dumps(data), future_at, old_output)
+        except ValueError as exc:
+            assert 'Invalid date value or format' in str(exc)
+            assert old_output.read_bytes() == original_before_due
+        else:
+            raise AssertionError('the direct copy should fail on a previous undated RSS row')
+        tests['direct_copy_due_existing_undated_item_raises'] = 'PASS'
         # Check the behavior of copying the approved patch without adapting it.
         base = run(module, json.dumps([past, expired, second]), now, old_output)
         result = run(candidate, json.dumps([past, expired, second]), now, work / 'compare.xml')
